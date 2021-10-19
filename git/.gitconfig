@@ -1,0 +1,58 @@
+[alias]
+    # Add all.
+    aa = add --all
+    # Add all and commit in verbose mode.
+    aacm = !git add --all && git commit -av
+    # List aliases.
+    aliases = config --get-regexp alias
+    # Amend all staged and modified files to the previous commit.
+    amend = commit --all --amend --no-edit
+    # Show branches.
+    b = branch
+    # Show verbose output about branches.
+    bs = branch --all
+    # Clone a repository including all submodules.
+    c = clone --recursive
+    # Simple alias for usual commit technique.
+    cm = commit -am
+    # Simple alias for verbose commit technique.
+    cmv = commit -av
+    # Simple alias for default checkout.
+    co = checkout
+    # List contributors with number of commits.
+    contributors = shortlog --summary --numbered
+    # View abbreviated SHA, description, relative date, and author.
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    # Pull in remote changes for the current repository and all of its submodules.
+    p = pull --recurse-submodules
+    # Push origin HEAD
+    poh = push origin HEAD
+    # Interactive rebase with the given number of latest commits.
+    reb = "!r() { git rebase -i HEAD~$1; }; r"
+    # Show verbose output about remote.
+    r = remote --verbose
+    # Simple alias for default status.
+    s = status
+    # Stash but keep the index.
+    ski = stash --keep-index
+    # View the current working tree status using the short format.
+    ss = status -s
+    # Show the user email for the current repository
+    whoami = config user.email
+    # Resets current working tree to the latest commit.
+    wtf = reset --hard
+    # YOLO
+    yolo = push --force
+
+[branch]
+    # Show most recently changed branches first.
+    sort = -committerdate
+
+[core]
+    editor = nvim
+
+[color]
+    ui = true
+
+[init]
+	defaultBranch = main
