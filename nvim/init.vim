@@ -1,13 +1,3 @@
-"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-"                                                                              "
-"                       __   _ _ _ __ ___  _ __ ___                            "
-"                       \ \ / / | '_ ` _ \| '__/ __|                           "
-"                        \ V /| | | | | | | | | (__                            "
-"                         \_/ |_|_| |_| |_|_|  \___|                           "
-"                                                                              "
-"                                                                              "
-"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-
 "-------------------------------------------------------------------------------
 " Set runtimepath
 "-------------------------------------------------------------------------------
@@ -28,8 +18,8 @@ nnoremap <Space> <nop>
 if !isdirectory($HOME."/.vim")
     call mkdir($HOME."/.vim", "", 0700)
 endif
-if !isdirectory($HOME."/.vim/undodir")
-    call mkdir($HOME."/.vim/undodir", "", 0770)
+if !isdirectory($HOME."/.vim/undo")
+    call mkdir($HOME."/.vim/undo", "", 0770)
 endif
 
 set tabstop=4 softtabstop=4
@@ -54,7 +44,7 @@ set smartcase
 set smartindent
 set splitright
 set splitbelow
-set undodir=~/.vim/undodir
+set undodir=~/.vim/undo
 set undofile
 " set wildmenu                            " Better menu with completion in command mode
 " set wildmode=longest:full,full

@@ -7,3 +7,6 @@
 - link:
     ~/.gitconfig: .gitconfig
     ~/.tmux.conf: .tmux.conf
+
+- create:
+    - ~/.vim/undo
