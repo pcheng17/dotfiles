@@ -1,0 +1,9 @@
+- defaults:
+    link:
+        relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.gitconfig: .gitconfig
+    ~/.tmux.conf: .tmux.conf
