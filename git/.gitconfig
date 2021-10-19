@@ -55,4 +55,4 @@
     ui = true
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
