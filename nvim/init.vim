@@ -208,12 +208,16 @@ nnoremap <C-j> :cnext<CR>
 nnoremap <leader>re :e!<CR>
 nnoremap <leader>n :noh<CR>
 nnoremap <leader><CR> :so ~/.vimrc<CR>
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
 nnoremap ++ :vertical resize +5<CR>
 nnoremap -- :vertical resize -5<CR>
+
+" Moving text
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+" inoremap <C-j> <C-o>:m .+1<CR>==
+" inoremap <C-k> <C-o>:m .-2<CR>==
 
 " vim-easy-align
 xmap ga <Plug>(EasyAlign)
