@@ -77,7 +77,6 @@ Plug 'tpope/vim-surround'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'qpkorr/vim-bufkill'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'mhinz/vim-grepper'
 Plug 'rking/ag.vim'
 Plug 'airblade/vim-rooter'
@@ -85,6 +84,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
+
+Plug 'sbdchd/neoformat'
 
 call plug#end()
 
@@ -150,6 +151,14 @@ augroup cpp_config
 augroup END
 " Do not indent inside namespace block
 set cino=N-s
+
+" Custom setting for clangformat
+" let g:neoformat_cpp_clangformat = {
+"     \ 'exe': 'clang-format',
+"     \ 'args': ['--style="{IndentWidth: 4, ColumnLimit: 100, PointerAlignment: Left, AccessModifierOffset: -4, AlignAfterOpenBracket: AlwaysBreak, AlignArrayOfStructures: Right, AlignOperands: Align}"']
+" \}
+" let g:neoformat_enabled_cpp = ['clangformat']
+" let g:neoformat_enabled_c = ['clangformat']
 
 " Markdown configurations
 " augroup md_config
