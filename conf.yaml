@@ -7,6 +7,9 @@
 - link:
     ~/.gitconfig: .gitconfig
     ~/.tmux.conf: .tmux.conf
+    ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.config/nvim/UltiSnips/cpp.snippets: nvim/snippets/cpp.snippets
+    ~/.config/nvim/UltiSnips/snippets.snippets: nvim/snippets/snippets.snippets
 
 - create:
     - ~/.vim/undo

@@ -1,7 +1,7 @@
 "-------------------------------------------------------------------------------
 " Set runtimepath
 "-------------------------------------------------------------------------------
-set rtp+=~/.vim/my-snippets/
+set rtp+=$HOME/.vim/my-snippets/
 set rtp+=/usr/local/opt/fzf
 
 "-------------------------------------------------------------------------------
@@ -27,7 +27,6 @@ set shiftwidth=4
 set expandtab
 set cursorline
 set colorcolumn=100
-set foldmethod=marker
 set hlsearch
 set incsearch
 set laststatus=2
@@ -40,6 +39,7 @@ set nowrap
 set number
 set relativenumber
 set scrolloff=8
+set scroll=10
 set smartcase
 set smartindent
 set splitright
@@ -80,12 +80,10 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'mhinz/vim-grepper'
 Plug 'rking/ag.vim'
 Plug 'airblade/vim-rooter'
-Plug 'xolox/vim-misc'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 " Plug 'lervag/vimtex'
-Plug 'stephpy/vim-yaml'
 
 call plug#end()
 
@@ -102,17 +100,12 @@ end
 " let g:gruvbox_contrast_dark='hard'
 " let g:gruvbox_invert_selection='0'
 " silent colorscheme gruvbox
-
-silent colorscheme nord
-
-" Indent lines for Yggdroot/indentLine
-let g:indentLine_char = '|'
-
-" gruvbox related settings
 " nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
 " nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
 " nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
 " nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+
+silent colorscheme nord
 
 " Airline settings
 let g:airline_theme = 'nord'
@@ -162,39 +155,35 @@ augroup END
 set cino=N-s
 
 
-" Markdown configurations {{{
+" Markdown configurations
 " augroup md_config
 "     autocmd!
 "     autocmd FileType,BufRead,BufNewFile markdown let g:indentLine_conceallevel = 0
 " augroup END
-" }}}
-" Python configuration {{{
+"
+" Python configuration
 let g:python_highlight_indent_errors = 0
 let g:python_highlight_space_errors = 0
-" }}}
-" Ultisnips configurations {{{
+
+" Ultisnips configurations
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-" }}}
-" vim-easy-align configurations {{{
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-" }}}
-" vim-grepper configurations {{{
+
+" vim-grepper configurations
 nnoremap <leader>gg :Grepper -tool git -noswitch<CR>
 nnoremap <leader>* :Grepper -tool git -cword -noprompt -noswitch<CR>
 " Search for todo and fixme
 command! TODO :Grepper -tool git -noswitch -noprompt -query '\(TODO\|FIXME\)'
-" }}}
-" vim-rooter configurations {{{
+
+" vim-rooter configurations
 " :Rooter sets the working directory to the git root of the current file
 let g:rooter_patterns = ['.git/']
 let g:rooter_manual_only = 1
 let g:rooter_resolve_links = 1
 let g:rooter_silent_chdir = 1
-" }}}
-" vimtex configurations {{{
+
+" vimtex configurations
 " let g:tex_flavor = 'latex'
 " let g:vimtex_compiler_progname = 'nvr'
 " let g:vimtex_view_method = 'SumatraPDF'
@@ -206,15 +195,14 @@ let g:rooter_silent_chdir = 1
 "     \}
 "set conceallevel=1
 "let g:tex_conceal = 'abdmg'
-" }}}
-" fzf configurations {{{
+
+" fzf configurations
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 nnoremap <leader><space> :GFiles<CR>
 nnoremap <leader>; :Buffers<CR>
-" }}}
 
 "-------------------------------------------------------------------------------
 " Load other specific settings
@@ -227,8 +215,6 @@ source ~/vim-config/a.vim
 nmap <leader>fs :update<CR>
 nmap <leader>qq :q<CR>
 nmap <leader>fq :q!<CR>
-noremap J 10j
-noremap K 10k
 nnoremap <C-k> :cprev<CR>
 nnoremap <C-j> :cnext<CR>
 nnoremap <leader>re :e!<CR>
@@ -240,6 +226,10 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap ++ :vertical resize +5<CR>
 nnoremap -- :vertical resize -5<CR>
+
+" vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " Best remap ever
 " Paste, but delete to the black hole register
