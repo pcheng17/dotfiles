@@ -4,12 +4,25 @@
 
 - clean: ['~']
 
+- create:
+    - ~/.vim/undo
+
+- shell:
+    - command: sh -c 'curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      description: Installing vim-plug for vim
+      quiet: true
+    - command: sh -c 'curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      description: Installing vim-plug for neovim
+      quiet: true
+
 - link:
     ~/.gitconfig: .gitconfig
     ~/.tmux.conf: .tmux.conf
-    ~/.config/nvim/init.vim: nvim/init.vim
-    ~/.config/nvim/UltiSnips/cpp.snippets: nvim/snippets/cpp.snippets
-    ~/.config/nvim/UltiSnips/snippets.snippets: nvim/snippets/snippets.snippets
-
-- create:
-    - ~/.vim/undo
+    ~/.config/nvim/init.vim:
+        create: true
+        path: nvim/init.vim
+    ~/.vim/my-snippets:
+        create: true
+        glob: true
+        path: nvim/snippets/*
+    ~/.vim/after: nvim/after

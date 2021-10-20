@@ -1,7 +1,8 @@
 "-------------------------------------------------------------------------------
 " Set runtimepath
 "-------------------------------------------------------------------------------
-set rtp+=$HOME/.vim/my-snippets/
+set rtp+=$HOME/.vim
+set rtp+=$HOME/.vim/after
 set rtp+=/usr/local/opt/fzf
 
 "-------------------------------------------------------------------------------
@@ -83,7 +84,7 @@ Plug 'airblade/vim-rooter'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-" Plug 'lervag/vimtex'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -133,10 +134,6 @@ augroup end
 if executable('ag')
     " Use ag over grep
     set grepprg=ag\ --nogroup\ --nocolor\ --column
-    " Use ag in CtrlP for listing files
-    " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    " ag is fast enough that CtrlP doesn't need to cache
-    " let g:ctrlp_use_cache
 endif
 
 "-------------------------------------------------------------------------------
@@ -154,7 +151,6 @@ augroup END
 " Do not indent inside namespace block
 set cino=N-s
 
-
 " Markdown configurations
 " augroup md_config
 "     autocmd!
@@ -166,9 +162,7 @@ let g:python_highlight_indent_errors = 0
 let g:python_highlight_space_errors = 0
 
 " Ultisnips configurations
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-snippets"]
 
 " vim-grepper configurations
 nnoremap <leader>gg :Grepper -tool git -noswitch<CR>
