@@ -200,9 +200,13 @@ nnoremap <leader>; :Buffers<CR>
 "-------------------------------------------------------------------------------
 " Mappings
 "-------------------------------------------------------------------------------
+noremap J 10j
+noremap K 10k
+
 nmap <leader>fs :update<CR>
 nmap <leader>qq :q<CR>
 nmap <leader>fq :q!<CR>
+
 nnoremap <C-k> :cprev<CR>
 nnoremap <C-j> :cnext<CR>
 nnoremap <leader>re :e!<CR>
@@ -212,10 +216,10 @@ nnoremap ++ :vertical resize +5<CR>
 nnoremap -- :vertical resize -5<CR>
 
 " Moving text
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
 nnoremap <leader>j :m .+1<CR>==
 nnoremap <leader>k :m .-2<CR>==
+" vnoremap J :m '>+1<CR>gv=gv
+" vnoremap K :m '<-2<CR>gv=gv
 " inoremap <C-j> <C-o>:m .+1<CR>==
 " inoremap <C-k> <C-o>:m .-2<CR>==
 
@@ -231,7 +235,7 @@ xnoremap <leader>p "_dP
 nnoremap Y y$
 
 " Append next line to current line with a space, but don't move cursor
-nnoremap J mzJ`z
+nnoremap U mzJ`z
 
 " Jump to next or previous result, center line, open folds
 nnoremap n nzzzv
