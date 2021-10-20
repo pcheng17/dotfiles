@@ -198,11 +198,6 @@ nnoremap <leader><space> :GFiles<CR>
 nnoremap <leader>; :Buffers<CR>
 
 "-------------------------------------------------------------------------------
-" Load other specific settings
-"-------------------------------------------------------------------------------
-source ~/vim-config/a.vim
-
-"-------------------------------------------------------------------------------
 " Mappings
 "-------------------------------------------------------------------------------
 nmap <leader>fs :update<CR>
@@ -228,8 +223,22 @@ nmap ga <Plug>(EasyAlign)
 " Paste, but delete to the black hole register
 xnoremap <leader>p "_dP
 
-" Append next line to current line with a space, and move cursor back
+" Yank until end of line
+nnoremap Y y$
+
+" Append next line to current line with a space, but don't move cursor
 nnoremap J mzJ`z
+
+" Jump to next or previous result, center line, open folds
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Insert undo break points
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ; ;<C-g>u
+inoremap ! !<C-g>u
+inoremap ? ?<C-g>u
 
 " Easier indentation
 vnoremap < <gv
@@ -259,6 +268,11 @@ nnoremap Q @@
 
 " Execute the current line as if it's a command
 nnoremap <leader>e :exe getline(line('.'))<CR>
+
+"-------------------------------------------------------------------------------
+" Source other files
+"-------------------------------------------------------------------------------
+source $HOME/.dotfiles/nvim/a.vim
 
 "-------------------------------------------------------------------------------
 " Autoload files that have changed in neovim
