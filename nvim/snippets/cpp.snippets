@@ -48,15 +48,15 @@ snippet cout "cout statement" w
 std::cout << ${1:${VISUAL}} << "\n";
 endsnippet
 
-snippet map "std::map" i
+snippet map "std::map" w
 std::map<${1:KeyType}, ${2:ValueType}> ${3:var};
 endsnippet
 
-snippet vec "std::vector" i
+snippet vec "std::vector" w
 std::vector<${1:Type}> ${2:var};
 endsnippet
 
-snippet set "std::set" i
+snippet set "std::set" w
 std::set<${1:Type}> ${2:var};
 endsnippet
 
@@ -94,6 +94,16 @@ endsnippet
 snippet elif "else if statement" w
 else if (${1:true}) {
     ${0:${VISUAL}}
+}
+endsnippet
+
+snippet erase "Standard associative-container erase idiom" b
+for (auto it = ${1:container}.cbegin(); it != $1.cend(); /* no increment */) {
+    if (${2:condition}) {
+        $1.erase(it++);
+    } else {
+        ++it;
+    }
 }
 endsnippet
 

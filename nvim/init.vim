@@ -160,12 +160,14 @@ set cino=N-s
 let g:python_highlight_indent_errors = 0
 let g:python_highlight_space_errors = 0
 
-" Ultisnips configurations
+"-------------------------------------------------------------------------------
+" UltiSnips configurations
+"-------------------------------------------------------------------------------
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-snippets"]
 
 " vim-grepper configurations
-nnoremap <leader>gg :Grepper -tool git -noswitch<CR>
-nnoremap <leader>* :Grepper -tool git -cword -noprompt -noswitch<CR>
+nnoremap <Leader>gg :Grepper -tool git -noswitch<CR>
+nnoremap <Leader>* :Grepper -tool git -cword -noprompt -noswitch<CR>
 " Search for todo and fixme
 command! TODO :Grepper -tool git -noswitch -noprompt -query '\(TODO\|FIXME\)'
 
@@ -194,8 +196,8 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
-nnoremap <leader><space> :GFiles<CR>
-nnoremap <leader>; :Buffers<CR>
+nnoremap <Leader><space> :GFiles<CR>
+nnoremap <Leader>; :Buffers<CR>
 
 "-------------------------------------------------------------------------------
 " Mappings
@@ -203,21 +205,21 @@ nnoremap <leader>; :Buffers<CR>
 noremap J 10j
 noremap K 10k
 
-nmap <leader>fs :update<CR>
-nmap <leader>qq :q<CR>
-nmap <leader>fq :q!<CR>
+nmap <Leader>fs :update<CR>
+nmap <Leader>qq :q<CR>
+nmap <Leader>fq :q!<CR>
 
 nnoremap <C-k> :cprev<CR>
 nnoremap <C-j> :cnext<CR>
-nnoremap <leader>re :e!<CR>
-nnoremap <leader>n :noh<CR>
-nnoremap <leader><CR> :so ~/.vimrc<CR>
+nnoremap <Leader>re :e!<CR>
+nnoremap <Leader>n :noh<CR>
+nnoremap <Leader><CR> :so ~/.vimrc<CR>
 nnoremap ++ :vertical resize +5<CR>
 nnoremap -- :vertical resize -5<CR>
 
 " Moving text
-nnoremap <leader>j :m .+1<CR>==
-nnoremap <leader>k :m .-2<CR>==
+nnoremap <Leader>j :m .+1<CR>==
+nnoremap <Leader>k :m .-2<CR>==
 " vnoremap J :m '>+1<CR>gv=gv
 " vnoremap K :m '<-2<CR>gv=gv
 " inoremap <C-j> <C-o>:m .+1<CR>==
@@ -229,7 +231,7 @@ nmap ga <Plug>(EasyAlign)
 
 " Best remap ever
 " Paste, but delete to the black hole register
-xnoremap <leader>p "_dP
+xnoremap <Leader>p "_dP
 
 " Yank until end of line
 nnoremap Y y$
@@ -253,19 +255,19 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Easier comments
-nmap <leader>/ gcc
-vmap <leader>/ gc
+nmap <Leader>/ gcc
+vmap <Leader>/ gc
 
 " Copy to clipboard
-" nnoremap <leader>yy "+yy
-" nnoremap <leader>y$ "+y$
-" vnoremap <leader>y "+y
+" nnoremap <Leader>yy "+yy
+" nnoremap <Leader>y$ "+y$
+" vnoremap <Leader>y "+y
 
 " Paste from clipboard
-" nnoremap <leader>p "+p
-" nnoremap <leader>P "+P
-" vnoremap <leader>p "+p
-" vnoremap <leader>P "+P
+" nnoremap <Leader>p "+p
+" nnoremap <Leader>P "+P
+" vnoremap <Leader>p "+p
+" vnoremap <Leader>P "+P
 
 " Iterative word replace via .
 nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
@@ -275,7 +277,7 @@ nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
 nnoremap Q @@
 
 " Execute the current line as if it's a command
-nnoremap <leader>e :exe getline(line('.'))<CR>
+nnoremap <Leader>e :exe getline(line('.'))<CR>
 
 "-------------------------------------------------------------------------------
 " Source other files
