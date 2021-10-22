@@ -42,7 +42,7 @@
     # Show the user email for the current repository
     whoami = config user.email
     # Resets current working tree to the latest commit.
-    wtf = reset --hard
+    whatevs = reset --hard
     # YOLO
     yolo = push --force
 
