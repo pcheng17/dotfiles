@@ -69,6 +69,10 @@ class ${1:`!p snip.rv = snip.basename or "Foo"`}
 {
 public:
     ${1/(\w+).*/$1/}();
+
+    ~${1/(\w+).*/$1/}();
+
+    ${VISUAL}
 private:
     ${0:// Data}
 };
@@ -135,11 +139,11 @@ snippet '(\S.*).ret' "return (postfix)" r
 return `!p snip.rv = match.group(1)`;
 endsnippet
 
-snippet '(\w+).make_shared' "make_shared (postfix)" ir
+snippet '(\S+).make_shared' "make_shared (postfix)" ir
 std::make_shared<`!p snip.rv = match.group(1)`>($1);
 endsnippet
 
-snippet '(\w+).make_unique' "make_unique (postfix)" ir
+snippet '(\S+).make_unique' "make_unique (postfix)" ir
 std::make_unique<`!p snip.rv = match.group(1)`>($1);
 endsnippet
 
