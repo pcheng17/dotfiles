@@ -45,7 +45,7 @@ set smartcase
 set smartindent
 set splitright
 set splitbelow
-set undodir=~/.vim/undo
+set undodir=~/.vim/undodir
 set undofile
 " set wildmenu                            " Better menu with completion in command mode
 " set wildmode=longest:full,full
