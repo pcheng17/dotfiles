@@ -276,9 +276,6 @@ nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
 " Repeat last macro used
 nnoremap Q @@
 
-" Execute the current line as if it's a command
-nnoremap <Leader>e :exe getline(line('.'))<CR>
-
 "-------------------------------------------------------------------------------
 " Source other files
 "-------------------------------------------------------------------------------
