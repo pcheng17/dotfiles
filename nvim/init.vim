@@ -164,6 +164,7 @@ let g:python_highlight_space_errors = 0
 " UltiSnips configurations
 "-------------------------------------------------------------------------------
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-snippets"]
+let g:UltiSnipsListSnippets='<C-l>'
 
 " vim-grepper configurations
 nnoremap <Leader>gg :Grepper -tool git -noswitch<CR>
