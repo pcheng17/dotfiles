@@ -65,6 +65,9 @@ Plug 'pcheng17/nord-vim', { 'branch': 'stable' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
