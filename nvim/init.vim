@@ -168,6 +168,8 @@ let g:python_highlight_space_errors = 0
 "-------------------------------------------------------------------------------
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-snippets"]
 let g:UltiSnipsListSnippets='<C-l>'
+let g:UltiSnipsJumpForwardTrigger=<tab>
+let g:UltiSnipsJumpBackwardTrigger=<s-tab>
 
 " vim-grepper configurations
 nnoremap <Leader>gg :Grepper -tool git -noswitch<CR>
@@ -183,17 +185,15 @@ let g:rooter_resolve_links = 1
 let g:rooter_silent_chdir = 1
 
 " vimtex configurations
-" let g:tex_flavor = 'latex'
+let g:tex_flavor = 'latex'
 " let g:vimtex_compiler_progname = 'nvr'
 " let g:vimtex_view_method = 'SumatraPDF'
-" let g:vimtex_compiler_latexmk = {
-"     \ 'build_dir' : '',
-"     \ 'callback' : 1,
-"     \ 'continuous' : 1,
-"     \ 'executable' : 'latexmk',
-"     \}
-"set conceallevel=1
-"let g:tex_conceal = 'abdmg'
+let g:vimtex_compiler_latexmk = {
+    \ 'build_dir' : '',
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \}
 
 " fzf configurations
 let g:fzf_action = {
