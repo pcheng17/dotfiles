@@ -168,8 +168,8 @@ let g:python_highlight_space_errors = 0
 "-------------------------------------------------------------------------------
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-snippets"]
 let g:UltiSnipsListSnippets='<C-l>'
-let g:UltiSnipsJumpForwardTrigger=<tab>
-let g:UltiSnipsJumpBackwardTrigger=<s-tab>
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
 " vim-grepper configurations
 nnoremap <Leader>gg :Grepper -tool git -noswitch<CR>
