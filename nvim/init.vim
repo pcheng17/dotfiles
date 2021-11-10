@@ -29,6 +29,7 @@ set expandtab
 set cursorline
 set colorcolumn=100
 set hlsearch
+set iskeyword-=.
 set incsearch
 set laststatus=2
 set mouse=a
@@ -83,7 +84,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'mhinz/vim-grepper'
 Plug 'rking/ag.vim'
 Plug 'airblade/vim-rooter'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
