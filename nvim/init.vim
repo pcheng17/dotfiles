@@ -62,6 +62,7 @@ call plug#begin(stdpath('data') . '/plugged')
 " Colorschemes
 Plug 'pcheng17/gruvbox', { 'branch': 'PeterWork' }
 Plug 'pcheng17/nord-vim', { 'branch': 'stable' }
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
