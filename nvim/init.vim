@@ -110,12 +110,14 @@ end
 " nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
 " nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
-silent colorscheme nord
+" silent colorscheme nord
+let g:dracula_italic = 0
+silent colorscheme dracula
 
 " Airline settings
-let g:airline_theme = 'nord'
-let g:airline_section_warning = ''
-let g:airline_section_error = ''
+" let g:airline_theme = 'nord'
+" let g:airline_section_warning = ''
+" let g:airline_section_error = ''
 
 " Disable automatic comment continuation
 augroup MyFormatOptions
