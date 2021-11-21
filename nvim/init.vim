@@ -69,6 +69,7 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'vim-airline/vim-airline'
@@ -141,6 +142,15 @@ if executable('ag')
     " Use ag over grep
     set grepprg=ag\ --nogroup\ --nocolor\ --column
 endif
+
+"-------------------------------------------------------------------------------
+" Treesitter configurations
+"-------------------------------------------------------------------------------
+lua require'nvim-treesitter.configs'.setup {
+    \ highlight = { enable = true },
+    \ incremental_selection = { enable = true },
+    \ textobjects = { enable = true }
+    \ }
 
 "-------------------------------------------------------------------------------
 " C++ configurations
