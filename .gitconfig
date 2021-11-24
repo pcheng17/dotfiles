@@ -31,8 +31,6 @@
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     # Pull in remote changes for the current repository and all of its submodules.
     p = pull --recurse-submodules
-    # Push origin HEAD
-    poh = push origin HEAD
     # Interactive rebase with the given number of latest commits.
     reb = "!r() { git rebase -i HEAD~$1; }; r"
     # Show verbose output about remote.
