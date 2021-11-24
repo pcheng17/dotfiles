@@ -48,8 +48,6 @@ set splitright
 set splitbelow
 set undodir=~/.vim/undodir
 set undofile
-" set wildmenu                            " Better menu with completion in command mode
-" set wildmode=longest:full,full
 
 "-------------------------------------------------------------------------------
 " Plugins
