@@ -21,6 +21,9 @@
     ~/.config/nvim/init.vim:
         create: true
         path: nvim/init.vim
+    ~/.config/nvim/lua:
+        create: true
+        path: nvim/lua
     ~/.vim/my-snippets:
         create: true
         glob: true

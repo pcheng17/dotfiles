@@ -68,6 +68,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -92,6 +94,9 @@ Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
 
 call plug#end()
+
+luafile ~/.config/nvim/lua/nvim-cmp_config.lua
+luafile ~/.config/nvim/lua/lsp_config.lua
 
 "-------------------------------------------------------------------------------
 " Aesthetics
