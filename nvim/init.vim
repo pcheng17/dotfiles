@@ -65,11 +65,13 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'williamboman/nvim-lsp-installer'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+if has('nvim')
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'williamboman/nvim-lsp-installer'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+end
 
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'vim-airline/vim-airline'
@@ -86,15 +88,17 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'mhinz/vim-grepper'
 Plug 'rking/ag.vim'
 Plug 'airblade/vim-rooter'
-" Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
 
 call plug#end()
 
-luafile ~/.config/nvim/lua/nvim-cmp_config.lua
-luafile ~/.config/nvim/lua/lsp_config.lua
+if has('nvim')
+    luafile ~/.config/nvim/lua/nvim-cmp_config.lua
+    luafile ~/.config/nvim/lua/lsp_config.lua
+    luafile ~/.config/nvim/lua/treesitter_config.lua
+end
 
 "-------------------------------------------------------------------------------
 " Aesthetics
@@ -145,15 +149,6 @@ if executable('ag')
     " Use ag over grep
     set grepprg=ag\ --nogroup\ --nocolor\ --column
 endif
-
-"-------------------------------------------------------------------------------
-" Treesitter configurations
-"-------------------------------------------------------------------------------
-lua require'nvim-treesitter.configs'.setup {
-    \ highlight = { enable = true },
-    \ incremental_selection = { enable = true },
-    \ textobjects = { enable = true }
-    \ }
 
 "-------------------------------------------------------------------------------
 " C++ configurations
