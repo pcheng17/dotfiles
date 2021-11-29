@@ -19,8 +19,8 @@ nnoremap <Space> <nop>
 if !isdirectory($HOME."/.vim")
     call mkdir($HOME."/.vim", "", 0700)
 endif
-if !isdirectory($HOME."/.vim/undo")
-    call mkdir($HOME."/.vim/undo", "", 0770)
+if !isdirectory($HOME."/.vim/undodir")
+    call mkdir($HOME."/.vim/undodir", "", 0770)
 endif
 
 set tabstop=4 softtabstop=4

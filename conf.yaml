@@ -26,6 +26,5 @@
         path: nvim/lua
     ~/.vim/my-snippets:
         create: true
-        glob: true
-        path: nvim/snippets/*
+        path: nvim/snippets
     ~/.vim/after: nvim/after
