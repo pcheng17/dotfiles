@@ -62,9 +62,6 @@ Plug 'pcheng17/gruvbox', { 'branch': 'PeterWork' }
 Plug 'pcheng17/nord-vim', { 'branch': 'stable' }
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
 if has('nvim')
     Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'neovim/nvim-lspconfig'
@@ -72,7 +69,12 @@ if has('nvim')
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'williamboman/nvim-lsp-installer'
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+
+    Plug 'nvim-lua/plenary.nvim' " Requried by telescope.nvim
+    Plug 'nvim-telescope/telescope.nvim'
 else
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
     Plug 'Yggdroot/indentLine'
     Plug 'sheerun/vim-polyglot'
 endif
@@ -215,8 +217,6 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
-nnoremap <Leader><space> :GFiles<CR>
-nnoremap <Leader>; :Buffers<CR>
 
 "-------------------------------------------------------------------------------
 " Mappings
@@ -294,6 +294,15 @@ nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
 
 " Repeat last macro used
 nnoremap Q @@
+
+if has('nvim')
+    nnoremap <leader><space> <cmd>Telescope find_files<CR>
+    nnoremap <leader>; <cmd>Telescope buffers<CR>
+    nnoremap <leader>gr <cmd>Telescope live_grep<CR>
+else
+    nnoremap <leader><space> :GFiles<CR>
+    nnoremap <leader>; :Buffers<CR>
+endif
 
 "-------------------------------------------------------------------------------
 " Source other files
