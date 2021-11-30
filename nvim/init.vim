@@ -70,7 +70,7 @@ if has('nvim')
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'williamboman/nvim-lsp-installer'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 end
 
 Plug 'lukas-reineke/indent-blankline.nvim'
