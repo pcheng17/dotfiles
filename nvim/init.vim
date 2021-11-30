@@ -66,14 +66,17 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 if has('nvim')
+    Plug 'lukas-reineke/indent-blankline.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-cmp'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'williamboman/nvim-lsp-installer'
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-end
+else
+    Plug 'Yggdroot/indentLine'
+    Plug 'sheerun/vim-polyglot'
+endif
 
-Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
