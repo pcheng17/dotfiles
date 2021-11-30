@@ -5,7 +5,8 @@
 - clean: ['~']
 
 - create:
-    - ~/.vim/undodir
+    ~/.vim/undodir:
+        mode: 0700
 
 - shell:
     - command: sh -c 'curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
