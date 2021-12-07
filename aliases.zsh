@@ -5,9 +5,9 @@ _exists() {
 alias clr='clear'
 alias qq='~ && clear'
 
-[ -d ~/.dotfiles ] && alias dfs='cd ~/.dotfiles'
-
+alias dfs='cd ~/.dotfiles'
 alias doc='cd /mnt/d/Peter/Documents'
+alias dld='cd /mnt/d/Peter/Downloads'
 alias ws='cd /mnt/d/Peter/Documents/Workspace'
 alias lvs='cd /mnt/d/Peter/Documents/Workspace/lindsay-voidspace'
 alias vspc='cd /mnt/d/Peter/Documents/Workspace/voidspace'
