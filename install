@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Enter password beginning
+sudo -v
+
 set -e
 
 CONFIG="conf.yaml"
