@@ -18,7 +18,7 @@
     - command: sh -c 'curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh'
       description: Install oh-my-zsh
       quiet: true
-    - command: sh -c 'git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k'
+    - command: sh -c 'git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k'
       description: Install powerlevel10k
       quiet: true
 
@@ -37,8 +37,8 @@
         create: true
         path: nvim/snippets
     ~/.vim/after: nvim/after
-    ~/.oh-my-zsh/custom/themes/powerlevel10k:
+    ~/powerlevel10k:
         create: true
-        path: ~/powerlevel10k
+        path: ~/.oh-my-zsh/custom/themes/powerlevel10k
     ~/.p10k.zsh: .p10k.zsh
 
