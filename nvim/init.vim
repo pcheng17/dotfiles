@@ -3,7 +3,6 @@
 "-------------------------------------------------------------------------------
 set rtp+=$HOME/.vim
 set rtp+=$HOME/.vim/after
-set rtp+=/usr/local/opt/fzf
 
 "-------------------------------------------------------------------------------
 " Set leader key
@@ -31,6 +30,7 @@ set colorcolumn=100
 set hlsearch
 set iskeyword-=.
 set incsearch
+set inccommand=nosplit
 set laststatus=2
 set mouse=a
 set noerrorbells
@@ -58,8 +58,8 @@ set undofile
 call plug#begin(stdpath('data') . '/plugged')
 
 " Colorschemes
-Plug 'pcheng17/gruvbox', { 'branch': 'PeterWork' }
-Plug 'pcheng17/nord-vim', { 'branch': 'stable' }
+" Plug 'pcheng17/gruvbox', { 'branch': 'PeterWork' }
+" Plug 'pcheng17/nord-vim', { 'branch': 'stable' }
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -90,7 +90,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
-Plug 'bfrg/vim-cpp-modern'
 Plug 'qpkorr/vim-bufkill'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mhinz/vim-grepper'

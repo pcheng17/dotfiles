@@ -46,11 +46,3 @@
         create: true
         path: ~/.oh-my-zsh/custom/themes/powerlevel10k
     ~/.p10k.zsh: .p10k.zsh
-
-- shell:
-    - command: chsh -s $(which zsh)
-      description: Set default shell to zsh, enter password!
-      stdout: true
-      stdin: true
-      quiet: true
-

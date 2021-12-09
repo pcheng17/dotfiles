@@ -5,16 +5,6 @@ sudo -v
 
 set -e
 
-OS=$(uname)
-
-if ! command -v zsh > /dev/null; then
-    if [[ $OS == "Linux" ]]; then
-        apt install zsh
-    elif [[ $OS == "Darwin" ]]; then
-        brew install zsh
-    fi
-fi
-
 CONFIG="conf.yaml"
 DOTBOT_DIR="dotbot"
 
@@ -27,6 +17,7 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
 
-# Need to install the following, but methods will be based on OS
+# Need to install the following:
 # neovim
 # ripgrep
+# zsh
