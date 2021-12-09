@@ -5,6 +5,16 @@ sudo -v
 
 set -e
 
+OS=$(uname)
+
+if ! command -v zsh > /dev/null; then
+    if [[ $OS == "Linux" ]]; then
+        apt install zsh
+    elif [[ $OS == "Darwin" ]]; then
+        brew install zsh
+    fi
+fi
+
 CONFIG="conf.yaml"
 DOTBOT_DIR="dotbot"
 
