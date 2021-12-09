@@ -21,6 +21,11 @@
     - command: sh -c 'git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k'
       description: Install powerlevel10k
       quiet: true
+      stderr: true
+    - command: sh -c 'git clone --depth=1 https://github.com/junegunn/fzf.git ~/.fzf; ~/.fzf/install'
+      description: Install fzf
+      quiet: true
+      stderr: true
 
 - link:
     ~/.gitconfig: .gitconfig
