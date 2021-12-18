@@ -29,6 +29,8 @@
     ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -n 20 --abbrev-commit --date=relative
     # View abbreviated SHA, description, relative date, and author.
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    # Resets current working tree to the latest commit.
+    nah = reset --hard
     # Pull in remote changes for the current repository and all of its submodules.
     p = pull --recurse-submodules
     # Interactive rebase with the given number of latest commits.
@@ -43,8 +45,6 @@
     ss = status -s
     # Show the user email for the current repository
     whoami = config user.email
-    # Resets current working tree to the latest commit.
-    whatevs = reset --hard
     # YOLO
     yolo = push --force
 
