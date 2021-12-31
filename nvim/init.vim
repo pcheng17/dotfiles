@@ -67,10 +67,10 @@ Plug 'junegunn/fzf.vim'
 
 if has('nvim')
     Plug 'lukas-reineke/indent-blankline.nvim'
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/nvim-cmp'
-    Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'williamboman/nvim-lsp-installer'
+    " Plug 'neovim/nvim-lspconfig'
+    " Plug 'hrsh7th/nvim-cmp'
+    " Plug 'hrsh7th/cmp-nvim-lsp'
+    " Plug 'williamboman/nvim-lsp-installer'
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
     " Plug 'nvim-lua/plenary.nvim' " Requried by telescope.nvim
@@ -102,8 +102,8 @@ Plug 'lervag/vimtex'
 call plug#end()
 
 if has('nvim')
-    luafile ~/.config/nvim/lua/nvim-cmp_config.lua
-    luafile ~/.config/nvim/lua/lsp_config.lua
+    " luafile ~/.config/nvim/lua/nvim-cmp_config.lua
+    " luafile ~/.config/nvim/lua/lsp_config.lua
     luafile ~/.config/nvim/lua/treesitter_config.lua
 end
 

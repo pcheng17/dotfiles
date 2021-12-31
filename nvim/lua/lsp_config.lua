@@ -18,11 +18,11 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 end
 
--- nvim_lsp.clangd.setup {
---     on_attach = on_attach,
---     cmd = {
---         "clangd",
---         "--background-index",
---         "--suggest-missing-includes"
---     },
--- }
+nvim_lsp.clangd.setup {
+    on_attach = on_attach,
+    cmd = {
+        "clangd",
+        "--background-index",
+        "--suggest-missing-includes"
+    },
+}
