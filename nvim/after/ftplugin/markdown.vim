@@ -1,2 +1,2 @@
 setlocal textwidth=100
-setlocal formatoptions+=ta
+setlocal formatoptions+=t
