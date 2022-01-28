@@ -98,6 +98,7 @@ Plug 'airblade/vim-rooter'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -219,6 +220,16 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
+
+" VimWiki configurations
+let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0
+
+" Markdown configurations
+" augroup md_config
+"     autocmd!
+"     autocmd FileType,BufRead,BufNewFile markdown let g:indentLine_conceallevel = 0
+" augroup END
 
 "-------------------------------------------------------------------------------
 " Mappings
