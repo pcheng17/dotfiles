@@ -5,6 +5,7 @@ _exists() {
 alias clr='clear'
 alias qq='~ && clear'
 
+alias wiki='cd ~/wiki'
 alias dfs='cd ~/.dotfiles'
 alias doc='cd /mnt/d/Peter/Documents'
 alias dld='cd /mnt/d/Peter/Downloads'

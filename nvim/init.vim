@@ -225,6 +225,13 @@ let g:fzf_action = {
 let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0
 
+augroup vimwikigroup
+    autocmd!
+    " Automatically update links on read
+    autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
+augroup end
+
+
 " Markdown configurations
 " augroup md_config
 "     autocmd!
