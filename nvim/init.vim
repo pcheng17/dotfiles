@@ -247,8 +247,8 @@ nnoremap ++ :vertical resize +5<CR>
 nnoremap -- :vertical resize -5<CR>
 
 " Moving text
-nnoremap <Leader>j :m .+1<CR>==
-nnoremap <Leader>k :m .-2<CR>==
+" nnoremap <Leader>j :m .+1<CR>==
+" nnoremap <Leader>k :m .-2<CR>==
 " vnoremap J :m '>+1<CR>gv=gv
 " vnoremap K :m '<-2<CR>gv=gv
 " inoremap <C-j> <C-o>:m .+1<CR>==
