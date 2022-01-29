@@ -42,6 +42,7 @@
         create: true
         path: nvim/snippets
     ~/.vim/after: nvim/after
+    ~/.vim/bin: nvim/bin
     ~/powerlevel10k:
         create: true
         path: ~/.oh-my-zsh/custom/themes/powerlevel10k

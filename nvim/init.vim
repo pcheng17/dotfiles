@@ -116,24 +116,8 @@ if (has("termguicolors"))
     set termguicolors
 end
 
-" set background=dark
-" let g:gruvbox_italic=0
-" let g:gruvbox_contrast_dark='hard'
-" let g:gruvbox_invert_selection='0'
-" silent colorscheme gruvbox
-" nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
-" nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
-" nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
-" nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
-
-" silent colorscheme nord
 let g:dracula_italic = 0
 silent colorscheme dracula
-
-" Airline settings
-" let g:airline_theme = 'nord'
-" let g:airline_section_warning = ''
-" let g:airline_section_error = ''
 
 " Disable automatic comment continuation
 augroup MyFormatOptions
@@ -225,10 +209,16 @@ let g:fzf_action = {
 let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0
 
-augroup vimwikigroup
+augroup vimwikidiarylinks
     autocmd!
     " Automatically update links on read
     autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
+augroup end
+
+augroup vimwikidiarytemplate
+    autocmd!
+    " Insert diary template when a new diary page is created
+    autocmd BufNewFile ~/wiki/diary/*.md :silent 0r !~/.vim/bin/vimwiki-diary-template.py '%'
 augroup end
 
 
@@ -336,16 +326,16 @@ source $HOME/.dotfiles/nvim/a.vim
 " Thanks to https://github.com/neovim/neovim/issues/2127
 "-------------------------------------------------------------------------------
 augroup AutoSwap
-        autocmd!
-        autocmd SwapExists * call AS_HandleSwapfile(expand('<afile>:p'), v:swapname)
+    autocmd!
+    autocmd SwapExists * call AS_HandleSwapfile(expand('<afile>:p'), v:swapname)
 augroup END
 
 function! AS_HandleSwapfile (filename, swapname)
-        " if swapfile is older than file itself, just get rid of it
-        if getftime(v:swapname) < getftime(a:filename)
-                call delete(v:swapname)
-                let v:swapchoice = 'e'
-        endif
+    " if swapfile is older than file itself, just get rid of it
+    if getftime(v:swapname) < getftime(a:filename)
+            call delete(v:swapname)
+            let v:swapchoice = 'e'
+    endif
 endfunction
 autocmd CursorHold,BufWritePost,BufReadPost,BufLeave *
   \ if isdirectory(expand("<amatch>:h")) | let &swapfile = &modified | endif
