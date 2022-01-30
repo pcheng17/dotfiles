@@ -57,12 +57,12 @@ set undofile
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin(stdpath('data') . '/plugged')
 
+" ------------------------------------------------------------------------------
 " Colorschemes
 " ------------------------------------------------------------------------------
 Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'pcheng17/gruvbox', { 'branch': 'PeterWork' }
 " Plug 'pcheng17/nord-vim', { 'branch': 'stable' }
-" ------------------------------------------------------------------------------
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -100,11 +100,11 @@ Plug 'airblade/vim-rooter'
 Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
 
+" ------------------------------------------------------------------------------
 " Snippets
 " ------------------------------------------------------------------------------
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-" ------------------------------------------------------------------------------
 
 call plug#end()
 
@@ -125,13 +125,48 @@ end
 let g:dracula_italic = 0
 silent colorscheme dracula
 
-" Disable automatic comment continuation
-augroup MyFormatOptions
+"-------------------------------------------------------------------------------
+" C++ configuration
+"-------------------------------------------------------------------------------
+augroup CppConfig
     autocmd!
-    autocmd BufNewFile,BufRead,FileType * set formatoptions-=tcro
+    " Disable automatic formatting of text and comments (tc)
+    " Remove comment string when joining lines (j)
+    autocmd BufNewFile,BufRead,FileType c,cpp setlocal fo-=t fo-=c fo+=j
+    " Set the comment string to be //
+    autocmd BufNewFile,BufRead,FileType c,cpp setlocal commentstring=//\ %s
+    " Continuation of multiline comments
+    autocmd BufNewFile,BufRead,FileType c,cpp setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/
+    " Disable continuation of single-line comments
+    autocmd BufNewFile,BufRead,FileType c,cpp setlocal comments-=:// comments+=f://
+    " Do not indent inside namespace block
+    autocmd BufNewFile,BufRead,FileType c,cpp setlocal cino=N-s
 augroup end
 
+"-------------------------------------------------------------------------------
+" Markdown configuration
+"-------------------------------------------------------------------------------
+augroup MarkdownConfig
+    autocmd!
+    autocmd BufNewFile,BufRead,FileType markdown setlocal fo+=t
+    autocmd BufNewFile,BufRead,FileType markdown setlocal textwidth=100
+    " autocmd BufNewFile,BufRead,FileType markdown let g:indentLine_conceallevel = 0
+augroup end
+
+"-------------------------------------------------------------------------------
+" Vim configuration
+"-------------------------------------------------------------------------------
+augroup VimConfig
+    autocmd!
+    " Disable automatic formatting of text and comments (tc)
+    " Disable automatic insertion of comment string (ro)
+    " Remove comment string when joining lines (j)
+    autocmd BufNewFile,BufRead,FileType vim setlocal fo-=t fo-=c fo-=r fo-=o fo+=j
+augroup end
+
+"-------------------------------------------------------------------------------
 " Remove all trailing whitespace
+"-------------------------------------------------------------------------------
 function! <SID>TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
@@ -148,27 +183,6 @@ if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor\ --column
 endif
 
-"-------------------------------------------------------------------------------
-" C++ configurations
-"-------------------------------------------------------------------------------
-augroup cpp_config
-	autocmd!
-    " Set the comment string to be //
-    autocmd FileType,BufRead,BufNewFile c,cpp setlocal commentstring=//\ %s
-    " Continuation of multiline comments
-    autocmd FileType,BufRead,BufNewFile c,cpp setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/
-    " Disable continuation of single-line comments
-    autocmd FileType,BufRead,BufNewFile c,cpp setlocal comments-=:// comments+=f://
-augroup END
-" Do not indent inside namespace block
-set cino=N-s
-
-" Markdown configurations
-" augroup md_config
-"     autocmd!
-"     autocmd FileType,BufRead,BufNewFile markdown let g:indentLine_conceallevel = 0
-" augroup END
-"
 " Python configuration
 let g:python_highlight_indent_errors = 0
 let g:python_highlight_space_errors = 0
@@ -211,40 +225,11 @@ let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
 
+"-------------------------------------------------------------------------------
 " VimWiki configurations
-let wiki_1 = {}
-let wiki_1.path = '/mnt/d/Peter/Documents/Workspace/wiki'
-let wiki_1.syntax = 'markdown'
-let wiki_1.ext = '.md'
-let wiki_1.links_space_char = '_'
-let wiki_1.diary_rel_path = 'journal/'
-let wiki_1.diary_index = 'journal'
-let wiki_1.diary_header = 'Journal'
-let wiki_1.auto_tags = 1
+"-------------------------------------------------------------------------------
+source $HOME/.dotfiles/nvim/configs/vimwiki.vim
 
-let g:vimwiki_list = [wiki_1]
-let g:vimwiki_global_ext = 0
-let g:vimwiki_auto_header = 1
-let g:vimwiki_markdown_link_ext = 1
-let g:vimwiki_conceal_onechar_markers = 0
-
-augroup vimwikidiarylinks
-    autocmd!
-    " Automatically update links on read
-    autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
-augroup end
-
-" augroup vimwikidiarytemplate
-"     autocmd!
-"     " Insert diary template when a new diary page is created
-"     autocmd BufNewFile ~/wiki/diary/*.md :silent 0r !~/.vim/bin/vimwiki-diary-template.py '%'
-" augroup end
-
-" Markdown configurations
-" augroup md_config
-"     autocmd!
-"     autocmd FileType,BufRead,BufNewFile markdown let g:indentLine_conceallevel = 0
-" augroup END
 
 "-------------------------------------------------------------------------------
 " Mappings
