@@ -58,9 +58,11 @@ set undofile
 call plug#begin(stdpath('data') . '/plugged')
 
 " Colorschemes
+" ------------------------------------------------------------------------------
+Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'pcheng17/gruvbox', { 'branch': 'PeterWork' }
 " Plug 'pcheng17/nord-vim', { 'branch': 'stable' }
-Plug 'dracula/vim', { 'as': 'dracula' }
+" ------------------------------------------------------------------------------
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -95,10 +97,14 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'mhinz/vim-grepper'
 Plug 'rking/ag.vim'
 Plug 'airblade/vim-rooter'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
 Plug 'vimwiki/vimwiki'
+
+" Snippets
+" ------------------------------------------------------------------------------
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+" ------------------------------------------------------------------------------
 
 call plug#end()
 
