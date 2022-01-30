@@ -206,17 +206,20 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 " VimWiki configurations
-let g:vimwiki_list = [{
-    \ 'path': '~/wiki/',
-    \ 'syntax': 'markdown',
-    \ 'ext': '.md',
-    \ 'links_space_char': '_',
-    \ 'diary_rel_path': 'journal/',
-    \ 'diary_index': 'journal',
-    \ 'diary_header': 'Journal'
-    \ }]
+let wiki_1 = {}
+let wiki_1.path = '/mnt/d/Peter/Documents/Workspace/wiki'
+let wiki_1.syntax = 'markdown'
+let wiki_1.ext = '.md'
+let wiki_1.links_space_char = '_'
+let wiki_1.diary_rel_path = 'journal/'
+let wiki_1.diary_index = 'journal'
+let wiki_1.diary_header = 'Journal'
+
+let g:vimwiki_list = [wiki_1]
 let g:vimwiki_global_ext = 0
 let g:vimwiki_auto_header = 1
+let g:vimwiki_markdown_link_ext = 1
+let g:vimwiki_conceal_onechar_markers = 0
 
 augroup vimwikidiarylinks
     autocmd!

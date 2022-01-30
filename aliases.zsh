@@ -5,7 +5,10 @@ _exists() {
 alias clr='clear'
 alias qq='~ && clear'
 
-alias wiki='cd ~/wiki'
+alias ag='ag --nogroup --column --case-sensitive'
+alias rg='rg --smart-case'
+
+alias wiki='cd /mnt/d/Peter/Documents/Workspace/wiki'
 alias dfs='cd ~/.dotfiles'
 alias doc='cd /mnt/d/Peter/Documents'
 alias dld='cd /mnt/d/Peter/Downloads'
