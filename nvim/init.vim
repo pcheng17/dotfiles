@@ -206,8 +206,17 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 " VimWiki configurations
-let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{
+    \ 'path': '~/wiki/',
+    \ 'syntax': 'markdown',
+    \ 'ext': '.md',
+    \ 'links_space_char': '_',
+    \ 'diary_rel_path': 'journal/',
+    \ 'diary_index': 'journal',
+    \ 'diary_header': 'Journal'
+    \ }]
 let g:vimwiki_global_ext = 0
+let g:vimwiki_auto_header = 1
 
 augroup vimwikidiarylinks
     autocmd!
@@ -215,12 +224,11 @@ augroup vimwikidiarylinks
     autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
 augroup end
 
-augroup vimwikidiarytemplate
-    autocmd!
-    " Insert diary template when a new diary page is created
-    autocmd BufNewFile ~/wiki/diary/*.md :silent 0r !~/.vim/bin/vimwiki-diary-template.py '%'
-augroup end
-
+" augroup vimwikidiarytemplate
+"     autocmd!
+"     " Insert diary template when a new diary page is created
+"     autocmd BufNewFile ~/wiki/diary/*.md :silent 0r !~/.vim/bin/vimwiki-diary-template.py '%'
+" augroup end
 
 " Markdown configurations
 " augroup md_config
