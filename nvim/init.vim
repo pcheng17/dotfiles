@@ -214,6 +214,7 @@ let wiki_1.links_space_char = '_'
 let wiki_1.diary_rel_path = 'journal/'
 let wiki_1.diary_index = 'journal'
 let wiki_1.diary_header = 'Journal'
+let wiki_1.auto_tags = 1
 
 let g:vimwiki_list = [wiki_1]
 let g:vimwiki_global_ext = 0
