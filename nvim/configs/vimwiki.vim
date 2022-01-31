@@ -24,3 +24,15 @@ let g:vimwiki_auto_header = 1
 let g:vimwiki_markdown_link_ext = 1
 let g:vimwiki_conceal_onechar_markers = 0
 let g:vimwiki_hl_headers = 1
+
+function! vimwiki#fzf()
+    let l:root = g:vimwiki_list[0].path
+    let l:extension = g:vimwiki_list[0].ext
+    let l:pages = globpath(l:root, '**/*' . l:extension, v:true, v:true)
+    let l:opts = '--print-query --prompt "VimWiki> "'
+    call fzf#run(fzf#wrap({
+        \ 'source': l:pages,
+        \ 'sink': 'e',
+        \ 'options': l:opts
+        \ }))
+endfunction
