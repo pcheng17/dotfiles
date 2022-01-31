@@ -8,6 +8,8 @@ alias qq='~ && clear'
 alias ag='ag --nogroup --column --case-sensitive'
 alias rg='rg --smart-case'
 
+alias vw='nvim -c VimwikiIndex'
+
 alias wiki='cd /mnt/d/Peter/Documents/Workspace/wiki'
 alias dfs='cd ~/.dotfiles'
 alias doc='cd /mnt/d/Peter/Documents'
