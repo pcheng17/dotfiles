@@ -11,10 +11,11 @@ let wikiPers.name = 'MyWiki'
 let wikiPers.path = '/mnt/d/Peter/Documents/Workspace/wiki/'
 let wikiPers.syntax = 'markdown'
 let wikiPers.ext = '.md'
-let wikiPers.links_space_char = '_'
+let wikiPers.index = 'inbox'
 let wikiPers.diary_rel_path = 'journal/'
 let wikiPers.diary_index = 'journal'
 let wikiPers.diary_header = 'Journal'
+let wikiPers.links_space_char = '_'
 let wikiPers.auto_diary_index = 1
 let wikiPers.auto_tags = 1
 
