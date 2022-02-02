@@ -151,6 +151,7 @@ augroup MarkdownConfig
     autocmd BufNewFile,BufRead,FileType markdown setlocal fo+=t
     autocmd BufNewFile,BufRead,FileType markdown setlocal textwidth=100
     " autocmd BufNewFile,BufRead,FileType markdown let g:indentLine_conceallevel = 0
+    autocmd BufNewFile,BufRead,FileType markdown setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup end
 
 "-------------------------------------------------------------------------------
