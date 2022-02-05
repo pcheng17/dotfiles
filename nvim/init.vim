@@ -27,6 +27,7 @@ set shiftwidth=4
 set expandtab
 set cursorline
 set colorcolumn=100
+set completeopt=menu,menuone,noselect
 set hlsearch
 set iskeyword-=.
 set incsearch
@@ -66,28 +67,31 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'pcheng17/gruvbox', { 'branch': 'PeterWork' }
 " Plug 'pcheng17/nord-vim', { 'branch': 'stable' }
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" ------------------------------------------------------------------------------
+" Status line for vim
+" ------------------------------------------------------------------------------
+Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 if has('nvim')
     Plug 'lukas-reineke/indent-blankline.nvim'
     " Plug 'neovim/nvim-lspconfig'
+    " Plug 'williamboman/nvim-lsp-installer'
     " Plug 'hrsh7th/nvim-cmp'
     " Plug 'hrsh7th/cmp-nvim-lsp'
-    " Plug 'williamboman/nvim-lsp-installer'
+    " Plug 'hrsh7th/cmp-buffer'
+    " Plug 'quangnguyen30192/cmp-nvim-ultisnips'
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
     " Plug 'nvim-lua/plenary.nvim' " Requried by telescope.nvim
     " Plug 'nvim-telescope/telescope.nvim'
 else
-    " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    " Plug 'junegunn/fzf.vim'
     Plug 'Yggdroot/indentLine'
     Plug 'sheerun/vim-polyglot'
 endif
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
 Plug 'junegunn/vim-easy-align'
