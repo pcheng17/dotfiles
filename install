@@ -18,6 +18,9 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
 
 # Need to install the following:
+# brew
 # neovim
+# fzf
 # ripgrep
 # zsh
+# bat
