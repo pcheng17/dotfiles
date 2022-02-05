@@ -91,6 +91,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
 
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 

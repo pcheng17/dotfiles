@@ -2,6 +2,8 @@ _exists() {
     command -v $1 > /dev/null 2>&1
 }
 
+alias rld='source ~/.zshrc'
+
 alias clr='clear'
 alias qq='~ && clear'
 
@@ -23,3 +25,5 @@ alias kbs='cd /mnt/d/Peter/Documents/Workspace/keebs'
 
 alias zshconfig='nvim ~/.zshrc'
 alias ohmyzsh='nvim ~/.oh-my-zsh'
+
+alias gcob='git branch | fzf | xargs git checkout'
