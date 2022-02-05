@@ -4,6 +4,8 @@ _exists() {
 
 alias rld='source ~/.zshrc'
 
+alias fzf="fzf --height 40%"
+
 alias clr='clear'
 alias qq='~ && clear'
 
@@ -27,3 +29,4 @@ alias zshconfig='nvim ~/.zshrc'
 alias ohmyzsh='nvim ~/.oh-my-zsh'
 
 alias gcob='git branch | fzf | xargs git checkout'
+
