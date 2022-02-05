@@ -27,5 +27,6 @@ let g:vimwiki_hl_headers = 1
 
 augroup VimwikiConfig
     autocmd!
-    autocmd BufNewFile /mnt/d/Peter/Documents/Workspace/wiki/*.md silent! 0r !~/.vim/bin/load-frontmatter.py '%'
+    autocmd BufNewFile /mnt/d/Peter/Documents/Workspace/wiki/*.md
+        \ silent! 0r !~/.vim/bin/load-vimwiki-frontmatter.py '%'
 augroup end
