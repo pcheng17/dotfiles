@@ -1,3 +1,6 @@
+" Automatically change to the directory of my wiki
+setlocal autochdir
+
 function! VimwikiTabOrUltiSnips() abort
     let ret = vimwiki#tbl#kbd_tab()
     if ret == "\<Tab>"

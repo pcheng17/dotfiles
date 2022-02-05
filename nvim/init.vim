@@ -22,6 +22,8 @@ if !isdirectory($HOME."/.vim/undodir")
     call mkdir($HOME."/.vim/undodir", "", 0770)
 endif
 
+filetype plugin on
+
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -133,49 +135,12 @@ let g:dracula_italic = 0
 silent colorscheme dracula
 
 "-------------------------------------------------------------------------------
-" C++ configuration
-"-------------------------------------------------------------------------------
-augroup CppConfig
-    autocmd!
-    " Disable automatic formatting of text and comments (tc)
-    " Remove comment string when joining lines (j)
-    autocmd BufNewFile,BufRead,FileType c,cpp setlocal fo-=t fo-=c fo+=j
-    " Set the comment string to be //
-    autocmd BufNewFile,BufRead,FileType c,cpp setlocal commentstring=//\ %s
-    " Continuation of multiline comments
-    autocmd BufNewFile,BufRead,FileType c,cpp setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/
-    " Disable continuation of single-line comments
-    autocmd BufNewFile,BufRead,FileType c,cpp setlocal comments-=:// comments+=f://
-    " Do not indent inside namespace block
-    autocmd BufNewFile,BufRead,FileType c,cpp setlocal cino=N-s
-augroup end
-
-"-------------------------------------------------------------------------------
-" Markdown configuration
-"-------------------------------------------------------------------------------
-augroup MarkdownConfig
-    autocmd!
-    autocmd BufNewFile,BufRead,FileType markdown setlocal fo+=t
-    autocmd BufNewFile,BufRead,FileType markdown setlocal textwidth=100
-    " autocmd BufNewFile,BufRead,FileType markdown let g:indentLine_conceallevel = 0
-    autocmd BufNewFile,BufRead,FileType markdown setlocal tabstop=2 softtabstop=2 shiftwidth=2
-augroup end
-
-"-------------------------------------------------------------------------------
-" Vim configuration
-"-------------------------------------------------------------------------------
-augroup VimConfig
-    autocmd!
-    " Disable automatic formatting of text and comments (tc)
-    " Disable automatic insertion of comment string (ro)
-    " Remove comment string when joining lines (j)
-    autocmd BufNewFile,BufRead,FileType vim setlocal fo-=t fo-=c fo-=r fo-=o fo+=j
-augroup end
-
-"-------------------------------------------------------------------------------
 " Remove all trailing whitespace
 "-------------------------------------------------------------------------------
 function! <SID>TrimWhitespace()
+    if &ft =~ 'markdown\|vimwiki'
+        return
+    endif
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
     call winrestview(l:save)
