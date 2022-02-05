@@ -24,6 +24,11 @@ let g:vimwiki_markdown_link_ext = 1
 let g:vimwiki_conceal_onechar_markers = 0
 let g:vimwiki_hl_headers = 1
 
+command! -bang -nargs=* WikiRg call fzf#vim#grep('rg
+      \ --column --line-number --no-heading --color=never
+      \ --smart-case --type md <q-args> ',
+      \ 1, fzf#vim#with_preview(), <bang>0)
+
 augroup VimwikiConfig
     autocmd!
     autocmd BufNewFile /mnt/d/Peter/Documents/Workspace/wiki/*.md
