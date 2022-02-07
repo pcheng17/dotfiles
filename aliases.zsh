@@ -14,7 +14,7 @@ alias rg='rg --smart-case'
 
 alias vw='nvim -c VimwikiIndex'
 
-alias wiki='cd /mnt/d/Peter/Documents/Workspace/wiki'
+alias notes='cd /mnt/d/Peter/Documents/Workspace/notes'
 alias dfs='cd ~/.dotfiles'
 alias doc='cd /mnt/d/Peter/Documents'
 alias dld='cd /mnt/d/Peter/Downloads'
