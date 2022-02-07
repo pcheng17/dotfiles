@@ -8,7 +8,7 @@ let wikiDefault.ext = '.md'
 
 let wikiPers = {}
 let wikiPers.name = 'MyWiki'
-let wikiPers.path = '/mnt/d/Peter/Documents/Workspace/wiki/'
+let wikiPers.path = '/mnt/d/Peter/Documents/Workspace/notes/'
 let wikiPers.syntax = 'markdown'
 let wikiPers.ext = '.md'
 let wikiPers.diary_rel_path = 'journal/'
@@ -31,6 +31,6 @@ command! -bang -nargs=* WikiRg call fzf#vim#grep('rg
 
 augroup VimwikiConfig
     autocmd!
-    autocmd BufNewFile /mnt/d/Peter/Documents/Workspace/wiki/*.md
+    autocmd BufNewFile /mnt/d/Peter/Documents/Workspace/notes/*.md
         \ silent! 0r !~/.vim/bin/load-vimwiki-frontmatter.py '%'
 augroup end
