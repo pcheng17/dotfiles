@@ -17,7 +17,7 @@ template = [
     ""
 ]
 
-date = datetime.date.today().strftime('%Y-%m-%d')
+date = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 dow = calendar.day_name[datetime.date.today().weekday()]
 if len(sys.argv) < 2:
     title = "New note"
