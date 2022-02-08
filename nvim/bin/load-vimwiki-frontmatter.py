@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import calendar
 import datetime
 import os
 import sys
@@ -11,14 +12,17 @@ template = [
     "references: ",
     "---",
     "",
-    "# {title}",
+    "# {h1_title}",
     "",
     ""
 ]
 
-date = datetime.date.today()
+date = datetime.date.today().strftime('%Y-%m-%d')
+dow = calendar.day_name[datetime.date.today().weekday()]
 if len(sys.argv) < 2:
     title = "New note"
+    h1_title = title;
 else:
     title = os.path.basename(os.path.normpath(sys.argv[1].rsplit('.', 1)[0])).replace('_', ' ')
-print('\n'.join(template).format(title=title, date=date))
+    h1_title = f'{dow}, {date}' if title == date else title
+print('\n'.join(template).format(title=title, date=date, h1_title=h1_title))
