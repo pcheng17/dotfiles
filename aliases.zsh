@@ -12,7 +12,7 @@ alias qq='~ && clear'
 alias ag='ag --nogroup --column --case-sensitive'
 alias rg='rg --smart-case'
 
-alias vw='nvim -c VimwikiIndex'
+alias nt='nvim -c VimwikiIndex'
 
 alias notes='cd /mnt/d/Peter/Documents/Workspace/notes'
 alias dfs='cd ~/.dotfiles'

@@ -116,3 +116,7 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+note() {
+    nvim -c "e /mnt/d/Peter/Documents/Workspace/notes/$1.md"
+}
