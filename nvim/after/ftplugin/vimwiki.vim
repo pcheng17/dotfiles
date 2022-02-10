@@ -17,6 +17,6 @@ endfunction
 inoremap <silent><expr><buffer> <TAB> VimwikiTabOrUltiSnips()
 inoremap <silent><expr><buffer> <S-TAB> VimwikiShiftTabOrSupertab()
 
-nnoremap <buffer> <leader>wf :WikiRg<Space>
-nnoremap <buffer> <leader>wt :VimwikiSearchTags<Space>
-nnoremap <buffer> <leader>wj :VimwikiMakeDiaryNote<Space>
+nnoremap <leader>wf :WikiRg<Space>
+nnoremap <leader>wt :VimwikiSearchTags<Space>
+nnoremap <leader>wj :VimwikiMakeDiaryNote<CR>
