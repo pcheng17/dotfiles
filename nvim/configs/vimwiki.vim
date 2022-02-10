@@ -3,22 +3,27 @@
 let wikiDefault = {}
 let wikiDefault.syntax = 'markdown'
 let wikiDefault.ext = '.md'
+let wikiDefault.diary_rel_path = 'journal/'
+let wikiDefault.diary_index = 'journal'
+let wikiDefault.diary_header = 'Journal'
+let wikiDefault.links_space_char = '_'
+let wikiDefault.auto_diary_index = 1
+let wikiDefault.auto_tags = 1
 
-" let myRealWiki = copy(wikiDefault)
-
-let wikiPers = {}
+let wikiPers = copy(wikiDefault)
 let wikiPers.name = 'MyWiki'
-let wikiPers.path = '/mnt/d/Peter/Documents/Workspace/notes/'
-let wikiPers.syntax = 'markdown'
-let wikiPers.ext = '.md'
-let wikiPers.diary_rel_path = 'journal/'
-let wikiPers.diary_index = 'journal'
-let wikiPers.diary_header = 'Journal'
-let wikiPers.links_space_char = '_'
-let wikiPers.auto_diary_index = 1
-let wikiPers.auto_tags = 1
+if has('wsl')
+    let wikiPers.path = '/mnt/d/Peter/Documents/Workspace/notes/'
+endif
 
-let g:vimwiki_list = [wikiPers]
+let wikiCafeQED = copy(wikiDefault)
+let wikiCafeQED.name = 'CafeQED'
+if has('wsl')
+    let wikiCafeQED.path = '/mnt/d/Peter/Documents/Workspace/cafeqed/'
+endif
+
+let g:vimwiki_list = [wikiPers, wikiCafeQED]
+let g:vimwiki_auto_chdir = 1
 let g:vimwiki_global_ext = 0
 let g:vimwiki_markdown_link_ext = 1
 let g:vimwiki_conceal_onechar_markers = 0
@@ -32,5 +37,7 @@ command! -bang -nargs=* WikiRg call fzf#vim#grep('rg
 augroup VimwikiConfig
     autocmd!
     autocmd BufNewFile /mnt/d/Peter/Documents/Workspace/notes/*.md
+        \ silent! 0r !~/.vim/bin/load-vimwiki-frontmatter.py '%'
+    autocmd BufNewFile /mnt/d/Peter/Documents/Workspace/cafeqed/*.md
         \ silent! 0r !~/.vim/bin/load-vimwiki-frontmatter.py '%'
 augroup end
