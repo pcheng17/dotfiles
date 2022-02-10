@@ -19,4 +19,3 @@ inoremap <silent><expr><buffer> <S-TAB> VimwikiShiftTabOrSupertab()
 
 nnoremap <leader>wf :WikiRg<Space>
 nnoremap <leader>wt :VimwikiSearchTags<Space>
-nnoremap <leader>wj :VimwikiMakeDiaryNote<CR>
