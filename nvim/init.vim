@@ -243,6 +243,7 @@ nnoremap Y y$
 
 " Append next line to current line with a space, but don't move cursor
 nnoremap U mzJ`z
+vnoremap U mzJ`z
 
 " Jump to next or previous result, center line, open folds
 nnoremap n nzzzv
