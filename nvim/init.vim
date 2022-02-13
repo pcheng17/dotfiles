@@ -72,8 +72,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 " ------------------------------------------------------------------------------
 " Status line for vim
 " ------------------------------------------------------------------------------
-Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 
 if has('nvim')
     Plug 'lukas-reineke/indent-blankline.nvim'
@@ -133,6 +132,10 @@ end
 
 let g:dracula_italic = 0
 silent colorscheme dracula
+
+let g:lightline = {
+    \ 'colorscheme': 'dracula',
+    \ }
 
 "-------------------------------------------------------------------------------
 " Remove all trailing whitespace
