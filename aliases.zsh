@@ -12,17 +12,18 @@ alias clr='clear'
 alias qq='~ && clear'
 alias rg='rg --smart-case'
 
+alias dfs='cd ~/.dotfiles'
+
 alias gcob='git branch | fzf | xargs git checkout'
 
 case "$OSTYPE" in
     darwin*)
-        # ...
+        alias ws='cd ~/Workspace'
     ;;
     linux*)
         alias nt='nvim -c VimwikiIndex'
 
         alias notes='cd /mnt/d/Peter/Documents/Workspace/notes'
-        alias dfs='cd ~/.dotfiles'
         alias doc='cd /mnt/d/Peter/Documents'
         alias dld='cd /mnt/d/Peter/Downloads'
         alias ws='cd /mnt/d/Peter/Documents/Workspace'
