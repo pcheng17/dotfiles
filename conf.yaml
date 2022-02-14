@@ -23,7 +23,7 @@
 - link:
     ~/.gitconfig: .gitconfig
     ~/.tmux.conf: .tmux.conf
-    ~/.zshrc: .zshrc
+    # ~/.zshrc: .zshrc
     ~/.oh-my-zsh/custom/aliases.zsh: aliases.zsh
     ~/.config/nvim/init.vim:
         create: true
