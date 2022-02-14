@@ -1,13 +1,17 @@
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
 # Setup python virtualenvs
-# export WORKON_HOME=$HOME/.virtualenvs
-# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-# source /usr/local/bin/virtualenvwrapper.sh
-
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+export WORKON_HOME=$HOME/.virtualenvs
+case "$OSTYPE" in
+    darwin*)
+        source /opt/homebrew/bin/virtualenvwrapper.sh
+    ;;
+    linux*)
+	    source /usr/local/bin/virtualenvwrapper.sh
+    ;;
+esac
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -19,17 +23,8 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 #   export EDITOR='mvim'
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-
-# Load fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-note() {
-    nvim -c "e /mnt/d/Peter/Documents/Workspace/notes/$1.md"
-}

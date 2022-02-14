@@ -15,11 +15,17 @@ let wikiPers.name = 'MyWiki'
 if has('wsl')
     let wikiPers.path = '/mnt/d/Peter/Documents/Workspace/notes/'
 endif
+if g:os == 'Darwin'
+    let wikiPers.path = '~/Workspaces/notes/'
+endif
 
 let wikiCafeQED = copy(wikiDefault)
 let wikiCafeQED.name = 'CafeQED'
 if has('wsl')
     let wikiCafeQED.path = '/mnt/d/Peter/Documents/Workspace/cafeqed/'
+endif
+if g:os == 'Darwin'
+    let wikiCafeQED.path = '~/Workspaces/cafeqed'
 endif
 
 let g:vimwiki_list = [wikiPers, wikiCafeQED]
