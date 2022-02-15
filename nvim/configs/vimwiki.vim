@@ -14,8 +14,7 @@ let wikiPers = copy(wikiDefault)
 let wikiPers.name = 'MyWiki'
 if has('wsl')
     let wikiPers.path = '/mnt/d/Peter/Documents/Workspace/notes/'
-endif
-if g:os == 'Darwin'
+elseif g:os == 'Darwin'
     let wikiPers.path = '~/Workspace/notes/'
 endif
 
@@ -23,8 +22,7 @@ let wikiCafeQED = copy(wikiDefault)
 let wikiCafeQED.name = 'CafeQED'
 if has('wsl')
     let wikiCafeQED.path = '/mnt/d/Peter/Documents/Workspace/cafeqed/'
-endif
-if g:os == 'Darwin'
+elseif g:os == 'Darwin'
     let wikiCafeQED.path = '~/Workspace/cafeqed'
 endif
 
