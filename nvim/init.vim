@@ -127,6 +127,7 @@ Plug 'honza/vim-snippets'
 
 call plug#end()
 
+
 if has('nvim')
     " luafile ~/.config/nvim/lua/nvim-cmp_config.lua
     " luafile ~/.config/nvim/lua/lsp_config.lua
@@ -136,6 +137,18 @@ end
 if g:os == "Darwin"
     let g:python3_host_prog = '~/.virtualenvs/neovim/bin/python'
 endif
+
+"-------------------------------------------------------------------------------
+" Airline
+"-------------------------------------------------------------------------------
+let g:airline_section_z = airline#section#create_right(['%p%% %l:%c'])
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" Unicode symbols - see `:h airline-customization` for others
+let g:airline_symbols.branch = ''
 
 "-------------------------------------------------------------------------------
 " Aesthetics
