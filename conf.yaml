@@ -5,6 +5,18 @@
 - clean: ['~']
 
 - shell:
+    - command: git config --global core.editor nvim
+      description: Set default git editor to neovim
+      quiet: true
+    - command: git config --global init.defaultBranch main
+      description: Set init default branch name to `main`
+      quiet: true
+    - command: git config --global include.path "~/.dotfiles/gitconfig/aliases"
+      description: Include master list of git aliases
+      quiet: true
+    - command: git config --global core.excludesFile "~/.dotfiles/gitconfig/gitignore"
+      description: Include master gitignore
+      quiet: true
     - command: sh -c 'curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
       description: Install vim-plug (vim)
       quiet: true
@@ -13,7 +25,6 @@
       quiet: true
 
 - link:
-    ~/.gitconfig: .gitconfig
     ~/.tmux.conf: .tmux.conf
     ~/.oh-my-zsh/custom/aliases.zsh: aliases.zsh
     ~/.config/nvim/init.vim:

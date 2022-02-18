@@ -1,0 +1,37 @@
+# MacOS files
+.DS_Store
+
+# Vim & Neovim swap files
+*.swp
+
+# Python byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Python environments
+.env
+.venv
+env/
+venv/
+
+# Compiled object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Compiled dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app

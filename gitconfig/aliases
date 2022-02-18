@@ -9,6 +9,8 @@
     amend = commit --all --amend --no-edit
     # Show branches.
     b = branch
+    # Show branches sorted by commit date
+    bsort = branch --sort=committerdate
     # Show verbose output about branches.
     bs = branch --all
     # Clone a repository including all submodules.
@@ -47,16 +49,3 @@
     whoami = config user.email
     # YOLO
     yolo = push --force
-
-[branch]
-    # Show most recently changed branches first.
-    sort = -committerdate
-
-[core]
-    editor = nvim
-
-[color]
-    ui = true
-
-[init]
-    defaultBranch = main
