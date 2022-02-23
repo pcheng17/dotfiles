@@ -236,6 +236,8 @@ source $HOME/.dotfiles/nvim/configs/vimwiki.vim
 "-------------------------------------------------------------------------------
 noremap J 10j
 noremap K 10k
+noremap H ^
+noremap L $
 
 nmap <Leader>fs :update<CR>
 nmap <Leader>qq :q<CR>
