@@ -46,7 +46,7 @@
     # View the current working tree status using the short format.
     ss = status -s
     # Pretty and more informative output for tags
-    tags = "log --oneline --decorate --tags --no-walk"
+    tags = log --oneline --decorate --tags --no-walk
     # Show the user email for the current repository
     whoami = config user.email
     # YOLO
