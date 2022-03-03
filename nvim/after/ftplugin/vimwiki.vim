@@ -4,6 +4,9 @@ setlocal textwidth=100
 setlocal wrap
 setlocal linebreak
 
+noremap <expr> j v:count ? 'j' : 'gj'
+noremap <expr> k v:count ? 'k' : 'gk'
+
 function! VimwikiTabOrUltiSnips() abort
     let ret = vimwiki#tbl#kbd_tab()
     if ret == "\<Tab>"
