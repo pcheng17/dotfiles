@@ -38,10 +38,10 @@ command! -bang -nargs=* WikiRg call fzf#vim#grep('rg
       \ --smart-case --type md <q-args> ',
       \ 1, fzf#vim#with_preview(), <bang>0)
 
-augroup VimwikiConfig
-    autocmd!
-    autocmd BufNewFile /mnt/d/Peter/Documents/Workspace/wiki/*.md
-        \ silent! 0r !~/.vim/bin/load-vimwiki-frontmatter.py '%'
-    autocmd BufNewFile /mnt/d/Peter/Documents/Workspace/cafeqed/*.md
-        \ silent! 0r !~/.vim/bin/load-vimwiki-frontmatter.py '%'
-augroup end
+" augroup VimwikiConfig
+"     autocmd!
+"     autocmd BufNewFile /mnt/d/Peter/Documents/Workspace/wiki/*.md
+"         \ silent! 0r !~/.vim/bin/load-vimwiki-frontmatter.py '%'
+"     autocmd BufNewFile /mnt/d/Peter/Documents/Workspace/cafeqed/*.md
+"         \ silent! 0r !~/.vim/bin/load-vimwiki-frontmatter.py '%'
+" augroup end
