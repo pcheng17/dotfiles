@@ -21,6 +21,8 @@ alias gcob='git branch | fzf | xargs git checkout'
 case "$OSTYPE" in
     darwin*)
         alias ws='cd ~/Workspace'
+
+        alias bkupbrew='brew bundle dump --file=~/.dotfiles/Brewfile --force'
     ;;
     linux*)
         alias notes='cd /mnt/d/Peter/Documents/Workspace/notes'
