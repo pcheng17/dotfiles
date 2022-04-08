@@ -14,13 +14,12 @@ alias fzf="fzf --height 50%"
 
 alias dfs='cd ~/.dotfiles'
 
-alias nt='nvim -c VimwikiIndex'
-
 alias gcob='git branch | fzf | xargs git checkout'
 
 case "$OSTYPE" in
     darwin*)
         alias ws='cd ~/Workspace'
+        alias kbs='cd ~/Workspace/keebs'
 
         alias bkupbrew='brew bundle dump --file=~/.dotfiles/Brewfile --force'
     ;;
