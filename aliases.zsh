@@ -13,6 +13,7 @@ alias rld='source ~/.zshrc'
 alias fzf="fzf --height 50%"
 
 alias dfs='cd ~/.dotfiles'
+alias ev='nvim ~/.dotfiles/nvim/init.vim'
 
 alias gcob='git branch | fzf | xargs git checkout'
 

@@ -239,6 +239,10 @@ source $HOME/.dotfiles/nvim/configs/vimwiki.vim
 noremap J 10j
 noremap K 10k
 
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+" The following seems to do funny things in WSL2
+" nnoremap <Leader>sv :source $MYVIMRC<CR>
+
 nmap <Leader>fs :update<CR>
 nmap <Leader>qq :q<CR>
 nmap <Leader>fq :q!<CR>
