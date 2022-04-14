@@ -251,6 +251,11 @@ nnoremap <Leader><CR> :so ~/.vimrc<CR>
 nnoremap ++ :vertical resize +5<CR>
 nnoremap -- :vertical resize -5<CR>
 
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+
 " Moving text
 " nnoremap <Leader>j :m .+1<CR>==
 " nnoremap <Leader>k :m .-2<CR>==
