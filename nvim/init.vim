@@ -55,7 +55,7 @@ set noswapfile
 set nowrap
 set number
 set relativenumber
-set scrolloff=8
+set scrolloff=5
 set scroll=10
 set smartcase
 set smartindent
