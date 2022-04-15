@@ -2,6 +2,9 @@
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
+# Enable vi mode
+bindkey -v
+
 export WORKON_HOME=$HOME/.virtualenvs
 case "$OSTYPE" in
     darwin*)
