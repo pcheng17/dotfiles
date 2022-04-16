@@ -247,18 +247,18 @@ nmap <Leader>fs :update<CR>
 nmap <Leader>qq :q<CR>
 nmap <Leader>fq :q!<CR>
 
-nnoremap <C-k> :cprev<CR>
-nnoremap <C-j> :cnext<CR>
+" nnoremap <C-k> :cprev<CR>
+" nnoremap <C-j> :cnext<CR>
 nnoremap <Leader>re :e!<CR>
 nnoremap <Leader>n :noh<CR>
 nnoremap <Leader><CR> :so ~/.vimrc<CR>
 nnoremap ++ :vertical resize +5<CR>
 nnoremap -- :vertical resize -5<CR>
 
-nnoremap <C-h> <C-w><C-h>
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Moving text
 " nnoremap <Leader>j :m .+1<CR>==
