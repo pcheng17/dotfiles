@@ -1,6 +1,7 @@
 # User configuration
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+export FZF_DEFAULT_OPTS="--height 60% --border"
 
 # Enable vi mode
 bindkey -v
