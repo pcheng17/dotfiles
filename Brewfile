@@ -9,6 +9,7 @@ brew "cmake"
 brew "ffmpeg"
 brew "fzf"
 brew "git"
+brew "mas"
 brew "neovim"
 brew "node"
 brew "ripgrep"
@@ -28,3 +29,9 @@ cask "qmk-toolbox"
 cask "spotify"
 cask "visual-studio-code"
 cask "vlc"
+mas "Amphetamine", id: 937984704
+mas "Aruba VIA", id: 1439900554
+mas "DaVinci Resolve", id: 571213070
+mas "Hidden Bar", id: 1452453066
+mas "Magnet", id: 441258766
+mas "Xcode", id: 497799835
