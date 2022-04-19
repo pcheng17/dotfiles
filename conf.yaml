@@ -25,6 +25,7 @@
       quiet: true
 
 - link:
+    ~/Brewfile: Brewfile
     ~/.tmux.conf: .tmux.conf
     ~/.oh-my-zsh/custom/aliases.zsh: aliases.zsh
     ~/.config/nvim/init.vim:
