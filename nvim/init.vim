@@ -118,7 +118,6 @@ Plug 'mhinz/vim-grepper'
 Plug 'rking/ag.vim'
 Plug 'airblade/vim-rooter'
 Plug 'lervag/vimtex'
-Plug 'vimwiki/vimwiki'
 Plug 'mmai/wikilink'
 
 " ------------------------------------------------------------------------------
@@ -226,11 +225,6 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
-
-"-------------------------------------------------------------------------------
-" VimWiki configurations
-"-------------------------------------------------------------------------------
-source $HOME/.dotfiles/nvim/configs/vimwiki.vim
 
 
 "-------------------------------------------------------------------------------
