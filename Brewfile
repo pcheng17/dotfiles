@@ -35,7 +35,6 @@ cask "spotify"
 cask "visual-studio-code"
 cask "vlc"
 mas "Amphetamine", id: 937984704
-mas "Aruba VIA", id: 1439900554
 mas "DaVinci Resolve", id: 571213070
 mas "Hidden Bar", id: 1452453066
 mas "Magnet", id: 441258766
