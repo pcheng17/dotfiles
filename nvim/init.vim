@@ -118,7 +118,6 @@ Plug 'mhinz/vim-grepper'
 Plug 'rking/ag.vim'
 Plug 'airblade/vim-rooter'
 Plug 'lervag/vimtex'
-Plug 'mmai/wikilink'
 
 " ------------------------------------------------------------------------------
 " Snippets
@@ -166,7 +165,7 @@ silent colorscheme dracula
 " Remove all trailing whitespace
 "-------------------------------------------------------------------------------
 function! <SID>TrimWhitespace()
-    if &ft =~ 'markdown\|vimwiki'
+    if &ft =~ 'markdown'
         return
     endif
     let l:save = winsaveview()
