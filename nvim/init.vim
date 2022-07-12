@@ -96,15 +96,15 @@ if has('nvim')
     " Plug 'quangnguyen30192/cmp-nvim-ultisnips'
     Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
-    " Plug 'nvim-lua/plenary.nvim' " Requried by telescope.nvim
-    " Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-lua/plenary.nvim' " Requried by telescope.nvim
+    Plug 'nvim-telescope/telescope.nvim'
 else
     Plug 'Yggdroot/indentLine'
     Plug 'sheerun/vim-polyglot'
+    plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    plug 'junegunn/fzf.vim'
 endif
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
 Plug 'junegunn/vim-easy-align'
@@ -313,16 +313,14 @@ nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
 " Repeat last macro used
 nnoremap Q @@
 
-" if has('nvim')
-"     nnoremap <leader><space> <cmd>Telescope find_files<CR>
-"     nnoremap <leader>; <cmd>Telescope buffers<CR>
-"     nnoremap <leader>gr <cmd>Telescope live_grep<CR>
-" else
-"     nnoremap <leader><space> :GFiles<CR>
-"     nnoremap <leader>; :Buffers<CR>
-" endif
-nnoremap <leader><space> :GFiles<CR>
-nnoremap <leader>; :Buffers<CR>
+if has('nvim')
+    nnoremap <leader><space> <cmd>Telescope find_files<CR>
+    nnoremap <leader>; <cmd>Telescope buffers<CR>
+    nnoremap <leader>gr <cmd>Telescope live_grep<CR>
+else
+    nnoremap <leader><space> :GFiles<CR>
+    nnoremap <leader>; :Buffers<CR>
+endif
 
 "-------------------------------------------------------------------------------
 " Source other files
