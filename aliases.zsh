@@ -20,9 +20,7 @@ case "$OSTYPE" in
         alias ws='cd ~/Workspace'
         alias kbs='cd ~/Workspace/keebs'
 
-        alias bkpbr='brew bundle dump --file=~/.dotfiles/Brewfile --force'
-        alias bkpdw='bkup-dreamworks'
-        alias bkpm='bkup-midori'
+        alias bkpbrew='brew bundle dump --file=~/.dotfiles/Brewfile --force'
     ;;
     linux*)
         alias notes='cd /mnt/d/Peter/Documents/Workspace/notes'
