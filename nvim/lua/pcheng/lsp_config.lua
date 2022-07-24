@@ -27,6 +27,6 @@ lspconfig.clangd.setup {
         "--suggest-missing-includes"
     },
 }
-lspconfig.sumneko_lua.setup {
-    on_attach = on_attach,
-}
+-- lspconfig.sumneko_lua.setup {
+--     on_attach = on_attach,
+-- }

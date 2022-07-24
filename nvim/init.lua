@@ -1,7 +1,6 @@
-require('plugins')
-require('options')
-require('mappings')
+print('Hello from init.lua')
+require('pcheng')
 
-require('lsp_config')
-require('treesitter_config')
-require('nvim-cmp_config')
+require('pcheng.lsp_config')
+require('pcheng.treesitter_config')
+require('pcheng.nvim-cmp_config')
