@@ -9,10 +9,23 @@ return require('packer').startup(function()
 
     -- Colorscheme
     use {'dracula/vim', as = 'dracula'}
-    use {'Yazeed1s/minimal.nvim', as = 'minimal'}
+    use {
+        'catppuccin/nvim',
+        as = 'catppuccin',
+        config = 'vim.cmd[[colorscheme catppuccin]]'
+    }
 
-    use 'lukas-reineke/indent-blankline.nvim'
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        config = function() require('indent_blankline').setup({
+            show_current_context = true
+        }) end
+    }
+
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
 
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer'
