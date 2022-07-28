@@ -9,6 +9,7 @@ return require('packer').startup(function()
 
     -- Colorscheme
     use {'dracula/vim', as = 'dracula'}
+    use {'Yazeed1s/minimal.nvim', as = 'minimal'}
 
     use 'lukas-reineke/indent-blankline.nvim'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
