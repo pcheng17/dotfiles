@@ -17,7 +17,9 @@ nnoremap('<C-j>', '<C-w>j')
 nnoremap('<C-k>', '<C-w>k')
 nnoremap('<C-l>', '<C-w>l')
 
-vim.keymap.set({'n', 'v'}, 'U', 'mzJ`z', {desc = 'Append next line to current line with a space, but don\'t move cursor'})
+-- Append next line to current line with space but do not move cursor
+nnoremap('U', 'mzJ`z')
+nnoremap('U', 'mzJ`z')
 
 -- Jump to next result, center line, open folds
 nnoremap('n', 'nzzzv')
