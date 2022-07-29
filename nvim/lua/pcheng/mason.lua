@@ -1,4 +1,17 @@
-require('nvim-lsp-installer').setup {}
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
+
+require('mason-lspconfig').setup({
+    ensure_installed = { 'clangd' }
+})
+
 local lspconfig = require('lspconfig')
 
 -- Use an on_attach function to only map the follow keys after the language
@@ -27,6 +40,3 @@ lspconfig.clangd.setup {
         "--suggest-missing-includes"
     },
 }
--- lspconfig.sumneko_lua.setup {
---     on_attach = on_attach,
--- }

@@ -1,11 +1,5 @@
-print('Hello from pcheng')
-
--- Load QOL remapping functions
-require('pcheng.keymap')
-
+require('pcheng.keymap') -- Load QOL remapping functions
+require('pcheng.packer') -- Load packages
 require('pcheng.options')
+require('pcheng.remap') -- Load remaps
 
--- Load remaps
-require('pcheng.remap')
-
-require('pcheng.packer')
