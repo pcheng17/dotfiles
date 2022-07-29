@@ -5,7 +5,7 @@ nnoremap('<leader>fd', '<cmd>Ex<cr>')
 
 nnoremap('<leader>fs', ':update<cr>')
 nnoremap('<leader>qq', ':q<cr>')
-nnoremap('<leader>fq', ':q<cr>')
+nnoremap('<leader>fq', ':q!<cr>')
 
 -- Fast vertical movement
 nnoremap('J', '10j')

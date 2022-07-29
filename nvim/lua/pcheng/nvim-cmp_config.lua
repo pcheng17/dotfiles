@@ -9,19 +9,21 @@ cmp.setup {
             vim.fn["UltiSnips#Anon"](args.body)
         end,
     },
-    mapping = {
+    mapping = cmp.mapping.preset.insert({
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
-        ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm {
+        ['<Esc>'] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
-        },
-    },
+        }),
+        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+        ['<Tab>'] = cmp.mapping.select_next_item(),
+    }),
     sources = {
+        { name = 'buffer' },
         { name = 'nvim_lsp' },
         { name = 'ultisnips' },
-        { name = 'buffer' },
     },
 }
 
