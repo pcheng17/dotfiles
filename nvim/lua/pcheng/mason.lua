@@ -9,7 +9,7 @@ require("mason").setup({
 })
 
 require('mason-lspconfig').setup({
-    ensure_installed = { 'clangd' }
+    ensure_installed = { 'clangd', 'pyright' }
 })
 
 local lspconfig = require('lspconfig')
@@ -39,4 +39,8 @@ lspconfig.clangd.setup {
         "--background-index",
         "--suggest-missing-includes"
     },
+}
+
+lspconfig.pyright.setup {
+    on_attach = on_attach,
 }
