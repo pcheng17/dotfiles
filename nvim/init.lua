@@ -1,9 +1,10 @@
-require('options')
+require('general')
 require('keymap')
 require('remap')
 
 require('plugins')
 require('configs.color')
+require('configs.indent-blankline')
 require('configs.mason')
 require('configs.treesitter')
 require('configs.nvim-cmp')

@@ -11,12 +11,7 @@ return require('packer').startup(function()
     use { 'dracula/vim', as = 'dracula' }
     use { 'catppuccin/nvim', as = 'catppuccin' }
 
-    use {
-        'lukas-reineke/indent-blankline.nvim',
-        config = function() require('indent_blankline').setup({
-            show_current_context = true
-        }) end
-    }
+    use 'lukas-reineke/indent-blankline.nvim'
 
     use {
         'nvim-treesitter/nvim-treesitter',
