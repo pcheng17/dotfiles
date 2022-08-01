@@ -10,6 +10,8 @@ nnoremap('<leader>fq', ':q!<cr>')
 -- Fast vertical movement
 nnoremap('J', '10j')
 nnoremap('K', '10k')
+vnoremap('J', '10j')
+vnoremap('K', '10k')
 
 -- Easier navigation of splits
 nnoremap('<C-h>', '<C-w>h')
