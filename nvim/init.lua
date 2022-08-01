@@ -1,5 +1,9 @@
-require('pcheng')
+require('options')
+require('keymap')
+require('remap')
 
-require('pcheng.mason')
-require('pcheng.treesitter_config')
-require('pcheng.nvim-cmp_config')
+require('plugins')
+require('configs.color')
+require('configs.mason')
+require('configs.treesitter')
+require('configs.nvim-cmp')

@@ -1,5 +1,5 @@
-local nnoremap = require('pcheng.keymap').nnoremap
-local vnoremap = require('pcheng.keymap').vnoremap
+local nnoremap = require('keymap').nnoremap
+local vnoremap = require('keymap').vnoremap
 
 nnoremap('<leader>fd', '<cmd>Ex<cr>')
 
