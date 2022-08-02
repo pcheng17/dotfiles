@@ -34,7 +34,6 @@ return require('packer').startup(function()
     use 'tpope/vim-fugitive'
     use 'tpope/vim-unimpaired'
     use 'tpope/vim-surround'
-    use 'qpkorr/vim-bufkill'
     use 'terryma/vim-multiple-cursors'
     -- use 'mhinz/vim-grepper'
     -- use 'rking/ag.vim'
