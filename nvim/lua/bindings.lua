@@ -1,5 +1,6 @@
 local nnoremap = require('keymap').nnoremap
 local vnoremap = require('keymap').vnoremap
+local xnoremap = require('keymap').xnoremap
 
 nnoremap('<leader>fd', '<cmd>Ex<cr>')
 
@@ -39,7 +40,9 @@ vnoremap('>', '>gv')
 -- vim.keymap.set('n', '<leader>/', 'gcc', {desc = 'More ergonomic comment'})
 -- vim.keymap.set('v', '<leader>/', 'gc', {desc = 'More ergonomic comment'})
 
-vim.keymap.set({'n', 'x'}, '<leader>p', '"_dP', {desc = 'Paste, but delete to the black hole register'})
+-- Paste, but delete to the black hole register
+nnoremap('<leader>p', '"_dP')
+xnoremap('<leader>p', '"_dP')
 
 -- Yank until end of line
 nnoremap('Y', 'y$')

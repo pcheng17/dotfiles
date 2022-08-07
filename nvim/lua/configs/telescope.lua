@@ -9,6 +9,18 @@ function smart_find_files()
     end
 end
 
+local commands_table = {
+    ['Tcol'] = 'colorscheme',
+    ['Tgc']  = 'git_commits',
+    ['Tgb']  = 'git_branches',
+    ['Tgs']  = 'git_status',
+    ['Tgf']  = 'git_files',
+}
+
+for command, action in pairs(commands_table) do
+    vim.cmd('command! ' .. command .. ' :Telescope ' .. action)
+end
+
 nnoremap('<leader><space>', smart_find_files)
 nnoremap('<leader>;', '<cmd> Telescope buffers <cr>')
 nnoremap('<leader>gr', '<cmd> Telescope live_grep <cr>')

@@ -27,10 +27,16 @@ return require('packer').startup(function()
 
     use {'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim'}
 
+    use { 'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end 
+    }
+
     use 'jiangmiao/auto-pairs'
     use 'ervandew/supertab'
     use 'junegunn/vim-easy-align'
-    use 'tpope/vim-commentary'
+    -- use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-unimpaired'
     use 'tpope/vim-surround'
