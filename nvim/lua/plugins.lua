@@ -11,6 +11,8 @@ return require('packer').startup(function()
     use { 'dracula/vim', as = 'dracula' }
     use { 'catppuccin/nvim', as = 'catppuccin' }
 
+    use 'nvim-lualine/lualine.nvim'
+
     use 'lukas-reineke/indent-blankline.nvim'
 
     use {
@@ -36,12 +38,10 @@ return require('packer').startup(function()
     use 'jiangmiao/auto-pairs'
     use 'ervandew/supertab'
     use 'junegunn/vim-easy-align'
-    -- use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-unimpaired'
     use 'tpope/vim-surround'
     use 'terryma/vim-multiple-cursors'
-    -- use 'mhinz/vim-grepper'
     -- use 'rking/ag.vim'
     -- use 'airblade/vim-rooter'
     -- use 'lervag/vimtex'

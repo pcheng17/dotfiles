@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+vim.cmd[[set noshowmode]]
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.errorbells = false
@@ -10,7 +12,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
-
 vim.opt.wrap = false
 
 vim.opt.swapfile = false
