@@ -6,6 +6,9 @@ export FZF_DEFAULT_OPTS="--height 50% --border"
 # Enable vi mode
 bindkey -v
 
+# Tell `less` not to paginate if less than a page
+export LESS="-F -X $LESS"
+
 export WORKON_HOME=$HOME/.virtualenvs
 case "$OSTYPE" in
     darwin*)

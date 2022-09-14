@@ -15,9 +15,11 @@
     bs = branch --all
     # Clone a repository including all submodules.
     c = clone --recursive
-    # Simple alias for usual commit technique.
-    cm = commit -m
-    # Simple alias for verbose commit technique.
+    # Alias just for commit.
+    cm = commit
+    # Alias for usual commit technique.
+    cmm = commit -m
+    # Alias for verbose commit technique.
     cmv = commit -v
     # Simple alias for default checkout.
     co = checkout
@@ -28,7 +30,7 @@
     # Show the diff between the state `$number` revisions ago and the current state.
     di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
     # View abbreviated SHA, description, relative date, and author of the latest 20 commits.
-    ls = !"git -P log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -n 20 --abbrev-commit --date=relative"
+    ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' -n 20 --abbrev-commit --date=relative
     # View abbreviated SHA, description, relative date, and author.
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     # Resets current working tree to the latest commit.

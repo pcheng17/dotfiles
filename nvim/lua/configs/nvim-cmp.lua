@@ -2,7 +2,7 @@ local cmp = require('cmp')
 
 cmp.setup {
     completion = {
-        completeopt = 'menu,menuone,noinsert'
+        completeopt = 'menu,menuone,noinsert,noselect'
     },
     snippet = {
         expand = function(args)
@@ -15,7 +15,7 @@ cmp.setup {
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
+            select = false,
         }),
         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
         ['<Tab>'] = cmp.mapping.select_next_item(),
