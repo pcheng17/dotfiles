@@ -28,7 +28,7 @@ case "$OSTYPE" in
         alias notes='cd /mnt/d/Peter/Documents/Workspace/notes'
         alias doc='cd /mnt/d/Peter/Documents'
         alias dld='cd /mnt/d/Peter/Downloads'
-        alias ws='cd /mnt/d/Peter/Documents/Workspace'
+        alias wk='cd /mnt/d/Peter/Documents/Workspace'
         alias lvs='cd /mnt/d/Peter/Documents/Workspace/lindsay-voidspace'
         alias vspc='cd /mnt/d/Peter/Documents/Workspace/voidspace'
         alias vspcg='cd /mnt/d/Peter/Documents/Workspace/vspc_graph'
