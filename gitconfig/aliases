@@ -17,6 +17,8 @@
     c = clone --recursive
     # Alias just for commit.
     cm = commit
+    # Alias for commit with add and message
+    cmam = commit -am
     # Alias for usual commit technique.
     cmm = commit -m
     # Alias for verbose commit technique.
