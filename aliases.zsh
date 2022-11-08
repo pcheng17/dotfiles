@@ -17,7 +17,7 @@ alias gcob='git branch | fzf | xargs git checkout'
 
 case "$OSTYPE" in
     darwin*)
-        alias ws='cd ~/Workspace'
+        alias wk='cd ~/Workspace'
         alias kbs='cd ~/Workspace/keebs'
 
         alias bkpbr='brew bundle dump --file=~/.dotfiles/Brewfile --force'
