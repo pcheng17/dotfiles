@@ -1,9 +1,9 @@
 require('lualine').setup({
-    options = {
-        refresh = {
-            statusline = 10,
-        },
-    },
+    -- options = {
+    --     refresh = {
+    --         statusline = 10,
+    --     },
+    -- },
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', 'diagnostics'},
