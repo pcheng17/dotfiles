@@ -11,6 +11,7 @@ end
 
 local commands_table = {
     ['Tcol'] = 'colorscheme',
+    ['Tdd']  = 'diagnostics',
     ['Tgc']  = 'git_commits',
     ['Tgb']  = 'git_branches',
     ['Tgs']  = 'git_status',
