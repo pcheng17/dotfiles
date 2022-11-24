@@ -11,6 +11,8 @@ return require('packer').startup(function()
     use { 'dracula/vim', as = 'dracula' }
     use { 'catppuccin/nvim', as = 'catppuccin' }
 
+    use 'nvim-tree/nvim-web-devicons'
+
     use 'nvim-lualine/lualine.nvim'
 
     use 'lukas-reineke/indent-blankline.nvim'

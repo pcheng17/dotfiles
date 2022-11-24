@@ -1,7 +1,7 @@
 require('lualine').setup({
     options = {
         always_divide_middle = true,
-        icons_enabled = false,
+        icons_enabled = true,
         component_separators = { left = '|', right = '|' },
         section_separators = '',
     },
