@@ -1,4 +1,4 @@
-local nnoremap = require('keymap').nnoremap
+local nnoremap = require('remaps').nnoremap
 
 function smart_find_files()
     local is_git = os.execute("git status &>/dev/null")

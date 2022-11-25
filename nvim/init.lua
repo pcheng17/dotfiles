@@ -1,5 +1,5 @@
 require('general')
-require('keymap')
+require('remaps')
 
 require('plugins')
 require('configs.color')
@@ -11,4 +11,4 @@ require('configs.telescope')
 require('configs.treesitter')
 require('configs.nvim-cmp')
 
-require('bindings')
+require('keymaps')

@@ -1,6 +1,6 @@
-local nnoremap = require('keymap').nnoremap
-local vnoremap = require('keymap').vnoremap
-local xnoremap = require('keymap').xnoremap
+local nnoremap = require('remaps').nnoremap
+local vnoremap = require('remaps').vnoremap
+local xnoremap = require('remaps').xnoremap
 
 nnoremap('<leader>fd', '<cmd>Ex<cr>')
 
