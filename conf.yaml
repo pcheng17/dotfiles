@@ -37,6 +37,9 @@
     ~/.config/nvim/lua:
         create: true
         path: nvim/lua
+    ~/.config/nvim/ftplugin:
+        create: true
+        path: nvim/ftplugin
     ~/.vim/my-snippets:
         create: true
         path: nvim/snippets
