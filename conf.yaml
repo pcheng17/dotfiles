@@ -34,13 +34,12 @@
     ~/.config/nvim/init.lua:
         create: true
         path: nvim/init.lua
-    ~/.config/nvim/lua:
-        create: true
-        path: nvim/lua
-    ~/.config/nvim/ftplugin:
-        create: true
-        path: nvim/ftplugin
+    ~/.config/nvim/lua: nvim/init.lua
+    ~/.config/nvim/ftplugin: nvim/ftplugin
     ~/.vim/my-snippets:
         create: true
         path: nvim/snippets
     ~/.vim/after: nvim/after
+    ~/.config/kitty:
+        create: true
+        path: kitty
