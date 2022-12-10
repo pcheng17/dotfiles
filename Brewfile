@@ -55,7 +55,6 @@ cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
 mas "Amphetamine", id: 937984704
-mas "Craft", id: 1487937127
 mas "DaVinci Resolve", id: 571213070
 mas "Hidden Bar", id: 1452453066
 mas "Magnet", id: 441258766
