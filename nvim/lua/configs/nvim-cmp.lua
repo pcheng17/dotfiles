@@ -20,11 +20,12 @@ cmp.setup {
         ['<S-Tab>'] = cmp.mapping.select_prev_item(),
         ['<Tab>'] = cmp.mapping.select_next_item(),
     }),
-    sources = {
-        { name = 'buffer' },
+    sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'ultisnips' },
-    },
+    }, {
+        { name = 'buffer' },
+    }),
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
