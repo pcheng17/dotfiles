@@ -1,5 +1,5 @@
 require('mason-lspconfig').setup({
-    ensure_installed = { 'clangd', 'pyright' }
+    ensure_installed = { 'clangd', 'pyright', 'rust_analyzer' }
 })
 
 local lspconfig = require('lspconfig')
@@ -32,5 +32,9 @@ lspconfig.clangd.setup {
 }
 
 lspconfig.pyright.setup {
+    on_attach = on_attach,
+}
+
+lspconfig.rust_analyzer.setup {
     on_attach = on_attach,
 }

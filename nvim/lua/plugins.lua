@@ -29,6 +29,8 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
 
+    -- use 'simrat39/rust-tools.nvim'
+
     use {'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim'}
 
     use { 'numToStr/Comment.nvim',
