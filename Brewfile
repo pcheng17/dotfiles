@@ -57,6 +57,7 @@ cask "vlc"
 cask "whatsapp"
 mas "Amphetamine", id: 937984704
 mas "DaVinci Resolve", id: 571213070
+mas "Day One", id: 1055511498
 mas "Hidden Bar", id: 1452453066
 mas "Magnet", id: 441258766
 mas "Microsoft Remote Desktop", id: 1295203466
