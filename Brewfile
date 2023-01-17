@@ -1,4 +1,5 @@
 tap "buo/cask-upgrade"
+tap "caarlos0/tap"
 tap "charmbracelet/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -30,6 +31,7 @@ brew "ripgrep"
 brew "tmux"
 brew "tree"
 brew "ttyd", args: ["HEAD"]
+brew "caarlos0/tap/timer"
 brew "charmbracelet/tap/vhs"
 cask "1password"
 cask "alfred"
