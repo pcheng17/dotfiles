@@ -32,6 +32,19 @@ case "$OSTYPE" in
     ;;
 esac
 
+# CLI pomodoro 
+declare -A pomo_options
+pomo_options["work"]="45"
+pomo_options["break"]="10"
+
+pomodoro () {
+  if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
+  val=$1
+  timer ${pomo_options["$val"]}m
+  fi
+}
+alias pom="pomodoro"
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
