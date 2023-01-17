@@ -2,7 +2,7 @@ _exists() {
     command -v $1 > /dev/null 2>&1
 }
 
-alias clr='clear'
+alias clc='clear'
 alias qq='~ && clear'
 alias rg='rg --smart-case'
 
