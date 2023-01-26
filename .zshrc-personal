@@ -34,13 +34,13 @@ esac
 
 # CLI pomodoro 
 declare -A pomo_options
-pomo_options["work"]="45"
-pomo_options["break"]="10"
+pomo_options["work"]="-n Work 45m"
+pomo_options["break"]="-n Break 10m"
 
 pomodoro () {
   if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
   val=$1
-  timer ${pomo_options["$val"]}m
+  echo "${pomo_options["$1"]}" | xargs timer
   fi
 }
 alias pom="pomodoro"
