@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.python3_host_prog = "~/.pyenv/versions/3.11.2/envs/neovim/bin/python"
 
 vim.cmd[[set noshowmode]]
 

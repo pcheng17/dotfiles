@@ -10,13 +10,11 @@ bindkey -v
 export LESS="-F -X $LESS"
 
 # Python virtualenv settings
-export WORKON_HOME=$HOME/.virtualenvs
 case "$OSTYPE" in
     darwin*)
-        # Location of Python with virtualenvwrapper should already be set in path
-        source /opt/homebrew/bin/virtualenvwrapper.sh
     ;;
     linux*)
+        export WORKON_HOME=$HOME/.virtualenvs
         export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 	    source /usr/local/bin/virtualenvwrapper.sh
     ;;
