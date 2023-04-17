@@ -6,8 +6,7 @@ alias clc='clear'
 alias qq='~ && clear'
 alias rg='rg --smart-case'
 
-alias zshconfig='nvim ~/.zshrc'
-alias ohmyzsh='nvim ~/.oh-my-zsh'
+alias ez='nvim ~/.zshrc'
 alias rld='source ~/.zshrc'
 
 alias dfs='cd ~/.dotfiles'
