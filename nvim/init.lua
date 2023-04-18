@@ -1,14 +1,27 @@
-require('general')
-require('remaps')
 
-require('plugins')
-require('configs.color')
-require('configs.indent-blankline')
-require('configs.lualine')
-require('configs.mason')
-require('configs.lspconfig')
-require('configs.telescope')
-require('configs.treesitter')
-require('configs.nvim-cmp')
+-- .
+-- ├── init.lua
+-- ├── ...
+-- └── lua
+--     ├── plugins
+--     │   ├── init.lua
+--     │   └── telescope.lua
+--     └── user
+--         ├── init.lua
+--         ├── lazy_bootstrap.lua
+--         ├── maps.lua
+--         └── options.lua
 
-require('keymaps')
+----------------------------------------------[[ Bootstrap Lazy ]]
+
+require("user/lazy_bootstrap")   -- bootstraps folke/lazy
+
+----------------------------------------------[[  User Settings ]]
+
+require("user")                  -- loads lua/user/init.lua
+require("user/options")          -- loads lua/user/options.lua
+require("user/maps")             -- etc.
+
+----------------------------------------------[[  Load Plugins  ]]
+
+require("lazy").setup("plugins") -- loads each lua/plugin/*

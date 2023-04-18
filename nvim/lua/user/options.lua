@@ -1,0 +1,26 @@
+local fn = vim.fn
+local o = vim.opt
+
+o.colorcolumn = "100" -- color column
+o.completeopt = { "menu", "menuone", "noselect", "noinsert" } -- A comma separated list of options for Insert mode completion
+o.cursorline = true -- cursor line
+o.errorbells = false -- no noise
+o.expandtab = true -- expand tab into spaces
+o.hlsearch = true -- highlight search
+o.incsearch = true -- incremental search
+o.number = true -- show line numbers (or only the current one)
+o.relativenumber = true -- line numbers
+o.scrolloff = 8
+o.shiftwidth = 4
+o.softtabstop = 4
+o.splitright = true -- vertical split splits to the right
+o.splitbelow = true -- horizontal split splits below
+o.smartcase = true -- smart case
+o.smartindent = true -- make indenting smarter again
+o.swapfile = false -- enable/disable swap file creation
+o.tabstop = 4 -- how many columns a tab counts for
+o.termguicolors = true -- set term gui colors (most terminals support this)
+o.undodir = fn.stdpath("data") .. "/undodir" -- set undo directory
+o.undofile = true -- enable/disable undo file creation
+o.wildignorecase = true -- When set case is ignored when completing file names and directories
+o.wildmode = "full"
