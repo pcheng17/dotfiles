@@ -16,7 +16,6 @@ inoremap = bind('i')
 
 vim.g.mapleader = " "
 
--- stylua: ignore start
 nnoremap('J' , '10j' , { desc = 'Fast vertical movement' })
 nnoremap('K' , '10k' , { desc = 'Fast vertical movement' })
 vnoremap('J' , '10j' , { desc = 'Fast vertical movement' })
@@ -42,4 +41,14 @@ nnoremap('--', ':vertical resize -5<cr>', { desc = 'Decrease the width of the ac
 
 nnoremap('ga' , '<Plug>(EasyAlign)')
 xnoremap('ga' , '<Plug>(EasyAlign)')
--- stylua: ignore end
+
+-- Requires Telescope, fuzzy finder only git files
+function smart_find_files()
+    local is_git = os.execute("git status &>/dev/null")
+    if (is_git == 0) then
+        vim.cmd(":Telescope git_files")
+    else
+        vim.cmd(":Telescope find_files")
+    end
+end
+nnoremap('<leader><space>', smart_find_files)
