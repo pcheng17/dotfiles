@@ -29,15 +29,13 @@
     ~/.tmux.conf: .tmux.conf
     ~/.zshrc: .zshrc
     ~/.oh-my-zsh/custom/aliases.zsh: aliases.zsh
-    ~/.config/nvim/init.lua:
+    ~/.config/nvim:
         create: true
-        path: nvim/init.lua
-    ~/.config/nvim/lua: nvim/lua
-    ~/.config/nvim/ftplugin: nvim/ftplugin
-    ~/.vim/my-snippets:
-        create: true
-        path: nvim/snippets
-    ~/.vim/after: nvim/after
+        path: nvim
     ~/.config/kitty:
         create: true
         path: kitty
+    # ~/.vim/my-snippets:
+    #     create: true
+    #     path: nvim/snippets
+    # ~/.vim/after: nvim/after
