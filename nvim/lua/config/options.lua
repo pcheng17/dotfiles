@@ -7,6 +7,7 @@ local fn = vim.fn
 local opt = vim.opt
 
 opt.colorcolumn = "100"
+opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 opt.list = false
 opt.scrolloff = 8
 opt.shiftwidth = 4
