@@ -13,6 +13,7 @@ alias dfs='cd ~/.dotfiles'
 alias ev='nvim ~/.dotfiles/nvim/init.vim'
 
 alias gcob='git branch | fzf | xargs git checkout'
+alias apoet="source \"\$(poetry env list --full-path | grep Activated | cut -d' ' -f1 )/bin/activate\""
 
 case "$OSTYPE" in
     darwin*)
