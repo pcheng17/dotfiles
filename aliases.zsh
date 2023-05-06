@@ -10,7 +10,7 @@ alias ez='nvim ~/.zshrc'
 alias rld='source ~/.zshrc'
 
 alias dfs='cd ~/.dotfiles'
-alias ev='nvim ~/.dotfiles/nvim/init.vim'
+alias edfs='nvim ~/.dotfiles'
 
 alias gcob='git branch | fzf | xargs git checkout'
 alias apoet="source \"\$(poetry env list --full-path | grep Activated | cut -d' ' -f1 )/bin/activate\""

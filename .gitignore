@@ -1,2 +1,4 @@
 work/
+private/*
+!private/.keep
 nvim/lazy-lock.json
