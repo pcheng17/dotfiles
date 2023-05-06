@@ -7,7 +7,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # pyenv settings
 # https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv
