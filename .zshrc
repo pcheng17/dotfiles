@@ -9,11 +9,6 @@ fi
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 
-# Extend the history that's saved in .zsh_history
-export HISTSIZE=1000000
-export SAVEHIST=$HISTSIZE
-setopt EXTENDED_HISTORY
-
 # pyenv settings
 # https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -106,9 +101,6 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -123,15 +115,17 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Extend the history that's saved in .zsh_history
+export HISTSIZE=1000000
+export SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY
+
 # Heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/pcheng/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 # Customize fzf
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 export FZF_DEFAULT_OPTS="--height 50% --border"
-
-# Enable vi mode
-bindkey -v
 
 # Tell `less` not to paginate if less than a page
 export LESS="-F -X $LESS"
@@ -141,6 +135,7 @@ case "$OSTYPE" in
     darwin*)
     ;;
     linux*)
+        # Deprecate
         export WORKON_HOME=$HOME/.virtualenvs
         export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 	    source /usr/local/bin/virtualenvwrapper.sh
@@ -170,4 +165,3 @@ pomodoro () {
   fi
 }
 alias pom="pomodoro"
-

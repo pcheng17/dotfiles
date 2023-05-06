@@ -17,12 +17,6 @@
     - command: git config --global core.excludesFile "~/.dotfiles/gitconfig/gitignore"
       description: Include master gitignore
       quiet: true
-    - command: sh -c 'curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-      description: Install vim-plug (vim)
-      quiet: true
-    - command: sh -c 'curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-      description: Install vim-plug (neovim)
-      quiet: true
 
 - link:
     ~/Brewfile: Brewfile
@@ -35,7 +29,3 @@
     ~/.config/kitty:
         create: true
         path: kitty
-    # ~/.vim/my-snippets:
-    #     create: true
-    #     path: nvim/snippets
-    # ~/.vim/after: nvim/after
