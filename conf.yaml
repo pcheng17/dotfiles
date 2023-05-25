@@ -17,6 +17,9 @@
     - command: git config --global core.excludesFile "~/.dotfiles/gitconfig/gitignore"
       description: Include master gitignore
       quiet: true
+    - command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      description: Install oh-my-zsh
+      quiet: true
 
 - link:
     ~/Brewfile: Brewfile
