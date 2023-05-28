@@ -39,7 +39,6 @@ brew "openvdb"
 brew "pyenv"
 brew "pyenv-virtualenv"
 brew "ripgrep"
-brew "syncthing"
 brew "tmux"
 brew "tree"
 brew "ttyd", args: ["HEAD"]
