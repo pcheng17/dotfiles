@@ -14,3 +14,5 @@ opt.shiftwidth = 4
 opt.tabstop = 4
 opt.undodir = fn.stdpath("data") .. "/undodir" -- set undo directory
 opt.undofile = true -- enable/disable undo file creation
+opt.textwidth = 100
+opt.colorcolumn = "+1"
