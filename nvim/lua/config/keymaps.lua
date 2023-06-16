@@ -20,3 +20,8 @@ map("n", "U", "mzJ`z", { noremap = true, desc = "Append next line to current lin
 map("n", "<leader>fd", "<cmd>Ex<cr>", { silent = true, desc = "Open native file explorer" })
 
 map({ "n", "x" }, "ga", "<Plug>(EasyAlign)")
+
+map("n", "<leader>fs", "<cmd>update<cr>")
+map("n", "<leader>qq", "<cmd>q<cr>")
+map("n", "<leader>fq", "<cmd>q!<cr>")
+map("n", "<leader>sq", "<cmd>wq<cr>")
