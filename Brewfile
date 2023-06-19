@@ -81,6 +81,7 @@ cask "todoist"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
+cask "zotero"
 mas "Amphetamine", id: 937984704
 mas "DaVinci Resolve", id: 571213070
 mas "Day One", id: 1055511498
