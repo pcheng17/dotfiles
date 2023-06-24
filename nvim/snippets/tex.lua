@@ -105,9 +105,8 @@ return {
     )
   ),
 
-  -- Begin/end environments
   s(
-    { trig = "beg", desc = "Begin/end environemnts" },
+    { trig = "beg", dscr = "Begin/end environemnts" },
     fmta(
       [[
         \begin{<>}
@@ -116,6 +115,63 @@ return {
       ]],
       { i(1), i(0), rep(1) }
     )
+  ),
+
+  -- Implementing both `,.` and `.,` so I can be messy about how I roll those two keys. 
+  -- No matter what, I'll end up with the same outcome.
+  --stylua: ignore
+  s(
+    {
+      trig = "([%a])(,%.)",
+      dscr = "Math bold face",
+      regTrig = true, wordTrig = false, snippetType = "autosnippet",
+    },
+    fmta("\\mathbf{<>}", { f(function(_, snip) return snip.captures[1] end) })
+  ),
+  --stylua: ignore
+  s(
+    {
+      trig = "([%a])(%.,)",
+      dscr = "Math bold face",
+      regTrig = true, wordTrig = false, snippetType = "autosnippet",
+    },
+    fmta("\\mathbf{<>}", { f(function(_, snip) return snip.captures[1] end) })
+  ),
+
+  s(
+    { trig = "trans", name = "transpose", wordTrig = false, snippetType = "autosnippet" },
+    t("^{\\top}"),
+    { condition = tex.in_math }
+  ),
+  s(
+    { trig = "sr", name = "squared", wordTrig = false, snippetType = "autosnippet" },
+    t("^2"),
+    { condition = tex.in_math }
+  ),
+  s(
+    { trig = "cb", name = "cubed", wordTrig = false, snippetType = "autosnippet" },
+    t("^3"),
+    { condition = tex.in_math }
+  ),
+  s(
+    { trig = "RR", name = "R", wordTrig = false, snippetType = "autosnippet" },
+    t("\\mathbb{R}"),
+    { condition = tex.in_math }
+  ),
+  s(
+    { trig = "QQ", name = "Q", wordTrig = false, snippetType = "autosnippet" },
+    t("\\mathbb{Q}"),
+    { condition = tex.in_math }
+  ),
+  s(
+    { trig = "ZZ", name = "Z", wordTrig = false, snippetType = "autosnippet" },
+    t("\\mathbb{Z}"),
+    { condition = tex.in_math }
+  ),
+  s(
+    { trig = "NN", name = "N", wordTrig = false, snippetType = "autosnippet" },
+    t("\\mathbb{N}"),
+    { condition = tex.in_math }
   ),
 
   -- Greek symbols

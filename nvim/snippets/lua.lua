@@ -11,9 +11,11 @@ local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 
 return {
-  -- Simple text snippet
   s(
-    "snipt",
+    {
+      trig = "snipt",
+      dscr = "Snippet for a text snippet",
+    },
     fmta(
       [[
         <>(<>, {t('<>')}<>
@@ -29,4 +31,6 @@ return {
       }
     )
   ),
+
+  s({ trig = "nosty", dscr = "Ignore styling" }, { t("--stylua: ignore") }),
 }
