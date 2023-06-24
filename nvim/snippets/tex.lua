@@ -33,11 +33,23 @@ end
 local line_begin = require("luasnip.extras.expand_conditions").line_begin
 
 return {
-  -- Inline math
   s(
     {
       trig = "mk",
-      dscr = "Inline math environment",
+      dscr = "Inline math environment at the beginning of a line",
+      snippetType = "autosnippet",
+    },
+    fmta("$<>$", {
+      d(1, get_visual),
+    }),
+    { condition = line_begin }
+  ),
+
+  s(
+    {
+      trig = "([^%a])mk",
+      dscr = "Inline math environment only when `mk` is not part of a word",
+      regTrig = true,
       wordTrig = false,
       snippetType = "autosnippet",
     },
@@ -47,6 +59,50 @@ return {
       end),
       d(1, get_visual),
     })
+  ),
+
+  s(
+    {
+      trig = "dm",
+      dscr = "Block math environment at the beginning of a line",
+      snippetType = "autosnippet",
+    },
+    fmta(
+      [[
+        $$
+          <>
+        $$
+        <>
+      ]],
+      { d(1, get_visual), i(0) }
+    ),
+    { condition = line_begin }
+  ),
+
+  s(
+    {
+      trig = "([^%a])dm",
+      dscr = "Block math environment only when `dm` is not part of a word",
+      regTrig = true,
+      wordTrig = false,
+      snippetType = "autosnippet",
+    },
+    fmta(
+      [[
+        <>
+        $$
+          <>
+        $$
+        <>
+      ]],
+      {
+        f(function(_, snip)
+          return snip.captures[1]
+        end),
+        d(1, get_visual),
+        i(0),
+      }
+    )
   ),
 
   -- Begin/end environments
