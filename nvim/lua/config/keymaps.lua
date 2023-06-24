@@ -14,7 +14,7 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
-map("n", "x", '"_x', { noremap = true, desc = "Delete into the black hole register" })
+-- map("n", "x", '"_x', { noremap = true, desc = "Delete into the black hole register" })
 map("n", "Q", "@@", { noremap = true, desc = "Repeat the last macro" })
 map("n", "U", "mzJ`z", { noremap = true, desc = "Append next line to current line with space" })
 map("n", "<leader>fd", "<cmd>Ex<cr>", { silent = true, desc = "Open native file explorer" })
@@ -25,3 +25,9 @@ map("n", "<leader>fs", "<cmd>update<cr>")
 map("n", "<leader>qq", "<cmd>q<cr>")
 map("n", "<leader>fq", "<cmd>q!<cr>")
 map("n", "<leader>sq", "<cmd>wq<cr>")
+
+map(
+  "n",
+  "<leader>U",
+  "<cmd>lua require('luasnip.loaders.from_lua').lazy_load({ paths = '~/.config/nvim/snippets'})<cr>"
+)
