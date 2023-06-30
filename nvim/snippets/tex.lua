@@ -117,30 +117,67 @@ return {
     )
   ),
 
+  s(
+    { trig = "part", name = "Partial derivative" },
+    fmta("\\frac{\\partial <>}{\\partial <>}<>", { i(1), i(2), i(0) })
+  ),
+
   -- Implementing both `,.` and `.,` so I can be messy about how I roll those two keys. 
   -- No matter what, I'll end up with the same outcome.
   --stylua: ignore
   s(
     {
-      trig = "([%a])(,%.)",
-      dscr = "Math bold face",
+      trig = "([%w])(,%.)",
+      name = "Vector value",
+      dscr = {
+        "Uses the `vect` function to display vector notation. ",
+        "This requires a `vect` command to be defined for the document."
+      },
       regTrig = true, wordTrig = false, snippetType = "autosnippet",
     },
-    fmta("\\mathbf{<>}", { f(function(_, snip) return snip.captures[1] end) })
+    fmta("\\vect{<>}", { f(function(_, snip) return snip.captures[1] end) }),
+    { condition = tex.in_math }
   ),
   --stylua: ignore
   s(
     {
-      trig = "([%a])(%.,)",
-      dscr = "Math bold face",
+      trig = "([%w])(%.,)",
+      name = "Vector value",
+      dscr = {
+        "Uses the `vect` function to display vector notation. ",
+        "This requires a `vect` command to be defined for the document."
+      },
       regTrig = true, wordTrig = false, snippetType = "autosnippet",
     },
-    fmta("\\mathbf{<>}", { f(function(_, snip) return snip.captures[1] end) })
+    fmta("\\vect{<>}", { f(function(_, snip) return snip.captures[1] end) }),
+    { condition = tex.in_math }
+  ),
+
+  --stylua: ignore
+  s(
+    {
+      trig = "sum",
+      name = "summation",
+      regTrig = true, wordTrig = false, snippetType = "autosnippet",
+    },
+    fmta("\\sum_{<>=<>}^{<>} <>", { i(1), i(2), i(3), i(0) }),
+    { condition = tex.in_math }
+  ),
+
+  s(
+    { trig = "_", name = "underscore", wordTrig = false, snippetType = "autosnippet" },
+    fmta("_{<>}<>", { i(1), i(0) }),
+    { condition = tex.in_math }
   ),
 
   s(
     { trig = "trans", name = "transpose", wordTrig = false, snippetType = "autosnippet" },
     t("^{\\top}"),
+    { condition = tex.in_math }
+  ),
+  s(
+    { trig = "->", name = "to", wordTrig = false, snippetType = "autosnippet" },
+    t("\\to"),
     { condition = tex.in_math }
   ),
   s(
@@ -151,6 +188,16 @@ return {
   s(
     { trig = "cb", name = "cubed", wordTrig = false, snippetType = "autosnippet" },
     t("^3"),
+    { condition = tex.in_math }
+  ),
+  s(
+    { trig = "inn", name = "in", wordTrig = false, snippetType = "autosnippet" },
+    t("\\in"),
+    { condition = tex.in_math }
+  ),
+  s(
+    { trig = "xx", name = "times", wordTrig = false, snippetType = "autosnippet" },
+    t("\\times"),
     { condition = tex.in_math }
   ),
   s(
@@ -282,7 +329,40 @@ return {
     t("\\quad \\text{and} \\quad"),
   }, { condition = tex.in_math }),
 
+  -- Non-math-mode snippets
   s({ trig = "toc", snippetType = "autosnippet" }, {
     t("\\tableofcontents"),
   }, { condition = line_begin }),
+
+  -- I tried to be generic, but I think this snippet prevents me from then creating a snippet that
+  -- will handle something like ijk-th.
+  -- s(
+  --   {
+  --     trig = "([^%a])([%a])th",
+  --     name = "-th",
+  --     regTrig = true,
+  --     wordTrig = false,
+  --     snippetType = "autosnippet",
+  --   },
+  --   fmta("<>$<>$-th", {
+  --     f(function(_, snip) return snip.captures[1] end),
+  --     f(function(_, snip) return snip.captures[2] end),
+  --   })
+  -- ),
+
+  s({ trig = "ith", name = "i-th", snippetType = "autosnippet" }, {
+    t("$i$-th"),
+  }),
+  s({ trig = "jth", name = "j-th", snippetType = "autosnippet" }, {
+    t("$j$-th"),
+  }),
+  s({ trig = "kth", name = "k-th", snippetType = "autosnippet" }, {
+    t("$k$-th"),
+  }),
+  s({ trig = "ijth", name = "ij-th", snippetType = "autosnippet" }, {
+    t("$ij$-th"),
+  }),
+  s({ trig = "ijkth", name = "ijk-th", snippetType = "autosnippet" }, {
+    t("$ij$-th"),
+  }),
 }
