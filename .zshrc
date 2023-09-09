@@ -165,3 +165,11 @@ pomodoro () {
   fi
 }
 alias pom="pomodoro"
+
+# pnpm
+export PNPM_HOME="/Users/pcheng/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
