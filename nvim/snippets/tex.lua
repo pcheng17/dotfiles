@@ -325,9 +325,9 @@ return {
     t("\\Omega"),
   }, { condition = tex.in_math }),
 
-  s({ trig = "and", snippetType = "autosnippet" }, {
-    t("\\quad \\text{and} \\quad"),
-  }, { condition = tex.in_math }),
+  -- s({ trig = "and", snippetType = "autosnippet" }, {
+  --   t("\\quad \\text{and} \\quad"),
+  -- }, { condition = tex.in_math }),
 
   -- Non-math-mode snippets
   s({ trig = "toc", snippetType = "autosnippet" }, {
