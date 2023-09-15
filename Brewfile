@@ -83,10 +83,10 @@ cask "skim"
 cask "skype"
 cask "spotify"
 cask "steam"
-cask "todoist"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
+cask "zed"
 cask "zotero"
 mas "Amphetamine", id: 937984704
 mas "DaVinci Resolve", id: 571213070
