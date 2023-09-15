@@ -39,6 +39,8 @@
     nah = reset --hard
     # Pull in remote changes for the current repository and all of its submodules.
     p = pull --recurse-submodules
+    # Pull upstream and push origin to update my fork
+    pupo = !"git pull upstream && git push origin"
     # Interactive rebase with the given number of latest commits.
     reb = "!r() { git rebase -i HEAD~$1; }; r"
     # Show verbose output about remote.
