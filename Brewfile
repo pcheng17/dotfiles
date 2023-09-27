@@ -73,6 +73,7 @@ cask "google-chrome"
 cask "iterm2"
 cask "kitty"
 cask "linear-linear"
+cask "mos"
 cask "notion"
 cask "numi"
 cask "obs"
@@ -89,6 +90,7 @@ cask "whatsapp"
 cask "zed"
 cask "zotero"
 mas "Amphetamine", id: 937984704
+mas "CleanMyMac X", id: 1339170533
 mas "DaVinci Resolve", id: 571213070
 mas "Day One", id: 1055511498
 mas "Hidden Bar", id: 1452453066
