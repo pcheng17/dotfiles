@@ -15,6 +15,8 @@ alias edfs='nvim ~/.dotfiles'
 alias gcob='git branch | fzf | xargs git checkout'
 alias apoet="source \"\$(poetry env list --full-path | grep Activated | cut -d' ' -f1 )/bin/activate\""
 
+alias lzg='lazygit'
+
 case "$OSTYPE" in
     darwin*)
         alias wk='cd ~/Workspace'
