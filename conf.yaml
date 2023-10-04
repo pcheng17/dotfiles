@@ -17,6 +17,12 @@
     - command: git config --global core.excludesFile "~/.dotfiles/gitconfig/gitignore"
       description: Include master gitignore
       quiet: true
+    - command: git config --global merge.commit no
+      description: Do not automatically commit merges
+      quiet: true
+    - command: git config --global merge.ff no
+      description: Do not allow fast-forward merges
+      quiet: true
     - command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
       description: Install oh-my-zsh
       quiet: true
