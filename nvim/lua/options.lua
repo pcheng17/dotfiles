@@ -1,7 +1,7 @@
 local fn = vim.fn
 local opt = vim.opt
 
-opt.guicursor = ""
+-- opt.guicursor = ""
 opt.termguicolors = true
 
 opt.cursorline = true
@@ -9,13 +9,14 @@ opt.cursorline = true
 opt.nu = true
 opt.relativenumber = true
 
+opt.smartindent = true
+
 opt.incsearch = true
 
 opt.wrap = false
 
 opt.textwidth = 100
 opt.colorcolumn = "+1"
-
 
 opt.shiftwidth = 4
 opt.tabstop = 4
