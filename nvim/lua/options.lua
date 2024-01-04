@@ -2,6 +2,7 @@ local fn = vim.fn
 local opt = vim.opt
 
 opt.guicursor = ""
+opt.termguicolors = true
 
 opt.cursorline = true
 
@@ -9,6 +10,12 @@ opt.nu = true
 opt.relativenumber = true
 
 opt.incsearch = true
+
+opt.wrap = false
+
+opt.textwidth = 100
+opt.colorcolumn = "+1"
+
 
 opt.shiftwidth = 4
 opt.tabstop = 4
@@ -23,12 +30,5 @@ opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 opt.conceallevel = 0
 opt.list = false
 opt.scrolloff = 8
-
-opt.textwidth = 100
-opt.colorcolumn = "+1"
-
-opt.wrap = false
-
-opt.termguicolors = true
 
 opt.clipboard = "unnamed"
