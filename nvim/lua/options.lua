@@ -12,6 +12,7 @@ opt.relativenumber = true
 opt.smartindent = true
 
 opt.incsearch = true
+opt.hlsearch = false
 
 opt.wrap = false
 
