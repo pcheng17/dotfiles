@@ -1,0 +1,14 @@
+require('general')
+require('remaps')
+
+require('plugins')
+require('configs.color')
+require('configs.indent-blankline')
+require('configs.lualine')
+require('configs.mason')
+require('configs.lspconfig')
+require('configs.telescope')
+require('configs.treesitter')
+require('configs.nvim-cmp')
+
+require('keymaps')

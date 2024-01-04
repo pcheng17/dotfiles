@@ -15,10 +15,14 @@
     bs = branch --all
     # Clone a repository including all submodules.
     c = clone --recursive
-    # Simple alias for usual commit technique.
-    cm = commit -am
-    # Simple alias for verbose commit technique.
-    cmv = commit -av
+    # Alias just for commit.
+    cm = commit
+    # Alias for commit with add and message
+    cmam = commit -am
+    # Alias for usual commit technique.
+    cmm = commit -m
+    # Alias for verbose commit technique.
+    cmv = commit -v
     # Simple alias for default checkout.
     co = checkout
     # List contributors with number of commits.
@@ -35,6 +39,8 @@
     nah = reset --hard
     # Pull in remote changes for the current repository and all of its submodules.
     p = pull --recurse-submodules
+    # Pull upstream and push origin to update my fork
+    pupo = !"git pull upstream && git push origin"
     # Interactive rebase with the given number of latest commits.
     reb = "!r() { git rebase -i HEAD~$1; }; r"
     # Show verbose output about remote.

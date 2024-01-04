@@ -1,6 +1,9 @@
 # MacOS files
 .DS_Store
 
+# env files for storing secrets
+.env
+
 # Vim & Neovim swap files
 *.swp
 
@@ -9,10 +12,12 @@ __pycache__/
 *.py[cod]
 
 # Python environments
-.env
 .venv
 env/
 venv/
+
+# pyenv files
+.python-version
 
 # Compiled object files
 *.slo

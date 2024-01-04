@@ -1,4 +1,8 @@
-local nvim_lsp = require('lspconfig')
+require('mason-lspconfig').setup({
+    ensure_installed = { 'clangd', 'pyright', 'rust_analyzer' }
+})
+
+local lspconfig = require('lspconfig')
 
 -- Use an on_attach function to only map the follow keys after the language
 -- server attaches to the current buffer.
@@ -18,11 +22,19 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 end
 
-nvim_lsp.clangd.setup {
+lspconfig.clangd.setup {
     on_attach = on_attach,
     cmd = {
         "clangd",
         "--background-index",
         "--suggest-missing-includes"
     },
+}
+
+lspconfig.pyright.setup {
+    on_attach = on_attach,
+}
+
+lspconfig.rust_analyzer.setup {
+    on_attach = on_attach,
 }
