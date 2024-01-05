@@ -20,6 +20,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Initialize plugins
 require("lazy").setup("plugins")
 
 vim.g.netrw_browse_split = 0
