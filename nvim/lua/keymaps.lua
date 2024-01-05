@@ -12,3 +12,5 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, desc = "Move visual block down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, desc = "Move visual block up" })
+
+vim.keymap.set("n", "<leader>lg", "<cmd>terminal lazygit<cr>", { noremap = true, desc = "LazyGit" })
