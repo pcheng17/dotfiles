@@ -1,13 +1,18 @@
 return {
     {
         "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
         config = function()
-            require("indent_blankline").setup {
-                show_current_context = true,
-                filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
-                -- show_current_context_start = true,
-                -- show_trailing_blankline_indent = false,
-            }
+            require("ibl").setup({
+                scope = {
+                    enabled = true,
+                    show_start = false,
+                },
+                indent = { char = "│" },
+                exclude = {
+                    filetypes = { "help", "alpha", "dashboard", "Trouble", "lazy" }
+                },
+            })
         end
     }
 }
