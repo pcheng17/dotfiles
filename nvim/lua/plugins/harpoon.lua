@@ -24,12 +24,12 @@ return {
         --     }):find()
         -- end
 
-        vim.keymap.set("n", "<leader>ha", function() harpoon:list():append() end)
-        vim.keymap.set("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-        vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
-        vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
-        vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
-        vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
+        vim.keymap.set("n", "<leader>ha", function() harpoon:list():append() end, { noremap = true, desc = "Add current file to harpoon" })
+        vim.keymap.set("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { noremap = true, desc = "Open harpoon window" })
+        vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end, { noremap = true, desc = "Go to harpoon 1" })
+        vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end, { noremap = true, desc = "Go to harpoon 2" })
+        vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end, { noremap = true, desc = "Go to harpoon 3" })
+        vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end, { noremap = true, desc = "Go to harpoon 4" })
 
         -- vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
     end
