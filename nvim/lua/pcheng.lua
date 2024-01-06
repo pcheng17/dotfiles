@@ -33,9 +33,29 @@ local autocmd = vim.api.nvim_create_autocmd
 
 local myGroup = augroup("pcheng", {})
 
+-- Enter insert mode when opening a terminal
 autocmd("TermOpen", {
     group = myGroup,
     pattern = "*",
     command = "startinsert",
+})
+
+-- Remove trailing whitespace
+autocmd({"BufWritePre"}, {
+    group = myGroup,
+    pattern = "*",
+    command = [[%s/\s\+$//e]],
+})
+
+autocmd('LspAttach', {
+    group = myGroup,
+    callback = function(e)
+        local opts = { buffer = e.buf }
+        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+        vim.keymap.set("n", "<leader>grr", function() vim.lsp.buf.references() end, opts)
+        vim.keymap.set("n", "<leader>grn", function() vim.lsp.buf.rename() end, opts)
+        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    end
 })
 
