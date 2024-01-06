@@ -60,6 +60,7 @@ autocmd('LspAttach', {
     callback = function(e)
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { buffer = e.buf, desc = "Go to definition" })
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, { buffer = e.buf, desc = "Show hover help" })
+        vim.keymap.set("n", "<leader>gca", function() vim.lsp.buf.code_action() end, { buffer = e.buf, desc = "Show code actions" })
         vim.keymap.set("n", "<leader>grr", function() vim.lsp.buf.references() end, { buffer = e.buf, desc = "Show references" })
         vim.keymap.set("n", "<leader>grn", function() vim.lsp.buf.rename() end, { buffer = e.buf, desc = "Rename symbol" })
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { buffer = e.buf, desc = "Show signature help" })
