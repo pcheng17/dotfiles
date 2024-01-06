@@ -34,7 +34,7 @@ local autocmd = vim.api.nvim_create_autocmd
 local myGroup = augroup("pcheng", {})
 
 -- Enter insert mode when opening a terminal
-autocmd("TermOpen", {
+autocmd({"TermOpen"}, {
     group = myGroup,
     pattern = "*",
     command = "startinsert",
@@ -63,6 +63,7 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "<leader>grr", function() vim.lsp.buf.references() end, { buffer = e.buf, desc = "Show references" })
         vim.keymap.set("n", "<leader>grn", function() vim.lsp.buf.rename() end, { buffer = e.buf, desc = "Rename symbol" })
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { buffer = e.buf, desc = "Show signature help" })
+        vim.keymap.set('n', '<space>fmt', function() vim.lsp.buf.format({ async = true }) end, { buffer = e.buf, desc = "Format buffer" })
     end
 })
 
