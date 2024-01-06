@@ -1,3 +1,15 @@
+local server_opts = {
+    ["lua_ls"] = {
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { 'vim' }
+                }
+            }
+        }
+    }
+}
+
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -14,9 +26,11 @@ return {
             },
             handlers = {
                 function(server_name)
-                    require("lspconfig")[server_name].setup({})
+                    require("lspconfig")[server_name].setup(
+                        server_opts[server_name] or {}
+                    )
                 end,
-            },
+            }
         })
     end
 }
