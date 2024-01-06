@@ -47,15 +47,22 @@ autocmd({"BufWritePre"}, {
     command = [[%s/\s\+$//e]],
 })
 
+-- Set global formatoptions
+autocmd({"FileType"}, {
+    group = myGroup,
+    callback = function()
+        vim.opt_local.formatoptions:remove({"r", "o"})
+    end
+})
+
 autocmd('LspAttach', {
     group = myGroup,
     callback = function(e)
-        local opts = { buffer = e.buf }
-        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-        vim.keymap.set("n", "<leader>grr", function() vim.lsp.buf.references() end, opts)
-        vim.keymap.set("n", "<leader>grn", function() vim.lsp.buf.rename() end, opts)
-        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { buffer = e.buf, desc = "Go to definition" })
+        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, { buffer = e.buf, desc = "Show hover help" })
+        vim.keymap.set("n", "<leader>grr", function() vim.lsp.buf.references() end, { buffer = e.buf, desc = "Show references" })
+        vim.keymap.set("n", "<leader>grn", function() vim.lsp.buf.rename() end, { buffer = e.buf, desc = "Rename symbol" })
+        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { buffer = e.buf, desc = "Show signature help" })
     end
 })
 
