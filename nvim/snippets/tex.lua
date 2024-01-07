@@ -122,7 +122,7 @@ return {
     fmta("\\frac{\\partial <>}{\\partial <>}<>", { i(1), i(2), i(0) })
   ),
 
-  -- Implementing both `,.` and `.,` so I can be messy about how I roll those two keys. 
+  -- Implementing both `,.` and `.,` so I can be messy about how I roll those two keys.
   -- No matter what, I'll end up with the same outcome.
   --stylua: ignore
   s(
