@@ -13,30 +13,6 @@ return {
     },
     config = function()
         require("mason").setup({})
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "clangd",
-                "cmake",
-                "lua_ls",
-            },
-            handlers = {
-                function(server_name) -- default handler
-                    require("lspconfig")[server_name].setup({})
-                end,
-
-                ["lua_ls"] = function ()
-                    require("lspconfig").lua_ls.setup {
-                        settings = {
-                            Lua = {
-                                diagnostics = {
-                                    globals = { "vim" }
-                                }
-                            }
-                        }
-                    }
-                end,
-            }
-        })
 
         local cmp = require("cmp")
         cmp.setup({
@@ -64,16 +40,40 @@ return {
             })
         })
 
+        -- TODO Figure out what this capabilities thing is...
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                "clangd",
+                "cmake",
+                "lua_ls",
+            },
+            handlers = {
+                function(server_name) -- default handler
+                    require("lspconfig")[server_name].setup({
+                        capabilities = capabilities
+                    })
+                end,
+
+                ["lua_ls"] = function ()
+                    require("lspconfig").lua_ls.setup {
+                        settings = {
+                            Lua = {
+                                diagnostics = {
+                                    globals = { "vim" }
+                                }
+                            }
+                        },
+                        capabilities = capabilities
+                    }
+                end,
+            }
+        })
+
         -- TODO Do I need this?
         -- vim.diagnostic.config({
         --     virtual_text = true,
         -- })
 
-        -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
-        -- for _, lsp in ipairs(lsp_servers) do
-        --     require('lspconfig')[lsp].setup {
-        --         capabilities = capabilities
-        --     }
-        -- end
     end
 }
