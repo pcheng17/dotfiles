@@ -11,7 +11,18 @@ return {
                 },
                 indent = { char = "│" },
                 exclude = {
-                    filetypes = { "help", "alpha", "dashboard", "Trouble", "lazy" }
+                    filetypes = {
+                        "help",
+                        "alpha",
+                        "dashboard",
+                        "Trouble",
+                        "trouble",
+                        "lazy",
+                        "mason",
+                        "notify",
+                        "toggleterm",
+                        "lazyterm",
+                    }
                 },
             })
         end
