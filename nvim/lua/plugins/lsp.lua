@@ -55,7 +55,7 @@ return {
                     })
                 end,
 
-                ["lua_ls"] = function ()
+                ["lua_ls"] = function()
                     require("lspconfig").lua_ls.setup {
                         settings = {
                             Lua = {
