@@ -1,3 +1,12 @@
+local root_files = {
+    '.clangd',
+    '.clang-tidy',
+    '.clang-format',
+    'compile_commands.json',
+    'compile_flags.txt',
+    'configure.ac', -- AutoTools
+}
+
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -16,6 +25,8 @@ return {
 
         -- TODO Figure out what this capabilities thing is...
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
+        local lspconfig = require("lspconfig")
+
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "clangd",
@@ -39,6 +50,23 @@ return {
                                 }
                             }
                         },
+                    }
+                end,
+
+                ["clangd"] = function()
+                    require("lspconfig").clangd.setup {
+                        capabilities = capabilities,
+                        cmd = {
+                            "clangd",
+                            "--background-index",
+                            "--header-insertion=iwyu",
+                            "--suggest-missing-includes",
+                        },
+                        root_dir = function(fname)
+                            return
+                                lspconfig.util.root_pattern(unpack(root_files))(fname) or
+                                lspconfig.util.find_git_ancestor(fname)
+                        end,
                     }
                 end,
             }
