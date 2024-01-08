@@ -1,4 +1,5 @@
 vim.keymap.set("n", "<leader>lv", "<cmd>Lazy<cr>", { noremap = true, desc = "lazy.nvim" })
+vim.keymap.set("n", "<leader>lp", "<cmd>Ex ~/.dotfiles/nvim/lua/plugins<cr>", { noremap = true, desc = "Neovim plugins" })
 
 vim.keymap.set("n", "x", '"_x', { noremap = true, desc = "Delete into the black hole register" })
 vim.keymap.set("n", "Q", "@@", { noremap = true, desc = "Repeat the last macro" })
@@ -13,4 +14,3 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { noremap = true, desc = "Move visual block down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { noremap = true, desc = "Move visual block up" })
 
-vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<cr>", { noremap = true, desc = "LazyGit" })
