@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>lv", "<cmd>Lazy<cr>", { noremap = true, desc = "Open lazy.nvim" })
+vim.keymap.set("n", "<leader>lv", "<cmd>Lazy<cr>", { noremap = true, desc = "lazy.nvim" })
 
 vim.keymap.set("n", "x", '"_x', { noremap = true, desc = "Delete into the black hole register" })
 vim.keymap.set("n", "Q", "@@", { noremap = true, desc = "Repeat the last macro" })
