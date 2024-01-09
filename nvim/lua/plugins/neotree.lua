@@ -8,6 +8,21 @@ return {
         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function()
+        require("neo-tree").setup({
+            filesystem = {
+                filtered_items = {
+                    always_show = {
+                        ".gitignore",
+                    },
+                    never_show = {
+                        ".git",
+                        ".DS_Store",
+                        "lazy-lock.json"
+                    },
+                }
+            }
+        })
+
         vim.keymap.set("n", "<C-b>", "<cmd>Neotree toggle<CR>", { noremap = true, silent = true });
     end
 }
