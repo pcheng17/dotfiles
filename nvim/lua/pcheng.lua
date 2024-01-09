@@ -1,9 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-require("options")
-require("keymaps")
-
 -- Boostrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -20,8 +17,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Initialize plugins
 require("lazy").setup("plugins")
+require("options")
+require("keymaps")
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
