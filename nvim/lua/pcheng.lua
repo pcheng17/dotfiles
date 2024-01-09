@@ -31,7 +31,16 @@ vim.g.netrw_winsize = 25
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-local myGroup = augroup("pcheng", {})
+local highlight_group = augroup('YankHighlight', { clear = true })
+autocmd('TextYankPost', {
+  group = highlight_group,
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  pattern = '*',
+})
+
+local myGroup = augroup("pcheng", { clear = true })
 
 -- Enter insert mode when opening a terminal
 autocmd({"TermOpen"}, {
@@ -58,13 +67,19 @@ autocmd({"FileType"}, {
 autocmd('LspAttach', {
     group = myGroup,
     callback = function(e)
-        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { buffer = e.buf, desc = "Go to definition" })
-        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, { buffer = e.buf, desc = "Show hover help" })
-        vim.keymap.set("n", "<leader>gca", function() vim.lsp.buf.code_action() end, { buffer = e.buf, desc = "Show code actions" })
-        vim.keymap.set("n", "<leader>grr", function() vim.lsp.buf.references() end, { buffer = e.buf, desc = "Show references" })
-        vim.keymap.set("n", "<leader>grn", function() vim.lsp.buf.rename() end, { buffer = e.buf, desc = "Rename symbol" })
-        vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, { buffer = e.buf, desc = "Show signature help" })
-        vim.keymap.set('n', '<space>fmt', function() vim.lsp.buf.format({ async = true }) end, { buffer = e.buf, desc = "Format buffer" })
+        local nmap = function(keys, func, desc)
+            vim.keymap.set("n", keys, func, { noremap = true, silent = true, buffer = e.buf, desc = desc })
+        end
+        local imap = function(keys, func, desc)
+            vim.keymap.set("i", keys, func, { noremap = true, silent = true, buffer = e.buf, desc = desc })
+        end
+        nmap("gd"          , function() vim.lsp.buf.definition() end             , "Go to definition")
+        nmap("K"           , function() vim.lsp.buf.hover() end                  , "Show hover help")
+        nmap("<leader>gca" , function() vim.lsp.buf.code_action() end            , "Show code actions")
+        nmap("<leader>grr" , function() vim.lsp.buf.references() end             , "Show references")
+        nmap("<leader>grn" , function() vim.lsp.buf.rename() end                 , "Rename symbol")
+        nmap("<space>fmt"  , function() vim.lsp.buf.format({ async = true }) end , "Format buffer")
+        imap("<C-h>"       , function() vim.lsp.buf.signature_help() end         , "Show signature help")
     end
 })
 

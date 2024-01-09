@@ -33,4 +33,4 @@ opt.conceallevel = 0
 opt.list = false
 opt.scrolloff = 8
 
-opt.clipboard = "unnamed"
+opt.clipboard = "unnamedplus"

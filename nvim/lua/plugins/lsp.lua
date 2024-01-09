@@ -10,7 +10,7 @@ local root_files = {
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        "williamboman/mason.nvim",
+        { "williamboman/mason.nvim", config = true },
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
@@ -19,6 +19,7 @@ return {
         "hrsh7th/nvim-cmp",
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
+        { "j-hui/fidget.nvim", opts = {} }
     },
     config = function()
         require("mason").setup({})

@@ -1,3 +1,8 @@
+vim.keymap.set({ "n", "v" }, "<space>", "<nop>", { noremap = true, silent = true })
+
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Move up by single line" })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc = "Move down by single line" })
+
 vim.keymap.set("n", "<leader>lv", "<cmd>Lazy<cr>", { noremap = true, desc = "lazy.nvim" })
 vim.keymap.set("n", "<leader>lp", "<cmd>Ex ~/.dotfiles/nvim/lua/plugins<cr>", { noremap = true, desc = "Neovim plugins" })
 
