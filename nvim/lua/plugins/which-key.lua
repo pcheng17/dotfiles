@@ -4,5 +4,9 @@ return {
         vim.o.timeout = true
         vim.o.timeoutlen = 300
     end,
-    opts = {}
+    config = function()
+        require("which-key").register({
+            ["<leader>f"] = { name = "File (Telescope)", _ = "which_key_ignore" },
+        })
+    end
 }
