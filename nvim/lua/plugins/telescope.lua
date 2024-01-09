@@ -52,11 +52,13 @@ return {
         end
 
         local builtin = require("telescope.builtin")
-        nmap("<leader>ff", builtin.find_files, "Telescope find files")
-        nmap("<leader>fd", builtin.git_files, "Telescope git files")
-        nmap("<leader>fs", "<cmd>LiveGrepGitRoot<cr>", "Telescope grep in git root")
-        nmap("<leader>fa", builtin.live_grep, "Telescope grep")
-        nmap("<leader>fb", builtin.buffers, "Telescope buffers")
-        nmap("<leader>fh", builtin.help_tags, "Telescope help tags")
+        nmap("<leader>ff" , builtin.find_files         , "Telescope find files")
+        nmap("<leader>fd" , builtin.git_files          , "Telescope git files")
+        nmap("<leader>fs" , "<cmd>LiveGrepGitRoot<cr>" , "Telescope grep in git root")
+        nmap("<leader>fa" , builtin.live_grep          , "Telescope grep")
+        nmap("<leader>f;" , builtin.buffers            , "Telescope buffers")
+        nmap("<leader>fh" , builtin.help_tags          , "Telescope help tags")
+        nmap("<leader>fk" , builtin.keymaps            , "Telescope keymaps")
+        nmap("<leader>?"  , builtin.oldfiles           , "Telescope oldfiles")
     end
 }
