@@ -2,11 +2,15 @@ return {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-        vim.keymap.set("n", "<leader>tt", function() require("trouble").toggle() end,
-            { noremap = true, silent = true, desc = "Trouble toggle" })
-        vim.keymap.set("n", "<leader>tn", function() require("trouble").next({ skip_groups = true, jump = true }) end,
-            { noremap = true, silent = true, desc = "Trouble next" })
-        vim.keymap.set("n", "<leader>tp", function() require("trouble").previous({ skip_groups = true, jump = true }) end,
-            { noremap = true, silent = true, desc = "Trouble previous" })
+        local trouble = require("trouble")
+        trouble.setup({})
+
+        local function nmap(keys, func, desc)
+            vim.keymap.set("n", keys, func, { noremap = true, silent = true, desc = desc })
+        end
+
+        nmap("<leader>tt", function() trouble.toggle() end, "Trouble toggle")
+        nmap("<leader>tn", function() trouble.next({ skip_groups = true, jump = true }) end, "Trouble next")
+        nmap("<leader>tp", function() trouble.previous({ skip_groups = true, jump = true }) end, "Trouble previous")
     end
 }

@@ -48,12 +48,16 @@ return {
 
         vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 
+        local function nmap(keys, func, desc)
+            vim.keymap.set("n", keys, func, { noremap = true, silent = true, desc = desc })
+        end
+
         local builtin = require("telescope.builtin")
-        vim.keymap.set("n", "<leader>ff", builtin.find_files, { noremap = true, silent = true, desc = "Telescope find files" })
-        vim.keymap.set("n", "<leader>fd", builtin.git_files, { noremap = true, silent = true, desc = "Telescope git files" })
-        vim.keymap.set("n", "<leader>fs", builtin.live_grep, { noremap = true, silent = true, desc = "Telescope grep" })
-        vim.keymap.set("n", "<leader>fa", "<cmd>LiveGrepGitRoot<cr>", { noremap = true, silent = true, desc = "Telescope grep in git root" })
-        vim.keymap.set("n", "<leader>fb", builtin.buffers, { noremap = true, silent = true, desc = "Telescope buffers" })
-        vim.keymap.set("n", "<leader>fh", builtin.help_tags, { noremap = true, silent = true, desc = "Telescope help tags" })
+        nmap("<leader>ff", builtin.find_files, "Telescope find files")
+        nmap("<leader>fd", builtin.git_files, "Telescope git files")
+        nmap("<leader>fs", builtin.live_grep, "Telescope grep")
+        nmap("<leader>fa", "<cmd>LiveGrepGitRoot<cr>", "Telescope grep in git root")
+        nmap("<leader>fb", builtin.buffers, "Telescope buffers")
+        nmap("<leader>fh", builtin.help_tags, "Telescope help tags")
     end
 }
