@@ -42,7 +42,7 @@ return {
                 end,
 
                 ["lua_ls"] = function()
-                    require("lspconfig").lua_ls.setup {
+                    require("lspconfig").lua_ls.setup({
                         capabilities = capabilities,
                         settings = {
                             Lua = {
@@ -51,11 +51,11 @@ return {
                                 }
                             }
                         },
-                    }
+                    })
                 end,
 
                 ["clangd"] = function()
-                    require("lspconfig").clangd.setup {
+                    require("lspconfig").clangd.setup({
                         capabilities = capabilities,
                         cmd = {
                             "clangd",
@@ -68,7 +68,7 @@ return {
                                 lspconfig.util.root_pattern(unpack(root_files))(fname) or
                                 lspconfig.util.find_git_ancestor(fname)
                         end,
-                    }
+                    })
                 end,
             }
         })
