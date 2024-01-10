@@ -38,3 +38,6 @@
     ~/.config/kitty:
         create: true
         path: kitty
+    ~/.config/lazygit:
+        create: true
+        path: lazygit

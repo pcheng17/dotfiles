@@ -18,7 +18,7 @@ return {
         priority = 1000,
         config = function()
             require("rose-pine").setup({
-                variant = "moon",
+                variant = "main",
                 styles = {
                     bold = false,
                     italic = false,
