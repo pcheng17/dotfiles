@@ -1,5 +1,4 @@
-local utils = require("utils")
-local map = utils.map
+local map = require("utils").map
 
 map({ "n", "v" }, "<space>", "<nop>", {})
 
