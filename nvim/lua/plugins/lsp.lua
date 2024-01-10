@@ -63,11 +63,11 @@ return {
                             "clangd",
                             "--background-index",
                             "--header-insertion=iwyu",
-                            "--suggest-missing-includes",
+                            "--offset-encoding=utf-8"
                         },
                         root_dir = function(fname)
                             return
-                                lspconfig.util.root_pattern(unpack(root_files))(fname) or
+                                lspconfig.util.root_pattern(table.unpack(root_files))(fname) or
                                 lspconfig.util.find_git_ancestor(fname)
                         end,
                     })
