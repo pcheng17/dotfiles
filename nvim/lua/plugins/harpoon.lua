@@ -24,13 +24,13 @@ return {
         --     }):find()
         -- end
 
-        local map = require("utils").map
-        map("n", "<leader>ha", function() harpoon:list():append() end,                      { desc = "Add current file to harpoon" })
-        map("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Open harpoon window" })
-        map("n", "<C-h>",      function() harpoon:list():select(1) end,                     { desc = "Go to harpoon 1" })
-        map("n", "<C-j>",      function() harpoon:list():select(2) end,                     { desc = "Go to harpoon 2" })
-        map("n", "<C-k>",      function() harpoon:list():select(3) end,                     { desc = "Go to harpoon 3" })
-        map("n", "<C-l>",      function() harpoon:list():select(4) end,                     { desc = "Go to harpoon 4" })
+        local keymap = vim.keymap.set
+        keymap("n", "<leader>ha", function() harpoon:list():append() end,                      { silent = true, desc = "Add current file to harpoon" })
+        keymap("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { silent = true, desc = "Open harpoon window" })
+        keymap("n", "<C-h>",      function() harpoon:list():select(1) end,                     { silent = true, desc = "Go to harpoon 1" })
+        keymap("n", "<C-j>",      function() harpoon:list():select(2) end,                     { silent = true, desc = "Go to harpoon 2" })
+        keymap("n", "<C-k>",      function() harpoon:list():select(3) end,                     { silent = true, desc = "Go to harpoon 3" })
+        keymap("n", "<C-l>",      function() harpoon:list():select(4) end,                     { silent = true, desc = "Go to harpoon 4" })
 
         -- map("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Open harpoon window" }
     end

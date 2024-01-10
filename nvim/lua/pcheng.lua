@@ -64,13 +64,12 @@ autocmd({ "FileType" }, {
 autocmd('LspAttach', {
     group = augroup("UserLspConfig", { clear = true }),
     callback = function(e)
-        local utils = require("utils")
-        local map = function(mode, lhs, rhs, opts)
-            local options = { buffer = e.buf }
+        local keymap = function(mode, lhs, rhs, opts)
+            local options = { buffer = e.buf, silent = true }
             if opts then
                 options = vim.tbl_extend("force", options, opts)
             end
-            utils.map(mode, lhs, rhs, options)
+            vim.keymap.set(mode, lhs, rhs, options)
         end
 
         -- `:Format` command local to the LSP buffer
@@ -79,13 +78,13 @@ autocmd('LspAttach', {
         )
 
         local telescope = require("telescope.builtin")
-        map("n", "gd",         function() telescope.lsp_definitions() end,    { desc = "Go to definition" })
-        map("n", "gr",         function() telescope.lsp_references() end,     { desc = "Go to references" })
-        map("n", "K",          function() vim.lsp.buf.hover() end,            { desc = "Hover documentation" })
-        map("n", "<leader>ca", function() vim.lsp.buf.code_action() end,      { desc = "Code actions" })
-        map("n", "<leader>rn", function() vim.lsp.buf.rename() end,           { desc = "Rename symbol" })
-        map("n", "<leader>ds", function() vim.lsp.buf.document_symbol() end,  { desc = "Document symbols" })
-        map("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, { desc = "Workspace symbols" })
-        map("i", "<C-k>",      function() vim.lsp.buf.signature_help() end,   { desc = "Signature help" })
+        keymap("n", "gd",         function() telescope.lsp_definitions() end,    { desc = "Go to definition" })
+        keymap("n", "gr",         function() telescope.lsp_references() end,     { desc = "Go to references" })
+        keymap("n", "K",          function() vim.lsp.buf.hover() end,            { desc = "Hover documentation" })
+        keymap("n", "<leader>ca", function() vim.lsp.buf.code_action() end,      { desc = "Code actions" })
+        keymap("n", "<leader>rn", function() vim.lsp.buf.rename() end,           { desc = "Rename symbol" })
+        keymap("n", "<leader>ds", function() vim.lsp.buf.document_symbol() end,  { desc = "Document symbols" })
+        keymap("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, { desc = "Workspace symbols" })
+        keymap("i", "<C-k>",      function() vim.lsp.buf.signature_help() end,   { desc = "Signature help" })
     end
 })
