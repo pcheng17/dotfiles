@@ -19,6 +19,10 @@ return {
                         ".DS_Store",
                         "lazy-lock.json"
                     },
+                },
+                follow_current_file = {
+                    enabled = true,
+                    leave_dirs_open = false,
                 }
             }
         })
