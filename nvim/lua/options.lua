@@ -32,5 +32,7 @@ opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 opt.conceallevel = 0
 opt.list = false
 opt.scrolloff = 8
+opt.isfname:append("@-@")
 
 opt.clipboard = "unnamedplus"
+
