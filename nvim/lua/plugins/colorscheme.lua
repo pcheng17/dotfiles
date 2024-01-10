@@ -6,9 +6,7 @@ return {
         config = function()
             require('catppuccin').setup({
                 flavour = "mocha",
-                styles = {
-                    conditionals = {}
-                }
+                no_italic = true,
             })
         end,
     },
@@ -22,6 +20,9 @@ return {
                 styles = {
                     bold = false,
                     italic = false,
+                },
+                highlight_groups = {
+                    Comment = { fg = "muted" }
                 }
             })
         end,
