@@ -1,3 +1,5 @@
+current_hostname=$(hostname)
+
 _exists() {
     command -v $1 > /dev/null 2>&1
 }
@@ -20,7 +22,6 @@ alias vim='nvim'
 
 case "$OSTYPE" in
     darwin*)
-        alias wk='cd ~/Workspace'
         alias kbs='cd ~/Workspace/keebs'
 
         alias bkupbrew='brew bundle dump --file=~/.dotfiles/Brewfile --force'
@@ -37,4 +38,11 @@ case "$OSTYPE" in
         alias kbs='cd /mnt/d/Peter/Documents/Workspace/keebs'
     ;;
 esac
+
+if [[ "$current_hostname" == "HQ-VP606YTPQ2" ]]; then
+    alias wk='cd ~/work'
+    alias ge='cd ~/work/game-engine'
+else
+    alias wk='cd ~/Workspace'
+fi
 
