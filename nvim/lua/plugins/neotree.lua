@@ -27,6 +27,6 @@ return {
             }
         })
 
-        vim.keymap.set("n", "<C-b>", "<cmd>Neotree toggle<CR>", { noremap = true, silent = true });
+        vim.keymap.set("n", "<C-b>", "<cmd>Neotree toggle<CR>", { noremap = true });
     end
 }
