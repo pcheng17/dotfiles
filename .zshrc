@@ -133,18 +133,6 @@ export FZF_DEFAULT_OPTS="--height 50% --border"
 # Tell `less` not to paginate if less than a page
 export LESS="-F -X $LESS"
 
-# Python virtualenv settings
-case "$OSTYPE" in
-    darwin*)
-    ;;
-    linux*)
-        # Deprecate
-        export WORKON_HOME=$HOME/.virtualenvs
-        export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-	    source /usr/local/bin/virtualenvwrapper.sh
-    ;;
-esac
-
 # auto_cd allows me to cd to directories within the specified `cdpath` without the need for `cd`
 setopt auto_cd
 case "$OSTYPE" in
@@ -175,4 +163,3 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end

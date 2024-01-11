@@ -39,6 +39,7 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+create_symlink "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 create_symlink "$DOTFILES_DIR/Brewfile" "$HOME/Brewfile"
 create_symlink "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
 create_symlink "$DOTFILES_DIR/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
