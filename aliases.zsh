@@ -24,7 +24,6 @@ case "$OSTYPE" in
     darwin*)
         alias kbs='cd ~/Workspace/keebs'
 
-        alias bkupbrew='brew bundle dump --file=~/.dotfiles/Brewfile --force'
     ;;
     linux*)
         alias notes='cd /mnt/d/Peter/Documents/Workspace/notes'
@@ -42,7 +41,10 @@ esac
 if [[ "$current_hostname" == "HQ-VP606YTPQ2" ]]; then
     alias wk='cd ~/work'
     alias ge='cd ~/work/game-engine'
+    alias bkupbrew='brew bundle dump --file=~/.dotfiles/private/Brewfile --force'
 else
+    # Home machine
     alias wk='cd ~/Workspace'
+    alias bkupbrew='brew bundle dump --file=~/.dotfiles/Brewfile --force'
 fi
 
