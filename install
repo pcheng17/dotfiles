@@ -1,18 +1,48 @@
 #!/usr/bin/env bash
 
-# Enter password beginning
-sudo -v
+ask() {
+    read -p "$1 (y/n): " response
+    case $response in
+        [Yy]* ) return 0;;
+        *) return 1;;
+    esac
+}
 
-set -e
+create_symlink() {
+    local target_file=$1
+    local link_file=$2
 
-CONFIG="conf.yaml"
-DOTBOT_DIR="dotbot"
+    if [ -L "$link_file" ]; then
+        if ask "$link_file already exists. Recreate symlink?"; then
+            unlink "$link_file"
+            ln -s "$target_file" "$link_file"
+            # echo "✅ $link_file -> $target_file"
+        fi
+    else
+        ln -s "$target_file" "$link_file"
+        # echo "✅ $link_file -> $target_file"
+    fi
+}
 
-DOTBOT_BIN="bin/dotbot"
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="$HOME/.dotfiles"
 
-cd "${BASEDIR}"
-git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
-git submodule update --init --recursive "${DOTBOT_DIR}"
+# Git configurations
+git config --global core.editor nvim
+git config --global init.defaultBranch main
+git config --global include.path "~/.dotfiles/gitconfig/aliases"
+git config --global core.excludesFile "~/.dotfiles/gitconfig/gitignore"
+git config --global merge.commit no
 
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+# Install oh-my-zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "Installing oh-my-zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+create_symlink "$DOTFILES_DIR/Brewfile" "$HOME/Brewfile"
+create_symlink "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
+create_symlink "$DOTFILES_DIR/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
+create_symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+create_symlink "$DOTFILES_DIR/kitty" "$HOME/.config/kitty"
+create_symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
+
