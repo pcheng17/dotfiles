@@ -5,6 +5,7 @@ keymap({ "n", "v" }, "<space>", "<nop>", { silent = true, desc = "Disable space"
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Move up by single line" })
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc = "Move down by single line" })
 
+keymap("n", "<leader>fw", ":update<cr>",                              { silent = true, desc = "Write file" })
 keymap("n", "<leader>lv", "<cmd>Lazy<cr>",                            { silent = true, desc = "lazy.nvim" })
 keymap("n", "<leader>lp", "<cmd>Ex ~/.dotfiles/nvim/lua/plugins<cr>", { silent = true, desc = "Neovim plugins" })
 
