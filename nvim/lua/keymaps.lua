@@ -8,7 +8,6 @@ keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc
 keymap("n", "<leader>lv", "<cmd>Lazy<cr>",                            { silent = true, desc = "lazy.nvim" })
 keymap("n", "<leader>lp", "<cmd>Ex ~/.dotfiles/nvim/lua/plugins<cr>", { silent = true, desc = "Neovim plugins" })
 
-keymap("n", "<C-a>",      "ggVG",        { silent = true, desc = "Select all" })
 keymap("n", "x",          '"_x',         { silent = true, desc = "Delete into the black hole register" })
 keymap("n", "Q",          "@@",          { silent = true, desc = "Repeat the last macro" })
 keymap("n", "J",          "mzJ`z",       { silent = true, desc = "Append next line to current line with space" })
