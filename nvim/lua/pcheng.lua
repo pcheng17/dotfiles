@@ -20,8 +20,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 require("options")
 require("keymaps")
-require("roblox")
 
+-- Conditionally require work-related stuff
+pcall(require, "roblox")
 
 -- vim.cmd("colorscheme rose-pine")
 vim.cmd("colorscheme catppuccin")
