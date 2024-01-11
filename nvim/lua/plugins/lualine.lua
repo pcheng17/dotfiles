@@ -14,12 +14,12 @@ return {
                 lualine_a = { "mode" },
                 lualine_b = { "branch", "diff", "diagnostics" },
                 lualine_c = { "filename" },
-                lualine_x = { "filetype", "encoding", "fileformat" },
-                lualine_y = {
+                lualine_x = {
                     {
                         "location", padding = { left = 0, right = 1 }
                     }
                 },
+                lualine_y = { "filetype", "encoding", "fileformat" },
                 lualine_z = {
                     function()
                         return os.date(" %I:%M %p")
