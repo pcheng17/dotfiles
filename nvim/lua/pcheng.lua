@@ -45,27 +45,35 @@ autocmd('TextYankPost', {
     pattern = '*',
 })
 
-local myGroup = augroup("pcheng", { clear = true })
+local MyGroup = augroup("pcheng", { clear = true })
 
 -- Enter insert mode when opening a terminal
 autocmd({ "TermOpen" }, {
-    group = myGroup,
+    group = MyGroup,
     pattern = "*",
     command = "startinsert",
 })
 
 -- Remove trailing whitespace
 autocmd({ "BufWritePre" }, {
-    group = myGroup,
+    group = MyGroup,
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
 
 -- Set global formatoptions
 autocmd({ "FileType" }, {
-    group = myGroup,
+    group = MyGroup,
     callback = function()
         vim.opt_local.formatoptions:remove({ "r", "o" })
+    end
+})
+
+autocmd({ "FileType" }, {
+    group = augroup("TextFileGroup", { clear = true }),
+    pattern = { "*.md", "*.txt" },
+    callback = function()
+        vim.opt_local.linebreak = true
     end
 })
 
