@@ -47,3 +47,6 @@ build/
 # Cache files
 .cache
 .cache/
+
+# clangd files
+compile_commands.json
