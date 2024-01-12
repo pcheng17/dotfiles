@@ -63,7 +63,7 @@ return {
                             "clangd",
                             "--background-index",
                             "--header-insertion=iwyu",
-                            "--offset-encoding=utf-8"
+                            "--offset-encoding=utf-16"
                         },
                         root_dir = function(fname)
                             return
