@@ -40,3 +40,10 @@ venv/
 *.exe
 *.out
 *.app
+
+# Build directories
+build/
+
+# Cache files
+.cache
+.cache/
