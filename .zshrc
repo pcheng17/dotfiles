@@ -22,9 +22,6 @@ eval "$(pyenv virtualenv-init -)"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# CMAKE settings that are nice to have
-export CMAKE_EXPORT_COMPILE_COMMANDS=1
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -125,6 +122,9 @@ source $ZSH/oh-my-zsh.sh
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
+
+# Make CMake generate compile_commands.json for clangd indexing
+export CMAKE_EXPORT_COMPILE_COMMANDS=1
 
 # Heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/pcheng/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
