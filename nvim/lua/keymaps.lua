@@ -9,7 +9,7 @@ keymap("n", "<leader>lp", "<cmd>Ex ~/.dotfiles/nvim/lua/plugins<cr>", { silent =
 keymap("n", "x",          '"_x',         { silent = true, desc = "Delete into the black hole register" })
 keymap("n", "Q",          "@@",          { silent = true, desc = "Repeat the last macro" })
 keymap("n", "J",          "mzJ`z",       { silent = true, desc = "Append next line to current line with space" })
-keymap("n", "<leader>fe", "<cmd>Ex<cr>", { silent = true, desc = "Open native file explorer" })
+keymap("n", "<leader>fx", "<cmd>Ex<cr>", { silent = true, desc = "Native file explorer" })
 
 keymap("n", "<C-d>", "<C-d>zz", { silent = true, desc = "Scroll down and center" })
 keymap("n", "<C-u>", "<C-u>zz", { silent = true, desc = "Scroll up and center" })
