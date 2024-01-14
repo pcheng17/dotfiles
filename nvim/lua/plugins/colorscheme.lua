@@ -12,6 +12,7 @@ return {
     },
     {
         "rose-pine/neovim",
+        enabled = false,
         name = "rose-pine",
         priority = 1000,
         config = function()
@@ -29,6 +30,9 @@ return {
     },
     {
         "EdenEast/nightfox.nvim",
+        enabled = false,
+        name = "nightfox",
+        priority = 1000,
         config = function()
             require("nightfox").setup({
                 -- options = {
@@ -38,5 +42,18 @@ return {
                 -- }
             })
         end
+    },
+    {
+        "folke/tokyonight.nvim",
+        enabled = false,
+        name = "tokyonight",
+        priority = 1000,
+        config = function()
+            require("tokyonight").setup({
+                style = "night",
+            })
+        end
+
     }
+
 }

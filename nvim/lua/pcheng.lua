@@ -24,6 +24,7 @@ require("keymaps")
 -- Conditionally require work-related stuff
 pcall(require, "roblox")
 
+-- vim.cmd("colorscheme tokyonight")
 -- vim.cmd("colorscheme rose-pine")
 vim.cmd("colorscheme catppuccin")
 -- vim.cmd("colorscheme nightfox")
