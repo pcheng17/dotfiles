@@ -34,6 +34,8 @@ vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
+vim.g.python3_host_prog = vim.fn.expand("~/.pyenv/versions/nvim-env/bin/python3")
+
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
