@@ -2,6 +2,8 @@ local keymap = vim.keymap.set
 
 keymap({ "n", "v" }, "<space>", "<nop>", { silent = true, desc = "Disable space" })
 
+keymap("n", "<leader><space>x", "<cmd>source %<cr>", { silent = true, desc = "Execute current file" })
+
 keymap("n", "<leader>fw", ":update<cr>",                              { silent = true, desc = "Write file" })
 keymap("n", "<leader>lv", "<cmd>Lazy<cr>",                            { silent = true, desc = "lazy.nvim" })
 keymap("n", "<leader>lp", "<cmd>Ex ~/.dotfiles/nvim/lua/plugins<cr>", { silent = true, desc = "Neovim plugins" })

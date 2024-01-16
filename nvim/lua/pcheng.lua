@@ -49,9 +49,9 @@ autocmd('TextYankPost', {
 local MyGroup = augroup("pcheng", { clear = true })
 
 -- Enter insert mode when opening a terminal
-autocmd({ "TermOpen" }, {
+autocmd({ "BufWinEnter", "WinEnter" }, {
     group = MyGroup,
-    pattern = "*",
+    pattern = "term://*",
     command = "startinsert",
 })
 
