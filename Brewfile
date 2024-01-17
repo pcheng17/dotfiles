@@ -53,7 +53,6 @@ brew "python@3.11"
 brew "python@3.9"
 brew "ripgrep"
 brew "tmux"
-brew "tpm"
 brew "tree"
 brew "ttyd", args: ["HEAD"]
 brew "yt-dlp"
