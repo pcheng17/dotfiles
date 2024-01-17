@@ -51,10 +51,16 @@ autocmd({ "BufWinEnter", "WinEnter" }, {
 })
 
 -- Remove trailing whitespace
+-- The callback function restores the cursor back to its original position after all
+-- trailing whitespace has been removed.
 autocmd({ "BufWritePre" }, {
     group = MyGroup,
     pattern = "*",
-    command = [[%s/\s\+$//e]],
+    callback = function()
+        local row, col = table.unpack(vim.api.nvim_win_get_cursor(0))
+        vim.api.nvim_exec('%s/\\s\\+$//e', false)
+        vim.api.nvim_win_set_cursor(0, {row, col})
+    end
 })
 
 -- Set global formatoptions
