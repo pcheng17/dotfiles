@@ -1,5 +1,12 @@
 local fn = vim.fn
+local g = vim.g
 local opt = vim.opt
+
+g.netrw_browse_split = 0
+g.netrw_banner = 0
+g.netrw_winsize = 25
+
+g.python3_host_prog = vim.fn.expand("~/.pyenv/versions/nvim-env/bin/python3")
 
 -- opt.guicursor = ""
 opt.termguicolors = true
@@ -36,3 +43,8 @@ opt.isfname:append("@-@")
 
 opt.clipboard = "unnamedplus"
 
+-- vim.cmd("colorscheme tokyonight")
+-- vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme catppuccin")
+-- vim.cmd("colorscheme nightfox")
+-- vim.cmd("colorscheme duskfox")
