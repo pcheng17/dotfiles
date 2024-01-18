@@ -1,5 +1,6 @@
 return {
     "voldikss/vim-floaterm",
+    enabled = false,
     config = function()
         local keymap = vim.keymap.set
         keymap("n", "<F4>",  ":FloatermNew --height=0.8 --width=0.8<CR>",            { silent = true, desc = "New floaterm" })

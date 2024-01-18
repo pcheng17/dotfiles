@@ -2,6 +2,7 @@ return {
     {
         "catppuccin/nvim",
         name = "catppuccin",
+        enabled = true,
         priority = 1000,
         config = function()
             require('catppuccin').setup({
@@ -12,8 +13,8 @@ return {
     },
     {
         "rose-pine/neovim",
-        enabled = false,
         name = "rose-pine",
+        enabled = false,
         priority = 1000,
         config = function()
             require("rose-pine").setup({
@@ -30,8 +31,8 @@ return {
     },
     {
         "EdenEast/nightfox.nvim",
-        enabled = false,
         name = "nightfox",
+        enabled = false,
         priority = 1000,
         config = function()
             require("nightfox").setup({
@@ -45,8 +46,8 @@ return {
     },
     {
         "folke/tokyonight.nvim",
-        enabled = false,
         name = "tokyonight",
+        enabled = false,
         priority = 1000,
         config = function()
             require("tokyonight").setup({
