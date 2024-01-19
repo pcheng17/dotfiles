@@ -37,12 +37,16 @@ git config --global merge.commit no
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Installing oh-my-zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+    echo "oh-my-zsh already installed."
 fi
 
 # Install TPM (Tmux Plugin Manager)
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     echo "Installing TPM..."
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+    echo "TPM already installed."
 fi
 
 create_symlink "$DOTFILES_DIR/zshrc/.zshrc" "$HOME/.zshrc"
@@ -52,4 +56,19 @@ create_symlink "$DOTFILES_DIR/zshrc/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliase
 create_symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 create_symlink "$DOTFILES_DIR/kitty" "$HOME/.config/kitty"
 create_symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
+
+# MacOS specific configurations
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # First check if Homebrew is installed
+    which -s brew
+    if [[ $? != 0 ]] ; then
+        echo "Installing Homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        # brew bundle install --file="$HOME/Brewfile"
+    else
+        echo "Homebrew already installed."
+    fi
+
+    create_symlink "$DOTFILES_DIR/macos/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
+fi
 
