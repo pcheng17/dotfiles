@@ -29,5 +29,5 @@ require("core.keymaps")
 require("core.autocmds")
 
 -- Protected call to require work-related stuff since this my not always exist
--- pcall(require, "roblox")
+pcall(require, "roblox")
 
