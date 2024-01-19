@@ -67,8 +67,9 @@ return {
                             "--offset-encoding=utf-16"
                         },
                         root_dir = function(fname)
+                            local unpack = table.unpack or unpack
                             return
-                                lspconfig.util.root_pattern(table.unpack(root_files))(fname) or
+                                lspconfig.util.root_pattern(unpack(root_files))(fname) or
                                 lspconfig.util.find_git_ancestor(fname)
                         end,
                     })
