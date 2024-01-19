@@ -4,6 +4,6 @@ return {
         require("overseer").setup({})
 
         vim.keymap.set("n", "<leader>or", "<cmd>OverseerRun<cr>", { silent = true, desc = "Overseer Run" })
-        vim.keymap.set("n", "<leader>ot", "<cmd>OverseerToggle! bottom<cr>", { silent = true, desc = "Overseer Toggle" })
+        vim.keymap.set("n", "<leader>ot", "<cmd>OverseerToggle!left<cr>", { silent = true, desc = "Overseer Toggle bottom" })
     end
 }

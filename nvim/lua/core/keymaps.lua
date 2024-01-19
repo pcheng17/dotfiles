@@ -7,6 +7,9 @@ keymap("n", "|-", ":res -5<cr>",      { silent = true, desc = "Decrease window h
 keymap("n", "_+", ":vert res +5<cr>", { silent = true, desc = "Increase window width" })
 keymap("n", "_-", ":vert res -5<cr>", { silent = true, desc = "Decrease window width" })
 
+keymap("n", "||", ":vsplit<cr>", { silent = true, desc = "Split window vertically" })
+keymap("n", "__", ":split<cr>",  { silent = true, desc = "Split window horizontally" })
+
 keymap("n", "<leader><space>x", "<cmd>source %<cr>", { silent = true, desc = "Execute current file" })
 
 keymap('n', '<C-h>', '<C-w>h', { silent = true, desc = "Move to left window" })
