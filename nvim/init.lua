@@ -28,6 +28,6 @@ require("core.options")
 require("core.keymaps")
 require("core.autocmds")
 
--- Conditionally require work-related stuff
+-- Protected call to require work-related stuff since this my not always exist
 -- pcall(require, "roblox")
 
