@@ -29,8 +29,8 @@ DOTFILES_DIR="$HOME/.dotfiles"
 # Git configurations
 git config --global core.editor nvim
 git config --global init.defaultBranch main
-git config --global include.path "~/.dotfiles/gitconfig/aliases"
-git config --global core.excludesFile "~/.dotfiles/gitconfig/gitignore"
+git config --global include.path "~/.dotfiles/git/aliases"
+git config --global core.excludesFile "~/.dotfiles/git/gitignore"
 git config --global merge.commit no
 
 # Install oh-my-zsh
@@ -45,10 +45,10 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-create_symlink "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
+create_symlink "$DOTFILES_DIR/zshrc/.zshrc" "$HOME/.zshrc"
 create_symlink "$DOTFILES_DIR/Brewfile" "$HOME/Brewfile"
-create_symlink "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
-create_symlink "$DOTFILES_DIR/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
+create_symlink "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
+create_symlink "$DOTFILES_DIR/zshrc/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
 create_symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 create_symlink "$DOTFILES_DIR/kitty" "$HOME/.config/kitty"
 create_symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
