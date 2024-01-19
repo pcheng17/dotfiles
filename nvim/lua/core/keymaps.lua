@@ -2,6 +2,11 @@ local keymap = vim.keymap.set
 
 keymap({ "n", "v" }, "<space>", "<nop>", { silent = true, desc = "Disable space" })
 
+keymap("n", "|+", ":res +5<cr>",      { silent = true, desc = "Increase window height" })
+keymap("n", "|-", ":res -5<cr>",      { silent = true, desc = "Decrease window height" })
+keymap("n", "_+", ":vert res +5<cr>", { silent = true, desc = "Increase window width" })
+keymap("n", "_-", ":vert res -5<cr>", { silent = true, desc = "Decrease window width" })
+
 keymap("n", "<leader><space>x", "<cmd>source %<cr>", { silent = true, desc = "Execute current file" })
 
 keymap('n', '<C-h>', '<C-w>h', { silent = true, desc = "Move to left window" })
@@ -13,7 +18,7 @@ keymap("n", "<leader>fw", ":update<cr>",                              { silent =
 keymap("n", "<leader>lv", "<cmd>Lazy<cr>",                            { silent = true, desc = "lazy.nvim" })
 keymap("n", "<leader>lp", "<cmd>Ex ~/.dotfiles/nvim/lua/plugins<cr>", { silent = true, desc = "Neovim plugins" })
 
-keymap("n", "x",          '"_x',         { silent = true, desc = "Delete into the black hole register" })
+-- keymap("n", "x",          '"_x',         { silent = true, desc = "Delete into the black hole register" })
 keymap("n", "Q",          "@@",          { silent = true, desc = "Repeat the last macro" })
 keymap("n", "J",          "mzJ`z",       { silent = true, desc = "Append next line to current line with space" })
 keymap("n", "<leader>fx", "<cmd>Ex<cr>", { silent = true, desc = "Native file explorer" })
