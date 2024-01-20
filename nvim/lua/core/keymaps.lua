@@ -10,9 +10,10 @@ keymap("n", "_-", ":vert res -5<cr>", { silent = true, desc = "Decrease window w
 keymap("n", "||", ":vsplit<cr>", { silent = true, desc = "Split window vertically" })
 keymap("n", "__", ":split<cr>",  { silent = true, desc = "Split window horizontally" })
 
+keymap("n", "Q", ":bd<cr>", { silent = true, desc = "Close current buffer" })
 keymap("n", "<bs>", "<C-^>", { silent = true, desc = "Switch to previous buffer" })
 
-keymap("n", "<leader><space>x", "<cmd>source %<cr>", { silent = true, desc = "Execute current file" })
+-- keymap("n", "<leader><space>x", "<cmd>source %<cr>", { silent = true, desc = "Execute current file" })
 
 keymap('n', '<C-h>', '<C-w>h', { silent = true, desc = "Move to left window" })
 keymap('n', '<C-j>', '<C-w>j', { silent = true, desc = "Move to down window" })
@@ -24,7 +25,6 @@ keymap("n", "<leader>lv", "<cmd>Lazy<cr>",                            { silent =
 keymap("n", "<leader>lp", "<cmd>Ex ~/.dotfiles/nvim/lua/plugins<cr>", { silent = true, desc = "Neovim plugins" })
 
 -- keymap("n", "x",          '"_x',         { silent = true, desc = "Delete into the black hole register" })
-keymap("n", "Q",          "@@",          { silent = true, desc = "Repeat the last macro" })
 keymap("n", "J",          "mzJ`z",       { silent = true, desc = "Append next line to current line with space" })
 keymap("n", "<leader>fx", "<cmd>Ex<cr>", { silent = true, desc = "Native file explorer" })
 
