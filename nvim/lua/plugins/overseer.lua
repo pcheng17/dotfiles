@@ -4,12 +4,11 @@ return {
         require("overseer").setup({
             task_list = {
                 bindings = {
-                    -- Disable defaults
-                    ["<C-l>"] = false,
-                    ["<C-h>"] = false,
                     -- Add my own
                     ["<Tab>"] = "IncreaseDetail",
                     ["<S-Tab>"] = "DecreaseDetail",
+                    ["j"] = "ScrollOutputDown",
+                    ["k"] = "ScrollOutputUp"
                 }
             }
         })
