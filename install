@@ -42,12 +42,12 @@ else
 fi
 
 # Install TPM (Tmux Plugin Manager)
-if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-    echo "Installing TPM..."
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-else
-    echo "TPM already installed."
-fi
+# if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+#     echo "Installing TPM..."
+#     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# else
+#     echo "TPM already installed."
+# fi
 
 create_symlink "$DOTFILES_DIR/zshrc/.zshrc" "$HOME/.zshrc"
 create_symlink "$DOTFILES_DIR/Brewfile" "$HOME/Brewfile"
