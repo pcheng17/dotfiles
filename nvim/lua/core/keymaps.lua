@@ -14,7 +14,6 @@ keymap("n", "Q", ":bd<cr>", { silent = true, desc = "Close current buffer" })
 keymap("n", "<bs>", "<C-^>", { silent = true, desc = "Switch to previous buffer" })
 
 -- keymap("n", "<leader><space>x", "<cmd>source %<cr>", { silent = true, desc = "Execute current file" })
-
 keymap('n', '<C-h>', '<C-w>h', { silent = true, desc = "Move to left window" })
 keymap('n', '<C-j>', '<C-w>j', { silent = true, desc = "Move to down window" })
 keymap('n', '<C-k>', '<C-w>k', { silent = true, desc = "Move to up window" })
