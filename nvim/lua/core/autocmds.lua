@@ -87,7 +87,7 @@ autocmd({ "BufWinEnter" }, {
 
         local bufnr = vim.api.nvim_get_current_buf()
 
-        vim.keymap.set("n", "<leader>c", ":G commit -v -q<cr>", { buffer = bufnr, desc = "Git commit" })
-        vim.keymap.set("n", "<leader>P", ":G push<cr>", { buffer = bufnr, desc = "Git push" })
+        vim.keymap.set("n", "c", ":G commit -v -q<cr>", { buffer = bufnr, desc = "Git commit" })
+        vim.keymap.set("n", "P", ":G push<cr>", { buffer = bufnr, desc = "Git push" })
     end
 })
