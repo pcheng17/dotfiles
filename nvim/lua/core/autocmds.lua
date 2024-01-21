@@ -75,18 +75,3 @@ autocmd('LspAttach', {
         keymap("i", "<C-k>",      function() vim.lsp.buf.signature_help() end,      { desc = "Signature help" })
     end
 })
-
--- Some extra keymaps for only the fugitive buffer
-autocmd({ "BufWinEnter" }, {
-    group = augroup("MyFugitiveGroup", { clear = true }),
-    pattern = "*",
-    callback = function()
-        if vim.bo.ft ~= "fugitive" then
-            return
-        end
-
-        local bufnr = vim.api.nvim_get_current_buf()
-        vim.keymap.set("n", "c", ":G commit -v -q<cr>", { buffer = bufnr, desc = "Git commit" })
-        vim.keymap.set("n", "P", ":G push<cr>", { buffer = bufnr, desc = "Git push" })
-    end
-})
