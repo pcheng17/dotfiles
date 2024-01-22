@@ -1,5 +1,7 @@
 return {
     "stevearc/overseer.nvim",
+    cmd = { "OverseerOpen", "OverseerRun", "OverseerInfo", "OverseerToggle" },
+    keys = { "<leader>or", "<leader>ot" },
     config = function()
         require("overseer").setup({
             task_list = {
