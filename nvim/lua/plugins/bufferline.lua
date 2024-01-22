@@ -9,9 +9,8 @@ return {
                 -- separator_style = "slant",
                 offsets = {
                     {
-                        filetype = "neo-tree",
-                        text = "File Explorer",
-                        -- highlight = "Directory",
+                        filetype = "OverseerList",
+                        text = "Tasks",
                         separator = true -- use a "true" to enable the default, or set your own character
                     }
                 },
