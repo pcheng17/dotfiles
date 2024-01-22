@@ -39,10 +39,10 @@ return {
                 end, { expr = true, desc = "Previous hunk" })
 
                 -- Actions
-                keymap("n", "<leader>hs", gs.stage_hunk, { silent = true, desc = "Stage hunk" })
-                keymap("n", "<leader>hr", gs.reset_hunk, { silent = true, desc = "Reset hunk" })
-                keymap("v", "<leader>hs", function() gs.stage_hunk {vim.fn.line("."), vim.fn.line("v")} end, { silent = true, desc = "Stage hunk" })
-                keymap("v", "<leader>hr", function() gs.reset_hunk {vim.fn.line("."), vim.fn.line("v")} end, { silent = true, desc = "Reset hunk" })
+                -- keymap("n", "<leader>hs", gs.stage_hunk, { silent = true, desc = "Stage hunk" })
+                -- keymap("n", "<leader>hr", gs.reset_hunk, { silent = true, desc = "Reset hunk" })
+                -- keymap("v", "<leader>hs", function() gs.stage_hunk {vim.fn.line("."), vim.fn.line("v")} end, { silent = true, desc = "Stage hunk" })
+                -- keymap("v", "<leader>hr", function() gs.reset_hunk {vim.fn.line("."), vim.fn.line("v")} end, { silent = true, desc = "Reset hunk" })
 
                 -- Text object
                 keymap({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { silent = true, desc = "Select hunk" })
