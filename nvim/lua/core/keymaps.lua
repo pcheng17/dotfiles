@@ -34,3 +34,6 @@ keymap("n", "N", "Nzzzv", { silent = true, desc = "Move to previous search match
 
 keymap("v", "J", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move visual block down" })
 keymap("v", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move visual block up" })
+
+keymap("v", ">", ">gv", { silent = true, desc = "Increase indent of visual block" })
+keymap("v", "<", "<gv", { silent = true, desc = "Decrease indent of visual block" })
