@@ -1,0 +1,76 @@
+local has_telescope, telescope = pcall(require, 'telescope')
+if not has_telescope then
+	error('This plugins requires nvim-telescope')
+end
+
+
+local pickers = require('telescope.pickers')
+local finders = require('telescope.finders')
+local action_state = require('telescope.actions.state')
+local entry_display = require('telescope.pickers.entry_display')
+local conf = require('telescope.config').values
+
+local ovs = require('overseer')
+
+
+local function prepare_task_list()
+	local tasks = require('overseer').list_tasks()
+	local items = {}
+	for _, task in ipairs(tasks) do
+		table.insert(items, task)
+	end
+	return items
+end
+
+local tasks = prepare_task_list()
+print('hi mom')
+print(#tasks)
+for _, task in ipairs(tasks) do
+    print(task)
+end
+
+-- local displayer = entry_display.create({
+-- 	separator = '|',
+-- 	items = {
+-- 		{ width = 20 },
+-- 		{ width = 20 },
+-- 		{ remaining = true },
+-- 	},
+-- })
+
+local function overseer(opts)
+	opts = opts or {}
+	pickers.new(opts, {
+		prompt_title = 'Tasks',
+		finder = finders.new_table({
+			results = prepare_task_list(),
+			entry_maker = function(entry)
+
+				local entry_str = string.format("%s %s(%d)", entry.name, entry.status, entry.exit_code or 0)
+				return {
+					value = entry,
+					display = entry_str,
+					ordinal = entry.name,
+					lnum = 1,
+				}
+			end,
+		}),
+		sorter = conf.generic_sorter(opts),
+		attach_mappings = function(_, map)
+			local action = function()
+				local task = action_state.get_selected_entry().value
+				ovs.run_action(task)
+			end
+			map('i', '<CR>', action)
+			return true
+		end,
+	}):find()
+end
+
+vim.keymap.set("n", "<leader>fo", overseer, { silent = true, desc = "Telescope overseer tasks" })
+
+-- return require('telescope').register_extension({
+-- 	exports = {
+-- 		overseer = overseer,
+-- 	},
+-- })
