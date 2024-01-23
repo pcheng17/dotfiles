@@ -12,6 +12,11 @@ return {
                         filetype = "OverseerList",
                         text = "Tasks",
                         separator = true -- use a "true" to enable the default, or set your own character
+                    },
+                    {
+                        filetype = "neo-tree",
+                        text = "File Explorer",
+                        separator = true
                     }
                 },
             },

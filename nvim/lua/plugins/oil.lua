@@ -15,7 +15,7 @@ return {
             },
         })
 
-        vim.keymap.set("n", "<leader>fe",
+        vim.keymap.set("n", "<leader>oi",
             function()
                 if vim.bo.ft ~= "oil" then
                     require("oil").open()

@@ -3,7 +3,7 @@ return {
     branch = "v3.x",
     cmd = "Neotree",
     keys = {
-        "<leader>ft",
+        "<leader>fe",
     },
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -32,6 +32,6 @@ return {
             }
         })
 
-        vim.keymap.set("n", "<C-b>", "<cmd>Neotree toggle<CR>", { silent = true, desc = "Neotree toggle" });
+        vim.keymap.set("n", "<leader>fe", "<cmd>Neotree toggle<CR>", { silent = true, desc = "Neotree toggle" });
     end
 }
