@@ -12,6 +12,7 @@ return {
                 "fugitive",
                 "oil",
                 "OverseerList",
+                "markdown",
             },
         })
     end
