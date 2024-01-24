@@ -6,8 +6,10 @@ return {
             options = {
                 always_divide_middle = true,
                 icons_enabled = true,
-                component_separators = { left = "|", right = "|" },
-                section_separators = "",
+                -- component_separators = { left = "|", right = "|" },
+                -- section_separators = "",
+                component_separators = { left = '', right = ''},
+                section_separators = { left = '', right = ''},
                 disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
             },
             sections = {
@@ -20,7 +22,15 @@ return {
                     }
                 },
                 lualine_x = { },
-                lualine_y = { "filetype", "encoding", "fileformat" },
+                lualine_y = { "filetype", "encoding",
+                    {
+                        "fileformat",
+                        -- Disable devicons
+                        symbols = {
+                            unix = 'unix', dos = 'dos', mac = 'mac'
+                        }
+                    }
+                },
                 lualine_z = {
                     {
                         "location", padding = { left = 1, right = 1 }

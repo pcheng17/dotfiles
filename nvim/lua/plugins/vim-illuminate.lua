@@ -13,6 +13,7 @@ return {
                 "oil",
                 "OverseerList",
                 "markdown",
+                "harpoon",
             },
         })
     end
