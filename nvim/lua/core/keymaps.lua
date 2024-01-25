@@ -1,6 +1,7 @@
 local keymap = vim.keymap.set
 
-keymap({ "n", "v" }, "<space>", "<nop>", { silent = true, desc = "Disable space" })
+keymap({ "n", "x" }, "<space>", "<nop>", { silent = true, desc = "Disable space" })
+keymap({ "n", "x" }, "<del>",  "<nop>", { silent = true, desc = "Disable delete" })
 
 keymap("n", "|+", ":res +5<cr>",      { silent = true, desc = "Increase window height" })
 keymap("n", "|-", ":res -5<cr>",      { silent = true, desc = "Decrease window height" })
@@ -32,8 +33,8 @@ keymap("n", "<C-u>", "<C-u>zz", { silent = true, desc = "Scroll up and center" }
 keymap("n", "n", "nzzzv", { silent = true, desc = "Move to next search match and center" })
 keymap("n", "N", "Nzzzv", { silent = true, desc = "Move to previous search match and center" })
 
-keymap("v", "J", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move visual block down" })
-keymap("v", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move visual block up" })
+keymap("x", "J", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move visual block down" })
+keymap("x", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move visual block up" })
 
-keymap("v", ">", ">gv", { silent = true, desc = "Increase indent of visual block" })
-keymap("v", "<", "<gv", { silent = true, desc = "Decrease indent of visual block" })
+keymap("x", ">", ">gv", { silent = true, desc = "Increase indent of visual block" })
+keymap("x", "<", "<gv", { silent = true, desc = "Decrease indent of visual block" })
