@@ -36,7 +36,7 @@ autocmd({ "BufWritePre" }, {
 autocmd({ "FileType" }, {
     group = MyGroup,
     callback = function()
-        vim.opt_local.formatoptions:remove({ "r", "o" })
+        vim.opt_local.formatoptions:remove({ "r", "o", "t" })
     end
 })
 
