@@ -2,26 +2,25 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd('TextYankPost', {
+    desc = "Highlight yanked text",
     group = augroup('YankHighlight', { clear = true }),
+    pattern = '*',
     callback = function()
         vim.highlight.on_yank()
     end,
-    pattern = '*',
 })
 
 local MyGroup = augroup("pcheng", { clear = true })
 
--- Enter insert mode when opening a terminal
 autocmd({ "BufWinEnter", "WinEnter" }, {
+    desc = "Enter insert mode when opening a terminal",
     group = MyGroup,
     pattern = "term://*",
     command = "startinsert",
 })
 
--- Remove trailing whitespace
--- The callback function restores the cursor back to its original position after all
--- trailing whitespace has been removed.
 autocmd({ "BufWritePre" }, {
+    desc = "Remove trailing whitespace without moving the cursor",
     group = MyGroup,
     pattern = "*",
     callback = function()
@@ -30,6 +29,13 @@ autocmd({ "BufWritePre" }, {
         vim.api.nvim_exec('%s/\\s\\+$//e', false)
         vim.api.nvim_win_set_cursor(0, {row, col})
     end
+})
+
+autocmd({ "BufReadPost" }, {
+    desc = "Open file at the last position it was edited earlier",
+    group = MyGroup,
+    pattern = "*",
+    command = 'silent! normal! g`"zv'
 })
 
 -- Set global formatoptions
