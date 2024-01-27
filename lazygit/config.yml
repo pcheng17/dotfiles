@@ -13,14 +13,14 @@ customCommands:
             description: 'bugfix branch'
             value: 'bugfx'
       - type: 'input'
-        title: 'What is the JIRA ticket?'
+        title: 'JIRA ticket'
         key: 'JiraTicket'
         initialValue: ''
       - type: 'input'
-        title: 'Short descripion of the ticket'
-        key: 'Description'
+        title: 'Branch name (no spaces)'
+        key: 'BranchName'
         initialValue: ''
-    command: "git checkout -b {{.Form.BranchType}}/{{.Form.JiraTicket}}-{{.Form.Description}}"
+    command: "git checkout -b {{.Form.BranchType}}/{{.Form.JiraTicket}}-{{.Form.BranchName}}"
     loadingText: 'Creating branch'
 gui:
   theme:
@@ -33,4 +33,5 @@ gui:
     'bugfix': '#f38ba8'
 git:
   branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
-
+services:
+  'github.rbx.com': 'github:github.rbx.com'
