@@ -1,6 +1,6 @@
 return {
     "folke/todo-comments.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
         -- your configuration comes here
