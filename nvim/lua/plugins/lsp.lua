@@ -32,10 +32,11 @@ return {
 
         require("mason-lspconfig").setup({
             ensure_installed = {
-                "clangd",
-                "cmake",
-                "lua_ls",
-                "pyright",
+                "clangd",     -- c, cpp
+                "cmake",      -- cmake
+                "lua_ls",     -- lua
+                "pyright",    -- python
+                "solargraph", -- ruby
             },
             handlers = {
                 function(server_name) -- default handler
