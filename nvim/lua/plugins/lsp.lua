@@ -36,7 +36,6 @@ return {
                 "cmake",      -- cmake
                 "lua_ls",     -- lua
                 "pyright",    -- python
-                "solargraph", -- ruby
             },
             handlers = {
                 function(server_name) -- default handler
