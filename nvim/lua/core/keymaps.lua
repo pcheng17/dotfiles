@@ -11,7 +11,7 @@ keymap("n", "_-", ":vert res -5<cr>", { silent = true, desc = "Decrease window w
 keymap("n", "||", ":vsplit<cr>", { silent = true, desc = "Split window vertically" })
 keymap("n", "__", ":split<cr>",  { silent = true, desc = "Split window horizontally" })
 
-keymap("n", "Q", ":bd<cr>", { silent = true, desc = "Close current buffer" })
+keymap("n", "<leader>q", ":Bdelete<cr>", { silent = true, desc = "Close current buffer" })
 keymap("n", "<bs>", "<C-^>", { silent = true, desc = "Switch to previous buffer" })
 
 keymap('n', '<C-h>', '<C-w>h', { silent = true, desc = "Move to left window" })
