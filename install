@@ -58,6 +58,9 @@ create_symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 create_symlink "$DOTFILES_DIR/kitty" "$HOME/.config/kitty"
 create_symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
 
+# TODO
+# Create symlinks for everything in the bin dir, as opposed to symlinking the entire directory
+
 # MacOS specific configurations
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # First check if Homebrew is installed
