@@ -11,7 +11,7 @@ customCommands:
             value: 'feature'
           - name: 'bugfix'
             description: 'bugfix branch'
-            value: 'bugfx'
+            value: 'bugfix'
       - type: 'input'
         title: 'JIRA ticket'
         key: 'JiraTicket'
