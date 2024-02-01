@@ -20,14 +20,9 @@ alias apoet="source \"\$(poetry env list --full-path | grep Activated | cut -d' 
 alias lg='lazygit'
 alias vim='nvim'
 
-alias tmls='tmux ls'
-alias tmmk='~/bin/tmux-mk-session'
-alias tmkl='~/bin/tmux-kill-session'
-
 case "$OSTYPE" in
     darwin*)
         alias kbs='cd ~/Workspace/keebs'
-
     ;;
     linux*)
         alias notes='cd /mnt/d/Peter/Documents/Workspace/notes'
