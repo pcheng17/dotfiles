@@ -43,6 +43,7 @@ setup_common_symlinks() {
 }
 
 # Git configurations
+# Not sure where else to put these, so they're here
 git config --global core.editor nvim
 git config --global init.defaultBranch main
 git config --global include.path "$HOME/.dotfiles/git/aliases"
