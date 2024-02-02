@@ -1,38 +1,5 @@
 #!/usr/bin/env bash
 
-ask() {
-    read -p "$1 (y/n): " response
-    case $response in
-        [Yy]* ) return 0;;
-        *) return 1;;
-    esac
-}
-
-create_symlink() {
-    local target_file=$1
-    local link_file=$2
-
-    if [ -L "$link_file" ]; then
-        if ask "$link_file already exists. Recreate symlink?"; then
-            unlink "$link_file"
-            ln -s "$target_file" "$link_file"
-            # echo "✅ $link_file -> $target_file"
-        fi
-    else
-        ln -s "$target_file" "$link_file"
-        # echo "✅ $link_file -> $target_file"
-    fi
-}
-
-DOTFILES_DIR="$HOME/.dotfiles"
-
-# Git configurations
-git config --global core.editor nvim
-git config --global init.defaultBranch main
-git config --global include.path "~/.dotfiles/git/aliases"
-git config --global core.excludesFile "~/.dotfiles/git/gitignore"
-git config --global merge.commit no
-
 # Install oh-my-zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Installing oh-my-zsh..."
@@ -49,18 +16,6 @@ fi
 #     echo "TPM already installed."
 # fi
 
-create_symlink "$DOTFILES_DIR/zshrc/.zshrc" "$HOME/.zshrc"
-create_symlink "$DOTFILES_DIR/Brewfile" "$HOME/Brewfile"
-create_symlink "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
-create_symlink "$DOTFILES_DIR/zshrc/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
-create_symlink "$DOTFILES_DIR/bin" "$HOME/bin"
-create_symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
-create_symlink "$DOTFILES_DIR/kitty" "$HOME/.config/kitty"
-create_symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
-
-# TODO
-# Create symlinks for everything in the bin dir, as opposed to symlinking the entire directory
-
 # MacOS specific configurations
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # First check if Homebrew is installed
@@ -72,7 +27,5 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     else
         echo "Homebrew already installed."
     fi
-
-    create_symlink "$DOTFILES_DIR/macos/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
 fi
 
