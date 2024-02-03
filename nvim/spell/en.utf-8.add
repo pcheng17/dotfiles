@@ -1,3 +1,11 @@
 config
 cpp
 lovamap
+ligand
+centroid
+3D
+hotspots
+directionality
+isotropy
+anisotropy
+tortuosity
