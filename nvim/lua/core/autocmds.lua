@@ -10,6 +10,19 @@ autocmd('TextYankPost', {
     end,
 })
 
+autocmd({ "FileType" }, {
+    desc = "Set formatoptions",
+    group = augroup("UserFormatOptions", { clear = true }),
+    pattern = "*",
+    callback = function(args)
+        if args.match ~= "markdown" then
+            vim.opt.formatoptions = "cqnlj"
+        else
+            vim.opt_local.formatoptions = "tcqnj"
+        end
+    end
+})
+
 local MyGroup = augroup("pcheng", { clear = true })
 
 autocmd({ "BufWinEnter", "WinEnter" }, {
@@ -36,22 +49,6 @@ autocmd({ "BufReadPost" }, {
     group = MyGroup,
     pattern = "*",
     command = 'silent! normal! g`"zv'
-})
-
--- Set global formatoptions
-autocmd({ "FileType" }, {
-    group = MyGroup,
-    callback = function()
-        vim.opt_local.formatoptions = "cqnlj"
-    end
-})
-
-autocmd({ "FileType" }, {
-    group = augroup("TextFileGroup", { clear = true }),
-    pattern = { "*.md", "*.txt" },
-    callback = function()
-        vim.opt_local.linebreak = true
-    end
 })
 
 autocmd('LspAttach', {
