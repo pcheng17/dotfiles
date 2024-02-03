@@ -42,7 +42,7 @@ autocmd({ "BufReadPost" }, {
 autocmd({ "FileType" }, {
     group = MyGroup,
     callback = function()
-        vim.opt_local.formatoptions:remove({ "r", "o", "t" })
+        vim.opt_local.formatoptions = "cqnlj"
     end
 })
 
