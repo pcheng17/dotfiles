@@ -16,7 +16,7 @@ return {
             },
             {
                 name = "work",
-                path = "~/Vaults/work",
+                path = "~/Vaults/roblox",
             }
         },
 
