@@ -1,7 +1,7 @@
 return {
     "epwalsh/obsidian.nvim",
     version = "*",
-    enabled = false,
+    enabled = true,
     dependencies = {
         "nvim-lua/plenary.nvim",
         "hrsh7th/nvim-cmp",
@@ -70,7 +70,7 @@ return {
 
         note_frontmatter_func = function(note)
             -- This is equivalent to the default frontmatter function.
-            local out = { id = note.id, aliases = note.aliases, tags = note.tags }
+            local out = { aliases = note.aliases, tags = note.tags }
             -- `note.metadata` contains any manually added fields in the frontmatter.
             -- So here we just make sure those fields are kept in the frontmatter.
             if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
