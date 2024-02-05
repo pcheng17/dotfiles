@@ -1,5 +1,6 @@
 local keymap = vim.keymap.set
 
+-- stylua: ignore start
 keymap({ "n", "x" }, "<space>", "<nop>", { silent = true, desc = "Disable space" })
 keymap({ "n", "x" }, "<del>",  "<nop>", { silent = true, desc = "Disable delete" })
 
@@ -38,3 +39,4 @@ keymap("x", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move visual block 
 
 keymap("x", ">", ">gv", { silent = true, desc = "Increase indent of visual block" })
 keymap("x", "<", "<gv", { silent = true, desc = "Decrease indent of visual block" })
+-- stylua: ignore end

@@ -64,6 +64,8 @@ autocmd('LspAttach', {
 
         -- `:Format` command local to the LSP buffer
         -- TODO: Do I want to use formatter.nvim instead?
+
+        -- stylua: ignore start
         vim.api.nvim_buf_create_user_command(
             e.buf, "Format", function(_) vim.lsp.buf.format({ async = true }) end, { desc = "Format buffer" }
         )
@@ -77,5 +79,6 @@ autocmd('LspAttach', {
         keymap("n", "<leader>ds", function() telescope.lsp_document_symbols() end,  { desc = "Document symbols" })
         keymap("n", "<leader>ws", function() telescope.lsp_workspace_symbols() end, { desc = "Workspace symbols" })
         keymap("i", "<C-k>",      function() vim.lsp.buf.signature_help() end,      { desc = "Signature help" })
+        -- stylua: ignore end
     end
 })
