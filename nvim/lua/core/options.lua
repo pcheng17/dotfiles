@@ -16,7 +16,7 @@ opt.cursorline = true
 
 opt.nu = true
 opt.relativenumber = true
-opt.signcolumn="yes"
+opt.signcolumn = "yes"
 
 opt.smartindent = true
 
