@@ -25,10 +25,7 @@ return {
                 lualine_y = { "filetype", "encoding",
                     {
                         "fileformat",
-                        -- Disable devicons
-                        symbols = {
-                            unix = 'unix', dos = 'dos', mac = 'mac'
-                        }
+                        icons_enabled = false,
                     }
                 },
                 lualine_z = {
