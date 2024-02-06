@@ -34,9 +34,10 @@ opt.tabstop = 4
 opt.softtabstop = 4
 opt.expandtab = true
 
+opt.backup = false
+opt.swapfile = false
 opt.undodir = fn.stdpath("data") .. "/undodir"
 opt.undofile = true
-opt.swapfile = false
 
 opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 opt.conceallevel = 0
