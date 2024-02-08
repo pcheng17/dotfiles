@@ -1,6 +1,7 @@
 return {
     'stevearc/oil.nvim',
-    lazy = false,
+    cmd = { "Oil" },
+    keys = { "<leader>oi" },
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
@@ -9,7 +10,7 @@ return {
             delete_to_trash = true,
             view_options = {
                 show_hidden = true,
-                is_always_hidden = function(name, bufnr)
+                is_always_hidden = function(name)
                     return name == '.DS_Store'
                 end
             },

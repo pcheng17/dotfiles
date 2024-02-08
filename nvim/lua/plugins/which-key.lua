@@ -6,7 +6,27 @@ return {
     end,
     config = function()
         require("which-key").register({
-            ["<leader>f"] = { name = "File (Telescope)", _ = "which_key_ignore" },
+            f = {
+                name = "File (Telescope)",
+                e = { "Neotree Toggle" }
+            },
+            o = {
+                i = { "Toggle Oil" },
+                r = { "Overseer Run" },
+                t = { "Overseer Toggle bottom" },
+            },
+            h = {
+                p = { "Show Harpoon" }
+            },
+            t = {
+                name = "Trouble",
+                t = { "Trouble Toggle" },
+                n = { "Trouble Next" },
+                p = { "Trouble Previous" }
+            },
+            [","] = { "Add to Harpoon" },
+        }, {
+            prefix = "<leader>",
         })
     end
 }
