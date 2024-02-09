@@ -33,4 +33,21 @@ return {
   ),
 
   s({ trig = "nosty", dscr = "Ignore styling" }, { t("--stylua: ignore") }),
+
+  s({
+    trig = "map",
+    dscr = "Define Neovim keymap",
+  }, {
+    t("vim.keymap.set('"),
+    i(1, "n"), -- Mode: 'n' for normal, 'i' for insert, etc.
+    t("', '"),
+    i(2, "<key>"), -- The key to map
+    t("', '"),
+    i(3, "<cmd>"), -- The command to execute
+    t("', { silent = "),
+    i(4, "true"), -- Silent flag
+    t(", desc = '"),
+    i(5, "Description"), -- Description of the keymap
+    t("' })"),
+  }),
 }
