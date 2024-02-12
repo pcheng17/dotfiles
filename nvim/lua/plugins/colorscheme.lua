@@ -8,6 +8,25 @@ return {
             require('catppuccin').setup({
                 flavour = "mocha",
                 no_italic = true,
+                integrations = {
+                    alpha = true,
+                    cmp = true,
+                    flash = true,
+                    fidget = true,
+                    gitsigns = true,
+                    harpoon = true,
+                    illuminate = true,
+                    lsp_trouble = true,
+                    mason = true,
+                    -- noice = true,
+                    native_lsp = { enabled = true },
+                    neotree = true,
+                    overseer = true,
+                    telescope = true,
+                    treesitter = true,
+                    treesitter_context = true,
+                    which_key = true,
+                }
             })
         end,
     },

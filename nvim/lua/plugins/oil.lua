@@ -1,7 +1,7 @@
 return {
     'stevearc/oil.nvim',
     cmd = { "Oil" },
-    keys = { "<leader>oi" },
+    keys = { "<leader>e" },
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
@@ -16,13 +16,14 @@ return {
             },
         })
 
-        vim.keymap.set("n", "<leader>oi",
+        vim.keymap.set("n", "<leader>e",
             function()
-                if vim.bo.ft ~= "oil" then
-                    require("oil").open()
-                else
-                    require("oil").close()
-                end
+                -- if vim.bo.ft ~= "oil" then
+                --     require("oil").open_float()
+                -- else
+                --     require("oil").close_float()
+                -- end
+                require("oil").toggle_float()
             end,
             { silent = true, desc = "Toggle Oil" })
     end,

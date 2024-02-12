@@ -2,11 +2,14 @@ return {
     'akinsho/bufferline.nvim',
     enabled = true,
     version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    dependencies = {
+        "nvim-tree/nvim-web-devicons",
+        "catppuccin",
+    },
     config = function()
         require("bufferline").setup({
             options = {
-                -- separator_style = "slant",
+                separator_style = "slant",
                 offsets = {
                     {
                         filetype = "OverseerList",
@@ -20,6 +23,7 @@ return {
                     }
                 },
             },
+            highlights = require("catppuccin.groups.integrations.bufferline").get()
         })
 
         vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>", { silent = true, desc = "Next buffer" })

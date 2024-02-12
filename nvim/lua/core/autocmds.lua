@@ -25,6 +25,13 @@ autocmd({ "FileType" }, {
 
 local MyGroup = augroup("pcheng", { clear = true })
 
+autocmd({ "FileType" }, {
+    pattern = "oil",
+    callback = function()
+        vim.opt_local.colorcolumn = ""
+    end
+})
+
 autocmd({ "BufWinEnter", "WinEnter" }, {
     desc = "Enter insert mode when opening a terminal",
     group = MyGroup,

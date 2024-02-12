@@ -6,6 +6,7 @@ return {
     end,
     config = function()
         require("which-key").register({
+            e = { "Toggle Oil" },
             f = {
                 name = "File (Telescope)",
                 e = { "Neotree Toggle" }
@@ -23,6 +24,9 @@ return {
                 t = { "Trouble Toggle" },
                 n = { "Trouble Next" },
                 p = { "Trouble Previous" }
+            },
+            l = {
+                g = { "LazyGit" }
             },
             [","] = { "Add to Harpoon" },
         }, {
