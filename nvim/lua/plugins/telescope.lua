@@ -63,6 +63,7 @@ return {
         keymap("n", "<leader>ff",  builtin.find_files,         { silent = true, desc = "Telescope find files" })
         keymap("n", "<leader>;",   builtin.git_files,          { silent = true, desc = "Telescope git files" })
         keymap("n", "<leader>'",   "<cmd>LiveGrepGitRoot<cr>", { silent = true, desc = "Telescope grep in git root" })
+        keymap("n", "<leader>fo",   builtin.oldfiles,          { silent = true, desc = "Telescope oldfiles" })
         keymap("n", "<leader>fs",  builtin.live_grep,          { silent = true, desc = "Telescope grep" })
         keymap("n", "<leader>fu",  builtin.buffers,            { silent = true, desc = "Telescope buffers" })
         keymap("n", "<leader>fh",  builtin.help_tags,          { silent = true, desc = "Telescope help tags" })
@@ -71,6 +72,5 @@ return {
         keymap("n", "<leader>fch", builtin.command_history,    { silent = true, desc = "Telescope command history" })
         keymap("n", "<leader>fll", builtin.loclist,            { silent = true, desc = "Telescope loclist" })
         keymap("n", "<leader>fqf", builtin.quickfix,           { silent = true, desc = "Telescope quickfix" })
-        keymap("n", "<leader>?",   builtin.oldfiles,           { silent = true, desc = "Telescope oldfiles" })
     end
 }
