@@ -1,5 +1,5 @@
 return {
-    'akinsho/bufferline.nvim',
+    "akinsho/bufferline.nvim",
     enabled = true,
     version = "*",
     dependencies = {
@@ -7,6 +7,8 @@ return {
         "catppuccin",
     },
     config = function()
+        local mocha = require("catppuccin.palettes").get_palette("mocha")
+
         require("bufferline").setup({
             options = {
                 separator_style = "slant",
@@ -23,7 +25,18 @@ return {
                     }
                 },
             },
-            highlights = require("catppuccin.groups.integrations.bufferline").get()
+            highlights = require("catppuccin.groups.integrations.bufferline").get({
+                custom = {
+                    all = {
+                        close_button_selected = {
+                            fg = mocha.subtext1
+                        },
+                        tab_close = {
+                            fg = mocha.subtext1
+                        },
+                    }
+                }
+            })
         })
 
         vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>", { silent = true, desc = "Next buffer" })
