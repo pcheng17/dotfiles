@@ -4,6 +4,8 @@ local keymap = vim.keymap.set
 keymap({ "n", "x" }, "<space>", "<nop>", { silent = true, desc = "Disable space" })
 keymap({ "n", "x" }, "<del>",  "<nop>", { silent = true, desc = "Disable delete" })
 
+keymap({ "n" }, "<leader>xx", ":!chmod +x %<cr>", { silent = true, desc = "Make file executable" })
+
 keymap("n", "|+", ":res +5<cr>",      { silent = true, desc = "Increase window height" })
 keymap("n", "|-", ":res -5<cr>",      { silent = true, desc = "Decrease window height" })
 keymap("n", "_+", ":vert res +5<cr>", { silent = true, desc = "Increase window width" })
