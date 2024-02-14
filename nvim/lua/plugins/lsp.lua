@@ -22,8 +22,6 @@ return {
         "j-hui/fidget.nvim",
     },
     config = function()
-        require("mason").setup({})
-
         -- TODO Figure out what this capabilities thing is...
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)

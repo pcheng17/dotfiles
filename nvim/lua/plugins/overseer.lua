@@ -1,5 +1,6 @@
 return {
     "stevearc/overseer.nvim",
+    enabled = false,
     cmd = { "OverseerOpen", "OverseerRun", "OverseerInfo", "OverseerToggle" },
     keys = { "<leader>or", "<leader>ot" },
     config = function()
