@@ -17,8 +17,8 @@ return {
 
         -- Set menu
         dashboard.section.buttons.val = {
-            dashboard.button( "r", "  > Recent"   , ":Telescope oldfiles<CR>"),
-            dashboard.button( "q", "  > Quit NVIM", ":qa<CR>"),
+            dashboard.button( ".", "   Recent"     , ":Telescope oldfiles<CR>"),
+            dashboard.button( "q", "   Quit Neovim", ":qa<CR>"),
         }
 
         require('alpha').setup(dashboard.opts)
