@@ -11,11 +11,8 @@ return {
             end
 
             -- Match the branch name to the specified format
-            -- TODO: Figure out how to make this work for my work
             local _, _, ticket_number = string.find(branch, "[a-z]+/CLI%-(%d+)")
-            -- print('ticket_number: ' .. ticket_number)
 
-            -- If the branch name matches the format, display sko-{ticket_number}, otherwise display the full branch name
             if ticket_number then
                 return "CLI-" .. ticket_number
             else
