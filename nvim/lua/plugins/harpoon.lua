@@ -1,13 +1,6 @@
 return {
     "ThePrimeagen/harpoon",
-    keys = {
-        "<leader>,",
-        "<leader>hp",
-        "<M-h>",
-        "<M-j>",
-        "<M-k>",
-        "<M-l>",
-    },
+    enabled = false,
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
