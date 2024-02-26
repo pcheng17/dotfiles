@@ -1,9 +1,5 @@
 return {
     "laytan/cloak.nvim",
-    ft = {
-        "env",
-        "env.local"
-    },
     config = function()
         require("cloak").setup({
             enabled = true,
