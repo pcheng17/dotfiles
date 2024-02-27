@@ -153,6 +153,17 @@ return {
     { condition = tex.in_math }
   ),
 
+  s(
+    {
+      trig = "([%w])(~)",
+      name = "Tilde",
+      dscr = "Turns the previous word into a tilde-wrapped expression",
+      regTrig = true, wordTrig = false, snippetType = "autosnippet",
+    },
+    fmta("\\tilde{<>}", { f(function(_, snip) return snip.captures[1] end) }),
+    { condition = tex.in_math }
+  ),
+
   --stylua: ignore
   s(
     {

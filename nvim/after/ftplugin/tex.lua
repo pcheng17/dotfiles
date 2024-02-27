@@ -6,7 +6,6 @@ vim.opt_local.shiftwidth = 2
 vim.opt_local.tabstop = 2
 vim.opt_local.softtabstop = 2
 vim.opt_local.textwidth = 80
--- vim.opt_local.conceallevel = 0
 
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'",
     { expr = true, silent = true, desc = "Move up by single line" })

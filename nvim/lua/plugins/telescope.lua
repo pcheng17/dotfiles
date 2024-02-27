@@ -69,7 +69,6 @@ return {
         keymap("n", "<leader>fh",  builtin.help_tags,            { silent = true, desc = "Telescope help tags" })
         keymap("n", "<leader>fk",  builtin.keymaps,              { silent = true, desc = "Telescope keymaps" })
         keymap("n", "<leader>fm",  builtin.marks,                { silent = true, desc = "Telescope marks" })
-        keymap("n", "<leader>fds", builtin.lsp_document_symbols, { silent = true, desc = "Telescope lsp document symbols" })
         keymap("n", "<leader>fch", builtin.command_history,      { silent = true, desc = "Telescope command history" })
         keymap("n", "<leader>fll", builtin.loclist,              { silent = true, desc = "Telescope loclist" })
         keymap("n", "<leader>fqf", builtin.quickfix,             { silent = true, desc = "Telescope quickfix" })
