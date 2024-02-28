@@ -153,17 +153,6 @@ return {
     { condition = tex.in_math }
   ),
 
-  s(
-    {
-      trig = "([%w])(~)",
-      name = "Tilde",
-      dscr = "Turns the previous word into a tilde-wrapped expression",
-      regTrig = true, wordTrig = false, snippetType = "autosnippet",
-    },
-    fmta("\\tilde{<>}", { f(function(_, snip) return snip.captures[1] end) }),
-    { condition = tex.in_math }
-  ),
-
   --stylua: ignore
   s(
     {
@@ -184,6 +173,26 @@ return {
   s(
     { trig = "trans", name = "transpose", wordTrig = false, snippetType = "autosnippet" },
     t("^{\\top}"),
+    { condition = tex.in_math }
+  ),
+  s(
+    {
+      trig = "([%w])(~)",
+      name = "Tilde",
+      dscr = "Turns the previous word into a tilde-wrapped expression",
+      regTrig = true, wordTrig = false, snippetType = "autosnippet",
+    },
+    fmta("\\tilde{<>}", { f(function(_, snip) return snip.captures[1] end) }),
+    { condition = tex.in_math }
+  ),
+  s(
+    {
+      trig = "inv",
+      name = "Inverse",
+      dscr = "Raises the previous word to the power of -1",
+      wordTrig = false, snippetType = "autosnippet",
+    },
+    t("^{-1}"),
     { condition = tex.in_math }
   ),
   s(
