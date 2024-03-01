@@ -20,6 +20,7 @@ return {
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
+        -- "zbirenbaum/copilot-cmp",
     },
     config = function()
         -- TODO Figure out what this capabilities thing is...
@@ -125,24 +126,40 @@ return {
                 ['<C-Space>'] = cmp.mapping.complete(),
                 ['<C-e>'] = cmp.mapping.abort(),
                 ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-                ["<Tab>"] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_next_item()
-                    elseif luasnip.expand_or_jumpable() then
+                ["<Tab>"] = vim.schedule_wrap(function(fallback)
+                    if luasnip.expand_or_jumpable() then
                         luasnip.expand_or_jump()
                     else
                         fallback()
                     end
-                end, { "i", "s" }),
-                ["<S-Tab>"] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_prev_item()
-                    elseif luasnip.jumpable(-1) then
+                end),
+                ["<S-Tab>"] = vim.schedule_wrap(function(fallback)
+                    if luasnip.jumpable(-1) then
                         luasnip.jump(-1)
                     else
                         fallback()
                     end
-                end, { "i", "s" }),
+                end),
+                -- Deprecating old behavior, but keeping code around just in case
+                -- Take a look at copilot-cmp's github for an implementation of `if cmp.visible()`
+                -- ["<Tab>"] = cmp.mapping(function(fallback)
+                --     if cmp.visible() then
+                --         cmp.select_next_item()
+                --     elseif luasnip.expand_or_jumpable() then
+                --         luasnip.expand_or_jump()
+                --     else
+                --         fallback()
+                --     end
+                -- end, { "i", "s" }),
+                -- ["<S-Tab>"] = cmp.mapping(function(fallback)
+                --     if cmp.visible() then
+                --         cmp.select_prev_item()
+                --     elseif luasnip.jumpable(-1) then
+                --         luasnip.jump(-1)
+                --     else
+                --         fallback()
+                --     end
+                -- end, { "i", "s" }),
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
