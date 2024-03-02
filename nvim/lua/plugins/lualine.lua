@@ -44,6 +44,7 @@ return {
                 lualine_x = { },
                 lualine_y = {
                     "filetype",
+                    "progress",
                     -- "encoding",
                     -- {
                     --     "fileformat",
