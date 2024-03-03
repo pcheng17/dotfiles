@@ -36,6 +36,7 @@ return {
                 "lua_ls",     -- lua
                 "pyright",    -- python
                 "texlab",     -- latex
+                "typst_lsp",  -- typst
             },
             handlers = {
                 function(server_name) -- default handler
@@ -104,7 +105,16 @@ return {
                             print("Using Python interpreter: " .. config.settings.python.pythonPath)
                         end,
                     })
-                end
+                end,
+
+                ["typst_lsp"] = function()
+                    require("lspconfig").typst_lsp.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            exportPdf = "never",
+                        },
+                    })
+                end,
             }
         })
 

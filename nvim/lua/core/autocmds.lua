@@ -15,7 +15,7 @@ autocmd({ "FileType" }, {
     group = augroup("UserFormatOptions", { clear = true }),
     pattern = "*",
     callback = function(args)
-        if args.match ~= "markdown" and args.match ~= "tex" and args.match ~= "text" then
+        if args.match ~= "markdown" and args.match ~= "tex" and args.match ~= "text" and args.match ~= "typst" then
             vim.opt.formatoptions = "cqnlj"
         else
             vim.opt_local.formatoptions = "tcqnj"
