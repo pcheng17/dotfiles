@@ -23,6 +23,15 @@ autocmd({ "FileType" }, {
     end
 })
 
+autocmd({ "BufRead", "BufNewFile" }, {
+    desc = "Set jsonl files to be treated as json",
+    group = augroup("UserJsonlFileType", { clear = true }),
+    pattern = "*.jsonl",
+    callback = function()
+        vim.bo.filetype = "json"
+    end
+})
+
 local MyGroup = augroup("pcheng", { clear = true })
 
 autocmd({ "FileType" }, {
