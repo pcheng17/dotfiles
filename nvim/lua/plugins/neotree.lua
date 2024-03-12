@@ -29,7 +29,7 @@ return {
                     enabled = true,
                     leave_dirs_open = false,
                 }
-            }
+            },
         })
 
         vim.keymap.set("n", "<leader>fe", "<cmd>Neotree toggle<CR>", { silent = true, desc = "Neotree toggle" });
