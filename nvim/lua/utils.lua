@@ -16,4 +16,15 @@ M.load_keymaps = function(keymaps)
     end
 end
 
+M.merge_tables = function(...)
+    local tables = {...}
+    local result = {}
+    for _, tbl in ipairs(tables) do
+        for _, v in pairs(tbl) do
+            table.insert(result, v)
+        end
+    end
+    return result
+end
+
 return M
