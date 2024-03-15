@@ -65,8 +65,11 @@ return {
                         cmd = {
                             "clangd",
                             "--background-index",
+                            "--cross-file-rename",
+                            "--function-arg-placeholders",
                             "--header-insertion=iwyu",
-                            "--offset-encoding=utf-16"
+                            "--header-insertion-decorators",
+                            "--offset-encoding=utf-16",
                         },
                         root_dir = function(fname)
                             local unpack = table.unpack or unpack
