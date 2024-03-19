@@ -119,8 +119,12 @@ return {
     },
     {
         "nvim-treesitter/nvim-treesitter-context",
-        enabled = false,
+        enabled = true,
         config = function()
+            require("treesitter-context").setup({
+                max_lines = 5,
+                multiline_threshold = 1,
+            })
             vim.api.nvim_set_hl(0, "TreesitterContextBottom", { underline = true, sp = "Grey"})
             vim.api.nvim_set_hl(0, "TreesitterContextLineNumberBottom", { underline = true, sp = "Grey"})
             vim.keymap.set("n", "[x",
