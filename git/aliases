@@ -55,5 +55,7 @@
     tags = log --oneline --decorate --tags --no-walk
     # Show the user email for the current repository
     whoami = config user.email
+    # Worktrees
+    wt = worktree
     # YOLO
     yolo = push --force

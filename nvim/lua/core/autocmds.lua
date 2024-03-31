@@ -94,6 +94,8 @@ autocmd('LspAttach', {
         keymap("n", "<leader>rn", function() vim.lsp.buf.rename() end,              { desc = "Rename symbol" })
         keymap("n", "<leader>ds", function() telescope.lsp_document_symbols() end,  { desc = "Document symbols" })
         keymap("n", "<leader>ws", function() telescope.lsp_workspace_symbols() end, { desc = "Workspace symbols" })
+        keymap("n", "<leader>ic", function() telescope.lsp_incoming_calls() end,    { desc = "Incoming calls" })
+        keymap("n", "<leader>oc", function() telescope.lsp_outgoing_calls() end,    { desc = "Outgoing calls" })
         keymap("i", "<C-k>",      function() vim.lsp.buf.signature_help() end,      { desc = "Signature help" })
         -- stylua: ignore end
     end
