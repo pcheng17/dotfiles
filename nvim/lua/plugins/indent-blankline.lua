@@ -14,6 +14,7 @@ return {
                     "help",
                     "alpha",
                     "dashboard",
+                    "grapple",
                     "Trouble",
                     "trouble",
                     "lazy",

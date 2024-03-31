@@ -14,7 +14,6 @@ return {
                     flash = true,
                     fidget = true,
                     gitsigns = true,
-                    harpoon = true,
                     illuminate = true,
                     lsp_trouble = true,
                     mason = true,

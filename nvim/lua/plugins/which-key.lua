@@ -16,9 +16,6 @@ return {
                 r = { "Overseer Run" },
                 t = { "Overseer Toggle bottom" },
             },
-            h = {
-                p = { "Show Harpoon" }
-            },
             t = {
                 name = "Trouble",
                 t = { "Trouble Toggle" },
@@ -28,7 +25,6 @@ return {
             l = {
                 g = { "LazyGit" }
             },
-            [","] = { "Add to Harpoon" },
         }, {
             prefix = "<leader>",
         })

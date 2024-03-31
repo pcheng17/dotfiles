@@ -10,10 +10,10 @@ return {
             },
             filetypes_denylist = {
                 "fugitive",
+                "grapple",
                 "oil",
                 "OverseerList",
                 "markdown",
-                "harpoon",
             },
         })
     end
