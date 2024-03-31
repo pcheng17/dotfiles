@@ -10,6 +10,6 @@ return {
         { "<leader><space>", "<cmd>Grapple toggle_tags<cr>", desc = "Grapple open tags window", silent = true },
     },
     opts = {
-        scope = "cwd"
+        scope = "git"
     },
 }
