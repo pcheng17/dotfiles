@@ -14,6 +14,7 @@ return {
                 "oil",
                 "OverseerList",
                 "markdown",
+                "neo-tree",
             },
         })
     end
