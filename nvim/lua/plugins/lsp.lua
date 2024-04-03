@@ -109,7 +109,7 @@ return {
                             end
 
                             config.settings.python.pythonPath = get_python_path(config.root_dir)
-                            print("Using Python interpreter: " .. config.settings.python.pythonPath)
+                            -- print("Using Python interpreter: " .. config.settings.python.pythonPath)
                         end,
                     })
                 end,
