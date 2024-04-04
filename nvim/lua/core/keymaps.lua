@@ -42,4 +42,7 @@ keymap("x", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move visual block 
 
 keymap("x", ">", ">gv", { silent = true, desc = "Increase indent of visual block" })
 keymap("x", "<", "<gv", { silent = true, desc = "Decrease indent of visual block" })
+
+keymap("n", "[q", ":cprev<cr>", { silent = true, desc = "Move to previous quickfix item" })
+keymap("n", "]q", ":cnext<cr>", { silent = true, desc = "Move to next quickfix item" })
 -- stylua: ignore end
