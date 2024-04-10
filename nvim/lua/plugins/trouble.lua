@@ -6,20 +6,12 @@ return {
         "TroubleToggle"
     },
     keys = {
-        "<leader>tt",
-        "<leader>tn",
-        "<leader>tp"
+        { "<leader>tt", function() require("trouble").toggle() end, desc = "Trouble toggle", silent = true },
+        { "<leader>td", function() require("trouble").toggle("document_diagnostics") end, desc = "Trouble document diagnostics", silent = true },
+        { "[d", function() require("trouble").previous({ skip_groups = true, jump = true }) end, desc = "Trouble previous", silent = true },
+        { "]d", function() require("trouble").next({ skip_groups = true, jump = true }) end, desc = "Trouble next", silent = true },
     },
     config = function()
-        local trouble = require("trouble")
-        trouble.setup({})
-
-        local function nmap(keys, func, desc)
-            vim.keymap.set("n", keys, func, { noremap = true, silent = true, desc = desc })
-        end
-
-        nmap("<leader>tt", function() trouble.toggle() end, "Trouble toggle")
-        nmap("<leader>tn", function() trouble.next({ skip_groups = true, jump = true }) end, "Trouble next")
-        nmap("<leader>tp", function() trouble.previous({ skip_groups = true, jump = true }) end, "Trouble previous")
+        require("trouble").setup({})
     end
 }
