@@ -5,9 +5,10 @@ if [[ $# -eq 1 ]]; then
 else
     selected=$(
         {
-            find $HOME/Workspace $HOME/Vaults -mindepth 1 -maxdepth 1 -type d;
+            find $HOME/Workspace -mindepth 1 -maxdepth 1 -type d;
             echo "$HOME/Documents/Notes";
             echo "$HOME/.dotfiles"
+            echo "$HOME/.ssh"
         } | fzf
     )
 fi
