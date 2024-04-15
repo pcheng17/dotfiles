@@ -14,7 +14,7 @@ alias rld='source ~/.zshrc'
 alias dfs='cd ~/.dotfiles'
 alias edfs='nvim ~/.dotfiles'
 
-alias gcob='git branch | fzf | xargs git checkout'
+alias gcob='git branch | fzf --height=50% | xargs git checkout'
 alias apoet="source \"\$(poetry env list --full-path | grep Activated | cut -d' ' -f1 )/bin/activate\""
 
 alias lg='lazygit'
