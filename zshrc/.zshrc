@@ -135,7 +135,7 @@ HEROKU_AC_ZSH_SETUP_PATH=/Users/pcheng/Library/Caches/heroku/autocomplete/zsh_se
 
 # Customize fzf
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
-export FZF_DEFAULT_OPTS="--height 50% --border"
+export FZF_DEFAULT_OPTS="--border"
 
 # Tell `less` not to paginate if less than a page
 export LESS="-F -X $LESS"
