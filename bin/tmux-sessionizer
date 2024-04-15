@@ -11,7 +11,7 @@ else
             echo "$HOME/Documents/Notes";
             echo "$HOME/.dotfiles";
             echo "$HOME/.ssh";
-        } | fzf
+        } | fzf --border
     )
 fi
 
@@ -22,8 +22,8 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
-# `-z $TMUX` checks if the current shell is running in a tmux session
-# `-z $tmux_running` checks if there is a tmux server running
+# `-z $TMUX` checks if the current shell is NOT running in a tmux session
+# `-z $tmux_running` checks if a tmux server is NOT running
 if [[ -z $TMUX ]]; then
     if [[ -z $tmux_running ]]; then
         tmux new-session -s $selected_name -c $selected
