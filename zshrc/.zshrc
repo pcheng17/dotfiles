@@ -140,6 +140,9 @@ export FZF_DEFAULT_OPTS="--height 50% --border"
 # Tell `less` not to paginate if less than a page
 export LESS="-F -X $LESS"
 
+# kitty ssh fix
+[[ "$TERM" == "xterm-kitty" ]] && alias ssh="TERM=xterm-256color ssh"
+
 # auto_cd allows me to cd to directories within the specified `cdpath` without the need for `cd`
 setopt auto_cd
 case "$OSTYPE" in
