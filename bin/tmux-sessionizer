@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 
+WORKSPACE=$HOME/Workspace
+
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
     selected=$(
         {
-            find $HOME/Workspace -mindepth 1 -maxdepth 1 -type d;
+            find $WORKSPACE/* -maxdepth 0 -type d;
             echo "$HOME/Documents/Notes";
-            echo "$HOME/.dotfiles"
-            echo "$HOME/.ssh"
+            echo "$HOME/.dotfiles";
+            echo "$HOME/.ssh";
         } | fzf
     )
 fi
