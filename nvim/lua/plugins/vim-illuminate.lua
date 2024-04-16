@@ -11,6 +11,7 @@ return {
             filetypes_denylist = {
                 "fugitive",
                 "grapple",
+                "harpoon",
                 "oil",
                 "OverseerList",
                 "markdown",
