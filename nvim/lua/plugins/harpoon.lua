@@ -4,7 +4,7 @@ return {
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
-        { "<leader>a", function() require("harpoon").list().add() end, mode = "n", desc = "Add to Harpoon", silent = true },
+        { "<leader>a", function() require("harpoon"):list():add() end, mode = "n", desc = "Add to Harpoon", silent = true },
         { "<leader><space>",
             function()
                 local harpoon = require("harpoon")
@@ -17,8 +17,8 @@ return {
         local harpoon = require("harpoon")
         harpoon:setup({
             settings = {
-                save_on_toggle = true,
-                save_on_ui_close = true,
+                save_on_toggle = false,
+                save_on_ui_close = false,
             },
         })
 
