@@ -18,6 +18,8 @@ return {
                 filtered_items = {
                     always_show = {
                         ".gitignore",
+                        ".github",
+                        ".vscode",
                     },
                     never_show = {
                         ".git",
