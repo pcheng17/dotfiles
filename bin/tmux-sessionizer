@@ -11,6 +11,7 @@ else
             echo "$HOME/Documents/Notes";
             echo "$HOME/.dotfiles";
             echo "$HOME/.ssh";
+            echo "default";
         } | fzf --border
     )
 fi
