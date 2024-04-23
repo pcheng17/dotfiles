@@ -20,6 +20,7 @@ return {
                         ".gitignore",
                         ".github",
                         ".vscode",
+                        "LocalFlags.h", -- work
                     },
                     never_show = {
                         ".git",
