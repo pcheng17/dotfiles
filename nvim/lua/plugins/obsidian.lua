@@ -40,7 +40,8 @@ return {
         },
 
         -- If you keep notes in a specific subirectory of your vault
-        notes_subdir = "notes",
+        notes_subdir = "inbox",
+        new_notes_location = "notes_subdir",
 
         -- Boolean or a function that takes a filename and returns a boolean
         -- False indicates that you want `obsidian.nvim` to manage frontmatter
