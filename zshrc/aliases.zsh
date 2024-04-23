@@ -20,6 +20,7 @@ alias apoet="source \"\$(poetry env list --full-path | grep Activated | cut -d' 
 alias lg='lazygit'
 alias vim='nvim'
 alias v='nvim'
+alias t='tmux'
 
 case "$OSTYPE" in
     darwin*)
