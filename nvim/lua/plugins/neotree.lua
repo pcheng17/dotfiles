@@ -21,6 +21,7 @@ return {
                         ".github",
                         ".vscode",
                         "LocalFlags.h", -- work
+                        ".clang-format",
                     },
                     never_show = {
                         ".git",

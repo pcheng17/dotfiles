@@ -21,6 +21,7 @@ alias lg='lazygit'
 alias vim='nvim'
 alias v='nvim'
 alias t='tmux'
+alias j='just'
 
 case "$OSTYPE" in
     darwin*)
