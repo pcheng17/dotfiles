@@ -162,8 +162,7 @@ pomo_options["study"]="-n Study 30m"
 
 pomodoro () {
   if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
-  val=$1
-  echo "${pomo_options["$1"]}" | xargs timer
+    echo "${pomo_options["$1"]}" | xargs timer
   fi
 }
 alias pom="pomodoro"
