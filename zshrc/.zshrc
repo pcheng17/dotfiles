@@ -158,6 +158,7 @@ esac
 declare -A pomo_options
 pomo_options["work"]="-n Work 45m"
 pomo_options["break"]="-n Break 10m"
+pomo_options["study"]="-n Study 30m"
 
 pomodoro () {
   if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
