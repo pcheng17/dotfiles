@@ -1,5 +1,6 @@
 return {
     "nvim-telescope/telescope.nvim",
+    enabled = true,
     dependencies = {
         "nvim-lua/plenary.nvim",
         {
@@ -58,20 +59,20 @@ return {
 
         vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 
-        local builtin = require("telescope.builtin")
-        local keymap = vim.keymap.set
-        keymap("n", "<leader>ff",  builtin.find_files,           { silent = true, desc = "Telescope find files" })
-        keymap("n", "<leader>;",   builtin.git_files,            { silent = true, desc = "Telescope git files" })
-        keymap("n", "<leader>.",   "<cmd>LiveGrepGitRoot<cr>",   { silent = true, desc = "Telescope grep in git root" })
-        keymap("n", "<leader>'",   builtin.oldfiles,             { silent = true, desc = "Telescope oldfiles" })
-        keymap("n", "<leader>fs",  builtin.live_grep,            { silent = true, desc = "Telescope grep" })
-        keymap("n", "<leader>fu",  builtin.buffers,              { silent = true, desc = "Telescope buffers" })
-        keymap("n", "<leader>fh",  builtin.help_tags,            { silent = true, desc = "Telescope help tags" })
-        keymap("n", "<leader>fk",  builtin.keymaps,              { silent = true, desc = "Telescope keymaps" })
-        keymap("n", "<leader>fm",  builtin.marks,                { silent = true, desc = "Telescope marks" })
-        keymap("n", "<leader>fx",  builtin.commands,             { silent = true, desc = "Telescope commands" })
-        keymap("n", "<leader>fch", builtin.command_history,      { silent = true, desc = "Telescope command history" })
-        keymap("n", "<leader>fll", builtin.loclist,              { silent = true, desc = "Telescope loclist" })
-        keymap("n", "<leader>fqf", builtin.quickfix,             { silent = true, desc = "Telescope quickfix" })
+        -- local builtin = require("telescope.builtin")
+        -- local keymap = vim.keymap.set
+        -- keymap("n", "<leader>ff",  builtin.find_files,           { silent = true, desc = "Telescope find files" })
+        -- keymap("n", "<leader>;",   builtin.git_files,            { silent = true, desc = "Telescope git files" })
+        -- keymap("n", "<leader>.",   "<cmd>LiveGrepGitRoot<cr>",   { silent = true, desc = "Telescope grep in git root" })
+        -- keymap("n", "<leader>'",   builtin.oldfiles,             { silent = true, desc = "Telescope oldfiles" })
+        -- keymap("n", "<leader>fs",  builtin.live_grep,            { silent = true, desc = "Telescope grep" })
+        -- keymap("n", "<leader>fu",  builtin.buffers,              { silent = true, desc = "Telescope buffers" })
+        -- keymap("n", "<leader>fh",  builtin.help_tags,            { silent = true, desc = "Telescope help tags" })
+        -- keymap("n", "<leader>fk",  builtin.keymaps,              { silent = true, desc = "Telescope keymaps" })
+        -- keymap("n", "<leader>fm",  builtin.marks,                { silent = true, desc = "Telescope marks" })
+        -- keymap("n", "<leader>fx",  builtin.commands,             { silent = true, desc = "Telescope commands" })
+        -- keymap("n", "<leader>fch", builtin.command_history,      { silent = true, desc = "Telescope command history" })
+        -- keymap("n", "<leader>fll", builtin.loclist,              { silent = true, desc = "Telescope loclist" })
+        -- keymap("n", "<leader>fqf", builtin.quickfix,             { silent = true, desc = "Telescope quickfix" })
     end
 }

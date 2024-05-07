@@ -86,6 +86,9 @@ autocmd('LspAttach', {
             e.buf, "Format", function(_) vim.lsp.buf.format({ async = true }) end, { desc = "Format buffer" }
         )
 
+        -- local fzflua = require("fzf-lua")
+        -- keymap("n", "gd", function() fzflua.lsp_definitions() end, { desc = "Go to definition" })
+
         local telescope = require("telescope.builtin")
         keymap("n", "gd",         function() telescope.lsp_definitions() end,       { desc = "Go to definition" })
         keymap("n", "gr",         function() telescope.lsp_references() end,        { desc = "Go to references" })
