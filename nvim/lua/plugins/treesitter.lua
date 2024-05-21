@@ -11,6 +11,7 @@ return {
             require("nvim-treesitter.configs").setup({
                 highlight = { enable = true },
                 indent = { enable = true },
+                rainbow = { enable = false }, -- this is supposed to fix javascript issues...?
                 ensure_installed = {
                     "bash",
                     "c",
