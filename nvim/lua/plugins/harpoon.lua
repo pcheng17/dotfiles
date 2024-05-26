@@ -10,7 +10,7 @@ return {
                 local harpoon = require("harpoon")
                 harpoon.ui:toggle_quick_menu(harpoon:list())
             end,
-            mode = "n", desc = "Grapple open tags window", silent = true
+            mode = "n", desc = "Harpoon open tags window", silent = true
         },
     },
     config = function()
