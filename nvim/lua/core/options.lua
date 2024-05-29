@@ -52,7 +52,3 @@ opt.clipboard = "unnamedplus"
 vim.cmd("colorscheme catppuccin")
 -- vim.cmd("colorscheme nightfox")
 -- vim.cmd("colorscheme duskfox")
-
-vim.api.nvim_set_hl(0, "Normal", { ctermbg = "none" })
-vim.api.nvim_set_hl(0, "NonText", { ctermbg = "none" })
-

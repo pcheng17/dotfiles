@@ -29,6 +29,7 @@ require("core.options")
 require("core.keymaps")
 require("core.autocmds")
 require("core.spelling")
+require("core.ui")
 
 -- Protected call to require work-related stuff since this my not always exist
 pcall(require, "roblox")
