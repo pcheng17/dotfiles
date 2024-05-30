@@ -67,6 +67,22 @@ autocmd({ "BufReadPost" }, {
     command = 'silent! normal! g`"zv'
 })
 
+autocmd("BufWritePost", {
+    pattern = "*/kitty.conf",
+    group = MyGroup,
+    callback = function()
+        vim.cmd("silent !kill -SIGUSR1 $(pgrep -a kitty)")
+    end,
+})
+
+autocmd("BufWritePost", {
+    pattern = "*.tmux.conf",
+    group = MyGroup,
+    callback = function()
+        vim.cmd('silent !tmux source-file ~/.tmux.conf ; tmux display-message "Reloaded ~/.tmux.conf"')
+    end,
+})
+
 autocmd('LspAttach', {
     group = augroup("UserLspConfig", { clear = true }),
     callback = function(e)
