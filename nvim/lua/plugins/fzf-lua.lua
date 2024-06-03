@@ -6,9 +6,9 @@ return {
     --stylua: ignore start
     keys = {
         { "<leader>;",   function() require("fzf-lua").files() end,           mode = "n", desc = "fzf files in cwd",    silent = true },
-        { "<leader>'",  function() require("fzf-lua").buffers() end,          mode = "n", desc = "fzf buffers",         silent = true },
+        { "<leader>'",   function() require("fzf-lua").buffers() end,         mode = "n", desc = "fzf buffers",         silent = true },
         { "<leader>.",   function() require("fzf-lua").grep() end,            mode = "n", desc = "fzf grep in cwd",     silent = true },
-        { "<leader>fo",   function() require("fzf-lua").oldfiles() end,       mode = "n", desc = "fzf oldfiles",        silent = true },
+        { "<leader>fo",  function() require("fzf-lua").oldfiles() end,        mode = "n", desc = "fzf oldfiles",        silent = true },
         { "<leader>fh",  function() require("fzf-lua").helptags() end,        mode = "n", desc = "fzf help tags",       silent = true },
         { "<leader>fk",  function() require("fzf-lua").keymaps() end,         mode = "n", desc = "fzf keymaps",         silent = true },
         { "<leader>fx",  function() require("fzf-lua").commands() end,        mode = "n", desc = "fzf commands",        silent = true },
