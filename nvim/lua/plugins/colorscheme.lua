@@ -21,7 +21,7 @@ return {
                     native_lsp = { enabled = true },
                     neotree = true,
                     overseer = true,
-                    telescope = true,
+                    -- telescope = true,
                     treesitter = true,
                     treesitter_context = true,
                     which_key = true,

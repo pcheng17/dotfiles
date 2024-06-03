@@ -102,20 +102,26 @@ autocmd('LspAttach', {
             e.buf, "Format", function(_) vim.lsp.buf.format({ async = true }) end, { desc = "Format buffer" }
         )
 
-        -- local fzflua = require("fzf-lua")
-        -- keymap("n", "gd", function() fzflua.lsp_definitions() end, { desc = "Go to definition" })
+        keymap("n", "gd",
+            function()
+                require("fzf-lua").lsp_definitions({ jump_to_single_result = true })
+            end,
+            { desc = "Go to definition" })
 
-        local telescope = require("telescope.builtin")
-        keymap("n", "gd",         function() telescope.lsp_definitions() end,       { desc = "Go to definition" })
-        keymap("n", "gr",         function() telescope.lsp_references() end,        { desc = "Go to references" })
-        keymap("n", "K",          function() vim.lsp.buf.hover() end,               { desc = "Hover documentation" })
-        keymap("n", "<leader>ca", function() vim.lsp.buf.code_action() end,         { desc = "Code actions" })
-        keymap("n", "<leader>rn", function() vim.lsp.buf.rename() end,              { desc = "Rename symbol" })
-        keymap("n", "<leader>ds", function() telescope.lsp_document_symbols() end,  { desc = "Document symbols" })
-        keymap("n", "<leader>ws", function() telescope.lsp_workspace_symbols() end, { desc = "Workspace symbols" })
-        keymap("n", "<leader>ic", function() telescope.lsp_incoming_calls() end,    { desc = "Incoming calls" })
-        keymap("n", "<leader>oc", function() telescope.lsp_outgoing_calls() end,    { desc = "Outgoing calls" })
-        keymap("i", "<C-k>",      function() vim.lsp.buf.signature_help() end,      { desc = "Signature help" })
+        keymap("n", "gr",
+            function()
+                require("fzf-lua").lsp_references({ jump_to_single_result = true })
+            end,
+            { desc = "Go to references" })
+
+        keymap("n", "<leader>ds", function() require("fzf-lua").lsp_document_symbols() end,  { desc = "Document symbols" })
+        keymap("n", "<leader>ws", function() require("fzf-lua").lsp_workspace_symbols() end, { desc = "Workspace symbols" })
+        keymap("n", "<leader>ic", function() require("fzf-lua").lsp_incoming_calls() end,    { desc = "Incoming calls" })
+        keymap("n", "<leader>oc", function() require("fzf-lua").lsp_outgoing_calls() end,    { desc = "Outgoing calls" })
+        keymap("n", "K",          function() vim.lsp.buf.hover() end,                        { desc = "Hover documentation" })
+        keymap("n", "<leader>ca", function() vim.lsp.buf.code_action() end,                  { desc = "Code actions" })
+        keymap("n", "<leader>rn", function() vim.lsp.buf.rename() end,                       { desc = "Rename symbol" })
+        keymap("i", "<C-k>",      function() vim.lsp.buf.signature_help() end,               { desc = "Signature help" })
         -- stylua: ignore end
     end
 })

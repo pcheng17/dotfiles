@@ -6,10 +6,16 @@ return {
     end,
     config = function()
         require("which-key").register({
+            d = {
+                name = "Debug print"
+            },
             e = { "Toggle Oil" },
             f = {
-                name = "File (Telescope)",
+                name = "File (fzf-lua)",
                 e = { "Neotree Toggle" }
+            },
+            g = {
+                name = "Git",
             },
             o = {
                 i = { "Toggle Oil" },
