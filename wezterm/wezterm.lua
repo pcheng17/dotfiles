@@ -32,15 +32,4 @@ config.prefer_to_spawn_tabs = true
 
 config.keys = keys
 
--- config.keys = {
---   {
---     key = ",",
---     mods = "SUPER",
---     action = wezterm.action.SpawnCommandInNewWindow({
---       cwd = os.getenv("WEZTERM_CONFIG_DIR"),
---       args = { os.getenv("SHELL"), "-c", "$EDITOR $WEZTERM_CONFIG_FILE" },
---     }),
---   },
--- }
-
 return config
