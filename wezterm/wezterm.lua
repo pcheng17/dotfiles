@@ -29,6 +29,7 @@ config.line_height = 1.1
 -- Misc
 config.scrollback_lines = 10000
 config.prefer_to_spawn_tabs = true
+config.audible_bell = "Disabled"
 
 config.keys = keys
 
