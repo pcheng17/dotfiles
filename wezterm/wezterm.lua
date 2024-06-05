@@ -30,6 +30,12 @@ config.scrollback_lines = 10000
 config.prefer_to_spawn_tabs = true
 config.audible_bell = "Disabled"
 
+-- Command palette
+-- config.command_palette_rows = 10
+-- config.command_palette_font_size = 15.5
+-- config.command_palette_bg_color = "#44382D"
+-- config.command_palette_fg_color = "#c4a389"
+
 config.keys = {
   -- Move cursor backward by one word
   {
@@ -48,6 +54,12 @@ config.keys = {
     key = "f",
     mods = "CMD",
     action = wezterm.action.Search({ CaseInSensitiveString = "" })
+  },
+  -- Activate command palette
+  {
+    key = 'p',
+    mods = 'CMD',
+    action = wezterm.action.ActivateCommandPalette,
   },
 }
 
