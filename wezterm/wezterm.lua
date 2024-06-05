@@ -1,5 +1,4 @@
 local wezterm = require("wezterm")
-local keys = require("keys")
 local config = wezterm.config_builder()
 
 -- Window configuration
@@ -11,7 +10,7 @@ config.window_decorations = "RESIZE"
 config.window_padding = {
   left = 16,
   right = 16,
-  top = 32,
+  top = 30,
   bottom = 8,
 }
 
@@ -31,6 +30,25 @@ config.scrollback_lines = 10000
 config.prefer_to_spawn_tabs = true
 config.audible_bell = "Disabled"
 
-config.keys = keys
+config.keys = {
+  -- Move cursor backward by one word
+  {
+    key = "LeftArrow",
+    mods = "OPT",
+    action = wezterm.action.SendKey({ key = "b", mods = "ALT" }),
+  },
+  -- Move cursor forward by one word
+  {
+    key = "RightArrow",
+    mods = "OPT",
+    action = wezterm.action.SendKey({ key = "f", mods = "ALT" }),
+  },
+  -- Case insensitive search
+  {
+    key = "f",
+    mods = "CMD",
+    action = wezterm.action.Search({ CaseInSensitiveString = "" })
+  },
+}
 
 return config
