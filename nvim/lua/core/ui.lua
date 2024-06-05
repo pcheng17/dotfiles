@@ -12,4 +12,6 @@ if true then
 
     vim.api.nvim_set_hl(0, "TreesitterContext", { ctermbg = "none" })
     vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { ctermbg = "none" })
+
+    vim.api.nvim_set_hl(0, "TroubleNormal", { ctermbg = "none" })
 end
