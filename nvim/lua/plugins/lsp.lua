@@ -107,7 +107,7 @@ return {
                                 end
 
                                 -- Fallback to system Python.
-                                return exepath('python3') or exepath('python') or 'python'
+                                return vim.fn.exepath('python3') or vim.fn.exepath('python') or 'python'
                             end
 
                             config.settings.python.pythonPath = get_python_path(config.root_dir)
