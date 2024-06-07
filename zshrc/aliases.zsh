@@ -22,6 +22,7 @@ alias vim='nvim'
 alias v='nvim'
 alias t='tmux'
 alias j='just'
+alias ts='tmux-sessionizer'
 
 case "$OSTYPE" in
     darwin*)
