@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
+-- local sessionizer = require("sessionizer")
 
 -- Window configuration
 config.initial_rows = 32
@@ -36,6 +37,7 @@ config.audible_bell = "Disabled"
 -- config.command_palette_bg_color = "#44382D"
 -- config.command_palette_fg_color = "#c4a389"
 
+-- config.leader = { key = "Space", mods = "CTRL" }
 config.keys = {
   -- Move cursor backward by one word
   {
@@ -57,10 +59,16 @@ config.keys = {
   },
   -- Activate command palette
   {
-    key = 'p',
-    mods = 'CMD',
+    key = "p",
+    mods = "CMD",
     action = wezterm.action.ActivateCommandPalette,
   },
+  -- Sessionizer
+  -- {
+  --   key = "f",
+  --   mods = "LEADER",
+  --   action = wezterm.action_callback(sessionizer.toggle),
+  -- },
 }
 
 return config
