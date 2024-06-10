@@ -29,6 +29,8 @@
     contributors = shortlog --summary --numbered
     # Show the diff between the latest commit and the current state.
     d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	# Determines the "default branch" of the repository: https://stackoverflow.com/a/67672350
+	default-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
     # Show the diff between the state `$number` revisions ago and the current state.
     di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
     # View abbreviated SHA, description, relative date, and author of the latest 20 commits.
@@ -39,8 +41,6 @@
     nah = reset --hard
     # Pull in remote changes for the current repository and all of its submodules.
     p = pull --recurse-submodules
-    # Pull upstream and push origin to update my fork
-    pupo = !"git pull upstream && git push origin"
     # Interactive rebase with the given number of latest commits.
     reb = "!r() { git rebase -i HEAD~$1; }; r"
     # Show verbose output about remote.
@@ -59,3 +59,15 @@
     wt = worktree
     # YOLO
     yolo = push --force
+
+    # Sync the default branch with upstream
+    syncu = "!f() { \
+      current_branch=$(git symbolic-ref --short HEAD) && \
+      default_branch=$(git default-branch) && \
+      git fetch upstream && \
+      git checkout $default_branch && \
+      git merge upstream/$default_branch && \
+      git push origin $default_branch && \
+      git checkout $current_branch; \
+    }; f"
+
