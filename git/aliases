@@ -57,6 +57,10 @@
     whoami = config user.email
     # Worktrees
     wt = worktree
+    # Worktree add
+    wa = worktree add
+    # Worktree remove
+    wr = worktree remove
     # YOLO
     yolo = push --force
 
