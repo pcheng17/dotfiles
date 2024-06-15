@@ -68,9 +68,11 @@
     syncu = "!f() { \
       current_branch=$(git symbolic-ref --short HEAD) && \
       default_branch=$(git default-branch) && \
+      git remote prune upstream && \
       git fetch upstream && \
       git checkout $default_branch && \
       git merge upstream/$default_branch && \
+      git pull upstream master -ff && \
       git push origin $default_branch && \
       git checkout $current_branch; \
     }; f"
