@@ -2,7 +2,7 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         -- Pin at this version because of breaking changes that affects colorschemes
-        version = "v0.9.2",
+        -- version = "v0.9.2",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
         },
