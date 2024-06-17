@@ -10,8 +10,6 @@ return {
             function()
                 require("trouble").open({
                     mode = "diagnostics",
-                    -- focus = true,
-                    refresh = true,
                     preview = {
                         type = "split",
                         relative = "win",
@@ -28,8 +26,6 @@ return {
             function()
                 require("trouble").open({
                     mode = "diagnostics",
-                    -- focus = true,
-                    refresh = true,
                     preview = {
                         type = "split",
                         relative = "win",
