@@ -23,15 +23,28 @@ config.show_new_tab_button_in_tab_bar = false
 -- Font configuration
 config.color_scheme = "Catppuccin Mocha"
 
--- This is for when I'm on my personal laptop
--- config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "ExtraLight" })
--- config.font_size = 14.0
--- config.line_height = 1.1
+-- local currentSetup = "personal-laptop"
+-- local currentSetup = "personal-laptop-widescreen"
+-- local currentSetup = "work-laptop"
+local currentSetup = "work-laptop-widescreen"
 
--- This is for when I'm on my personal laptop on my widescreen monitor at home
-config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
-config.font_size = 15.5
-config.line_height = 1.2
+if currentSetup == "personal-laptop" then
+  config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "ExtraLight" })
+  config.font_size = 14.0
+  config.line_height = 1.1
+elseif currentSetup == "personal-laptop-widescreen" then
+  config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
+  config.font_size = 15.5
+  config.line_height = 1.2
+elseif currentSetup == "work-laptop" then
+  config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Light" })
+  config.font_size = 14.0
+  config.line_height = 1.2
+elseif currentSetup == "work-laptop-widescreen" then
+  config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
+  config.font_size = 15.5
+  config.line_height = 1.2
+end
 
 -- Misc
 config.scrollback_lines = 10000
