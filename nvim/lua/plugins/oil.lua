@@ -18,18 +18,13 @@ return {
             win_options = {
                 wrap = true,
             },
-            keymaps = {
-                ["<Esc>"] = { callback = "actions.close", mode = "n" },
-            },
+            -- keymaps = {
+            --     ["<Esc>"] = { callback = "actions.close", mode = "n" },
+            -- },
         })
 
         vim.keymap.set("n", "<leader>e",
             function()
-                -- if vim.bo.ft ~= "oil" then
-                --     require("oil").open_float()
-                -- else
-                --     require("oil").close_float()
-                -- end
                 require("oil").toggle_float()
             end,
             { silent = true, desc = "Toggle Oil" })
