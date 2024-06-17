@@ -3,13 +3,57 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     cmd = {
         "Trouble",
-        "TroubleToggle"
     },
     keys = {
-        { "<leader>tt", function() require("trouble").toggle() end, desc = "Trouble toggle", silent = true },
-        { "<leader>td", function() require("trouble").toggle("document_diagnostics") end, desc = "Trouble document diagnostics", silent = true },
-        { "[d", function() require("trouble").previous({ skip_groups = true, jump = true }) end, desc = "Trouble previous", silent = true },
+        {
+            "<leader>to",
+            function()
+                require("trouble").open({
+                    mode = "diagnostics",
+                    -- focus = true,
+                    refresh = true,
+                    preview = {
+                        type = "split",
+                        relative = "win",
+                        position = "right",
+                        size = 0.35,
+                    },
+                })
+            end,
+            desc = "Trouble open",
+            silent = true,
+        },
+        {
+            "<leader>td",
+            function()
+                require("trouble").open({
+                    mode = "diagnostics",
+                    -- focus = true,
+                    refresh = true,
+                    preview = {
+                        type = "split",
+                        relative = "win",
+                        position = "right",
+                        size = 0.35,
+                    },
+                    filter = {
+                        buf = 0,
+                    },
+                })
+            end,
+            desc = "Trouble document diagnostics",
+            silent = true,
+        },
+        { "[d", function() require("trouble").prev({ skip_groups = true, jump = true }) end, desc = "Trouble previous", silent = true },
         { "]d", function() require("trouble").next({ skip_groups = true, jump = true }) end, desc = "Trouble next", silent = true },
+        {
+            "<leader>tq",
+            function()
+                require("trouble").close()
+            end,
+            desc = "Trouble close",
+            silent = true,
+        }
     },
     config = function()
         require("trouble").setup({})
