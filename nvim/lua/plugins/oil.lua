@@ -18,6 +18,9 @@ return {
             win_options = {
                 wrap = true,
             },
+            keymaps = {
+                ["<Esc>"] = { callback = "actions.close", mode = "n" },
+            },
         })
 
         vim.keymap.set("n", "<leader>e",
