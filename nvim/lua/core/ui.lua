@@ -1,4 +1,4 @@
-if true then
+if false then
     vim.api.nvim_set_hl(0, "Normal", { ctermbg = "none" })
     vim.api.nvim_set_hl(0, "NormalNC", { ctermbg = "none" })
     vim.api.nvim_set_hl(0, "NonText", { ctermbg = "none" })
@@ -10,8 +10,8 @@ if true then
     vim.api.nvim_set_hl(0, "NeoTreeNormal", { ctermbg = "none" })
     vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { ctermbg = "none" })
 
-    vim.api.nvim_set_hl(0, "TreesitterContext", { ctermbg = "none" })
-    vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { ctermbg = "none" })
-
     vim.api.nvim_set_hl(0, "TroubleNormal", { ctermbg = "none" })
 end
+
+vim.api.nvim_set_hl(0, "TreesitterContext", { ctermbg = "none" })
+vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { ctermbg = "none" })

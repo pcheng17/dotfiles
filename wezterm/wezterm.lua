@@ -5,8 +5,8 @@ local config = wezterm.config_builder()
 -- Window configuration
 config.initial_rows = 32
 config.initial_cols = 128
-config.window_background_opacity = 0.93
-config.macos_window_background_blur = 30
+-- config.window_background_opacity = 0.93
+-- config.macos_window_background_blur = 30
 config.window_decorations = "RESIZE"
 config.window_padding = {
   left = 16,
@@ -23,13 +23,13 @@ config.show_new_tab_button_in_tab_bar = false
 -- Font configuration
 config.color_scheme = "Catppuccin Mocha"
 
--- local currentSetup = "personal-laptop"
+local currentSetup = "personal-laptop"
 -- local currentSetup = "personal-laptop-widescreen"
 -- local currentSetup = "work-laptop"
-local currentSetup = "work-laptop-widescreen"
+-- local currentSetup = "work-laptop-widescreen"
 
 if currentSetup == "personal-laptop" then
-  config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "ExtraLight" })
+  config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Light" })
   config.font_size = 14.0
   config.line_height = 1.1
 elseif currentSetup == "personal-laptop-widescreen" then
