@@ -65,7 +65,7 @@ return {
                         capabilities = capabilities,
                         cmd = {
                             "clangd",
-                            "--log=verbose",
+                            "-log=verbose",
                             "--clang-tidy",
                             "--background-index",
                             "--cross-file-rename",
