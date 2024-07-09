@@ -16,6 +16,13 @@ return {
         { "<leader>fm", function() require("fzf-lua").marks() end,           mode = "n", desc = "fzf marks",           silent = true },
         { "<leader>fl", function() require("fzf-lua").loclist() end,         mode = "n", desc = "fzf loclist",         silent = true },
         { "<leader>fq", function() require("fzf-lua").quickfix() end,        mode = "n", desc = "fzf quickfix",        silent = true },
+        {
+            "<leader>*",
+            function()
+                require("fzf-lua").grep({ search = vim.fn.expand("<cword>") })
+            end,
+            mode = "n", desc = "fzf grep for current word", silent = true
+        },
     --stylua: ignore end
     },
     config = function()
