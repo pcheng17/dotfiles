@@ -52,3 +52,4 @@ opt.clipboard = "unnamedplus"
 vim.cmd("colorscheme catppuccin")
 -- vim.cmd("colorscheme nightfox")
 -- vim.cmd("colorscheme duskfox")
+-- vim.cmd("colorscheme vague")

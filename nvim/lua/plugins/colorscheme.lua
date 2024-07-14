@@ -77,6 +77,16 @@ return {
             })
         end
 
-    }
-
+    },
+    {
+        "vague2k/vague.nvim",
+        name = "vague",
+        enabled = false,
+        priority = 1000,
+        config = function()
+            require("vague").setup({
+                -- optional configuration here
+            })
+        end
+    },
 }
