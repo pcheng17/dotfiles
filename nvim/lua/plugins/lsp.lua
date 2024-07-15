@@ -36,6 +36,7 @@ return {
                 "cmake",      -- cmake
                 "lua_ls",     -- lua
                 "pyright",    -- python
+                "svelte",     -- svelte
                 "texlab",     -- latex
                 "typst_lsp",  -- typst
                 "tsserver",   -- typescript

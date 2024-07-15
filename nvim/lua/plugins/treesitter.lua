@@ -32,6 +32,7 @@ return {
                     "query",
                     "regex",
                     "ruby",
+                    "svelte",
                     "toml",
                     "tsx",
                     "typescript",

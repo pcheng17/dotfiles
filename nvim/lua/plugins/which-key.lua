@@ -1,5 +1,6 @@
 return {
     "folke/which-key.nvim",
+    version = "v2.1.0",
     init = function()
         vim.o.timeout = true
         vim.o.timeoutlen = 300
@@ -17,16 +18,8 @@ return {
             g = {
                 name = "Git",
             },
-            o = {
-                i = { "Toggle Oil" },
-                r = { "Overseer Run" },
-                t = { "Overseer Toggle bottom" },
-            },
             t = {
                 name = "Trouble",
-                t = { "Trouble Toggle" },
-                n = { "Trouble Next" },
-                p = { "Trouble Previous" }
             },
             l = {
                 g = { "LazyGit" }
