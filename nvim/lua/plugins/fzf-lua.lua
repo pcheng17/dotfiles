@@ -8,6 +8,8 @@ return {
         { "<leader>;",  function() require("fzf-lua").files() end,           mode = "n", desc = "fzf files in cwd",                 silent = true },
         { "<leader>'",  function() require("fzf-lua").buffers() end,         mode = "n", desc = "fzf buffers",                      silent = true },
         { "<leader>/",  function() require("fzf-lua").grep() end,            mode = "n", desc = "fzf grep in cwd",                  silent = true },
+        { "<leader>gw", function() require("fzf-lua").grep_cword() end,      mode = "n", desc = "fzf grew current word",            silent = true },
+        { "<leader>gW", function() require("fzf-lua").grep_cWORD() end,      mode = "n", desc = "fzf grew current WORD",            silent = true },
         { "<leader>gl", function() require("fzf-lua").grep_last() end,       mode = "n", desc = "fzf grep in cwd for last pattern", silent = true },
         { "<leader>fo", function() require("fzf-lua").oldfiles() end,        mode = "n", desc = "fzf oldfiles",                     silent = true },
         { "<leader>fh", function() require("fzf-lua").helptags() end,        mode = "n", desc = "fzf help tags",                    silent = true },
@@ -17,13 +19,6 @@ return {
         { "<leader>fm", function() require("fzf-lua").marks() end,           mode = "n", desc = "fzf marks",                        silent = true },
         { "<leader>fl", function() require("fzf-lua").loclist() end,         mode = "n", desc = "fzf loclist",                      silent = true },
         { "<leader>fq", function() require("fzf-lua").quickfix() end,        mode = "n", desc = "fzf quickfix",                     silent = true },
-        {
-            "<leader>*",
-            function()
-                require("fzf-lua").grep({ search = vim.fn.expand("<cword>") })
-            end,
-            mode = "n", desc = "fzf grep for current word", silent = true
-        },
     --stylua: ignore end
     },
     config = function()
