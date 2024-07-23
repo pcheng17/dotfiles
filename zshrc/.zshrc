@@ -173,3 +173,5 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
