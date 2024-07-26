@@ -61,6 +61,8 @@
     wa = worktree add
     # Worktree remove
     wr = worktree remove
+    # Worktree force remove
+    wrf = worktree remove --force
     # YOLO
     yolo = push --force
 
