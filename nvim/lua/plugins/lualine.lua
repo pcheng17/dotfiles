@@ -20,6 +20,7 @@ return {
             end
         end
 
+        local icons = require("icons")
         require("lualine").setup({
             options = {
                 theme = "catppuccin",
@@ -34,9 +35,16 @@ return {
             sections = {
                 lualine_a = { "mode", },
                 lualine_b = {
-                    { "branch", fmt = truncate_branch, icon = "" },
+                    { "branch", fmt = truncate_branch, icon = icons.misc.git },
                     "diff",
-                    "diagnostics"
+                    { "diagnostics",
+                        symbols = {
+                            error = icons.diagnostics.Error .. " ",
+                            warn = icons.diagnostics.Warn .. " ",
+                            info = icons.diagnostics.Info .. " ",
+                            hint = icons.diagnostics.Hint .. " ",
+                        }
+                    },
                 },
                 lualine_c = {
                     { "filename", path = 1 },
