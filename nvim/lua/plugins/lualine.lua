@@ -32,9 +32,9 @@ return {
                 disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
             },
             sections = {
-                lualine_a = { "mode" },
+                lualine_a = { "mode", },
                 lualine_b = {
-                    { "branch", fmt = truncate_branch },
+                    { "branch", fmt = truncate_branch, icon = "" },
                     "diff",
                     "diagnostics"
                 },
