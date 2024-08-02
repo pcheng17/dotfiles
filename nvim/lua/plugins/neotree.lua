@@ -12,8 +12,25 @@ return {
         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function()
+        local icons = require("icons")
         require("neo-tree").setup({
             close_if_last_window = true,
+            default_component_configs = {
+                diagnostics = {
+                    symbols = {
+                        hint = icons.diagnostics.Hint,
+                        info = icons.diagnostics.Info,
+                        warn = icons.diagnostics.Warn,
+                        error = icons.diagnostics.Error,
+                    },
+                    highlights = {
+                        hint = "DiagnosticSignHint",
+                        info = "DiagnosticSignInfo",
+                        warn = "DiagnosticSignWarn",
+                        error = "DiagnosticSignError",
+                    },
+                },
+            },
             filesystem = {
                 filtered_items = {
                     always_show = {
