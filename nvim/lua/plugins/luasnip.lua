@@ -1,5 +1,6 @@
 return {
     "L3MON4D3/LuaSnip",
+    enabled = false,
     lazy = false,
     config = function()
         require("luasnip.loaders.from_lua").lazy_load({

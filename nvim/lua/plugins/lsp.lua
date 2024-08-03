@@ -129,14 +129,11 @@ return {
             }
         })
 
+        require("core.snippets").register_cmp_source()
+
         local cmp = require("cmp")
-        local luasnip = require("luasnip")
+        -- local luasnip = require("luasnip")
         cmp.setup({
-            snippet = {
-                expand = function(args)
-                    require('luasnip').lsp_expand(args.body)
-                end,
-            },
             window = {
                 completion = cmp.config.window.bordered(),
                 documentation = cmp.config.window.bordered(),
@@ -147,20 +144,20 @@ return {
                 ['<C-Space>'] = cmp.mapping.complete(),
                 ['<C-e>'] = cmp.mapping.abort(),
                 ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-                ["<Tab>"] = vim.schedule_wrap(function(fallback)
-                    if luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
-                    else
-                        fallback()
-                    end
-                end),
-                ["<S-Tab>"] = vim.schedule_wrap(function(fallback)
-                    if luasnip.jumpable(-1) then
-                        luasnip.jump(-1)
-                    else
-                        fallback()
-                    end
-                end),
+                -- ["<Tab>"] = vim.schedule_wrap(function(fallback)
+                --     if luasnip.expand_or_jumpable() then
+                --         luasnip.expand_or_jump()
+                --     else
+                --         fallback()
+                --     end
+                -- end),
+                -- ["<S-Tab>"] = vim.schedule_wrap(function(fallback)
+                --     if luasnip.jumpable(-1) then
+                --         luasnip.jump(-1)
+                --     else
+                --         fallback()
+                --     end
+                -- end),
                 -- Deprecating old behavior, but keeping code around just in case
                 -- Take a look at copilot-cmp's github for an implementation of `if cmp.visible()`
                 -- ["<Tab>"] = cmp.mapping(function(fallback)
@@ -184,7 +181,7 @@ return {
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
-                { name = 'luasnip' },
+                { name = 'snip' },
                 { name = 'emoji' },
             }, {
                 { name = 'buffer' },
