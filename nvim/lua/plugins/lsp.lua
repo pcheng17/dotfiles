@@ -144,6 +144,20 @@ return {
                 ['<C-Space>'] = cmp.mapping.complete(),
                 ['<C-e>'] = cmp.mapping.abort(),
                 ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                ['<Tab>'] = cmp.mapping(function(fallback)
+                    if vim.snippet.active({ direction = 1 }) then
+                        vim.snippet.jump(1)
+                    else
+                        fallback()
+                    end
+                end, { 'i', 's' }),
+                ['<S-Tab>'] = cmp.mapping(function(fallback)
+                    if vim.snippet.active({ direction = -1 }) then
+                        vim.snippet.jump(-1)
+                    else
+                        fallback()
+                    end
+                end, { 'i', 's' }),
                 -- ["<Tab>"] = vim.schedule_wrap(function(fallback)
                 --     if luasnip.expand_or_jumpable() then
                 --         luasnip.expand_or_jump()

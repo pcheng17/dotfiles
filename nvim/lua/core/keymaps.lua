@@ -49,12 +49,4 @@ keymap("x", "<", "<gv", { silent = true, desc = "Decrease indent of visual block
 keymap("n", "[q", ":cprev<cr>", { silent = true, desc = "Move to previous quickfix item" })
 keymap("n", "]q", ":cnext<cr>", { silent = true, desc = "Move to next quickfix item" })
 
-keymap({ 'i', 's' }, '<Tab>', function()
-    if vim.snippet.active({ direction = 1 }) then
-        return '<cmd>lua vim.snippet.jump(1)<cr>'
-    else
-        return '<Tab>'
-    end
-end, { expr = true })
-
 -- stylua: ignore end

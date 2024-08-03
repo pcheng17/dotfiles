@@ -10,7 +10,7 @@ return {
                 -- enabled = false,
                 auto_trigger = true,
                 keymap = {
-                    accept = "<M-l>",
+                    accept = "<Tab>",
                 },
             },
             panel = {
