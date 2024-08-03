@@ -65,6 +65,21 @@ local roblox = {
       }
     )
   ),
+  s(
+    {
+      trig = "ffvar",
+      dscr = "Fast flag variable",
+    },
+    fmta(
+      [[
+        FASTFLAGVARIABLE(<>, false);<>
+      ]],
+      {
+        i(1),
+        i(0),
+      }
+    )
+  ),
 }
 
 return merge_tables(personal, roblox)
