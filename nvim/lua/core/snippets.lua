@@ -1,10 +1,49 @@
+local function unindent(str)
+    local lines = {}
+    local min_indent = math.huge
+
+    for line in str:gmatch("[^\r\n]+") do
+        local indent = line:match("^%s*"):len()
+        if indent < min_indent then
+            min_indent = indent
+        end
+        table.insert(lines, line)
+    end
+
+    for i, line in ipairs(lines) do
+        lines[i] = line:sub(min_indent + 1)
+    end
+
+    return table.concat(lines, "\n")
+end
+
 local globalSnippets = {
-    { trigger = 'shebang', body = '#!/bin sh' }
 }
 
 local snippetsByFiletype = {
     cpp = {
-        { trigger = "rbxtest", body = "RBX_AUTO_TEST_CASE(${1:name})\n{\n\t$0\n}"}
+        {
+            trigger = "rbxtestsuite",
+            body =
+                [[
+                RBX_AUTO_TEST_SUITE(${1:name})
+
+                $0
+
+                RBX_AUTO_TEST_SUITE_END()
+                ]]
+        },
+        {
+            trigger = "rbxtest",
+            body =
+                [[
+                    RBX_AUTO_TEST_CASE(${1:name})
+                    {
+                        $0
+                    }
+                ]]
+        }
+
     }
 }
 
@@ -14,6 +53,10 @@ local function get_buf_snips()
 
     if ft and snippetsByFiletype[ft] then
         vim.list_extend(snips, snippetsByFiletype[ft])
+    end
+
+    for _, snip in ipairs(snips) do
+        snip.body = unindent(snip.body)
     end
 
     return snips
@@ -50,4 +93,3 @@ function M.register_cmp_source()
 end
 
 return M
-
