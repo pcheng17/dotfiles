@@ -3,9 +3,12 @@ local function unindent(str)
     local min_indent = math.huge
 
     for line in str:gmatch("[^\r\n]+") do
-        local indent = line:match("^%s*"):len()
-        if indent < min_indent then
-            min_indent = indent
+        -- Check if the line is not entirely whitespace
+        if line:match("%S") then
+            local indent = line:match("^%s*"):len()
+            if indent < min_indent then
+                min_indent = indent
+            end
         end
         table.insert(lines, line)
     end

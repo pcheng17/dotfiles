@@ -132,7 +132,6 @@ return {
         require("core.snippets").register_cmp_source()
 
         local cmp = require("cmp")
-        -- local luasnip = require("luasnip")
         cmp.setup({
             window = {
                 completion = cmp.config.window.bordered(),
