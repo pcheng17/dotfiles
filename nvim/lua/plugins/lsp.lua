@@ -1,10 +1,10 @@
 local root_files = {
-    '.clangd',
-    '.clang-tidy',
-    '.clang-format',
-    'compile_commands.json',
-    'compile_flags.txt',
-    'configure.ac', -- AutoTools
+    ".clangd",
+    ".clang-tidy",
+    ".clang-format",
+    "compile_commands.json",
+    "compile_flags.txt",
+    "configure.ac", -- AutoTools
 }
 
 return {
@@ -92,24 +92,24 @@ return {
                         capabilities = capabilities,
                         before_init = function(_, config)
                             local function get_python_path(workspace)
-                                local util = require('lspconfig/util')
+                                local util = require("lspconfig/util")
                                 local path = util.path
 
                                 -- Use activated virtualenv.
                                 if vim.env.VIRTUAL_ENV then
-                                    return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
+                                    return path.join(vim.env.VIRTUAL_ENV, "bin", "python")
                                 end
 
                                 -- Find and use virtualenv in workspace directory.
                                 for _, pattern in ipairs({'*', '.*'}) do
-                                    local match = vim.fn.glob(path.join(workspace, pattern, 'pyvenv.cfg'))
+                                    local match = vim.fn.glob(path.join(workspace, pattern, "pyvenv.cfg"))
                                     if match ~= '' then
-                                        return path.join(path.dirname(match), 'bin', 'python')
+                                        return path.join(path.dirname(match), "bin", "python")
                                     end
                                 end
 
                                 -- Fallback to system Python.
-                                return vim.fn.exepath('python3') or vim.fn.exepath('python') or 'python'
+                                return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
                             end
 
                             config.settings.python.pythonPath = get_python_path(config.root_dir)
@@ -163,7 +163,7 @@ return {
                 { name = 'snip' },
                 { name = 'emoji' },
             }, {
-                { name = 'buffer' },
+                { name = "buffer" },
             })
         })
 
@@ -179,9 +179,9 @@ return {
         cmp.setup.cmdline(':', {
             mapping = cmp.mapping.preset.cmdline(),
             sources = cmp.config.sources({
-                { name = 'path' }
+                { name = "path" }
             }, {
-                    { name = 'cmdline' }
+                    { name = "cmdline" }
                 })
         })
 
