@@ -25,7 +25,7 @@ keymap('n', '<C-j>', '<C-w>j', { silent = true, desc = "Move to down window" })
 keymap('n', '<C-k>', '<C-w>k', { silent = true, desc = "Move to up window" })
 keymap('n', '<C-l>', '<C-w>l', { silent = true, desc = "Move to right window" })
 
-keymap("n", "<leader>w", ":update<cr>", { silent = true, desc = "Write file" })
+keymap("n", "<leader>fw", ":update<cr>", { silent = true, desc = "Write file" })
 keymap("n", "<leader>lv", "<cmd>Lazy<cr>", { silent = true, desc = "lazy.nvim" })
 keymap("n", "<leader>lp", "<cmd>Ex ~/.dotfiles/nvim/lua/plugins<cr>", { silent = true, desc = "Neovim plugins" })
 
