@@ -24,6 +24,8 @@ alias t='tmux'
 alias j='just'
 alias ts='tmux-sessionizer'
 
+alias pandock='docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/extra'
+
 case "$OSTYPE" in
     darwin*)
         alias kbs='cd ~/Workspace/keebs'
