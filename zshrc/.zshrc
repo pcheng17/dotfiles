@@ -20,6 +20,9 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/shims:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+# rbenv settings
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
