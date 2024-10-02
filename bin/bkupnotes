@@ -4,17 +4,19 @@ import os
 import shlex
 import subprocess
 
-DIR = '/Users/pcheng/Workspace/notes'
+
+DIRS = ['/Users/pcheng/Workspace/notes', '/Users/pcheng/notes']
 
 def main():
-    if not os.path.isdir(DIR):
-        print(f'{DIR} is not a valid directory. You might need to update {os.path.basename(__file__)}.')
-        return
+    for dir in DIRS:
+        if not os.path.isdir(dir):
+            print(f'{dir} is not a valid directory. You might need to update {os.path.basename(__file__)}.')
+            return
 
-    os.chdir(DIR)
-    subprocess.run(shlex.split('git add --all'))
-    subprocess.run(shlex.split('git commit -am "Automatic backup"'))
-    subprocess.run(shlex.split('git push'))
+        os.chdir(dir)
+        subprocess.run(shlex.split('git add --all'))
+        subprocess.run(shlex.split('git commit -am "Automatic backup"'))
+        subprocess.run(shlex.split('git push'))
 
 if __name__ == '__main__':
     main()
