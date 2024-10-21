@@ -29,6 +29,9 @@ return {
                     ["ctrl-q"] = "select-all+accept",
                 },
             },
+            hls = {
+                backdrop = "Normal",
+            }
         })
     end
 }

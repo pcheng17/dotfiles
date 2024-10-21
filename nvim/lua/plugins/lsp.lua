@@ -39,7 +39,6 @@ return {
                 "svelte",     -- svelte
                 "texlab",     -- latex
                 "typst_lsp",  -- typst
-                "tsserver",   -- typescript
             },
             handlers = {
                 function(server_name) -- default handler
