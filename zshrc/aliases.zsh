@@ -47,7 +47,6 @@ esac
 if [[ "$current_hostname" == "HQ-VP606YTPQ2" ]]; then
     # Work machine
     alias wk='cd ~/work'
-    alias ge='cd ~/git/roblox/game-engine'
     alias bkupbrew='brew bundle dump --file=~/.dotfiles/private/Brewfile --force'
 else
     # Home machine

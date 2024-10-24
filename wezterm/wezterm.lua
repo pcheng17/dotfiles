@@ -23,8 +23,8 @@ config.show_new_tab_button_in_tab_bar = false
 -- Font configuration
 config.color_scheme = "Catppuccin Mocha"
 
-local currentSetup = "personal-laptop"
--- local currentSetup = "personal-laptop-widescreen"
+-- local currentSetup = "personal-laptop"
+local currentSetup = "personal-laptop-widescreen"
 -- local currentSetup = "work-laptop"
 -- local currentSetup = "work-laptop-widescreen"
 
