@@ -82,6 +82,7 @@ brew "tree"
 brew "ttyd", args: ["HEAD"]
 brew "typst"
 brew "wasm-pack"
+brew "watchexec"
 brew "yt-dlp"
 brew "zk"
 brew "zlib"
@@ -145,6 +146,7 @@ mas "BetterSnapTool", id: 417375580
 mas "CleanMyMac X", id: 1339170533
 mas "DaVinci Resolve", id: 571213070
 mas "Day One", id: 1055511498
+mas "GarageBand", id: 682658836
 mas "Hidden Bar", id: 1452453066
 mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
