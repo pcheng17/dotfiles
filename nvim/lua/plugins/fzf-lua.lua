@@ -25,9 +25,25 @@ return {
         -- calling `setup` is optional for customization
         require("fzf-lua").setup({
             keymap = {
+                builtin = {
+                    ["<M-p>"] = "toggle-preview",
+                },
                 fzf = {
+                    ["tab"] = "down",
+                    ["shift-tab"] = "up",
                     ["ctrl-q"] = "select-all+accept",
                 },
+            },
+            winopts = {
+                height = 0.95,
+                width = 0.90,
+                preview = {
+                    hidden = "hidden",
+                },
+            },
+            defaults = {
+                git_icons = true,
+                file_icons = true,
             },
             hls = {
                 backdrop = "Normal",
