@@ -4,9 +4,9 @@ return {
     config = function()
         local fidget = require("fidget")
         fidget.setup({
-            -- This is required for catppuccin
             notification = {
                 override_vim_notify = true,
+                -- This is required for catppuccin
                 window = {
                     winblend = 0,
                 },
