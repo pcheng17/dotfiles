@@ -3,3 +3,4 @@ private/*
 nvim/lazy-lock.json
 lazygit/state.yml
 *.spl
+secrets.lua

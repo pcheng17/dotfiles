@@ -32,5 +32,6 @@ require("core.commands")
 require("core.spelling")
 require("core.ui")
 
--- Protected call to require work-related stuff since this my not always exist
+-- Protected calls because these files may not always exist
+pcall(require, "secrets")
 pcall(require, "roblox")
