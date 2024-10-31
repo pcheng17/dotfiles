@@ -51,7 +51,7 @@ return {
             -- create a folder to store our chats
             local Path = require("plenary.path")
             local data_path = vim.fn.stdpath("data")
-            local save_folder = Path:new(data_path, "cc_saves")
+            local save_folder = Path:new(data_path, "codecompanion")
             if not save_folder:exists() then
                 save_folder:mkdir({ parents = true })
             end
