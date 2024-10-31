@@ -41,7 +41,7 @@ return {
                 display = {
                     chat = {
                         window = {
-                            width = 0.4,
+                            width = 0.35,
                         },
                     },
                 },
@@ -158,6 +158,9 @@ return {
                 silent = true,
                 desc = "Load CodeCompanion Chat",
             })
+
+            -- Expand 'cc' into 'CodeCompanion' in the command line
+            vim.cmd([[cab cc CodeCompanion]])
         end
     }
 }
