@@ -102,6 +102,8 @@ autocmd('LspAttach', {
             e.buf, "Format", function(_) vim.lsp.buf.format({ async = true }) end, { desc = "Format buffer" }
         )
 
+        keymap("n", "<leader>fmt", ":Format<CR>", { desc = "Format buffer", noremap = true, silent = true })
+
         keymap("n", "gd",
             function()
                 require("fzf-lua").lsp_definitions({ jump_to_single_result = true })
