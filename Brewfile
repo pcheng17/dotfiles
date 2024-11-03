@@ -27,6 +27,7 @@ brew "python@3.12"
 brew "glib"
 brew "catch2"
 brew "clang-format"
+brew "cloc"
 brew "cmake"
 brew "harfbuzz"
 brew "node"
@@ -143,7 +144,7 @@ cask "whatsapp"
 cask "zotero"
 mas "Amphetamine", id: 937984704
 mas "BetterSnapTool", id: 417375580
-mas "CleanMyMac X", id: 1339170533
+mas "CleanMyMac", id: 1339170533
 mas "DaVinci Resolve", id: 571213070
 mas "Day One", id: 1055511498
 mas "GarageBand", id: 682658836
