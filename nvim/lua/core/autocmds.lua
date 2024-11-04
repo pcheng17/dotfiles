@@ -112,7 +112,15 @@ autocmd('LspAttach', {
 
         keymap("n", "gr",
             function()
-                require("fzf-lua").lsp_references({ jump_to_single_result = true })
+                require("fzf-lua").lsp_references({
+                    jump_to_single_result = true,
+                    winopts = {
+                        preview = {
+                            hidden = "nohidden", -- I like to see some context
+                            layout = "vertical", -- More likely to be able to see the full line of a context
+                        },
+                    },
+                })
             end,
             { desc = "Go to references" })
 
