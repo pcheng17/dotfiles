@@ -9,6 +9,7 @@ return {
                 transparent_background = false,
                 flavour = "mocha",
                 no_italic = true,
+                no_bold = true,
                 integrations = {
                     alpha = true,
                     cmp = true,
