@@ -126,12 +126,13 @@ return {
                 end
                 if #opts.fargs == 0 then
                     vim.notify("CodeCompanionSave requires at least 1 arg to make a file name", vim.log.levels.ERROR)
+                else
+                    local save_name = table.concat(opts.fargs, "-") .. ".md"
+                    local save_path = Path:new(save_folder, save_name)
+                    local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+                    save_path:write(table.concat(lines, "\n"), "w")
+                    vim.notify("Chat saved to " .. save_path:absolute(), vim.log.levels.INFO)
                 end
-                local save_name = table.concat(opts.fargs, "-") .. ".md"
-                local save_path = Path:new(save_folder, save_name)
-                local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
-                save_path:write(table.concat(lines, "\n"), "w")
-                vim.notify("Chat saved to " .. save_path:absolute(), vim.log.levels.INFO)
             end, { nargs = "*" })
 
             vim.keymap.set("n", "<leader>gpt",
