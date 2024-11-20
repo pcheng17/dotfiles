@@ -1,30 +1,11 @@
 return {
     "epwalsh/obsidian.nvim",
     version = "*",
-    enabled = false,
-    cmd = {
-        "ObsidianNew",
-        "ObsidianLink",
-        "ObsidianOpen",
-        "ObsidianTags",
-        "ObsidianCheck",
-        "ObsidianToday",
-        "ObsidianRename",
-        "ObsidianSearch",
-        "ObsidianLinkNew",
-        "ObsidianPasteImg",
-        "ObsidianTemplate",
-        "ObsidianTomorrow",
-        "ObsidianBacklinks",
-        "ObsidianWorkspace",
-        "ObsidianYesterday",
-        "ObsidianFollowLink",
-        "ObsidianQuickSwitch",
-    },
+    enabled = true,
     dependencies = {
         "nvim-lua/plenary.nvim",
         "hrsh7th/nvim-cmp",
-        "nvim-telescope/telescope.nvim",
+        "ibhagwan/fzf-lua",
         "nvim-treesitter/nvim-treesitter",
     },
     opts = {
@@ -59,10 +40,10 @@ return {
 
         completion = {
             nvim_cmp = true,
-            new_notes_location = "notes_subdir",
-            prepend_note_id = false,
-            prepend_note_path = true,
-            use_path_only = false,
+            min_chars = 2,
+            -- prepend_note_id = false,
+            -- prepend_note_path = true,
+            -- use_path_only = false,
         },
 
         templates = {
@@ -101,13 +82,15 @@ return {
             return out
         end,
 
+        wiki_link_func = "use_alias_only",
+
         mappings = {
             ["gd"] = {
                 action = function()
                     return require("obsidian").util.gf_passthrough()
                 end,
                 opts = { silent = true, expr = true }
-            }
+            },
         }
     },
     config = function(_, opts)
