@@ -25,7 +25,8 @@ config.adjust_window_size_when_changing_font_size = false
 config.color_scheme = "Catppuccin Mocha"
 
 -- local currentSetup = "personal-laptop"
-local currentSetup = "personal-laptop-widescreen"
+-- local currentSetup = "personal-laptop-widescreen"
+local currentSetup = "personal-laptop-32in"
 -- local currentSetup = "work-laptop"
 -- local currentSetup = "work-laptop-widescreen"
 
@@ -36,6 +37,10 @@ if currentSetup == "personal-laptop" then
 elseif currentSetup == "personal-laptop-widescreen" then
   config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
   config.font_size = 15.5
+  config.line_height = 1.2
+elseif currentSetup == "personal-laptop-32in" then
+  config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
+  config.font_size = 17
   config.line_height = 1.2
 elseif currentSetup == "work-laptop" then
   config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Light" })
