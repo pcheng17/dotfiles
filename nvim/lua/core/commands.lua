@@ -38,7 +38,7 @@ end, {})
 vim.api.nvim_create_user_command(
     'OpenPlan',
     function()
-        vim.cmd('edit ~/.plan')
+        vim.cmd('edit ~/.pcheng.plan')
     end,
     { nargs = 0 }
 )
