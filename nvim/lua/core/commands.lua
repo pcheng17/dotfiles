@@ -34,3 +34,12 @@ vim.api.nvim_create_user_command("StopNotifyServer", function()
         vim.notify("Notify server not running")
     end
 end, {})
+
+vim.api.nvim_create_user_command(
+    'OpenPlan',
+    function()
+        vim.cmd('edit ~/.plan')
+    end,
+    { nargs = 0 }
+)
+vim.api.nvim_set_keymap('n', '<leader>op', ':OpenPlan<CR>', { noremap = true, silent = true })
