@@ -8,14 +8,6 @@ else
     echo "oh-my-zsh already installed."
 fi
 
-# Install TPM (Tmux Plugin Manager)
-# if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-#     echo "Installing TPM..."
-#     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-# else
-#     echo "TPM already installed."
-# fi
-
 # MacOS specific configurations
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # First check if Homebrew is installed

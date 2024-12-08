@@ -157,19 +157,6 @@ case "$OSTYPE" in
     ;;
 esac
 
-# CLI pomodoro
-declare -A pomo_options
-pomo_options["work"]="-n Work 45m"
-pomo_options["break"]="-n Break 10m"
-pomo_options["study"]="-n Study 30m"
-
-pomodoro () {
-  if [ -n "$1" -a -n "${pomo_options["$1"]}" ]; then
-    echo "${pomo_options["$1"]}" | xargs timer
-  fi
-}
-alias pom="pomodoro"
-
 # pnpm
 export PNPM_HOME="/Users/pcheng/Library/pnpm"
 case ":$PATH:" in

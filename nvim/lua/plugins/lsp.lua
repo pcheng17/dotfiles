@@ -38,7 +38,6 @@ return {
                 "pyright",    -- python
                 "svelte",     -- svelte
                 "texlab",     -- latex
-                "typst_lsp",  -- typst
             },
             handlers = {
                 function(server_name) -- default handler
@@ -114,15 +113,6 @@ return {
                             config.settings.python.pythonPath = get_python_path(config.root_dir)
                             -- print("Using Python interpreter: " .. config.settings.python.pythonPath)
                         end,
-                    })
-                end,
-
-                ["typst_lsp"] = function()
-                    require("lspconfig").typst_lsp.setup({
-                        capabilities = capabilities,
-                        settings = {
-                            exportPdf = "never",
-                        },
                     })
                 end,
             }

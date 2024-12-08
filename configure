@@ -9,11 +9,24 @@ create_symlink() {
         exit 1
     fi
 
+    # If link_file doesn't exist, create all of the directories in the path
+    if [ ! -e "$link_file" ]; then
+        mkdir -p "$(dirname "$link_file")"
+    fi
+
     if [ -L "$link_file" ]; then
         unlink "$link_file"
     fi
     ln -s "$target_file" "$link_file"
     echo "$link_file -> $target_file"
+}
+
+create_directory() {
+    local directory=$1
+
+    if [ ! -d "$directory" ]; then
+        mkdir -p "$directory"
+    fi
 }
 
 DOTFILES_DIR="$HOME/.dotfiles"
