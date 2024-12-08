@@ -116,7 +116,6 @@ cask "obs"
 cask "obsidian"
 cask "qmk-toolbox"
 cask "raspberry-pi-imager"
-cask "runelite"
 cask "skim"
 cask "skype"
 cask "spotify"
@@ -130,5 +129,6 @@ mas "Amphetamine", id: 937984704
 mas "BetterSnapTool", id: 417375580
 mas "GarageBand", id: 682658836
 mas "Hidden Bar", id: 1452453066
-mas "Microsoft Remote Desktop", id: 1295203466
+mas "iMovie", id: 408981434
+mas "Windows App", id: 1295203466
 mas "Xcode", id: 497799835
