@@ -29,7 +29,6 @@ alias pandock='docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/ext
 
 case "$OSTYPE" in
     darwin*)
-        alias kbs='cd ~/Workspace/keebs'
     ;;
     linux*)
         alias notes='cd /mnt/d/Peter/Documents/Workspace/notes'

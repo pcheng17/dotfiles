@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-# Install oh-my-zsh
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "Installing oh-my-zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else
-    echo "oh-my-zsh already installed."
-fi
-
 # MacOS specific configurations
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # First check if Homebrew is installed
@@ -19,5 +11,13 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     else
         echo "Homebrew already installed."
     fi
+fi
+
+# Install oh-my-zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "Installing oh-my-zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+    echo "oh-my-zsh already installed."
 fi
 
