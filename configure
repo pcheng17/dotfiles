@@ -73,16 +73,21 @@ git config --global core.excludesFile "$HOME/.dotfiles/git/gitignore"
 git config --global pull.rebase false
 git config --global merge.commit no
 
-if [ "$1" == "home" ]; then
-    setup_personal_symlinks
-    echo ""
-    setup_common_symlinks
-elif [ "$1" == "work" ]; then
-    setup_work_symlinks
-    echo ""
-    setup_common_symlinks
-else
-    echo "Usage: $0 [home|work]"
-    exit 1
-fi
-
+case "$1" in
+    home)
+        setup_personal_symlinks
+        echo ""
+        setup_common_symlinks
+        # TODO Optionally install Homebrew packages
+        # brew bundle install --file="$HOME/Brewfile"
+        ;;
+    work)
+        setup_work_symlinks
+        echo ""
+        setup_common_symlinks
+        ;;
+    *)
+        echo "Usage: $0 [home|work]"
+        exit 1
+        ;;
+esac
