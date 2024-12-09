@@ -1,0 +1,88 @@
+#!/bin/bash
+
+# Default values
+EMAIL=""
+KEY_TYPE="ed25519"
+KEY_PATH="$HOME/.ssh/github"
+
+# Function to display usage
+usage() {
+    echo "USAGE: $0 -e email@example.com [-t key_type] [-p key_path]"
+    echo "Options:"
+    echo "  -e    Email address for SSH key"
+    echo "  -t    Key type (default: ed25519, alternatives: rsa)"
+    echo "  -p    Path for key file (default: ~/.ssh/github)"
+    exit 1
+}
+
+# Parse command line arguments
+while getopts "e:t:p:" opt; do
+    case $opt in
+        e) EMAIL="$OPTARG" ;;
+        t) KEY_TYPE="$OPTARG" ;;
+        p) KEY_PATH="$OPTARG" ;;
+        ?) usage ;;
+    esac
+done
+
+# If file already exists, error out
+# Check for both .pub and private key
+if [ -f "$KEY_PATH" ] || [ -f "${KEY_PATH}.pub" ]; then
+    echo "Error: SSH key already exists at $KEY_PATH"
+    exit 1
+fi
+
+# Check if email is provided
+if [ -z "$EMAIL" ]; then
+    echo "Error: Email address is required"
+    usage
+fi
+
+# Create .ssh directory if it doesn't exist
+mkdir -p "$HOME/.ssh"
+chmod 700 "$HOME/.ssh"
+
+# Generate SSH key
+if [ "$KEY_TYPE" = "ed25519" ]; then
+    ssh-keygen -t ed25519 -C "$EMAIL" -f "$KEY_PATH" -N ""
+elif [ "$KEY_TYPE" = "rsa" ]; then
+    ssh-keygen -t rsa -b 4096 -C "$EMAIL" -f "$KEY_PATH" -N ""
+else
+    echo "Error: Unsupported key type. Use ed25519 or rsa."
+    exit 1
+fi
+
+# Start ssh-agent and add key
+eval "$(ssh-agent -s)"
+ssh-add "$KEY_PATH"
+
+# Add SSH config entry
+CONFIG_FILE="$HOME/.ssh/config"
+if [ ! -f "$CONFIG_FILE" ]; then
+    touch "$CONFIG_FILE"
+    chmod 600 "$CONFIG_FILE"
+fi
+
+# Add GitHub configuration if not already present
+if ! grep -q "Host github.com" "$CONFIG_FILE"; then
+    cat >> "$CONFIG_FILE" << EOF
+
+Host github.com
+    HostName github.com
+    User git
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile $KEY_PATH
+EOF
+fi
+
+# Display public key and instructions
+echo -e "\nYour SSH public key has been generated. Add it to GitHub by following these steps:"
+echo "1. Copy the following public key:"
+echo "-------------------"
+cat "${KEY_PATH}.pub"
+echo "-------------------"
+echo -e "\n2. Go to GitHub -> Settings -> SSH and GPG keys -> New SSH key"
+echo "3. Paste the key and give it a memorable title (e.g., $(hostname))"
+echo -e "\nTo test your connection, run: ssh -T git@github.com"
+
