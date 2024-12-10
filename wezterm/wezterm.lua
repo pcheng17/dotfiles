@@ -40,7 +40,7 @@ elseif currentSetup == "personal-laptop-widescreen" then
   config.line_height = 1.2
 elseif currentSetup == "personal-laptop-32in" then
   config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
-  config.font_size = 17
+  config.font_size = 16.0
   config.line_height = 1.2
 elseif currentSetup == "work-laptop" then
   config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Light" })
