@@ -123,7 +123,8 @@ compinit
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/opt/homebrew/opt/fzf/shell/key-bindings.zsh ] && source ~/opt/homebrew/opt/fzf/shell/key-bindings.zsh
+[ -f ~/opt/homebrew/opt/fzf/shell/completion.zsh ] && source ~/opt/homebrew/opt/fzf/shell/completion.zsh
 
 # Extend the history that's saved in .zsh_history
 export HISTSIZE=1000000
@@ -132,9 +133,6 @@ setopt EXTENDED_HISTORY
 
 # Make CMake generate compile_commands.json for clangd indexing
 export CMAKE_EXPORT_COMPILE_COMMANDS=1
-
-# Heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/pcheng/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 # Customize fzf
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
