@@ -1,5 +1,6 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
+export BREW_PREFIX=$(brew --prefix)
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -123,8 +124,9 @@ compinit
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-[ -f ~/opt/homebrew/opt/fzf/shell/key-bindings.zsh ] && source ~/opt/homebrew/opt/fzf/shell/key-bindings.zsh
-[ -f ~/opt/homebrew/opt/fzf/shell/completion.zsh ] && source ~/opt/homebrew/opt/fzf/shell/completion.zsh
+[ -f $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh ] && source $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh
+[ -f $BREW_PREFIX/opt/fzf/shell/completion.zsh ] && source $BREW_PREFIX/opt/fzf/shell/completion.zsh
+[ -f $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Extend the history that's saved in .zsh_history
 export HISTSIZE=1000000
