@@ -1,6 +1,8 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
-export BREW_PREFIX=$(brew --prefix)
+
+# This could be different for each machine, so find a better place for this
+export WORK_DIR="$HOME/work"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -13,6 +15,7 @@ fi
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+export BREW_PREFIX=$(brew --prefix)
 
 # pyenv settings
 # https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv

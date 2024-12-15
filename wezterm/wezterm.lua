@@ -14,6 +14,7 @@ config.window_padding = {
   top = 30,
   bottom = 8,
 }
+config.max_fps = 140
 
 -- Tab bar configuration
 config.hide_tab_bar_if_only_one_tab = true
