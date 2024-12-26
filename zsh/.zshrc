@@ -1,8 +1,15 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
+export DOTFILES_DIR="$HOME/.dotfiles"
 
-# This could be different for each machine, so find a better place for this
-export WORK_DIR="$HOME/Workspace"
+case "$(hostname)" in
+    "Peters-MacBook-Pro.local")
+        source ${DOTFILES_DIR}/zsh/macbook-pro.zsh
+        ;;
+    *)
+        echo "Unknown machine: $(hostname)"
+        ;;
+esac
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
