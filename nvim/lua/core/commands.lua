@@ -35,11 +35,12 @@ vim.api.nvim_create_user_command("StopNotifyServer", function()
     end
 end, {})
 
-vim.api.nvim_create_user_command(
-    'OpenPlan',
-    function()
-        vim.cmd('edit ~/.pcheng.plan')
-    end,
-    { nargs = 0 }
-)
-vim.api.nvim_set_keymap('n', '<leader>op', ':OpenPlan<CR>', { noremap = true, silent = true })
+vim.api.nvim_create_user_command("DiagnosticToggle", function()
+	local config = vim.diagnostic.config
+	local vt = config().virtual_text
+	config {
+		virtual_text = not vt,
+		underline = not vt,
+		signs = not vt,
+	}
+end, { desc = "Toggle diagnostic" })
