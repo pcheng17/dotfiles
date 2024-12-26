@@ -34,7 +34,7 @@ DOTFILES_DIR="$HOME/.dotfiles"
 setup_personal_symlinks() {
     echo "Setting up personal symlinks"
     echo "==========================================="
-    create_symlink "$DOTFILES_DIR/zshrc/.zshrc" "$HOME/.zshrc"
+    create_symlink "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
     create_symlink "$DOTFILES_DIR/bin" "$HOME/bin"
     if [[ "$OSTYPE" == "darwin"* ]]; then
         create_symlink "$DOTFILES_DIR/Brewfile" "$HOME/Brewfile"
@@ -55,7 +55,7 @@ setup_common() {
     create_symlink "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
     create_symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
     create_symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
-    create_symlink "$DOTFILES_DIR/zshrc/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
+    create_symlink "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
     create_symlink "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
     if [[ "$OSTYPE" == "darwin"* ]]; then
         create_symlink "$DOTFILES_DIR/kitty" "$HOME/.config/kitty"
