@@ -154,6 +154,7 @@ setopt auto_cd
 case "$OSTYPE" in
     darwin*)
         cdpath+=~/Workspace
+        cdpath+=~/work
     ;;
     linux*)
 	    # ...
