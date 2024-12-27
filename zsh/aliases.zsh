@@ -47,8 +47,8 @@ if [[ "$current_hostname" == "HQ-VP606YTPQ2" ]]; then
     alias wk='cd ~/work'
     alias bkupbrew='brew bundle dump --file=~/.dotfiles/private/Brewfile --force'
 else
-    # Home machine
-    alias wk='cd ~/Workspace'
+    # Personal machines
+    alias wk='cd ${WORK_DIR}'
     alias bkupbrew='brew bundle dump --file=~/.dotfiles/Brewfile --force'
 fi
 
