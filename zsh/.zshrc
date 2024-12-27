@@ -6,8 +6,8 @@ case "$(hostname)" in
     "Peters-MacBook-Pro.local")
         source ${DOTFILES_DIR}/zsh/macbook-pro.zsh
         ;;
-    "M4-Mini.local")
-        source ${DOTFILES_DIR}/zsh/M4-mini.zsh
+    "M4-Mac-Mini.local")
+        source ${DOTFILES_DIR}/zsh/m4-mac-mini.zsh
         ;;
     *)
         echo "Unknown machine: $(hostname)"
