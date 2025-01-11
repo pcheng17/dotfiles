@@ -7,7 +7,7 @@ _exists() {
 alias l='ls -lhF'
 alias ll='ls -lhF'
 alias la='ls -AlhF'
-alias clc='clear'
+alias c='clear'
 alias qq='~ && clear'
 alias rg='rg --smart-case'
 
