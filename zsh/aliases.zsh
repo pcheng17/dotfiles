@@ -4,6 +4,9 @@ _exists() {
     command -v $1 > /dev/null 2>&1
 }
 
+alias l='ls -lhF'
+alias ll='ls -lhF'
+alias la='ls -AlhF'
 alias clc='clear'
 alias qq='~ && clear'
 alias rg='rg --smart-case'
