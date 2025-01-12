@@ -65,7 +65,8 @@ fi
 
 # Add GitHub configuration if not already present
 if ! grep -q "Host github.com" "$CONFIG_FILE"; then
-    cat >> "$CONFIG_FILE" << EOF
+    if [[ "$(uname)" == "Darwin" ]]; then
+        cat >> "$CONFIG_FILE" << EOF
 
 Host github.com
     HostName github.com
@@ -74,6 +75,16 @@ Host github.com
     UseKeychain yes
     IdentityFile $KEY_PATH
 EOF
+    else
+        cat >> "$CONFIG_FILE" << EOF
+
+Host github.com
+    HostName github.com
+    User git
+    AddKeysToAgent yes
+    IdentityFile $KEY_PATH
+EOF
+    fi
 fi
 
 # Display public key and instructions
