@@ -3,7 +3,8 @@ local show_preview = {
     winopts = {
         preview = {
             hidden = "nohidden", -- I like to see some context
-            layout = "horizontal", -- More likely to be able to see the full line of a context
+            layout = "vertical", -- More likely to be able to see the full line of a context
+            vertical = "down:55%",
         },
     },
 }
