@@ -37,6 +37,11 @@ eval "$(pyenv virtualenv-init -)"
 # rbenv settings
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+# Haskell path
+if [ -d "$HOME/.ghcup/bin" ]; then
+    export PATH="$HOME/.ghcup/bin:$PATH"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
