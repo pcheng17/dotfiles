@@ -36,6 +36,9 @@ venv/
 *.a
 *.lib
 
+# Haskell interface files
+*.hi
+
 # Executables
 *.exe
 *.out
