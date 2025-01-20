@@ -49,10 +49,10 @@ esac
 if [[ "$current_hostname" == "HQ-VP606YTPQ2" ]]; then
     # Work machine
     alias wk='cd ~/work'
-    alias bkupbrew='brew bundle dump --file=~/.dotfiles/private/Brewfile --force'
+    alias bkupbrew='TMP="/private/tmp/brewfile_backup_$(date +%s)" && brew bundle dump --file="$TMP" --force && grep -v "^vscode" "$TMP" > ~/.dotfiles/private/Brewfile && rm "$TMP"'
 else
     # Personal machines
     alias wk='cd ${WORK_DIR}'
-    alias bkupbrew='brew bundle dump --file=~/.dotfiles/Brewfile --force'
+    alias bkupbrew='TMP="/private/tmp/brewfile_backup_$(date +%s)" && brew bundle dump --file="$TMP" --force && grep -v "^vscode" "$TMP" > ~/.dotfiles/Brewfile && rm "$TMP"'
 fi
 
