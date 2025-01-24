@@ -31,7 +31,7 @@ return {
     keys = {
         { "<leader>;",  function() require("fzf-lua").files() end,                    mode = "n", desc = "fzf files in cwd",                 silent = true },
         { "<leader>'",  function() require("fzf-lua").buffers() end,                  mode = "n", desc = "fzf buffers",                      silent = true },
-        { "<leader>/",  function() require("fzf-lua").live_grep(show_preview_h) end,  mode = "n", desc = "fzf grep in cwd",                  silent = true },
+        { "<leader>/",  function() require("fzf-lua").live_grep(show_preview_v) end,  mode = "n", desc = "fzf grep in cwd",                  silent = true },
         { "<leader>gw", function() require("fzf-lua").grep_cword(show_preview_v) end, mode = "n", desc = "fzf grep current word",            silent = true },
         { "<leader>gW", function() require("fzf-lua").grep_cWORD(show_preview_v) end, mode = "n", desc = "fzf grep current WORD",            silent = true },
         { "<leader>gl", function() require("fzf-lua").grep_last(show_preview_v) end,  mode = "n", desc = "fzf grep in cwd for last pattern", silent = true },
