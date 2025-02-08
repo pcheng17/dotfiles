@@ -177,6 +177,16 @@ return {
   ),
   s(
     {
+      trig = "([%w])(^)",
+      name = "hat",
+      dscr = "Turns the previous word into a expression with a hat",
+      regTrig = true, wordTrig = false, snippetType = "autosnippet",
+    },
+    fmta("\\hat{<>}", { f(function(_, snip) return snip.captures[1] end) }),
+    { condition = tex.in_math }
+  ),
+  s(
+    {
       trig = "([%w])(~)",
       name = "Tilde",
       dscr = "Turns the previous word into a tilde-wrapped expression",
