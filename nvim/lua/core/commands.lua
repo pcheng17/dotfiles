@@ -35,7 +35,7 @@ vim.api.nvim_create_user_command("StopNotifyServer", function()
     end
 end, {})
 
-vim.api.nvim_create_user_command("DiagnosticToggle", function()
+vim.api.nvim_create_user_command("ToggleDiagnostics", function()
 	local config = vim.diagnostic.config
 	local vt = config().virtual_text
 	config {
@@ -43,4 +43,4 @@ vim.api.nvim_create_user_command("DiagnosticToggle", function()
 		underline = not vt,
 		signs = not vt,
 	}
-end, { desc = "Toggle diagnostic" })
+end, { desc = "Toggle diagnostics" })
