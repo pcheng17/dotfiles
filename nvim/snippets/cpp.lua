@@ -6,9 +6,11 @@ local i = ls.insert_node
 local f = ls.function_node
 local c = ls.choice_node
 local d = ls.dynamic_node
+local r = ls.restore_node
 local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
+local parse = require("luasnip.util.parser").parse_snippet
 local treesitter_postfix = require("luasnip.extras.treesitter_postfix").treesitter_postfix
 
 local merge_tables = require('utils').merge_tables
@@ -168,7 +170,9 @@ local personal = {
             local replaced_content = ("std::move(%s)"):format(node_content)
             return vim.split(replaced_content, "\n", { trimempty = false })
         end)
-    })
+    }),
+
+    parse("ip", "${1:range}.begin(), $1.end()"),
 }
 
 -- Roblox-specific snippets
