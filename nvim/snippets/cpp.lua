@@ -9,6 +9,7 @@ local d = ls.dynamic_node
 local fmt = require("luasnip.extras.fmt").fmt
 local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
+local treesitter_postfix = require("luasnip.extras.treesitter_postfix").treesitter_postfix
 
 local merge_tables = require('utils').merge_tables
 
@@ -24,7 +25,151 @@ local get_visual = function(_, parent)
 end
 
 -- Personal snippets
-local personal = {}
+local personal = {
+    s(
+        {
+            trig = "sizet",
+            dscr = "Auto-expand to size_t",
+            snippetType = "autosnippet",
+            wordTrig = true,
+        },
+        {
+            t("size_t"),
+            i(0)
+        }
+    ),
+    s(
+        {
+            trig = "size_%",
+            dscr = "Fix typo of size_t",
+            snippetType = "autosnippet",
+            wordTrig = true,
+        },
+        {
+            t("size_t"),
+            i(0)
+        }
+    ),
+    s(
+        {
+            trig = "u8",
+            dscr = "Auto-expand to uint8_t",
+            snippetType = "autosnippet",
+            wordTrig = true,
+        },
+        {
+            t("uint8_t"),
+            i(0)
+        }
+    ),
+    s(
+        {
+            trig = "u16",
+            dscr = "Auto-expand to uint16_t",
+            snippetType = "autosnippet",
+            wordTrig = true,
+        },
+        {
+            t("uint16_t"),
+            i(0)
+        }
+    ),
+    s(
+        {
+            trig = "u32",
+            dscr = "Auto-expand to uint32_t",
+            snippetType = "autosnippet",
+            wordTrig = true,
+        },
+        {
+            t("uint32_t"),
+            i(0)
+        }
+    ),
+    s(
+        {
+            trig = "u64",
+            dscr = "Auto-expand to uint64_t",
+            snippetType = "autosnippet",
+            wordTrig = true,
+        },
+        {
+            t("uint64_t"),
+            i(0)
+        }
+    ),
+    s(
+        {
+            trig = "i8",
+            dscr = "Auto-expand to int8_t",
+            snippetType = "autosnippet",
+            wordTrig = true,
+        },
+        {
+            t("int8_t"),
+            i(0)
+        }
+    ),
+    s(
+        {
+            trig = "i16",
+            dscr = "Auto-expand to int16_t",
+            snippetType = "autosnippet",
+            wordTrig = true,
+        },
+        {
+            t("int16_t"),
+            i(0)
+        }
+    ),
+    s(
+        {
+            trig = "i32",
+            dscr = "Auto-expand to int32_t",
+            snippetType = "autosnippet",
+            wordTrig = true,
+        },
+        {
+            t("int32_t"),
+            i(0)
+        }
+    ),
+    s(
+        {
+            trig = "i64",
+            dscr = "Auto-expand to int64_t",
+            snippetType = "autosnippet",
+            wordTrig = true,
+        },
+        {
+            t("int64_t"),
+            i(0)
+        }
+    ),
+    treesitter_postfix({
+        trig = ".mv",
+        dscr = "Wrap the previous expression with std::move",
+        matchTSNode = {
+            query = [[
+                [
+                  (call_expression)
+                  (identifier)
+                  (template_function)
+                  (subscript_expression)
+                  (field_expression)
+                  (user_defined_literal)
+                ] @prefix
+            ]],
+            query_lang = "cpp"
+        },
+    },{
+        f(function(_, parent)
+            local node_content = table.concat(parent.snippet.env.LS_TSMATCH, '\n')
+            local replaced_content = ("std::move(%s)"):format(node_content)
+            return vim.split(replaced_content, "\n", { trimempty = false })
+        end)
+    })
+}
 
 -- Roblox-specific snippets
 local roblox = {
@@ -32,7 +177,7 @@ local roblox = {
     {
       trig = "rbxinfo",
       dscr = "Internal print statement for Roblox",
-    },
+},
     fmta(
       [[
         RBX::StandardOut::printf(RBX::MESSAGE_INFO, "[pcheng] <>");
