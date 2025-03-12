@@ -148,6 +148,7 @@ local personal = {
             i(0)
         }
     ),
+
     treesitter_postfix({
         trig = ".mv",
         dscr = "Wrap the previous expression with std::move",
@@ -173,6 +174,7 @@ local personal = {
     }),
 
     parse("ip", "${1:range}.begin(), $1.end()"),
+    parse("mb", "[[maybe_unused]]")
 }
 
 -- Roblox-specific snippets
