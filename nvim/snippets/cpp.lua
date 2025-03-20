@@ -63,9 +63,49 @@ local personal = {
             return vim.split(replaced_content, "\n", { trimempty = false })
         end)
     }),
+    s(
+        {
+            trig = "guard",
+            dscr = "Header include guard",
+        },
+        fmta(
+            [[
+                #ifndef <>
+                #define <>
+
+                <>
+
+                #endif // <>
+            ]],
+            {
+                i(1), rep(1), i(0), rep(1)
+            }
+        )
+    ),
+    s(
+        {
+            trig = "ns",
+            dscr = "namespace",
+        },
+        fmta(
+            [[
+                namespace <>
+                {
+
+                <>
+
+                } // <>
+            ]],
+            {
+                i(1), i(0), rep(1)
+            }
+        )
+    ),
 
     parse("ip", "${1:range}.begin(), $1.end()"),
-    parse("mb", "[[maybe_unused]]")
+    parse("mb", "[[maybe_unused]]"),
+    parse("incq", '#include "${1:header}"'),
+    parse("incb", "#include <${1:header}>"),
 }
 
 -- Roblox-specific snippets
