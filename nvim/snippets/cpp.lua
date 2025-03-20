@@ -37,7 +37,6 @@ local personal = {
         },
         {
             t("size_t"),
-            i(0)
         }
     ),
     s(
@@ -49,7 +48,6 @@ local personal = {
         },
         {
             t("size_t"),
-            i(0)
         }
     ),
     s(
@@ -61,7 +59,6 @@ local personal = {
         },
         {
             t("uint8_t"),
-            i(0)
         }
     ),
     s(
@@ -73,7 +70,6 @@ local personal = {
         },
         {
             t("uint16_t"),
-            i(0)
         }
     ),
     s(
@@ -85,7 +81,6 @@ local personal = {
         },
         {
             t("uint32_t"),
-            i(0)
         }
     ),
     s(
@@ -97,7 +92,6 @@ local personal = {
         },
         {
             t("uint64_t"),
-            i(0)
         }
     ),
     s(
@@ -109,7 +103,6 @@ local personal = {
         },
         {
             t("int8_t"),
-            i(0)
         }
     ),
     s(
@@ -121,7 +114,6 @@ local personal = {
         },
         {
             t("int16_t"),
-            i(0)
         }
     ),
     s(
@@ -133,7 +125,6 @@ local personal = {
         },
         {
             t("int32_t"),
-            i(0)
         }
     ),
     s(
@@ -145,7 +136,6 @@ local personal = {
         },
         {
             t("int64_t"),
-            i(0)
         }
     ),
 
