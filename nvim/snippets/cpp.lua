@@ -28,116 +28,17 @@ end
 
 -- Personal snippets
 local personal = {
-    s(
-        {
-            trig = "sizet",
-            dscr = "Auto-expand to size_t",
-            snippetType = "autosnippet",
-            wordTrig = true,
-        },
-        {
-            t("size_t"),
-        }
-    ),
-    s(
-        {
-            trig = "size_%",
-            dscr = "Fix typo of size_t",
-            snippetType = "autosnippet",
-            wordTrig = true,
-        },
-        {
-            t("size_t"),
-        }
-    ),
-    s(
-        {
-            trig = "u8",
-            dscr = "Auto-expand to uint8_t",
-            snippetType = "autosnippet",
-            wordTrig = true,
-        },
-        {
-            t("uint8_t"),
-        }
-    ),
-    s(
-        {
-            trig = "u16",
-            dscr = "Auto-expand to uint16_t",
-            snippetType = "autosnippet",
-            wordTrig = true,
-        },
-        {
-            t("uint16_t"),
-        }
-    ),
-    s(
-        {
-            trig = "u32",
-            dscr = "Auto-expand to uint32_t",
-            snippetType = "autosnippet",
-            wordTrig = true,
-        },
-        {
-            t("uint32_t"),
-        }
-    ),
-    s(
-        {
-            trig = "u64",
-            dscr = "Auto-expand to uint64_t",
-            snippetType = "autosnippet",
-            wordTrig = true,
-        },
-        {
-            t("uint64_t"),
-        }
-    ),
-    s(
-        {
-            trig = "i8",
-            dscr = "Auto-expand to int8_t",
-            snippetType = "autosnippet",
-            wordTrig = true,
-        },
-        {
-            t("int8_t"),
-        }
-    ),
-    s(
-        {
-            trig = "i16",
-            dscr = "Auto-expand to int16_t",
-            snippetType = "autosnippet",
-            wordTrig = true,
-        },
-        {
-            t("int16_t"),
-        }
-    ),
-    s(
-        {
-            trig = "i32",
-            dscr = "Auto-expand to int32_t",
-            snippetType = "autosnippet",
-            wordTrig = true,
-        },
-        {
-            t("int32_t"),
-        }
-    ),
-    s(
-        {
-            trig = "i64",
-            dscr = "Auto-expand to int64_t",
-            snippetType = "autosnippet",
-            wordTrig = true,
-        },
-        {
-            t("int64_t"),
-        }
-    ),
+    --stylua: ignore
+    s( { trig = "sizet", dscr = "Fix size_t typo", snippetType = "autosnippet", wordTrig = true, }, { t("size_t"), }),
+    s( { trig = "size_%", dscr = "Fix size_t typo", snippetType = "autosnippet", wordTrig = true, }, { t("size_t"), }),
+    s( { trig = "u8", dscr = "uint8_t", }, { t("uint8_t"), }),
+    s( { trig = "u16", dscr = "uint16_t", }, { t("uint16_t"), }),
+    s( { trig = "u32", dscr = "uint32_t", }, { t("uint32_t"), }),
+    s( { trig = "u64", dscr = "uint64_t", }, { t("uint64_t"), }),
+    s( { trig = "i8", dscr = "int8_t", }, { t("int8_t"), }),
+    s( { trig = "i16", dscr = "int16_t", }, { t("int16_t"), }),
+    s( { trig = "i32", dscr = "int32_t", }, { t("int32_t"), }),
+    s( { trig = "i64", dscr = "int64_t", }, { t("int64_t"), }),
 
     treesitter_postfix({
         trig = ".mv",
