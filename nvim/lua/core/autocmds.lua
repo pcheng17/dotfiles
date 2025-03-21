@@ -124,7 +124,7 @@ autocmd('LspAttach', {
             end,
             { desc = "Go to references" })
 
-        keymap("n", "<leader>ds", function() require("fzf-lua").lsp_document_symbols() end,  { desc = "Document symbols" })
+        keymap("n", "ds",         function() require("fzf-lua").lsp_document_symbols() end,  { desc = "Document symbols" })
         keymap("n", "<leader>ws", function() require("fzf-lua").lsp_workspace_symbols() end, { desc = "Workspace symbols" })
         keymap("n", "<leader>ic", function() require("fzf-lua").lsp_incoming_calls() end,    { desc = "Incoming calls" })
         keymap("n", "<leader>oc", function() require("fzf-lua").lsp_outgoing_calls() end,    { desc = "Outgoing calls" })
