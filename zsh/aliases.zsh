@@ -16,6 +16,7 @@ alias rld='source ~/.zshrc'
 
 alias dfs='cd ~/.dotfiles'
 alias edfs='nvim ~/.dotfiles'
+alias y='yazi'
 
 alias gcob='git branch | fzf --height=50% | xargs git checkout'
 alias gbd='git branch | fzf -m | xargs git branch -D'
