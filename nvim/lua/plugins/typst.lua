@@ -1,7 +1,7 @@
 return {
     'kaarmu/typst.vim',
     ft = 'typst',
-    enabled = false,
+    enabled = true,
     config = function()
         vim.g.typst_pdf_viewer = 'skim'
     end
