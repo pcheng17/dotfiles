@@ -106,6 +106,7 @@ local personal = {
     parse("mb", "[[maybe_unused]]"),
     parse("incq", '#include "${1:header}"'),
     parse("incb", "#include <${1:header}>"),
+    parse("println", 'std::cout << ${1} << "\\n";'),
 }
 
 -- Roblox-specific snippets
