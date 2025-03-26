@@ -1,8 +1,21 @@
 return {
     'stevearc/oil.nvim',
     cmd = { "Oil" },
-    keys = { "<leader>e" },
-    -- Optional dependencies
+    keys = {
+        {
+            "<leader>e",
+            function()
+                require("oil").open(nil, {
+                    preview = {
+                        vertical = true
+                    },
+                })
+            end,
+            mode = "n",
+            desc = "Open Oil",
+            silent = true,
+        },
+    },
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         require('oil').setup({
@@ -12,21 +25,12 @@ return {
             view_options = {
                 show_hidden = true,
                 is_always_hidden = function(name)
-                    return name == '.DS_Store' or name == ".git"
+                    return name == '.DS_Store'
                 end
             },
             win_options = {
                 wrap = true,
             },
-            -- keymaps = {
-            --     ["<Esc>"] = { callback = "actions.close", mode = "n" },
-            -- },
         })
-
-        vim.keymap.set("n", "<leader>e",
-            function()
-                require("oil").toggle_float()
-            end,
-            { silent = true, desc = "Toggle Oil" })
     end,
 }
