@@ -40,8 +40,8 @@ return {
             desc = "Trouble document diagnostics",
             silent = true,
         },
-        { "[d", function() require("trouble").prev({ skip_groups = true, jump = true }) end, desc = "Trouble previous", silent = true },
-        { "]d", function() require("trouble").next({ skip_groups = true, jump = true }) end, desc = "Trouble next", silent = true },
+        -- { "[d", function() require("trouble").prev({ skip_groups = true, jump = true }) end, desc = "Trouble previous", silent = true },
+        -- { "]d", function() require("trouble").next({ skip_groups = true, jump = true }) end, desc = "Trouble next", silent = true },
         {
             "<leader>tq",
             function()

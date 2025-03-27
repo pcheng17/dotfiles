@@ -97,7 +97,6 @@ autocmd('LspAttach', {
         -- `:Format` command local to the LSP buffer
         -- TODO: Do I want to use formatter.nvim instead?
 
-        -- stylua: ignore start
         vim.api.nvim_buf_create_user_command(
             e.buf, "Format", function(_) vim.lsp.buf.format({ async = true }) end, { desc = "Format buffer" }
         )
@@ -129,9 +128,8 @@ autocmd('LspAttach', {
         keymap("n", "<leader>ic", function() require("fzf-lua").lsp_incoming_calls() end,    { desc = "Incoming calls" })
         keymap("n", "<leader>oc", function() require("fzf-lua").lsp_outgoing_calls() end,    { desc = "Outgoing calls" })
         keymap("n", "K",          function() vim.lsp.buf.hover() end,                        { desc = "Hover documentation" })
-        keymap("n", "<leader>ca", function() vim.lsp.buf.code_action() end,                  { desc = "Code actions" })
         keymap("n", "<leader>rn", function() vim.lsp.buf.rename() end,                       { desc = "Rename symbol" })
         keymap("i", "<C-k>",      function() vim.lsp.buf.signature_help() end,               { desc = "Signature help" })
-        -- stylua: ignore end
+        -- `gra` in Normal mode maps to `vim.lsp.buf.code_action()` by default
     end
 })

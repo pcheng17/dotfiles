@@ -47,6 +47,12 @@ opt.isfname:append("@-@")
 
 opt.clipboard = "unnamedplus"
 
+-- vim.o.winborder = "rounded"
+vim.diagnostic.config({
+    virtual_text = true,
+    virtual_lines = true,
+})
+
 -- vim.cmd("colorscheme tokyonight")
 -- vim.cmd("colorscheme rose-pine")
 vim.cmd("colorscheme catppuccin")
