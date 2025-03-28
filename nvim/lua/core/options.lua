@@ -50,7 +50,10 @@ opt.clipboard = "unnamedplus"
 -- vim.o.winborder = "rounded"
 vim.diagnostic.config({
     virtual_text = true,
-    virtual_lines = true,
+    virtual_lines = {
+        -- Only show virtual line diagnostics for the current cursor line
+        current_line = true,
+    },
 })
 
 -- vim.cmd("colorscheme tokyonight")
