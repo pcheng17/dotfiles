@@ -49,7 +49,7 @@ opt.clipboard = "unnamedplus"
 
 -- vim.o.winborder = "rounded"
 vim.diagnostic.config({
-    virtual_text = true,
+    virtual_text = false,
     virtual_lines = {
         -- Only show virtual line diagnostics for the current cursor line
         current_line = true,
