@@ -25,12 +25,12 @@ if [[ ! -d $selected ]] && [[ $selected != "default" ]]; then
     if [[ $selected == https://github.com/* || $selected == git@github.com:* ]]; then
         # It's a GitHub URL, extract the repo name from the URL
         repo_name=$(basename "$selected" .git)
-        read -p "Clone GitHub repo to '${WORK_DIR}/$repo_name'? Enter new directory name or press enter to use '$repo_name': " custom_name
+        read -p "Clone GitHub repo to '${DEV_DIR}/$repo_name'? Enter new directory name or press enter to use '$repo_name': " custom_name
 
         if [[ -n $custom_name ]]; then
-            target_dir="${WORK_DIR}/$custom_name"
+            target_dir="${DEV_DIR}/$custom_name"
         else
-            target_dir="${WORK_DIR}/$repo_name"
+            target_dir="${DEV_DIR}/$repo_name"
         fi
 
         git clone "$selected" "$target_dir"
@@ -43,11 +43,11 @@ if [[ ! -d $selected ]] && [[ $selected != "default" ]]; then
         fi
     else
         # It's a directory path, offer to create it
-        read -p "Directory '${WORK_DIR}/$selected' doesn't exist. Create it? (y/n) " -n 1 -r
+        read -p "Directory '${DEV_DIR}/$selected' doesn't exist. Create it? (y/n) " -n 1 -r
         echo
         if [[ $REPLY =~ ^[Yy]$ ]]; then
-            mkdir -p "${WORK_DIR}/$selected"
-            selected="${WORK_DIR}/$selected"
+            mkdir -p "${DEV_DIR}/$selected"
+            selected="${DEV_DIR}/$selected"
         else
             exit 0
         fi
