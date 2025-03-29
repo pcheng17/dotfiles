@@ -5,7 +5,7 @@ if [[ $# -eq 1 ]]; then
 else
     selected=$(
         {
-            find ${WORK_DIR}/* -maxdepth 0 -type d;
+            find ${DEV_DIR}/* -maxdepth 0 -type d;
             echo "$HOME/Documents/Notes";
             echo "$HOME/.dotfiles";
             echo "$HOME/.ssh";
