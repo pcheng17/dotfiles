@@ -1,1 +1,1 @@
-export WORK_DIR="$HOME/work"
+export DEV_DIR="$HOME/dev"

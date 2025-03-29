@@ -1,1 +1,1 @@
-export WORK_DIR="$HOME/Workspace"
+export DEV_DIR="$HOME/Workspace"

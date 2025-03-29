@@ -53,7 +53,7 @@ if [[ "$current_hostname" == "HQ-VP606YTPQ2" ]]; then
     alias bkupbrew='TMP="/private/tmp/brewfile_backup_$(date +%s)" && brew bundle dump --file="$TMP" --force && grep -v "^vscode" "$TMP" > ~/.dotfiles/private/Brewfile && rm "$TMP"'
 else
     # Personal machines
-    alias wk='cd ${WORK_DIR}'
+    alias dv='cd ${DEV_DIR}'
     alias bkupbrew='TMP="/private/tmp/brewfile_backup_$(date +%s)" && brew bundle dump --file="$TMP" --force && grep -v "^vscode" "$TMP" > ~/.dotfiles/Brewfile && rm "$TMP"'
 fi
 
