@@ -199,10 +199,12 @@ return {
                 })
         })
 
-        -- TODO Do I need this?
-        -- vim.diagnostic.config({
-        --     virtual_text = true,
-        -- })
-
+        vim.diagnostic.config({
+            virtual_text = false,
+            virtual_lines = {
+                -- Only show virtual line diagnostics for the current cursor line
+                current_line = true,
+            },
+        })
     end
 }
