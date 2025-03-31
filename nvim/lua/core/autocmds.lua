@@ -130,6 +130,7 @@ autocmd('LspAttach', {
         keymap("n", "K",          function() vim.lsp.buf.hover() end,                        { desc = "Hover documentation" })
         keymap("n", "<leader>rn", function() vim.lsp.buf.rename() end,                       { desc = "Rename symbol" })
         keymap("i", "<C-k>",      function() vim.lsp.buf.signature_help() end,               { desc = "Signature help" })
+        keymap("n", "<leader>ca", function() vim.lsp.buf.code_action() end,                  { desc = "Code action" } )
         -- `gra` in Normal mode maps to `vim.lsp.buf.code_action()` by default
     end
 })

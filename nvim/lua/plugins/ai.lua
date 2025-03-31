@@ -16,6 +16,7 @@ When asked vim/neovim questions never use vimscript, always suggest neovim lua
 return {
     {
         "olimorris/codecompanion.nvim",
+        enabled = false,
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
