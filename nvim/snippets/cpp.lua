@@ -94,10 +94,30 @@ local personal = {
 
                 <>
 
-                } // <>
+                } // namespace <>
             ]],
             {
                 i(1), i(0), rep(1)
+            }
+        )
+    ),
+    s(
+        {
+            trig = "class",
+            dscr = "class scaffold",
+        },
+        fmta(
+            [[
+                class <>
+                {
+                public:
+                    <>
+                private:
+
+                };
+            ]],
+            {
+                i(1), i(0)
             }
         )
     ),
