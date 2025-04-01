@@ -27,6 +27,7 @@ alias v='nvim'
 alias t='tmux'
 alias j='just'
 alias ts='tmux-sessionizer'
+alias love='/Applications/love.app/Contents/MacOS/love'
 
 alias houdaemon='sudo launchctl load -w /Library/LaunchDaemons/com.sidefx.sesinetd.plist'
 alias pandock='docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/extra'
