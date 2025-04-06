@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+add_login_item() {
+    local app_path="$1"
+    osascript <<EOD
+tell application "System Events"
+    make new login item at end with properties {path:"$app_path", hidden:false}
+end tell
+EOD
+}
+
+list_login_items() {
+    osascript <<EOD
+tell application "System Events"
+    get the name of every login item
+end tell
+EOD
+}
+
+add_login_item "/Applications/Alfred 5.app" > /dev/null 2>&1
+add_login_item "/Applications/AltTab.app" > /dev/null 2>&1
+add_login_item "/Applications/BetterSnapTool.app" > /dev/null 2>&1
+add_login_item "/Applications/Flux.app" > /dev/null 2>&1
+add_login_item "/Applications/Tailscale.app" > /dev/null 2>&1
+
+list_login_items
