@@ -1,22 +1,21 @@
-#!/usr/bin/env python3
+#!/usr/bin/env bash
 
-import os
-import shlex
-import subprocess
+# Define directories to backup
+DIRS=("/Users/pcheng/Workspace/notes" "/Users/pcheng/notes")
 
+# Loop through each directory
+for dir in "${DIRS[@]}"; do
+    # Check if directory exists
+    if [ ! -d "$dir" ]; then
+        echo "$dir is not a valid directory. You might need to update $(basename "$0"). Skipping..."
+        continue
+    fi
 
-DIRS = ['/Users/pcheng/Workspace/notes', '/Users/pcheng/notes']
+    # Change to directory and perform git operations
+    cd "$dir" || exit 1
+    git add --all
+    git commit -am "Automatic backup"
+    git push
+done
 
-def main():
-    for dir in DIRS:
-        if not os.path.isdir(dir):
-            print(f'{dir} is not a valid directory. You might need to update {os.path.basename(__file__)}.')
-            return
-
-        os.chdir(dir)
-        subprocess.run(shlex.split('git add --all'))
-        subprocess.run(shlex.split('git commit -am "Automatic backup"'))
-        subprocess.run(shlex.split('git push'))
-
-if __name__ == '__main__':
-    main()
+exit 0
