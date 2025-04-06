@@ -58,9 +58,8 @@ setup_common() {
     create_symlink "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
     create_symlink "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        create_symlink "$DOTFILES_DIR/kitty" "$HOME/.config/kitty"
         create_symlink "$DOTFILES_DIR/macos/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
-        create_symlink "$DOTFILES_DIR/yabai" "$HOME/.config/yabai"
+        create_symlink "$DOTFILES_DIR/gh/config.yml" "$HOME/.config/gh/config.yml"
     fi
 
     # https://apple.stackexchange.com/questions/332769/macos-disable-popup-showing-accented-characters-when-holding-down-a-key
