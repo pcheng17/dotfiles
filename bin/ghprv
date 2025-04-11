@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+set -e
+
+function show_help {
+  cat << EOF
+NAME
+  ghprv - GitHub PR Viewer with FZF
+
+SYNOPSIS
+  ghprv [OPTIONS]
+
+DESCRIPTION
+  Browse your GitHub pull requests with a formatted interactive FZF interface
+  and open the selected PR in your web browser.
+
+  This tool enhances the standard 'gh pr list' and 'gh pr view' commands with:
+    - Colorized output (cyan PR numbers, yellow bold titles, dimmed branch names)
+    - Interactive filtering through FZF
+    - Automatic opening of selected PR in browser
+
+OPTIONS
+  Any options passed to this script are forwarded directly to 'gh pr list'.
+  Common options include:
+
+    --author STRING       Filter by author (use @me for your PRs)
+    -L, --limit INT       Maximum number of items to fetch (default: 30)
+    -s, --state STATE     Filter by state: {open|closed|merged|all} (default: open)
+    -R, --repo REPO       Use the specified repository (default: current repository)
+
+EXAMPLES
+  # Browse all your PRs in the current repository to select one to view
+  ghprv --author @me
+
+  # Browse all open PRs in a specific repository to select one to view
+  ghprv -R owner/repo -s open
+
+  # Browse the last 50 merged PRs you authored to select one to view
+  ghprv --author @me -s merged -L 50
+
+EOF
+}
+
+if [[ "$1" == "--help" || "$1" == "-h" ]]; then
+    show_help
+    exit 0
+fi
+
+pr_number=$(gh pr list "$@" --json number,title,headRefName \
+    | jq -r '.[] | "\(.number)\t\u001b[1;33m\(.title)\u001b[0m\t\u001b[2m\(.headRefName)\u001b[0m"' \
+    | sed -E 's/^([0-9]+)/\x1b[36m\1\x1b[0m/' \
+    | column -t -s $'\t' \
+    | fzf --ansi \
+        --border rounded \
+    | awk '{print $1}')
+
+# Check if the command succeeded
+if [ $? -ne 0 ]; then
+    echo "Error: No PR selected or command failed."
+    echo "Run 'ghprv --help' for usage information."
+    exit 1
+fi
+
+# Check if a PR number was selected
+if [ -z "$pr_number" ]; then
+    echo "Error: No PR selected."
+    echo "Run 'ghprv --help' for usage information."
+    exit 1
+fi
+
+gh pr view --web $pr_number
+
