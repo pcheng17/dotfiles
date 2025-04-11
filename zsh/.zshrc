@@ -9,9 +9,6 @@ case "$(hostname)" in
     "M4-Mac-Mini.local")
         source ${DOTFILES_DIR}/zsh/m4-mac-mini.zsh
         ;;
-    "HQ-VP606YTPQ2") # Work machine
-        source ${DOTFILES_DIR}/zsh/HQ-VP606YTPQ2.zsh
-        ;;
     *)
         echo "Unknown machine: $(hostname)"
         ;;
