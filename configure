@@ -64,6 +64,12 @@ setup_common() {
 
     # https://apple.stackexchange.com/questions/332769/macos-disable-popup-showing-accented-characters-when-holding-down-a-key
     defaults write -g ApplePressAndHoldEnabled -bool false
+
+    defaults write com.apple.dock autohide -int 1             # Autohide dock
+    defaults write NSGlobalDomain KeyRepeat -int 1            # Set blazingly fast key repeat rate. Default is 2
+    defaults write NSGlobalDomain InitialKeyRepeat -int 12    # Set blazingly fast initial key repeat rate. Default is 15
+
+    defaults write com.apple.finder ShowRecentTags -int 0 # Disable tags in sidebar
 }
 
 # Git configurations
