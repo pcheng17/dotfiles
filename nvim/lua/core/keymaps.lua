@@ -17,8 +17,8 @@ keymap("n", "_-", ":vert res -5<cr>", { silent = true, desc = "Decrease window w
 keymap("n", "||", ":vsplit<cr>", { silent = true, desc = "Split window vertically" })
 keymap("n", "__", ":split<cr>",  { silent = true, desc = "Split window horizontally" })
 
-keymap({ "n", "x" }, "<leader>p", '"0p', { silent = true, desc = "Paste text from the last yank" })
-keymap({ "n", "x" }, "<leader>wp", 'viw"0p', { silent = true, desc = "Paste text from the last yank over current word" })
+-- Greatest keymap ever from ThePrimeagen
+keymap({ "n", "x" }, "<leader>p", [["_dP]], { silent = true, desc = "Paste text from the clipboard, discarding the selected text" })
 
 keymap("n", "<leader>bd", ":Bdelete<cr>", { silent = true, desc = "Close current buffer" })
 keymap("n", "<bs>", "<C-^>", { silent = true, desc = "Switch to previous buffer" })
