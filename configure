@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 . ./helper/defaults.sh
+. ./helper/git.sh
 
 create_symlink() {
     local target_file=$1
@@ -67,21 +68,25 @@ setup_common() {
     # https://apple.stackexchange.com/questions/332769/macos-disable-popup-showing-accented-characters-when-holding-down-a-key
     defaults write -g ApplePressAndHoldEnabled -bool false
 
+    echo ""
+    echo "Mac default settings"
+    echo "==========================================="
     defaults_enable com.apple.finder AppleShowAllFiles  # Show hidden files in Finder
     defaults_enable com.apple.dock autohide             # Autohide dock
     defaults_set_int NSGlobalDomain KeyRepeat 1         # Show hidden apps in dock
     defaults_set_int NSGlobalDomain InitialKeyRepeat 12 # Set blazingly fast initial key repeat rate. Default is 15
     defaults_set_int com.apple.finder ShowRecentTags 0  # Disable tags in sidebar
-}
 
-# Git configurations
-# Not sure where else to put these, so they're here
-git config --global core.editor nvim
-git config --global init.defaultBranch main
-git config --global include.path "$HOME/.dotfiles/git/aliases"
-git config --global core.excludesFile "$HOME/.dotfiles/git/gitignore"
-git config --global pull.rebase false
-git config --global merge.commit no
+    echo ""
+    echo "Global git settings"
+    echo "==========================================="
+    git_set_global core.editor nvim
+    git_set_global init.defaultBranch main
+    git_set_global include.path "$HOME/.dotfiles/git/aliases"
+    git_set_global core.excludesFile "$HOME/.dotfiles/git/gitignore"
+    git_set_global pull.rebase false
+    git_set_global merge.commit no
+}
 
 case "$1" in
     home)

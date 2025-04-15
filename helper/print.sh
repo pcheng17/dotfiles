@@ -4,8 +4,8 @@ ESC_SEQ="\x1b["
 COL_RESET="${ESC_SEQ}39;49;00m"
 COL_RED="${ESC_SEQ}31;01m"
 COL_GREEN="${ESC_SEQ}32;01m"
-# COL_YELLOW="${ESC_SEQ}33;01m"
-# COL_BLUE="${ESC_SEQ}34;01m"
+COL_YELLOW="${ESC_SEQ}33;01m"
+COL_BLUE="${ESC_SEQ}34;01m"
 COL_MAGENTA="${ESC_SEQ}35;01m"
 COL_CYAN="${ESC_SEQ}36;01m"
 
@@ -28,6 +28,13 @@ print_header() {
     printf "%0.s#" $(seq 1 $count)
     printf "%b\n\n" "$COL_RESET"
 }
+
+# print_header() {
+#     printf "%b\n" ""
+#     printf "$COL_CYAN$1"
+#     printf "\n%s\n" "==========================================="
+#     printf "$COL_RESET"
+# }
 
 print_running_inline() {
     printf "%b[Running]%b %s" "$COL_MAGENTA" "$COL_RESET" "$1"
