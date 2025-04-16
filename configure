@@ -2,27 +2,28 @@
 
 . ./helper/defaults.sh
 . ./helper/git.sh
+. ./helper/symlink.sh
 
-create_symlink() {
-    local target_file=$1
-    local link_file=$2
-
-    if [ ! -f "$target_file" ] && [ ! -d "$target_file" ]; then
-        echo "Neither a file nor a directory: $target_file"
-        exit 1
-    fi
-
-    # If link_file doesn't exist, create all of the directories in the path
-    if [ ! -e "$link_file" ]; then
-        mkdir -p "$(dirname "$link_file")"
-    fi
-
-    if [ -L "$link_file" ]; then
-        unlink "$link_file"
-    fi
-    ln -s "$target_file" "$link_file"
-    echo "$link_file -> $target_file"
-}
+# symlink() {
+#     local target_file=$1
+#     local link_file=$2
+#
+#     if [ ! -f "$target_file" ] && [ ! -d "$target_file" ]; then
+#         echo "Neither a file nor a directory: $target_file"
+#         exit 1
+#     fi
+#
+#     # If link_file doesn't exist, create all of the directories in the path
+#     if [ ! -e "$link_file" ]; then
+#         mkdir -p "$(dirname "$link_file")"
+#     fi
+#
+#     if [ -L "$link_file" ]; then
+#         unlink "$link_file"
+#     fi
+#     ln -s "$target_file" "$link_file"
+#     echo "$link_file -> $target_file"
+# }
 
 create_directory() {
     local directory=$1
@@ -37,32 +38,32 @@ DOTFILES_DIR="$HOME/.dotfiles"
 setup_personal_symlinks() {
     echo "Setting up personal symlinks"
     echo "==========================================="
-    create_symlink "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
-    create_symlink "$DOTFILES_DIR/bin" "$HOME/bin"
+    symlink "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
+    symlink "$DOTFILES_DIR/bin" "$HOME/bin"
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        create_symlink "$DOTFILES_DIR/Brewfile" "$HOME/Brewfile"
+        symlink "$DOTFILES_DIR/Brewfile" "$HOME/Brewfile"
     fi
 }
 
 setup_work_symlinks() {
     echo "Setting up work symlinks"
     echo "==========================================="
-    create_symlink "$DOTFILES_DIR/private/.zshrc" "$HOME/.zshrc"
-    create_symlink "$DOTFILES_DIR/private/Brewfile" "$HOME/Brewfile"
-    # create_symlink "$DOTFILES_DIR/bin" "$HOME/bin"
+    symlink "$DOTFILES_DIR/private/.zshrc" "$HOME/.zshrc"
+    symlink "$DOTFILES_DIR/private/Brewfile" "$HOME/Brewfile"
+    # symlink "$DOTFILES_DIR/bin" "$HOME/bin"
 }
 
 setup_common() {
     echo "Setting up common symlinks"
     echo "==========================================="
-    create_symlink "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
-    create_symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
-    create_symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
-    create_symlink "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
-    create_symlink "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
+    symlink "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
+    symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+    symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
+    symlink "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
+    symlink "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        create_symlink "$DOTFILES_DIR/macos/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
-        create_symlink "$DOTFILES_DIR/gh/config.yml" "$HOME/.config/gh/config.yml"
+        symlink "$DOTFILES_DIR/macos/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
+        symlink "$DOTFILES_DIR/gh/config.yml" "$HOME/.config/gh/config.yml"
     fi
 
     # https://apple.stackexchange.com/questions/332769/macos-disable-popup-showing-accented-characters-when-holding-down-a-key
