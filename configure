@@ -4,27 +4,6 @@
 . ./helper/git.sh
 . ./helper/symlink.sh
 
-# symlink() {
-#     local target_file=$1
-#     local link_file=$2
-#
-#     if [ ! -f "$target_file" ] && [ ! -d "$target_file" ]; then
-#         echo "Neither a file nor a directory: $target_file"
-#         exit 1
-#     fi
-#
-#     # If link_file doesn't exist, create all of the directories in the path
-#     if [ ! -e "$link_file" ]; then
-#         mkdir -p "$(dirname "$link_file")"
-#     fi
-#
-#     if [ -L "$link_file" ]; then
-#         unlink "$link_file"
-#     fi
-#     ln -s "$target_file" "$link_file"
-#     echo "$link_file -> $target_file"
-# }
-
 create_directory() {
     local directory=$1
 
