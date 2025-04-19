@@ -63,7 +63,7 @@ return {
                 width = 0.90,
                 preview = {
                     hidden = "hidden",
-                    layout = "horizontal", -- More likely to be able to see the full line of a context
+                    layout = "horizontal", -- More likely to be able to see more context
                 },
             },
             defaults = {
