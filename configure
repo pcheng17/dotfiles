@@ -66,6 +66,7 @@ setup_common() {
     git_set_global core.excludesFile "$HOME/.dotfiles/git/gitignore"
     git_set_global pull.rebase false
     git_set_global merge.commit no
+    git_set_global rebase.updaterefs true
 }
 
 case "$1" in
