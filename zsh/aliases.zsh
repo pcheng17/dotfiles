@@ -18,6 +18,11 @@ alias dfs='cd ~/.dotfiles'
 alias edfs='nvim ~/.dotfiles'
 alias y='yazi'
 
+alias gi='git init'
+alias gs='git status --short'
+alias ga='git add'
+alias gc='git commit'
+
 alias gcob='git branch | fzf --height=50% | xargs git checkout'
 alias gbd='git branch | fzf -m | xargs git branch -D'
 
