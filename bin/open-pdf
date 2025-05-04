@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# TODO Can I remove the $HOME portion of the file names?
+# I will probably need to add them back for when I open the
+# file with Zathura.
+
+# TODO Do I want this script to work if tmux isn't running? Meh.
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(
+        {
+            find $HOME/Downloads/* -maxdepth 0 -name '*.pdf';
+        } | fzf --border --print-query
+    )
+    selected=$(echo "$selected" | tail -1)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
+
+# if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+#     tmux new-session -s zathura zathura "$selected"
+#     exit 0
+# fi
+
+tmux new-window -n "$selected_name" -d zathura "$selected"
+
+exit 0
+
