@@ -71,6 +71,7 @@ sudo apt-get install system76-driver-nvidia
 # Install the following with flatpak
 #  - OBS
 #  - Spotify
+#  - Steam
 #  - MangoHud (GOVerlay to configure it, but I use the AppImage)
 
 # Keyboard settings
