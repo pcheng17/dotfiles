@@ -1,0 +1,70 @@
+#!/bin/bash
+
+sudo apt install -y curl
+sudo apt install -y neofetch
+sudo apt install -y zsh
+sudo apt install -y build-essential libtool autoconf unzip wget
+sudo apt install -y libssl-dev
+sudo apt install -y libevent-dev ncurses-dev pkg-config bison # For building tmux
+
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# Build cmake from source
+CMAKE_VERSION=4.0.2
+mkdir ~/temp
+cd ~/temp
+wget https://cmake.org/files/v$CMAKE_VERSION/cmake-$CMAKE_VERSION.tar.gz
+tar -xzvf cmake-$CMAKE_VERSION.tar.gz
+cd cmake-$CMAKE_VERSION
+./bootstrap
+gmake -j8
+sudo gmake install
+
+# fzf can be installed using the install script found in the README
+# https://github.com/junegunn/fzf
+
+# Build neovim from source
+# https://github.com/neovim/neovim
+
+# Build tmux from source
+# https://github.com/tmux/tmux/wiki/Installing
+
+# Build ninja from source, and manually copy it to /usr/local/bin
+# https://github.com/ninja-build/ninja
+
+
+# 1Password
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
+sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
+sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+sudo apt update
+sudo apt install 1password
+
+# Brave Browser
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+sudo apt update
+sudo apt install brave-browser
+
+# Wezterm
+curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
+echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+sudo chmod 644 /usr/share/keyrings/wezterm-fury.gpg
+sudo apt update
+sudo apt install wezterm
+
+# NVIDIA drivers
+sudo apt-add-repository -y ppa:system76-dev/stable
+sudo apt install system76-driver
+sudo apt upgrade
+sudo apt-get install system76-driver-nvidia
+
+# Keyboard settings
+gsettings set org.gnome.desktop.peripherals.keyboard delay 200
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 12
