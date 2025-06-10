@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Where I store software that I build from source
+mkdir -p ~/deps
+
 sudo apt install -y curl
 sudo apt install -y neofetch
 sudo apt install -y zsh
@@ -63,6 +66,9 @@ sudo apt-add-repository -y ppa:system76-dev/stable
 sudo apt install system76-driver
 sudo apt upgrade
 sudo apt-get install system76-driver-nvidia
+
+# MangoHud and Goverlay for monitoring and displaying FPS, temperatures, load, etc
+# I use flatpak for this, it's in the README
 
 # Keyboard settings
 gsettings set org.gnome.desktop.peripherals.keyboard delay 200
