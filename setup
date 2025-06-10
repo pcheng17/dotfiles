@@ -67,8 +67,11 @@ sudo apt install system76-driver
 sudo apt upgrade
 sudo apt-get install system76-driver-nvidia
 
-# MangoHud and Goverlay for monitoring and displaying FPS, temperatures, load, etc
-# I use flatpak for this, it's in the README
+
+# Install the following with flatpak
+#  - OBS
+#  - Spotify
+#  - MangoHud (GOVerlay to configure it, but I use the AppImage)
 
 # Keyboard settings
 gsettings set org.gnome.desktop.peripherals.keyboard delay 200
