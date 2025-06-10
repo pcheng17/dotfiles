@@ -6,6 +6,7 @@ sudo apt install -y zsh
 sudo apt install -y build-essential libtool autoconf unzip wget
 sudo apt install -y libssl-dev
 sudo apt install -y libevent-dev ncurses-dev pkg-config bison # For building tmux
+sudo apt install -y snapd
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -35,6 +36,7 @@ sudo gmake install
 # Build ninja from source, and manually copy it to /usr/local/bin
 # https://github.com/ninja-build/ninja
 
+sudo snap install spotify
 
 # 1Password
 curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
