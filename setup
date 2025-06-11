@@ -1,7 +1,19 @@
 #!/bin/bash
 
+# Function to get current cmake version (just the version number)
+get_cmake_version() {
+    if command -v cmake &> /dev/null; then
+        cmake --version | head -n1 | cut -d' ' -f3
+    else
+        echo "none"
+    fi
+}
+
+CMAKE_VERSION=4.0.2
+
 # Where I store software that I build from source
-mkdir -p ~/deps
+mkdir ~/deps
+mkdir ~/temp
 
 sudo apt install -y curl
 sudo apt install -y neofetch
@@ -20,15 +32,19 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Build cmake from source
-CMAKE_VERSION=4.0.2
-mkdir ~/temp
-cd ~/temp
-wget https://cmake.org/files/v$CMAKE_VERSION/cmake-$CMAKE_VERSION.tar.gz
-tar -xzvf cmake-$CMAKE_VERSION.tar.gz
-cd cmake-$CMAKE_VERSION
-./bootstrap
-gmake -j8
-sudo gmake install
+CURRENT_CMAKE_VERSION=$(get_cmake_version)
+echo "Required CMake version: $CMAKE_VERSION"
+echo "Current CMake version: $CURRENT_VERSION"
+
+
+# cd ~/temp
+# wget https://cmake.org/files/v$CMAKE_VERSION/cmake-$CMAKE_VERSION.tar.gz
+# tar -xzvf cmake-$CMAKE_VERSION.tar.gz
+# cd cmake-$CMAKE_VERSION
+# ./bootstrap
+# make -j8
+# sudo make install
+
 
 # fzf can be installed using the install script found in the README
 # https://github.com/junegunn/fzf
