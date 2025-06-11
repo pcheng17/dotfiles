@@ -10,6 +10,7 @@ alias la='ls -AlhF'
 alias c='clear'
 alias qq='~ && clear'
 alias rg='rg --smart-case'
+alias nf='neofetch'
 
 alias ez='nvim ~/.zshrc'
 alias rld='source ~/.zshrc'
