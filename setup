@@ -9,6 +9,10 @@ sudo apt install -y zsh
 sudo apt install -y build-essential libtool autoconf unzip wget
 sudo apt install -y libssl-dev
 sudo apt install -y libevent-dev ncurses-dev pkg-config bison # For building tmux
+sudo apt install -y gnome-tweaks
+sudo apt insatll -y ffmpeg
+sudo apt install -y libnotify-bin
+sudo apt install -y mpv
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -67,12 +71,16 @@ sudo apt install system76-driver
 sudo apt upgrade
 sudo apt-get install system76-driver-nvidia
 
-
 # Install the following with flatpak
 #  - OBS
 #  - Spotify
 #  - Steam
 #  - MangoHud (GOVerlay to configure it, but I use the AppImage)
+#  - Flatseal (manages permissions of flatpak apps)
+
+# Periodically run `flatpak update`! I had some issues with Steam not launching any games,
+# and it looked like I had some out-of-date Nvidia drivers. `flatpak update` fixed it for me,
+# but I have no idea why.
 
 # Keyboard settings
 gsettings set org.gnome.desktop.peripherals.keyboard delay 200
