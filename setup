@@ -76,4 +76,4 @@ sudo apt-get install system76-driver-nvidia
 
 # Keyboard settings
 gsettings set org.gnome.desktop.peripherals.keyboard delay 200
-gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 12
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 15
