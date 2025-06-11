@@ -74,13 +74,9 @@ sudo apt-get install system76-driver-nvidia
 # Install the following with flatpak
 #  - OBS
 #  - Spotify
-#  - Steam
-#  - MangoHud (GOVerlay to configure it, but I use the AppImage)
 #  - Flatseal (manages permissions of flatpak apps)
 
-# Periodically run `flatpak update`! I had some issues with Steam not launching any games,
-# and it looked like I had some out-of-date Nvidia drivers. `flatpak update` fixed it for me,
-# but I have no idea why.
+# Install Steam from the website
 
 # Keyboard settings
 gsettings set org.gnome.desktop.peripherals.keyboard delay 200
