@@ -26,6 +26,7 @@ sudo apt insatll -y ffmpeg
 sudo apt install -y libnotify-bin
 sudo apt install -y mpv
 sudo apt install -y polybar
+sudo apt install -y i3
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
