@@ -17,6 +17,7 @@ mkdir ~/temp
 
 sudo apt install -y curl
 sudo apt install -y neofetch
+sudo apt install -y just
 sudo apt install -y zsh
 sudo apt install -y build-essential libtool autoconf unzip wget
 sudo apt install -y libssl-dev
