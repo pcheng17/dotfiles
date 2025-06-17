@@ -14,15 +14,16 @@ CMAKE_VERSION=4.0.2
 # Where I store software that I build from source
 mkdir ~/deps
 
-sudo apt install -y curl
-sudo apt install -y neofetch
-sudo apt install -y just
-sudo apt install -y zsh
-sudo apt install -y build-essential libtool autoconf unzip wget
+sudo apt install -y curl                                               # CLI
+sudo apt insatll -y ffmpeg                                             # CLI
+sudo apt install -y neofetch                                           # CLI
+sudo apt install -y just                                               # CLI
+sudo apt install -y zsh                                                # Shell
+sudo apt install -y build-essential libtool autoconf unzip wget g++-12 # Build tools
+sudo apt install -y libcurl4-openssl-dev                               # C++ curl dependency
 sudo apt install -y libssl-dev
 sudo apt install -y libevent-dev ncurses-dev pkg-config bison # For building tmux
 sudo apt install -y gnome-tweaks
-sudo apt insatll -y ffmpeg
 sudo apt install -y libnotify-bin
 sudo apt install -y mpv
 sudo apt install -y polybar
