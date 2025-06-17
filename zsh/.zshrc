@@ -9,8 +9,8 @@ case "$(hostname)" in
     "M4-Mac-Mini.local")
         source ${DOTFILES_DIR}/zsh/m4-mac-mini.zsh
         ;;
-    *)
-        echo "Unknown machine: $(hostname)"
+    "home")
+        source ${DOTFILES_DIR}/zsh/home.zsh
         ;;
 esac
 
@@ -111,7 +111,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ssh-agent)
+plugins=(
+    git
+    ssh-agent
+    zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -164,24 +168,12 @@ export LESS="-F -X $LESS"
 # kitty ssh fix
 [[ "$TERM" == "xterm-kitty" ]] && alias ssh="TERM=xterm-256color ssh"
 
-# auto_cd allows me to cd to directories within the specified `cdpath` without the need for `cd`
-setopt auto_cd
-case "$OSTYPE" in
-    darwin*)
-        cdpath+=~/Workspace
-        cdpath+=~/work
-    ;;
-    linux*)
-	    # ...
-    ;;
-esac
-
 # pnpm
-export PNPM_HOME="/Users/pcheng/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+# export PNPM_HOME="/Users/pcheng/Library/pnpm"
+# case ":$PATH:" in
+#   *":$PNPM_HOME:"*) ;;
+#   *) export PATH="$PNPM_HOME:$PATH" ;;
+# esac
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-eval "$(zoxide init zsh)"
+# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# eval "$(zoxide init zsh)"
