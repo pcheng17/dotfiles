@@ -36,8 +36,8 @@ return {
                 "cmake",      -- cmake
                 "lua_ls",     -- lua
                 "pyright",    -- python
-                "ruby_lsp",   -- ruby
-                "svelte",     -- svelte
+                -- "ruby_lsp",   -- ruby
+                -- "svelte",     -- svelte
                 "texlab",     -- latex
             },
             handlers = {
