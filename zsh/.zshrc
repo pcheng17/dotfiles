@@ -148,7 +148,6 @@ compinit
 
 [ -f $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh ] && source $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh
 [ -f $BREW_PREFIX/opt/fzf/shell/completion.zsh ] && source $BREW_PREFIX/opt/fzf/shell/completion.zsh
-[ -f $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Extend the history that's saved in .zsh_history
 export HISTSIZE=1000000
@@ -175,5 +174,4 @@ export LESS="-F -X $LESS"
 #   *) export PATH="$PNPM_HOME:$PATH" ;;
 # esac
 
-# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # eval "$(zoxide init zsh)"
