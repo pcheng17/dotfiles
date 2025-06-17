@@ -13,7 +13,6 @@ CMAKE_VERSION=4.0.2
 
 # Where I store software that I build from source
 mkdir ~/deps
-mkdir ~/temp
 
 sudo apt install -y curl
 sudo apt install -y neofetch
@@ -28,11 +27,14 @@ sudo apt install -y libnotify-bin
 sudo apt install -y mpv
 sudo apt install -y polybar
 sudo apt install -y i3
+sudo apt install -y ripgrep
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# Instructions for setting up auto suggestions: https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
 
 # Build cmake from source
 CURRENT_CMAKE_VERSION=$(get_cmake_version)
@@ -40,7 +42,7 @@ echo "Required CMake version: $CMAKE_VERSION"
 echo "Current CMake version: $CURRENT_VERSION"
 
 
-# cd ~/temp
+# cd ~/deps
 # wget https://cmake.org/files/v$CMAKE_VERSION/cmake-$CMAKE_VERSION.tar.gz
 # tar -xzvf cmake-$CMAKE_VERSION.tar.gz
 # cd cmake-$CMAKE_VERSION
@@ -61,6 +63,9 @@ echo "Current CMake version: $CURRENT_VERSION"
 # Build ninja from source, and manually copy it to /usr/local/bin
 # https://github.com/ninja-build/ninja
 
+# Lazygit requries a Go installation, https://go.dev/doc/install
+# Then, we can build lazygit according to its README
+
 # Build rofi from source, instructions in the README
 # Here are dependencies
 # sudo apt install -y flex
@@ -74,26 +79,26 @@ curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sud
 sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
 curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
 sudo apt update
-sudo apt install 1password
+sudo apt install -y 1password
 
 # Brave Browser
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update
-sudo apt install brave-browser
+sudo apt install -y brave-browser
 
 # Wezterm
 curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
 echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
 sudo chmod 644 /usr/share/keyrings/wezterm-fury.gpg
 sudo apt update
-sudo apt install wezterm
+sudo apt install -y wezterm
 
 # NVIDIA drivers
-sudo apt-add-repository -y ppa:system76-dev/stable
-sudo apt install system76-driver
-sudo apt upgrade
-sudo apt-get install system76-driver-nvidia
+# sudo apt-add-repository -y ppa:system76-dev/stable
+# sudo apt install system76-driver
+# sudo apt upgrade
+# sudo apt-get install system76-driver-nvidia
 
 # Install the following with flatpak
 #  - OBS
