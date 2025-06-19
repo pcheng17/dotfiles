@@ -35,27 +35,22 @@ alias j='just'
 alias ts='tmux-sessionizer'
 alias love='/Applications/love.app/Contents/MacOS/love'
 
+alias tsu='sudo tailscale up'
+alias tsd='sudo tailscale down'
+
 alias pdf='./bin/open-pdf'
 
 alias houdaemon='sudo launchctl load -w /Library/LaunchDaemons/com.sidefx.sesinetd.plist'
 alias pandock='docker run --rm -v "$(pwd):/data" -u $(id -u):$(id -g) pandoc/extra'
 
-case "$OSTYPE" in
+case "$hostname" in
     darwin*)
     ;;
-    linux*)
-        alias notes='cd /mnt/d/Peter/Documents/Workspace/notes'
-        alias doc='cd /mnt/d/Peter/Documents'
-        alias dld='cd /mnt/d/Peter/Downloads'
-        alias wk='cd /mnt/d/Peter/Documents/Workspace'
-        alias lvs='cd /mnt/d/Peter/Documents/Workspace/lindsay-voidspace'
-        alias vspc='cd /mnt/d/Peter/Documents/Workspace/voidspace'
-        alias vspcg='cd /mnt/d/Peter/Documents/Workspace/vspc_graph'
-        alias vdb='cd /usr/local/include/openvdb'
-        alias kbs='cd /mnt/d/Peter/Documents/Workspace/keebs'
+    home)
     ;;
 esac
 
+# Change this to use `case`
 if [[ "$current_hostname" == "HQ-VP606YTPQ2" ]]; then
     # Work machine
     alias wk='cd ~/work'
