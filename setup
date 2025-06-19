@@ -26,6 +26,7 @@ sudo apt install -y build-essential libtool autoconf unzip wget g++-12 # Build t
 sudo apt install -y libcurl4-openssl-dev                               # C++ curl dependency
 sudo apt install -y libssl-dev
 sudo apt install -y libevent-dev ncurses-dev pkg-config bison          # For building tmux
+sudo apt install -y meson                                              # For building rofi
 sudo apt install -y gnome-tweaks                                       # Gnome settings tweaks
 sudo apt install -y polybar
 sudo apt install -y i3
