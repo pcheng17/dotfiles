@@ -22,10 +22,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-eval "$(/opt/homebrew/bin/brew shellenv)"
-export BREW_PREFIX=$(brew --prefix)
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/go/bin:$PATH
+
+# These are likely only relevant for MacOS.
+if [[ -d "/opt/homebrew/opt/ruby/bin" ]]; then
+    export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+fi
+if command -v brew &> /dev/null; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    export BREW_PREFIX=$(brew --prefix)
+fi
 
 # pyenv settings
 # https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv
