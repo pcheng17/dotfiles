@@ -40,6 +40,7 @@ setup_common() {
     symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
     symlink "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
     symlink "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
+    symlink "$DOTFILES_DIR/rofi" "$HOME/.config/rofi"
     if [[ "$OSTYPE" == "darwin"* ]]; then
         symlink "$DOTFILES_DIR/macos/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
         symlink "$DOTFILES_DIR/gh/config.yml" "$HOME/.config/gh/config.yml"
