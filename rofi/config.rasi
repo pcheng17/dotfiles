@@ -16,10 +16,16 @@ configuration {
 	case-sensitive: false;
     cycle: true;
     font: "JetBrainsMono Nerd Font 18";
- 	modi: "drun,window";
+ 	modi: "combi";
     show-icons: true;
     icon-theme: "Papirus";
     steal-focus: false;
+ 	terminal: "wezterm";
+
+	/*---------- Combi settings ----------*/
+	combi-modi: "window,drun,ssh";
+	combi-hide-mode-prefix: false;
+	combi-display-format: "{mode} {text}";
 
     /*---------- Matching setting ----------*/
     matching: "normal";
@@ -40,6 +46,11 @@ configuration {
 	display-combi: "Combi";
 	display-keys: "Keys";
 	display-filebrowser: "Files";
+
+	/*---------- History and Sorting ----------*/
+	disable-history: false;
+	sorting-method: "normal";
+	max-history-size: 25;
 }
 
 // configuration {
@@ -55,16 +66,6 @@ configuration {
 // /*	cache-dir: ;*/
 // 	steal-focus: false;
 // /*	dpi: -1;*/
-//
-// 	/*---------- Matching setting ----------*/
-// 	matching: "normal";
-// 	tokenize: true;
-//
-// 	/*---------- SSH settings ----------*/
-// 	ssh-client: "ssh";
-// 	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";
-// 	parse-hosts: true;
-// 	parse-known-hosts: true;
 //
 // 	/*---------- Drun settings ----------*/
 // 	drun-categories: "";
