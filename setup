@@ -24,9 +24,8 @@ sudo apt install -y ripgrep                                            # CLI bet
 sudo apt install -y zsh                                                # Shell
 sudo apt install -y build-essential libtool autoconf unzip wget g++-12 # Build tools
 sudo apt install -y libcurl4-openssl-dev                               # C++ curl dependency
-sudo apt install -y libssl-dev
+sudo apt install -y libssl-dev                                         # I forget why I need this...
 sudo apt install -y libevent-dev ncurses-dev pkg-config bison          # For building tmux
-sudo apt install -y meson                                              # For building rofi
 sudo apt install -y gnome-tweaks                                       # Gnome settings tweaks
 sudo apt install -y polybar
 sudo apt install -y i3
@@ -43,7 +42,6 @@ CURRENT_CMAKE_VERSION=$(get_cmake_version)
 echo "Required CMake version: $CMAKE_VERSION"
 echo "Current CMake version: $CURRENT_VERSION"
 
-
 # cd ~/deps
 # wget https://cmake.org/files/v$CMAKE_VERSION/cmake-$CMAKE_VERSION.tar.gz
 # tar -xzvf cmake-$CMAKE_VERSION.tar.gz
@@ -51,7 +49,6 @@ echo "Current CMake version: $CURRENT_VERSION"
 # ./bootstrap
 # make -j8
 # sudo make install
-
 
 # fzf can be installed using the install script found in the README
 # https://github.com/junegunn/fzf
@@ -70,8 +67,22 @@ echo "Current CMake version: $CURRENT_VERSION"
 
 # Build rofi from source, instructions in the README
 # Here are dependencies
-# sudo apt install -y flex
-# sudo apt install -y libxkbcommon-dev
+sudo apt install -y meson \
+    libcairo2-dev \
+    libpango1.0-dev \
+    libxkbcommon-dev \
+    libgdk-pixbuf-2.0-dev \
+    libxcb-util-dev \
+    libxcb-xkb-dev \
+    libxkbcommon-x11-dev \
+    libxcb-ewmh-dev \
+    libxcb-icccm4-dev \
+    libxcb-randr0-dev \
+    libxcb-cursor-dev \
+    libxcb-xinerama0-dev \
+    libxcb-keysyms1-dev \
+    libstartup-notification0-dev \
+    flex
 
 # 1Password
 curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
