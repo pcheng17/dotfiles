@@ -24,6 +24,10 @@ fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/go/bin:$PATH
 
+if command -v go &> /dev/null; then
+    export PATH=$(go env GOPATH)/bin:$PATH
+fi
+
 # These are likely only relevant for MacOS.
 if [[ -d "/opt/homebrew/opt/ruby/bin" ]]; then
     export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
