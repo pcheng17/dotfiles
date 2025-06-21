@@ -43,7 +43,7 @@ configuration {
 	display-run: "Run";
 	display-ssh: "SSH";
 	display-drun: "Apps";
-	display-combi: "Combi";
+	display-combi: "Search";
 	display-keys: "Keys";
 	display-filebrowser: "Files";
 
