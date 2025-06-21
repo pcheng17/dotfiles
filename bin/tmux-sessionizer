@@ -26,10 +26,8 @@ else
     selected=$(
         {
             find ${DEV_DIR}/* -maxdepth 0 -type d;
-            echo "$HOME/Documents/Notes";
             echo "$HOME/.dotfiles";
             echo "$HOME/.ssh";
-            echo "$HOME/notes";
         } | fzf --border --print-query
     )
     selected=$(echo "$selected" | tail -1)
