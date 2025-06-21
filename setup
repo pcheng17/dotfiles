@@ -27,6 +27,7 @@ sudo apt install -y libcurl4-openssl-dev                               # C++ cur
 sudo apt install -y libssl-dev                                         # I forget why I need this...
 sudo apt install -y libevent-dev ncurses-dev pkg-config bison          # For building tmux
 sudo apt install -y gnome-tweaks                                       # Gnome settings tweaks
+sudo apt install -y blueman                                            # Bluetooth manager
 sudo apt install -y polybar
 sudo apt install -y i3
 sudo apt install -y rofi                                               # Application launcher
