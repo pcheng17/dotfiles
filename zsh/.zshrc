@@ -24,6 +24,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/go/bin:$PATH
 
+# Go has its own default GOPATH path to which it installs binaries.
 if command -v go &> /dev/null; then
     export PATH=$(go env GOPATH)/bin:$PATH
 fi
