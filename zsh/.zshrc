@@ -33,8 +33,7 @@ fi
 if [[ -d "/opt/homebrew/opt/ruby/bin" ]]; then
     export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 fi
-if command -v brew &> /dev/null; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+if eval "$(/opt/homebrew/bin/brew shellenv)"; then
     export BREW_PREFIX=$(brew --prefix)
 fi
 
