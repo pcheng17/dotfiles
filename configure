@@ -40,23 +40,6 @@ setup_common() {
     symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
     symlink "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
     symlink "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
-    symlink "$DOTFILES_DIR/rofi" "$HOME/.config/rofi"
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        symlink "$DOTFILES_DIR/macos/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
-        symlink "$DOTFILES_DIR/gh/config.yml" "$HOME/.config/gh/config.yml"
-
-        # https://apple.stackexchange.com/questions/332769/macos-disable-popup-showing-accented-characters-when-holding-down-a-key
-        defaults write -g ApplePressAndHoldEnabled -bool false
-
-        echo ""
-        echo "Mac default settings"
-        echo "==========================================="
-        defaults_enable com.apple.finder AppleShowAllFiles  # Show hidden files in Finder
-        defaults_enable com.apple.dock autohide             # Autohide dock
-        defaults_set_int NSGlobalDomain KeyRepeat 1         # Show hidden apps in dock
-        defaults_set_int NSGlobalDomain InitialKeyRepeat 12 # Set blazingly fast initial key repeat rate. Default is 15
-        defaults_set_int com.apple.finder ShowRecentTags 0  # Disable tags in sidebar
-    fi
 
     echo ""
     echo "Global git settings"
@@ -68,6 +51,34 @@ setup_common() {
     git_set_global pull.rebase false
     git_set_global merge.commit no
     git_set_global rebase.updaterefs true
+
+    case "$OSTYPE" in
+        darwin*)
+            echo ""
+            echo "Mac settings"
+            echo "==========================================="
+            symlink "$DOTFILES_DIR/macos/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
+            symlink "$DOTFILES_DIR/gh/config.yml" "$HOME/.config/gh/config.yml"
+
+            # https://apple.stackexchange.com/questions/332769/macos-disable-popup-showing-accented-characters-when-holding-down-a-key
+            defaults write -g ApplePressAndHoldEnabled -bool false
+            defaults_enable com.apple.finder AppleShowAllFiles  # Show hidden files in Finder
+            defaults_enable com.apple.dock autohide             # Autohide dock
+            defaults_set_int NSGlobalDomain KeyRepeat 1         # Show hidden apps in dock
+            defaults_set_int NSGlobalDomain InitialKeyRepeat 12 # Set blazingly fast initial key repeat rate. Default is 15
+            defaults_set_int com.apple.finder ShowRecentTags 0  # Disable tags in sidebar
+            ;;
+        linux*)
+            echo ""
+            echo "Linux settings"
+            echo "==========================================="
+            symlink "$DOTFILES_DIR/rofi" "$HOME/.config/rofi"
+            ;;
+        *)
+            echo "Unsupported OS: $OSTYPE"
+            exit 1
+            ;;
+    esac
 }
 
 case "$1" in
