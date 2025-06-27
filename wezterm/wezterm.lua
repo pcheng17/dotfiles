@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
--- local sessionizer = require("sessionizer")
+local hostname = nil
+hostname = wezterm.hostname() or nil
 
 -- Window configuration
 config.initial_rows = 32
@@ -30,22 +31,28 @@ local currentSetup = "personal-laptop"
 -- local currentSetup = "work-laptop"
 -- local currentSetup = "work-laptop-widescreen"
 
-if currentSetup == "personal-laptop" then
-  config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
-  config.font_size = 15.5
-  config.line_height = 1.2
-elseif currentSetup == "personal-32in" then
-  config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
-  config.font_size = 17
-  config.line_height = 1.2
-elseif currentSetup == "work-laptop" then
-  config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Light" })
-  config.font_size = 14.0
-  config.line_height = 1.2
-elseif currentSetup == "work-laptop-widescreen" then
-  config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
-  config.font_size = 15.5
-  config.line_height = 1.2
+if hostname and hostname == "home" then
+    config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
+    config.font_size = 14.8
+    config.line_height = 1.12
+else
+    if currentSetup == "personal-laptop" then
+        config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
+        config.font_size = 15.5
+        config.line_height = 1.2
+    elseif currentSetup == "personal-32in" then
+        config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
+        config.font_size = 17
+        config.line_height = 1.2
+    elseif currentSetup == "work-laptop" then
+        config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Light" })
+        config.font_size = 14.0
+        config.line_height = 1.2
+    elseif currentSetup == "work-laptop-widescreen" then
+        config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
+        config.font_size = 15.5
+        config.line_height = 1.2
+    end
 end
 
 -- Misc
@@ -85,12 +92,6 @@ config.keys = {
     mods = "CMD",
     action = wezterm.action.ActivateCommandPalette,
   },
-  -- Sessionizer
-  -- {
-  --   key = "f",
-  --   mods = "LEADER",
-  --   action = wezterm.action_callback(sessionizer.toggle),
-  -- },
 }
 
 return config
