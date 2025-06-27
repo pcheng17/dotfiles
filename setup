@@ -30,6 +30,7 @@ sudo apt install -y gnome-tweaks                                       # Gnome s
 sudo apt install -y polybar
 sudo apt install -y i3
 sudo apt install -y rofi                                               # Application launcher
+sudo apt install -y btop                                               # System monitor
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
