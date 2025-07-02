@@ -105,6 +105,7 @@ sudo apt install -y wezterm
 # Install the following with flatpak
 #  - OBS
 #  - Spotify
+#  - Discord
 #  - Flatseal (manages permissions of flatpak apps)
 
 # Install Steam from the website
