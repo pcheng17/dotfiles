@@ -33,8 +33,8 @@ local currentSetup = "personal-laptop"
 
 if hostname and hostname == "home" then
     config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
-    config.font_size = 14.8
-    config.line_height = 1.12
+    config.font_size = 11.8
+    config.line_height = 1.14
 else
     if currentSetup == "personal-laptop" then
         config.font = wezterm.font("JetBrainsMonoNL Nerd Font Mono", { weight = "Regular" })
