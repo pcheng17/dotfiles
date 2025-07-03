@@ -12,7 +12,7 @@ create_directory() {
     fi
 }
 
-DOTFILES_DIR="$HOME/.dotfiles"
+DOTFILES_DIR="${0:a:h}"
 
 setup_personal_symlinks() {
     echo "Setting up personal symlinks"
