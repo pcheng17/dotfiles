@@ -12,7 +12,7 @@ create_directory() {
     fi
 }
 
-DOTFILES_DIR="${0:a:h}"
+DOTFILES_DIR="$(dirname "$(realpath "$0")")"
 
 setup_personal_symlinks() {
     echo "Setting up personal symlinks"
