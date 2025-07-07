@@ -60,6 +60,10 @@ run = 'layout floating'
 if.app-name-regex-substring = '1password'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'messages'
+run = 'layout floating'
+
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
 # - Constant:     gaps.outer.top = 8
