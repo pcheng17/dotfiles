@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+rsync -rtu ~/dev/notes/* homelab:~/notes && \
+    rsync -rtu "homelab:~/notes/*" ~/dev/notes && \
+
+    rsync -rtu ~/dev/math-notes/* homelab:~/math-notes && \
+    rsync -rtu "homelab:~/math-notes/*" ~/dev/math-notes && \
+
+    echo "Homelab sync complete" | terminal-notifier
