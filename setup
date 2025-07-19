@@ -32,6 +32,7 @@ sudo apt install -y i3
 sudo apt install -y rofi                                               # Application launcher
 sudo apt install -y btop                                               # System monitor
 sudo apt install -y xsel                                               # Clipboard manager
+sudo apt install -y flameshot                                          # Screenshot tool
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -119,4 +120,4 @@ sudo apt-get install papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Li
 # Keyboard settings
 gsettings set org.gnome.desktop.peripherals.keyboard delay 200
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 15
-gsettings set org.gnome.desktop.peripherals.mouse speed -0.16
+gsettings set org.gnome.desktop.peripherals.mouse speed -0.20
