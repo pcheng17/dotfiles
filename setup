@@ -33,6 +33,7 @@ sudo apt install -y rofi                                               # Applica
 sudo apt install -y btop                                               # System monitor
 sudo apt install -y xsel                                               # Clipboard manager
 sudo apt install -y flameshot                                          # Screenshot tool
+sudo apt install -y ethtool                                            # Network tools
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
