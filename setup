@@ -14,26 +14,27 @@ CMAKE_VERSION=4.0.2
 # Where I store software that I build from source
 mkdir ~/deps
 
-sudo apt install -y curl                                               # CLI
-sudo apt insatll -y ffmpeg                                             # CLI video processing
-sudo apt install -y libnotify-bin                                      # CLI system notifications
-sudo apt install -y mpv                                                # CLI media player
-sudo apt install -y neofetch                                           # CLI system information
-sudo apt install -y just                                               # CLI command runner
-sudo apt install -y ripgrep                                            # CLI better grep
-sudo apt install -y zsh                                                # Shell
-sudo apt install -y build-essential libtool autoconf unzip wget g++-12 # Build tools
-sudo apt install -y libcurl4-openssl-dev                               # C++ curl dependency
-sudo apt install -y libssl-dev                                         # I forget why I need this...
-sudo apt install -y libevent-dev ncurses-dev pkg-config bison          # For building tmux
-sudo apt install -y gnome-tweaks                                       # Gnome settings tweaks
+sudo apt install -y curl                                                 # CLI
+sudo apt insatll -y ffmpeg                                               # CLI video processing
+sudo apt install -y libnotify-bin                                        # CLI system notifications
+sudo apt install -y mpv                                                  # CLI media player
+sudo apt install -y neofetch                                             # CLI system information
+sudo apt install -y just                                                 # CLI command runner
+sudo apt install -y ripgrep                                              # CLI better grep
+sudo apt install -y zsh                                                  # Shell
+sudo apt install -y build-essential libtool autoconf g++-12 gcc-12 clang # Build tools
+sudo apt install -y libcurl4-openssl-dev                                 # C++ curl dependency
+sudo apt install -y libssl-dev                                           # I forget why I need this...
+sudo apt install -y libevent-dev ncurses-dev pkg-config bison            # For building tmux
+sudo apt install -y gnome-tweaks                                         # Gnome settings tweaks
+sudo apt install -y unzip wget
 sudo apt install -y polybar
 sudo apt install -y i3
-sudo apt install -y rofi                                               # Application launcher
-sudo apt install -y btop                                               # System monitor
-sudo apt install -y xsel                                               # Clipboard manager
-sudo apt install -y flameshot                                          # Screenshot tool
-sudo apt install -y ethtool                                            # Network tools
+sudo apt install -y rofi                                                 # Application launcher
+sudo apt install -y btop                                                 # System monitor
+sudo apt install -y xsel                                                 # Clipboard manager
+sudo apt install -y flameshot                                            # Screenshot tool
+sudo apt install -y ethtool                                              # Network tools
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
