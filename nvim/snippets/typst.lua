@@ -95,33 +95,4 @@ return {
       }
     )
   ),
-
-  -- Implementing both `,.` and `.,` so I can be messy about how I roll those two keys.
-  -- No matter what, I'll end up with the same outcome.
-  --stylua: ignore
-  s(
-    {
-      trig = "([%w])(,%.)",
-      name = "Vector value",
-      dscr = {
-        "Uses the `vect` function to display vector notation. ",
-        "This requires a `vect` command to be defined for the document."
-      },
-      regTrig = true, wordTrig = false, snippetType = "autosnippet",
-    },
-    fmta("bold(upright(<>))", { f(function(_, snip) return snip.captures[1] end) })
-  ),
-  --stylua: ignore
-  s(
-    {
-      trig = "([%w])(%.,)",
-      name = "Vector value",
-      dscr = {
-        "Uses the `vect` function to display vector notation. ",
-        "This requires a `vect` command to be defined for the document."
-      },
-      regTrig = true, wordTrig = false, snippetType = "autosnippet",
-    },
-    fmta("bold(upright(<>))", { f(function(_, snip) return snip.captures[1] end) })
-  ),
 }
