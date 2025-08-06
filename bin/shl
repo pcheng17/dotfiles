@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
 
+notify() {
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "$1" | terminal-notifier
+    else
+        notify-send "$1"
+    fi
+}
+
 rsync -rtu ~/dev/notes/* homelab:~/notes && \
     rsync -rtu "homelab:~/notes/*" ~/dev/notes && \
 
     rsync -rtu ~/dev/math-notes/* homelab:~/math-notes && \
     rsync -rtu "homelab:~/math-notes/*" ~/dev/math-notes && \
 
-    echo "Homelab sync complete" | terminal-notifier
+    notify "Homelab sync complete"
