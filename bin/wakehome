@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+MAC_ADDRESS=${1:-"cc:28:aa:a6:13:a1"}
+
+if ! command -v wakeonlan &> /dev/null; then
+    echo "wakeonlan not found. Install it with:"
+    echo "  Ubuntu/Debian: sudo apt install wakeonlan"
+    echo "  macOS: brew install wakeonlan"
+    exit 1
+fi
+
+echo "Sending wake-on-LAN packet to $MAC_ADDRESS..."
+wakeonlan $MAC_ADDRESS
+
+if [ $? -eq 0 ]; then
+    echo "Wake packet sent successfully!"
+else
+    echo "Failed to send wake packet"
+fi
