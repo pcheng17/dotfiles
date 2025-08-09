@@ -7,9 +7,10 @@ return {
             notification = {
                 override_vim_notify = true,
                 -- This is required for catppuccin
-                window = {
-                    winblend = 0,
-                },
+                -- Uh, I don't think so anymore?
+                -- window = {
+                --     winblend = 0,
+                -- },
             },
         })
     end
