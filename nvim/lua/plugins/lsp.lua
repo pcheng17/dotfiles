@@ -36,9 +36,8 @@ return {
                 "cmake",      -- cmake
                 "lua_ls",     -- lua
                 "pyright",    -- python
-                -- "ruby_lsp",   -- ruby
-                -- "svelte",     -- svelte
                 "texlab",     -- latex
+                "tinymist",   -- typst
             },
             handlers = {
                 function(server_name) -- default handler
@@ -114,6 +113,17 @@ return {
                             config.settings.python.pythonPath = get_python_path(config.root_dir)
                             -- print("Using Python interpreter: " .. config.settings.python.pythonPath)
                         end,
+                    })
+                end,
+
+                ["tinymist"] = function()
+                    require("lspconfig").tinymist.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            formatterMode = "typstyle",
+                            exportPdf = "onType",
+                            semanticTokens = "disable",
+                        },
                     })
                 end,
             }

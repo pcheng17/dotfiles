@@ -1,8 +1,6 @@
 return {
-    'kaarmu/typst.vim',
+    'chomosuke/typst-preview.nvim',
     ft = 'typst',
-    enabled = true,
-    config = function()
-        vim.g.typst_pdf_viewer = 'skim'
-    end
+    version = '1.*',
+    opts = {},  -- lazy.nvim will implicitly calls `setup {}`
 }
