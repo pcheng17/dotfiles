@@ -40,12 +40,11 @@ fi
 
 # pyenv settings
 # https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv
-if command -v pyenv &> /dev/null; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/shims:$PATH"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PYENV_ROOT/shims:$PATH"
+eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init -)"
 
 # rbenv settings
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
