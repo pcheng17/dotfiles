@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+CATEGORIES=(
+    "korean"
+    "lovamap"
+    "projects"
+    "wasted"
+    "stop"
+)
+
+selected=$(
+    printf '%s\n' "${CATEGORIES[@]}" | fzf --border --prompt="Select Category: " --ansi
+)
+fzf_status=$?
+
+if [[ $fzf_status -ne 0 || -z "$selected" ]]; then
+    exit 0
+fi
+
+normal_status="#{@right_status}"
+
+if [[ "$selected" == "stop" ]]; then
+    timew stop
+    tmux set -g status-right "#[fg=#{@blue}]  %a, %b %d #[fg=#{@surface1}]|#[fg=#{@blue}]  %-I:%M %p "
+else
+    timew start "$selected"
+    tmux set -g status-right "$selected #(timew | awk '/^ *Total/ {print \$NF}') #[fg=#{@surface1}]|#[fg=#{@blue}]#[fg=#{@blue}]  %a, %b %d #[fg=#{@surface1}]|#[fg=#{@blue}]  %-I:%M %p "
+fi
