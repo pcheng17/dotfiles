@@ -2,11 +2,6 @@ local fn = vim.fn
 local g = vim.g
 local opt = vim.opt
 
--- No longer needed as I'm trying out oil.nvim
--- g.netrw_banner = 0
--- g.netrw_browse_split = 0
--- g.netrw_winsize = 25
-
 g.python3_host_prog = vim.fn.expand("~/.pyenv/versions/nvim-env/bin/python3")
 
 -- opt.guicursor = ""
