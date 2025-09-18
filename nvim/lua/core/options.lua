@@ -25,7 +25,7 @@ opt.hlsearch = false
 
 opt.wrap = false
 
-opt.textwidth = 100
+-- opt.textwidth = 100
 -- opt.colorcolumn = "+1"
 opt.formatoptions = "cqnlj"
 
