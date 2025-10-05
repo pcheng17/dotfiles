@@ -66,7 +66,7 @@ setup_common() {
             defaults_enable com.apple.finder AppleShowAllFiles  # Show hidden files in Finder
             defaults_enable com.apple.dock autohide             # Autohide dock
             defaults_set_int NSGlobalDomain KeyRepeat 1         # Show hidden apps in dock
-            defaults_set_int NSGlobalDomain InitialKeyRepeat 12 # Set blazingly fast initial key repeat rate. Default is 15
+            defaults_set_int NSGlobalDomain InitialKeyRepeat 10 # Set blazingly fast initial key repeat rate. Default is 15
             defaults_set_int com.apple.finder ShowRecentTags 0  # Disable tags in sidebar
             ;;
         linux*)
