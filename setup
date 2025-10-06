@@ -36,6 +36,7 @@ sudo apt install -y btop                                                        
 sudo apt install -y xsel                                                         # Clipboard manager
 sudo apt install -y flameshot                                                    # Screenshot tool
 sudo apt install -y ethtool                                                      # Network tools
+sudo apt install -y duf                                                          # Disk usage
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
