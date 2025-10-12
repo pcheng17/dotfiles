@@ -6,7 +6,6 @@
 
 create_directory() {
     local directory=$1
-
     if [ ! -d "$directory" ]; then
         mkdir -p "$directory"
     fi
@@ -60,6 +59,7 @@ setup_common() {
             symlink "$DOTFILES_DIR/macos/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
             symlink "$DOTFILES_DIR/gh/config.yml" "$HOME/.config/gh/config.yml"
             symlink "$DOTFILES_DIR/aerospace/aerospace.toml" "$HOME/.aerospace.toml"
+            symlink "$DOTFILES_DIR/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 
             # https://apple.stackexchange.com/questions/332769/macos-disable-popup-showing-accented-characters-when-holding-down-a-key
             defaults write -g ApplePressAndHoldEnabled -bool false
