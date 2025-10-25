@@ -166,6 +166,7 @@ compinit
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
+setopt CORRECT
 
 # Make CMake generate compile_commands.json for clangd indexing
 export CMAKE_EXPORT_COMPILE_COMMANDS=1
