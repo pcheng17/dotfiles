@@ -28,6 +28,7 @@ keymap("n", "<bs>", "<C-^>", { silent = true, desc = "Switch to previous buffer"
 -- keymap('n', '<C-k>', '<C-w>k', { silent = true, desc = "Move to up window" })
 -- keymap('n', '<C-l>', '<C-w>l', { silent = true, desc = "Move to right window" })
 
+keymap("n", "<leader>so", ":update<cr> :source<cr>", { silent = true, desc = "Source current file" })
 keymap("n", "<leader>qq", ":q<cr>", { silent = true, desc = "Close current buffer" })
 keymap("n", "<leader>qa", ":qa<cr>", { silent = true, desc = "Close all buffers" })
 keymap("n", "<leader>fw", ":update<cr>", { silent = true, desc = "Write file" })
