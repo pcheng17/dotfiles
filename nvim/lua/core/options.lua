@@ -42,7 +42,7 @@ opt.isfname:append("@-@")
 
 opt.clipboard = "unnamedplus"
 
--- vim.o.winborder = "rounded"
+vim.o.winborder = "rounded"
 
 -- vim.cmd("colorscheme tokyonight")
 -- vim.cmd("colorscheme rose-pine")
