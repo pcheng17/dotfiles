@@ -29,6 +29,7 @@ local plugins = {
     {
         "catppuccin/nvim",
         enabled = true,
+        name = "catppuccin",
         config = function()
             require('catppuccin').setup({
                 transparent_background = false,
@@ -296,7 +297,7 @@ local keymaps = {}
 -- Load enabled plugins
 for _, plugin in ipairs(plugins) do
     if type(plugin[1]) == "string" and (plugin.enabled == nil or plugin.enabled == true) then
-        table.insert(enabled_plugins, { src = gh(plugin[1]) })
+        table.insert(enabled_plugins, { src = gh(plugin[1]), name = plugin.name })
         if plugin.config then
             table.insert(plugin_configs, plugin.config)
         end
