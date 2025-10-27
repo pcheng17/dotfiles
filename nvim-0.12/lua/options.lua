@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 vim.g.python3_host_prog = vim.fn.expand("~/.pyenv/versions/nvim-env/bin/python3")
 vim.g.netrw_liststyle = 1
 
