@@ -21,7 +21,14 @@ vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { ctermbg = "none" })
 vim.api.nvim_set_hl(0, "TreesitterContextBottom", vim.api.nvim_get_hl(0, { name = "TreesitterContextLineNumberBottom" }))
 
 local icons = require("icons")
+local signs = {}
 for name, icon in pairs(icons.diagnostics) do
-    local hl = "DiagnosticSign" .. name
-    vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl})
+    local severity = vim.diagnostic.severity[name:upper()]
+    signs[severity] = icon
 end
+
+vim.diagnostic.config({
+    signs = {
+        text = signs
+    }
+})
