@@ -20,6 +20,7 @@ setup_personal_symlinks() {
     symlink "$DOTFILES_DIR/bin" "$HOME/bin"
     if [[ "$OSTYPE" == "darwin"* ]]; then
         symlink "$DOTFILES_DIR/Brewfile" "$HOME/Brewfile"
+        symlink "$DOTFILES_DIR/aerospace/aerospace.toml" "$HOME/.aerospace.toml"
     fi
 }
 
@@ -28,6 +29,7 @@ setup_work_symlinks() {
     echo "==========================================="
     symlink "$DOTFILES_DIR/private/.zshrc" "$HOME/.zshrc"
     symlink "$DOTFILES_DIR/private/Brewfile" "$HOME/Brewfile"
+    symlink "$DOTFILES_DIR/aerospace/aerospace-work.toml" "$HOME/.aerospace.toml"
     # symlink "$DOTFILES_DIR/bin" "$HOME/bin"
 }
 
@@ -58,7 +60,6 @@ setup_common() {
             echo "==========================================="
             symlink "$DOTFILES_DIR/macos/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
             symlink "$DOTFILES_DIR/gh/config.yml" "$HOME/.config/gh/config.yml"
-            symlink "$DOTFILES_DIR/aerospace/aerospace.toml" "$HOME/.aerospace.toml"
             symlink "$DOTFILES_DIR/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 
             # https://apple.stackexchange.com/questions/332769/macos-disable-popup-showing-accented-characters-when-holding-down-a-key
