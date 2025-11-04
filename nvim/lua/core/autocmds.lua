@@ -105,14 +105,14 @@ autocmd('LspAttach', {
 
         keymap("n", "gd",
             function()
-                require("fzf-lua").lsp_definitions({ jump_to_single_result = true })
+                require("fzf-lua").lsp_definitions({ jump1 = true })
             end,
             { desc = "Go to definition" })
 
         keymap("n", "gr",
             function()
                 require("fzf-lua").lsp_references({
-                    jump_to_single_result = true,
+                    jump1 = true,
                     winopts = {
                         preview = {
                             hidden = "nohidden", -- I like to see some context
