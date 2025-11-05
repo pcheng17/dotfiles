@@ -8,6 +8,9 @@ return {
                 template = " ⤵ %d lines",
             }
         },
+        autoFold = {
+            enabled = false,
+        },
         foldKeymaps = {
             setup = false, -- modifies `h`, `l`, and `$`
         },
