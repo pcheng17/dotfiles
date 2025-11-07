@@ -22,6 +22,7 @@ return {
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
+        "onsails/lspkind.nvim",
         -- "zbirenbaum/copilot-cmp",
     },
     config = function()
@@ -38,7 +39,6 @@ return {
                 "lua_ls",     -- lua
                 "pyright",    -- python
                 "texlab",     -- latex
-                "tinymist",   -- typst
             },
             handlers = {
                 function(server_name) -- default handler
@@ -132,6 +132,7 @@ return {
 
         local cmp = require("cmp")
         local luasnip = require("luasnip")
+        local lspkind = require("lspkind")
         cmp.setup({
             snippet = {
                 expand = function(args)
@@ -195,7 +196,14 @@ return {
                 { name = "emoji" },
             }, {
                 { name = "buffer" },
-            })
+            }),
+            formatting = {
+                format = lspkind.cmp_format({
+                    mode = 'symbol_text',
+                    maxwidth = 50,
+                    ellipsis_char = '...',
+                })
+            },
         })
 
         -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
