@@ -23,7 +23,7 @@ configuration {
  	terminal: "wezterm";
 
 	/*---------- Combi settings ----------*/
-	combi-modi: "window,drun,ssh";
+	combi-modi: "window,drun,filebrowser,ssh";
 	combi-hide-mode-prefix: false;
 	combi-display-format: "{mode} {text}";
 
@@ -51,6 +51,13 @@ configuration {
 	disable-history: false;
 	sorting-method: "normal";
 	max-history-size: 25;
+
+	/*---------- File browser settings ----------*/
+    filebrowser {
+        directory: "/home/pcheng";
+        directories-first: true;
+        sorting-method:"name";
+    }
 }
 
 // configuration {
