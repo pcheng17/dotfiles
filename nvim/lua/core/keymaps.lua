@@ -4,6 +4,8 @@ local keymap = vim.keymap.set
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Move up by single line" })
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc = "Move down by single line" })
 
+keymap("n", "<F5>", ":make<CR>", { silent = true, desc = "Run make" })
+
 keymap({ "n", "x" }, "<space>", "<nop>", { silent = true, desc = "Disable space" })
 keymap({ "n", "x" }, "<del>",  "<nop>", { silent = true, desc = "Disable delete" })
 
