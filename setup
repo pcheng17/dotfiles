@@ -12,10 +12,13 @@ get_cmake_version() {
 CMAKE_VERSION=4.0.2
 
 # Where I store software that I build from source
-mkdir ~/deps
+if [ ! -d ~/deps ]; then
+    echo "Creating ~/deps directory for source builds"
+    mkdir ~/deps
+fi
 
 sudo apt install -y curl                                                         # CLI
-sudo apt insatll -y ffmpeg                                                       # CLI video processing
+sudo apt install -y ffmpeg                                                       # CLI video processing
 sudo apt install -y libnotify-bin                                                # CLI system notifications
 sudo apt install -y mpv                                                          # CLI media player
 sudo apt install -y neofetch                                                     # CLI system information
@@ -41,9 +44,28 @@ sudo apt install -y ethtool                                                     
 sudo apt install -y duf                                                          # Disk usage
 
 # oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "Installing oh-my-zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+    echo "✅ oh-my-zsh already installed, skipping"
+fi
+
+P10K_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+if [ ! -d "$P10K_DIR" ]; then
+    echo "Installing powerlevel10k theme..."
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+else
+    echo "✅ powerlevel10k already installed, skipping"
+fi
+
+AUTOSUGGEST_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+if [ ! -d "$AUTOSUGGEST_DIR" ]; then
+    echo "Installing zsh-autosuggestions plugin..."
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+else
+    echo "✅ zsh-autosuggestions already installed, skipping"
+fi
 
 # Instructions for setting up auto suggestions: https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
 
@@ -79,33 +101,53 @@ echo "Current CMake version: $CURRENT_VERSION"
 # https://github.com/GothenburgBitFactory/timewarrior
 
 # 1Password
-curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
-echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
-sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
-curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
-sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
-curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
-sudo apt update
-sudo apt install -y 1password
+if ! command -v 1password &> /dev/null; then
+    echo "Installing 1Password..."
+    curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+    echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
+    sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+    curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
+    sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+    curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+    sudo apt update
+    sudo apt install -y 1password
+else
+    echo "✅ 1Password is already installed, skipping"
+fi
 
 # Brave Browser
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-sudo apt update
-sudo apt install -y brave-browser
+if ! command -v brave-browser &> /dev/null; then
+    echo "Installing Brave Browser..."
+    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+    sudo apt update
+    sudo apt install -y brave-browser
+else
+    echo "✅ Brave is already installed, skipping"
+fi
 
 # Tailscale
-curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
-curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
-sudo apt-get update
-sudo apt-get install -y tailscale
+if ! command -v tailscale &> /dev/null; then
+    echo "Installing Tailscale..."
+    curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+    curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+    sudo apt-get update
+    sudo apt-get install -y tailscale
+else
+    echo "✅ Tailscale is already installed, skipping"
+fi
 
 # Wezterm
-curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
-echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
-sudo chmod 644 /usr/share/keyrings/wezterm-fury.gpg
-sudo apt update
-sudo apt install -y wezterm
+if ! command -v wezterm &> /dev/null; then
+    echo "Installing Wezterm..."
+    curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
+    echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+    sudo chmod 644 /usr/share/keyrings/wezterm-fury.gpg
+    sudo apt update
+    sudo apt install -y wezterm
+else
+    echo "✅ Wezterm is already installed, skipping"
+fi
 
 # NVIDIA drivers
 # sudo apt-add-repository -y ppa:system76-dev/stable
