@@ -47,6 +47,7 @@ return {
     },
     config = function()
         -- calling `setup` is optional for customization
+        require("fzf-lua").register_ui_select()
         require("fzf-lua").setup({
             keymap = {
                 builtin = {
