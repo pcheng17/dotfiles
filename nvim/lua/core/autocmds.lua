@@ -60,6 +60,14 @@ autocmd({ "BufWritePre" }, {
     end
 })
 
+autocmd({ "BufWritePre"}, {
+    pattern = "*.dart",
+    group = MyGroup,
+    callback = function()
+        vim.lsp.buf.format({ async = false })
+    end
+})
+
 autocmd({ "BufReadPost" }, {
     desc = "Open file at the last position it was edited earlier",
     group = MyGroup,
