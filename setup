@@ -51,6 +51,13 @@ sudo apt install -y flameshot                                                   
 sudo apt install -y ethtool                                                      # Network tools
 sudo apt install -y duf                                                          # Disk usage
 
+# Get Clang 17
+wget -P ~/deps https://apt.llvm.org/llvm.sh
+chmod +x ~/deps/llvm.sh
+sudo ~/deps/llvm.sh 17
+sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-17 100
+sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-17 100
+
 # oh-my-zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Installing oh-my-zsh..."
