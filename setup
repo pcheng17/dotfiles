@@ -33,7 +33,7 @@ sudo apt install -y neofetch                                                    
 sudo apt install -y just                                                         # CLI command runner
 sudo apt install -y ripgrep                                                      # CLI better grep
 sudo apt install -y zsh                                                          # Shell
-sudo apt install -y build-essential libtool autoconf g++-12 gcc-12 clang-15      # Build tools
+sudo apt install -y build-essential libtool autoconf g++-12 gcc-12               # Build tools
 sudo apt install -y libglfw3-dev                                                 # C++ graphics
 sudo apt install -y clang-format                                                 # C++ formatting
 sudo apt install -y liblzma-dev tk-dev libsqlite3-dev libbz2-dev libreadline-dev # For Python
@@ -51,7 +51,7 @@ sudo apt install -y flameshot                                                   
 sudo apt install -y ethtool                                                      # Network tools
 sudo apt install -y duf                                                          # Disk usage
 
-# Get Clang 17
+# Install clang 17
 wget -P ~/deps https://apt.llvm.org/llvm.sh
 chmod +x ~/deps/llvm.sh
 sudo ~/deps/llvm.sh 17
