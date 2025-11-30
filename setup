@@ -1,5 +1,13 @@
 #!/bin/bash
 
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+DIM='\033[90m'
+NC='\033[0m'  # No Color
+
+log_ok()   { printf "[$(date '+%Y-%m-%d %H:%M:%S.%3N')] [ ${GREEN}OK${NC} ] $1\n"; }
+log_info() { printf "[$(date '+%Y-%m-%d %H:%M:%S.%3N')] [${BLUE}INFO${NC}] $1\n"; }
+
 # Function to get current cmake version (just the version number)
 get_cmake_version() {
     if command -v cmake &> /dev/null; then
@@ -48,7 +56,7 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Installing oh-my-zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
-    echo "✅ oh-my-zsh already installed, skipping"
+    log_ok "oh-my-zsh is already installed, skipping"
 fi
 
 P10K_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
@@ -56,7 +64,7 @@ if [ ! -d "$P10K_DIR" ]; then
     echo "Installing powerlevel10k theme..."
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 else
-    echo "✅ powerlevel10k already installed, skipping"
+    log_ok "powerlevel10k is already installed, skipping"
 fi
 
 AUTOSUGGEST_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
@@ -64,15 +72,15 @@ if [ ! -d "$AUTOSUGGEST_DIR" ]; then
     echo "Installing zsh-autosuggestions plugin..."
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 else
-    echo "✅ zsh-autosuggestions already installed, skipping"
+    log_ok "zsh-autosuggestions is already installed, skipping"
 fi
 
 # Instructions for setting up auto suggestions: https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
 
 # Build cmake from source
 CURRENT_CMAKE_VERSION=$(get_cmake_version)
-echo "Required CMake version: $CMAKE_VERSION"
-echo "Current CMake version: $CURRENT_VERSION"
+log_info "Required CMake version: $CMAKE_VERSION"
+log_info "Current CMake version: $CURRENT_CMAKE_VERSION"
 
 # cd ~/deps
 # wget https://cmake.org/files/v$CMAKE_VERSION/cmake-$CMAKE_VERSION.tar.gz
@@ -112,7 +120,7 @@ if ! command -v 1password &> /dev/null; then
     sudo apt update
     sudo apt install -y 1password
 else
-    echo "✅ 1Password is already installed, skipping"
+    log_ok "1Password is already installed, skipping"
 fi
 
 # Brave Browser
@@ -123,7 +131,7 @@ if ! command -v brave-browser &> /dev/null; then
     sudo apt update
     sudo apt install -y brave-browser
 else
-    echo "✅ Brave is already installed, skipping"
+    log_ok "Brave is already installed, skipping"
 fi
 
 # Tailscale
@@ -134,7 +142,7 @@ if ! command -v tailscale &> /dev/null; then
     sudo apt-get update
     sudo apt-get install -y tailscale
 else
-    echo "✅ Tailscale is already installed, skipping"
+    log_ok "Tailscale is already installed, skipping"
 fi
 
 # Wezterm
@@ -146,7 +154,7 @@ if ! command -v wezterm &> /dev/null; then
     sudo apt update
     sudo apt install -y wezterm
 else
-    echo "✅ Wezterm is already installed, skipping"
+    log_ok "Wezterm is already installed, skipping"
 fi
 
 # NVIDIA drivers
