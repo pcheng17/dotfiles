@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 CATEGORIES=(
+    "flutter"
+    "godot"
     "korean"
     "lovamap"
     "projects"
