@@ -50,6 +50,7 @@ sudo apt install -y xsel                                                        
 sudo apt install -y flameshot                                                    # Screenshot tool
 sudo apt install -y ethtool                                                      # Network tools
 sudo apt install -y duf                                                          # Disk usage
+sudo apt install -y love
 
 # Install clang 17
 wget -P ~/deps https://apt.llvm.org/llvm.sh
@@ -186,4 +187,4 @@ sudo apt-get install papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Li
 # Keyboard settings
 gsettings set org.gnome.desktop.peripherals.keyboard delay 190
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 15
-gsettings set org.gnome.desktop.peripherals.mouse speed -0.25
+gsettings set org.gnome.desktop.peripherals.mouse speed -0.3
