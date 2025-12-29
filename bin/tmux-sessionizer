@@ -39,7 +39,7 @@ fi
 
 if [[ ! -d $selected ]]; then
     # Check if the input is a GitHub URL
-    if [[ $selected == https://github.com/* || $selected == git@github.com:* ]]; then
+    if [[ $selected == https://github.com/* || $selected == git@github.com:* || $selected == *git@codeberg.org* ]]; then
         # It's a GitHub URL, extract the repo name from the URL
         repo_name=$(basename "$selected" .git)
         echo "Cloning GitHub repo '$repo_name' to '${DEV_DIR}/$repo_name'."
