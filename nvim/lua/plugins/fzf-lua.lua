@@ -29,7 +29,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     --stylua: ignore start
     keys = {
-        { "<leader>;",  function() require("fzf-lua").files() end,                          mode = "n", desc = "fzf files in cwd",                 silent = true },
+        { "<leader>;",  function() require("fzf-lua").files(show_preview_h) end,            mode = "n", desc = "fzf files in cwd",                 silent = true },
         { "<leader>'",  function() require("fzf-lua").buffers() end,                        mode = "n", desc = "fzf buffers",                      silent = true },
         { "<leader>/",  function() require("fzf-lua").live_grep_native(show_preview_v) end, mode = "n", desc = "fzf grep in cwd",                  silent = true },
         { "<leader>gw", function() require("fzf-lua").grep_cword(show_preview_v) end,       mode = "n", desc = "fzf grep current word",            silent = true },
