@@ -17,9 +17,10 @@ M.arrows = {
 }
 
 -- LSP symbol kinds
+-- I took some of these from: https://github.com/onsails/lspkind.nvim
 M.symbol_kinds = {
     Array = '󰅪',
-    Class = '',
+    Class = '󰠱',
     Color = '󰏘',
     Constant = '󰏿',
     Constructor = '',
@@ -29,7 +30,7 @@ M.symbol_kinds = {
     Field = '󰜢',
     File = '󰈙',
     Folder = '󰉋',
-    Function = '󰆧',
+    Function = '󰊕',
     Interface = '',
     Keyword = '󰌋',
     Method = '󰆧',
@@ -37,8 +38,8 @@ M.symbol_kinds = {
     Operator = '󰆕',
     Property = '󰜢',
     Reference = '󰈇',
-    Snippet = '',
-    Struct = '',
+    Snippet = '',
+    Struct = '󰙅',
     Text = '',
     TypeParameter = '',
     Unit = '',

@@ -133,6 +133,7 @@ return {
         local cmp = require("cmp")
         local luasnip = require("luasnip")
         local lspkind = require("lspkind")
+        local icons = require("icons")
         cmp.setup({
             snippet = {
                 expand = function(args)
@@ -203,6 +204,7 @@ return {
                     mode = 'symbol',
                     maxwidth = 50,
                     ellipsis_char = '...',
+                    symbol_map = icons.symbol_kinds,
                     before = function(entry, vim_item)
                         vim_item.menu = ({
                             nvim_lsp = "[LSP]",
