@@ -45,7 +45,13 @@ return {
                     treesitter = true,
                     treesitter_context = true,
                     which_key = true,
-                }
+                },
+                custom_highlights = function(colors)
+                    return {
+                        CmpItemMenu = { fg = colors.surface2 },
+                    }
+                end,
+
             })
         end,
     },
