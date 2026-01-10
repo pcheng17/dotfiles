@@ -16,6 +16,9 @@ end
 vim.api.nvim_set_hl(0, "TreesitterContext", { ctermbg = "none" })
 vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { ctermbg = "none" })
 
+local palette = require("catppuccin.palettes").get_palette("mocha")
+vim.api.nvim_set_hl(0, 'CmpItemMenu', { fg = "#666666" })
+
 -- For some reason, the same underline doesn't carry through across the entire line, so this fixes
 -- the issue.
 vim.api.nvim_set_hl(0, "TreesitterContextBottom", vim.api.nvim_get_hl(0, { name = "TreesitterContextLineNumberBottom" }))
