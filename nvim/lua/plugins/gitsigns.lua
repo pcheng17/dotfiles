@@ -25,6 +25,10 @@ return {
                     vim.keymap.set(mode, lhs, rhs, options)
                 end
 
+                keymap("n", "<leader>bl", function()
+                    gs.blame_line({ full = true })
+                end, { silent = true, desc = "Show full blame info of the current line" })
+
                 -- Navigation
                 keymap("n", "]h", function()
                     if vim.wo.diff then return "]h" end
@@ -41,8 +45,8 @@ return {
                 -- Actions
                 keymap("n", "<leader>hs", gs.stage_hunk, { silent = true, desc = "Stage hunk" })
                 keymap("n", "<leader>hr", gs.reset_hunk, { silent = true, desc = "Reset hunk" })
-                keymap("v", "<leader>hs", function() gs.stage_hunk {vim.fn.line("."), vim.fn.line("v")} end, { silent = true, desc = "Stage hunk" })
-                keymap("v", "<leader>hr", function() gs.reset_hunk {vim.fn.line("."), vim.fn.line("v")} end, { silent = true, desc = "Reset hunk" })
+                keymap("v", "<leader>hs", function() gs.stage_hunk { vim.fn.line("."), vim.fn.line("v") } end, { silent = true, desc = "Stage hunk" })
+                keymap("v", "<leader>hr", function() gs.reset_hunk { vim.fn.line("."), vim.fn.line("v") } end, { silent = true, desc = "Reset hunk" })
 
                 -- Text object
                 keymap({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { silent = true, desc = "Select hunk" })
