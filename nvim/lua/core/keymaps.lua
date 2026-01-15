@@ -56,4 +56,19 @@ keymap("x", "<", "<gv", { silent = true, desc = "Decrease indent of visual block
 
 keymap("n", "[q", ":cprev<cr>", { silent = true, desc = "Move to previous quickfix item" })
 keymap("n", "]q", ":cnext<cr>", { silent = true, desc = "Move to next quickfix item" })
+
+keymap('n', '<leader>gc', function()
+    local line = vim.fn.line('.')
+    local file = vim.fn.expand('%:p')
+    local result = vim.fn.system(string.format('git blame -l -L %d,%d -- %s', line, line,
+        vim.fn.shellescape(file)))
+    local sha = result:match('^(%x+)')
+
+    if sha and not sha:match('^0+$') then
+        vim.fn.system('gh browse ' .. sha)
+    else
+        vim.notify('No commit found for this line', vim.log.levels.WARN)
+    end
+end, { desc = 'Open commit for current line on GitHub' })
+
 -- stylua: ignore end
