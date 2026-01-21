@@ -22,6 +22,12 @@ local show_preview_h = {
     },
 }
 
+local function pick_preview()
+    local cols, lines = vim.o.columns, vim.o.lines
+    local use_horizontal = (cols > 120) and (cols > 3.7 * lines)
+    return use_horizontal and show_preview_h or show_preview_v
+end
+
 return {
     "ibhagwan/fzf-lua",
     lazy = false,
@@ -29,7 +35,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     --stylua: ignore start
     keys = {
-        { "<leader>;",  function() require("fzf-lua").files(show_preview_h) end,            mode = "n", desc = "fzf files in cwd",                 silent = true },
+        { "<leader>;",  function() require("fzf-lua").files(pick_preview()) end,              mode = "n", desc = "fzf files in cwd",                 silent = true },
         { "<leader>'",  function() require("fzf-lua").buffers() end,                        mode = "n", desc = "fzf buffers",                      silent = true },
         { "<leader>/",  function() require("fzf-lua").live_grep_native(show_preview_v) end, mode = "n", desc = "fzf grep in cwd",                  silent = true },
         { "<leader>gw", function() require("fzf-lua").grep_cword(show_preview_v) end,       mode = "n", desc = "fzf grep current word",            silent = true },

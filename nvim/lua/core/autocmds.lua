@@ -167,7 +167,6 @@ autocmd('LspAttach', {
         keymap("n", "<leader>ds", function()
             local cols, lines = vim.o.columns, vim.o.lines
             local use_horizontal = (cols > 120) and (cols > 3.7 * lines)
-            print("cols:", cols, "lines:", lines, "horizontal:", use_horizontal)
             local preview = (use_horizontal) and show_preview_h or show_preview_v
             require("fzf-lua").lsp_document_symbols(preview)
         end, { desc = "Document symbols" })
