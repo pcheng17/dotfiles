@@ -139,14 +139,46 @@ autocmd('LspAttach', {
             end,
             { desc = "Go to references" })
 
-        keymap("n", "<leader>ds", function() require("fzf-lua").lsp_document_symbols() end,  { desc = "Document symbols" })
-        keymap("n", "<leader>ws", function() require("fzf-lua").lsp_workspace_symbols() end, { desc = "Workspace symbols" })
-        keymap("n", "<leader>ic", function() require("fzf-lua").lsp_incoming_calls() end,    { desc = "Incoming calls" })
-        keymap("n", "<leader>oc", function() require("fzf-lua").lsp_outgoing_calls() end,    { desc = "Outgoing calls" })
-        keymap("n", "K",          function() vim.lsp.buf.hover() end,                        { desc = "Hover documentation" })
-        keymap("n", "<leader>rn", function() vim.lsp.buf.rename() end,                       { desc = "Rename symbol" })
-        keymap("i", "<C-k>",      function() vim.lsp.buf.signature_help() end,               { desc = "Signature help" })
-        keymap("n", "<leader>.",  function() require("fzf-lua").lsp_code_actions() end,      { desc = "Code action" } )
+        -- This splits the screen top and bottom
+        local show_preview_v = {
+            winopts = {
+                height = 0.95,
+                width = 0.90,
+                preview = {
+                    hidden = "nohidden", -- I like to see some context
+                    layout = "vertical", -- More likely to be able to see the full line of a context
+                    vertical = "down:55%",
+                },
+            },
+        }
+
+        -- This splits the screen left and right
+        local show_preview_h = {
+            winopts = {
+                height = 0.95,
+                width = 0.90,
+                preview = {
+                    hidden = "nohidden",
+                    layout = "horizontal",
+                },
+            },
+        }
+
+        keymap("n", "<leader>ds", function()
+            local cols, lines = vim.o.columns, vim.o.lines
+            local use_horizontal = (cols > 120) and (cols > 3.7 * lines)
+            print("cols:", cols, "lines:", lines, "horizontal:", use_horizontal)
+            local preview = (use_horizontal) and show_preview_h or show_preview_v
+            require("fzf-lua").lsp_document_symbols(preview)
+        end, { desc = "Document symbols" })
+
+        keymap("n", "<leader>ws", function() require("fzf-lua").lsp_workspace_symbols() end,               { desc = "Workspace symbols" })
+        keymap("n", "<leader>ic", function() require("fzf-lua").lsp_incoming_calls() end,                  { desc = "Incoming calls" })
+        keymap("n", "<leader>oc", function() require("fzf-lua").lsp_outgoing_calls() end,                  { desc = "Outgoing calls" })
+        keymap("n", "K",          function() vim.lsp.buf.hover() end,                                      { desc = "Hover documentation" })
+        keymap("n", "<leader>rn", function() vim.lsp.buf.rename() end,                                     { desc = "Rename symbol" })
+        keymap("i", "<C-k>",      function() vim.lsp.buf.signature_help() end,                             { desc = "Signature help" })
+        keymap("n", "<leader>.",  function() require("fzf-lua").lsp_code_actions() end,                    { desc = "Code action" } )
         -- `gra` in Normal mode maps to `vim.lsp.buf.code_action()` by default
     end
 })
