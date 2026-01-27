@@ -24,7 +24,7 @@ local show_preview_h = {
 
 local function pick_preview()
     local cols, lines = vim.o.columns, vim.o.lines
-    local use_horizontal = (cols > 120) and (cols > 3.7 * lines)
+    local use_horizontal = (cols > 120) and (cols > 4.0 * lines)
     return use_horizontal and show_preview_h or show_preview_v
 end
 
