@@ -25,9 +25,9 @@ if [[ $# -eq 1 ]]; then
 else
     selected=$(
         {
-            find ${DEV_DIR}/* -maxdepth 0 -type d;
-            echo "$HOME/.dotfiles";
-            echo "$HOME/.ssh";
+            find ${DEV_DIR}/* -maxdepth 0 -type d 2>/dev/null;
+            [ -d "$HOME/.dotfiles" ] && echo "$HOME/.dotfiles";
+            [ -d "$HOME/.ssh" ] && echo "$HOME/.ssh";
         } | fzf --border --print-query
     )
     selected=$(echo "$selected" | tail -1)
