@@ -15,8 +15,8 @@ alias nf='neofetch'
 alias ez='nvim ~/.zshrc'
 alias rld='source ~/.zshrc'
 
-alias dfs='cd ~/.dotfiles'
-alias edfs='nvim ~/.dotfiles'
+alias dot='cd $DOTS'
+alias updot='cd $DOTS && git pull && cd -'
 alias y='yazi'
 
 alias gi='git init'

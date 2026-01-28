@@ -1,19 +1,19 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
-export DOTFILES_DIR="$HOME/.dotfiles"
+export DOTS="$HOME/.dotfiles"
 
 # Keep PATH entries unique (prevents duplicates when re-sourcing)
 typeset -U PATH path
 
 case "$(hostname)" in
     "Peters-MacBook-Pro.local")
-        source ${DOTFILES_DIR}/zsh/macbook-pro.zsh
+        source ${DOTS}/zsh/macbook-pro.zsh
         ;;
     "M4-Mac-Mini.local")
-        source ${DOTFILES_DIR}/zsh/m4-mac-mini.zsh
+        source ${DOTS}/zsh/m4-mac-mini.zsh
         ;;
     "home")
-        source ${DOTFILES_DIR}/zsh/home.zsh
+        source ${DOTS}/zsh/home.zsh
         ;;
 esac
 
