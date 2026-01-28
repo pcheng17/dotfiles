@@ -1,8 +1,9 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        -- Pin at this version because of breaking changes that affects colorschemes
-        -- version = "v0.9.2",
+        -- Pin at this version because it seems like after this version,
+        -- I have issues with nvim-treesitter.configs
+        version = "v0.10.0",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
         },
