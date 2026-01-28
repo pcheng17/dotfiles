@@ -8,7 +8,7 @@ return {
         },
         build = ":TSUpdate",
         config = function()
-            require("nvim-treesitter").setup({
+            require("nvim-treesitter.configs").setup({
                 highlight = { enable = true },
                 indent = { enable = true },
                 rainbow = { enable = false }, -- this is supposed to fix javascript issues...?
