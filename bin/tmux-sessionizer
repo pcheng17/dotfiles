@@ -67,12 +67,14 @@ if [[ ! -d $selected ]]; then
             mkdir -p "${DEV_DIR}/$selected"
             selected="${DEV_DIR}/$selected"
         else
-            exit 0
+            # User declined to create directory - start session with that name in home dir
+            selected_name=$(basename "$selected" | tr . _)
+            selected="$HOME"
         fi
     fi
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+selected_name=${selected_name:-$(basename "$selected" | tr . _)}
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
