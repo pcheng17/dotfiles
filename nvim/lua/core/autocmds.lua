@@ -23,6 +23,26 @@ autocmd({ "FileType" }, {
     end
 })
 
+-- Toggle markdown task list items with <CR>
+-- Only works in normal mode on the current line.
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        vim.keymap.set("n", "<CR>", function()
+            local line = vim.api.nvim_get_current_line()
+            local new_line
+            if line:match("%- %[ %]") then
+                new_line = line:gsub("%- %[ %]", "- [x]", 1)
+            elseif line:match("%- %[x%]") then
+                new_line = line:gsub("%- %[x%]", "- [ ]", 1)
+            end
+            if new_line then
+                vim.api.nvim_set_current_line(new_line)
+            end
+        end, { buffer = true })
+    end,
+})
+
 autocmd({ "BufRead", "BufNewFile" }, {
     desc = "Set jsonl files to be treated as json",
     group = augroup("UserJsonlFileType", { clear = true }),
