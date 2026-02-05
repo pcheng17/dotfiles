@@ -29,9 +29,9 @@ autocmd("FileType", {
     callback = function()
         local function toggle_todo(line)
             if line:match("%- %[ %]") then
-                return line:gsub("%- %[ %]", "- [x]", 1)
+                return (line:gsub("%- %[ %]", "- [x]", 1))
             elseif line:match("%- %[x%]") then
-                return line:gsub("%- %[x%]", "- [ ]", 1)
+                return (line:gsub("%- %[x%]", "- [ ]", 1))
             end
             return line
         end
