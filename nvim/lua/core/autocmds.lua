@@ -24,21 +24,39 @@ autocmd({ "FileType" }, {
 })
 
 -- Toggle markdown task list items with <CR>
--- Only works in normal mode on the current line.
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
     pattern = "markdown",
     callback = function()
-        vim.keymap.set("n", "<CR>", function()
-            local line = vim.api.nvim_get_current_line()
-            local new_line
+        local function toggle_todo(line)
             if line:match("%- %[ %]") then
-                new_line = line:gsub("%- %[ %]", "- [x]", 1)
+                return line:gsub("%- %[ %]", "- [x]", 1)
             elseif line:match("%- %[x%]") then
-                new_line = line:gsub("%- %[x%]", "- [ ]", 1)
+                return line:gsub("%- %[x%]", "- [ ]", 1)
             end
-            if new_line then
-                vim.api.nvim_set_current_line(new_line)
+            return line
+        end
+
+        -- Normal mode: toggle current line
+        vim.keymap.set("n", "<CR>", function()
+            vim.api.nvim_set_current_line(toggle_todo(vim.api.nvim_get_current_line()))
+        end, { buffer = true })
+
+        -- Visual mode: toggle all selected lines
+        vim.keymap.set("x", "<CR>", function()
+            local start_line = vim.fn.line("v")
+            local end_line = vim.fn.line(".")
+            if start_line > end_line then
+                start_line, end_line = end_line, start_line
             end
+
+            local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
+            for i, line in ipairs(lines) do
+                lines[i] = toggle_todo(line)
+            end
+            vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, false, lines)
+
+            -- Exit visual mode
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
         end, { buffer = true })
     end,
 })
