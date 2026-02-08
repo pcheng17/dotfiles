@@ -84,6 +84,10 @@ run = 'layout floating'
 if.app-name-regex-substring = 'mizu'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'Catan Universe'
+run = 'layout floating'
+
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
 # - Constant:     gaps.outer.top = 8
