@@ -184,7 +184,10 @@ sudo add-apt-repository ppa:papirus/papirus
 sudo apt-get update
 sudo apt-get install papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
 
+gsettings set org.gnome.desktop.interface text-scaling-factor 1.0
+
 # Keyboard settings
 gsettings set org.gnome.desktop.peripherals.keyboard delay 190
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 15
 gsettings set org.gnome.desktop.peripherals.mouse speed -0.3
+
