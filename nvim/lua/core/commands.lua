@@ -12,6 +12,14 @@ vim.api.nvim_create_user_command('Scratch', function()
     end
 end, { desc = 'Open a scratch buffer', nargs = 0 })
 
+vim.api.nvim_create_user_command("CopyPath", function()
+    local path = vim.fn.expand("%:p")
+    vim.fn.setreg("+", path)
+    vim.api.nvim_echo({ { "Copied: " .. path, "None" } }, false, {})
+end, {
+    desc = "Copy current buffer's absolute path to clipboard",
+})
+
 ---@type uv_tcp_t?
 local notify_server = nil
 vim.api.nvim_create_user_command("StartNotifyServer", function()

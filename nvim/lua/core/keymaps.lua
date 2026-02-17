@@ -71,9 +71,4 @@ keymap('n', '<leader>gc', function()
     end
 end, { desc = 'Open commit for current line on GitHub' })
 
-keymap('n', '<leader>cp', function()
-    vim.fn.setreg('+', vim.fn.expand('%:p'))
-    print('Copied: ' .. vim.fn.expand('%:p'))
-end, { desc = 'Copy file path' })
-
 -- stylua: ignore end
