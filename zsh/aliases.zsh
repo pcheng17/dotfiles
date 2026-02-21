@@ -7,7 +7,6 @@ _exists() {
 alias l='ls -lhF'
 alias ll='ls -lhF'
 alias la='ls -AlhF'
-alias c='clear'
 alias qq='~ && clear'
 alias rg='rg --smart-case'
 alias nf='neofetch'
@@ -33,6 +32,7 @@ alias vv='NVIM_APPNAME=nvim-0.12 /Users/pcheng/Downloads/nvim-macos-arm64/bin/nv
 alias j='just'
 alias ts='tmux-sessionizer'
 alias oc='opencode'
+alias c='claude'
 
 alias tsu='sudo tailscale up'
 alias tsd='sudo tailscale down'
