@@ -20,6 +20,16 @@ end, {
     desc = "Copy current buffer's absolute path to clipboard",
 })
 
+vim.api.nvim_create_user_command("CopyPathLine", function()
+    local path = vim.fn.expand("%:p")
+    local line = vim.fn.line(".")
+    local result = string.format("%s:%d", path, line)
+    vim.fn.setreg("+", path)
+    vim.api.nvim_echo({ { "Copied: " .. result, "None" } }, false, {})
+end, {
+    desc = "Copy current buffer's absolute path and line number to clipboard",
+})
+
 ---@type uv_tcp_t?
 local notify_server = nil
 vim.api.nvim_create_user_command("StartNotifyServer", function()
