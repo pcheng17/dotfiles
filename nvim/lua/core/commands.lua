@@ -24,7 +24,7 @@ vim.api.nvim_create_user_command("CopyPathLine", function()
     local path = vim.fn.expand("%:p")
     local line = vim.fn.line(".")
     local result = string.format("%s:%d", path, line)
-    vim.fn.setreg("+", path)
+    vim.fn.setreg("+", result)
     vim.api.nvim_echo({ { "Copied: " .. result, "None" } }, false, {})
 end, {
     desc = "Copy current buffer's absolute path and line number to clipboard",
