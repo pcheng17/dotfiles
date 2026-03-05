@@ -20,6 +20,14 @@ end, {
     desc = "Copy current buffer's absolute path to clipboard",
 })
 
+vim.api.nvim_create_user_command("CopyRelPath", function()
+    local path = vim.fn.expand("%:p:.")
+    vim.fn.setreg("+", path)
+    vim.api.nvim_echo({ { "Copied: " .. path, "None" } }, false, {})
+end, {
+    desc = "Copy current buffer's relative path to clipboard",
+})
+
 vim.api.nvim_create_user_command("CopyPathLine", function()
     local path = vim.fn.expand("%:p")
     local line = vim.fn.line(".")
