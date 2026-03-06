@@ -1,0 +1,27 @@
+general {
+    colors = true
+    interval = 5
+}
+
+# Order controls what shows up and in what order
+order += "cpu_usage"
+order += "memory"
+order += "disk /"
+order += "tztime local"
+
+cpu_usage {
+    format = "CPU %usage"
+}
+
+memory {
+    format = "RAM %used / %total"
+    threshold_degraded = "10%"
+}
+
+disk "/" {
+    format = "%avail free"
+}
+
+tztime local {
+    format = "%a %b %d %I:%M %p"
+}
