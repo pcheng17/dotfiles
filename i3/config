@@ -194,6 +194,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Set background
 exec --no-startup-id feh --bg-scale $HOME/.dotfiles/wallpaper/oil-painting.jpg
 
+# Screenshot
+bindsym $mod+Mod1+v exec --no-startup-id flameshot gui
+
 # bar {
 #     position top
 #     status_command i3status
