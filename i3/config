@@ -191,6 +191,9 @@ bindsym $mod+r mode "resize"
 # Using polybar so we disable the i3bar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+# Set background
+exec --no-startup-id feh --bg-scale $HOME/.dotfiles/wallpaper/oil-painting.jpg
+
 # bar {
 #     position top
 #     status_command i3status

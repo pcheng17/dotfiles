@@ -44,6 +44,7 @@ sudo apt install -y gnome-tweaks                                                
 sudo apt install -y unzip wget
 sudo apt install -y polybar
 sudo apt install -y i3
+sudo apt install -y feh
 sudo apt install -y rofi                                                         # Application launcher
 sudo apt install -y btop                                                         # System monitor
 sudo apt install -y xsel                                                         # Clipboard manager
