@@ -1,0 +1,27 @@
+# Sourced by display managers before starting the X session.
+# Sets up PATH so i3 and all child processes inherit the full environment.
+
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/go/bin:$PATH"
+
+# Cargo
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+# Go
+if command -v go >/dev/null 2>&1; then
+    export PATH="$(go env GOPATH)/bin:$PATH"
+fi
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+if [ -d "$PYENV_ROOT/bin" ]; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init - sh)"
+fi
+
+# nvm (for node)
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
