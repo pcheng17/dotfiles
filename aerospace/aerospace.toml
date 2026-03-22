@@ -49,43 +49,7 @@ automatically-unhide-macos-hidden-apps = false
     preset = 'qwerty'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'finder'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'alfred preferences'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = '1password'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'messages'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'python'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'jagex launcher'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'runelite'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'reminders'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'mizu'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Catan Universe'
+if.app-name-regex-substring = '(?i)finder|alfred preferences|1password|messages|python|jagex launcher|runelite|reminders|mizu|catan universe|mtga'
 run = 'layout floating'
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
