@@ -27,6 +27,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/go/bin:$PATH
 export VCPKG_ROOT="$HOME/vcpkg"
+export EDITOR="nvim"
 
 # Go has its own default GOPATH path to which it installs binaries.
 if command -v go &> /dev/null; then
@@ -144,7 +145,7 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
