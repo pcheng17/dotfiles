@@ -1,8 +1,8 @@
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = {
-        "nvim-tree/nvim-web-devicons" ,
-        "catppuccin",
+        "nvim-tree/nvim-web-devicons",
+        "catppuccin/nvim",
     },
     config = function()
         local function truncate_branch(branch)
@@ -23,7 +23,7 @@ return {
         local icons = require("icons")
         require("lualine").setup({
             options = {
-                theme = "catppuccin",
+                theme = "auto",
                 always_divide_middle = true,
                 icons_enabled = true,
                 component_separators = { left = "|", right = "|" },
