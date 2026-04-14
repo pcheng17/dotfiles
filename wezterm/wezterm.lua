@@ -67,6 +67,8 @@ config.audible_bell = "Disabled"
 -- config.command_palette_bg_color = "#44382D"
 -- config.command_palette_fg_color = "#c4a389"
 
+local act = wezterm.action
+
 -- config.leader = { key = "Space", mods = "CTRL" }
 config.keys = {
   -- Move cursor backward by one word
@@ -85,7 +87,28 @@ config.keys = {
   {
     key = "f",
     mods = "CMD",
-    action = wezterm.action.Search({ CaseInSensitiveString = "" })
+    action = act.Multiple {
+      act.SendKey({ key = "Space", mods = "CTRL" }),
+      act.SendKey({ key = "f", mods = "CTRL" }),
+    }
+  },
+  -- Switch tmux session
+  {
+    key = "s",
+    mods = "CMD",
+    action = act.Multiple {
+      act.SendKey({ key = "Space", mods = "CTRL" }),
+      act.SendKey({ key = "s" }),
+    }
+  },
+  -- Go to last tmux session
+  {
+    key = "l",
+    mods = "CMD",
+    action = act.Multiple {
+      act.SendKey({ key = "Space", mods = "CTRL" }),
+      act.SendKey({ key = "L" }),
+    }
   },
   -- Activate command palette
   {
