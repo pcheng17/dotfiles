@@ -86,7 +86,7 @@ config.keys = {
   -- Case insensitive search
   {
     key = "f",
-    mods = "CMD",
+    mods = "CTRL",
     action = act.Multiple {
       act.SendKey({ key = "Space", mods = "CTRL" }),
       act.SendKey({ key = "f", mods = "CTRL" }),
@@ -95,7 +95,7 @@ config.keys = {
   -- Switch tmux session
   {
     key = "s",
-    mods = "CMD",
+    mods = "CTRL",
     action = act.Multiple {
       act.SendKey({ key = "Space", mods = "CTRL" }),
       act.SendKey({ key = "s" }),
@@ -104,7 +104,7 @@ config.keys = {
   -- Go to last tmux session
   {
     key = "l",
-    mods = "CMD",
+    mods = "CTRL",
     action = act.Multiple {
       act.SendKey({ key = "Space", mods = "CTRL" }),
       act.SendKey({ key = "L" }),
