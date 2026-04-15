@@ -84,32 +84,32 @@ config.keys = {
     action = wezterm.action.SendKey({ key = "f", mods = "ALT" }),
   },
   -- Case insensitive search
-  {
-    key = "f",
-    mods = "CTRL",
-    action = act.Multiple {
-      act.SendKey({ key = "Space", mods = "CTRL" }),
-      act.SendKey({ key = "f", mods = "CTRL" }),
-    }
-  },
+  -- {
+  --   key = "f",
+  --   mods = "CTRL",
+  --   action = act.Multiple {
+  --     act.SendKey({ key = "Space", mods = "CTRL" }),
+  --     act.SendKey({ key = "f", mods = "CTRL" }),
+  --   }
+  -- },
   -- Switch tmux session
-  {
-    key = "s",
-    mods = "CTRL",
-    action = act.Multiple {
-      act.SendKey({ key = "Space", mods = "CTRL" }),
-      act.SendKey({ key = "s" }),
-    }
-  },
+  -- {
+  --   key = "s",
+  --   mods = "CTRL",
+  --   action = act.Multiple {
+  --     act.SendKey({ key = "Space", mods = "CTRL" }),
+  --     act.SendKey({ key = "s" }),
+  --   }
+  -- },
   -- Go to last tmux session
-  {
-    key = "l",
-    mods = "CTRL",
-    action = act.Multiple {
-      act.SendKey({ key = "Space", mods = "CTRL" }),
-      act.SendKey({ key = "L" }),
-    }
-  },
+  -- {
+  --   key = "l",
+  --   mods = "CTRL",
+  --   action = act.Multiple {
+  --     act.SendKey({ key = "Space", mods = "CTRL" }),
+  --     act.SendKey({ key = "L" }),
+  --   }
+  -- },
   -- Activate command palette
   {
     key = "p",
