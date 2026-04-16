@@ -16,6 +16,11 @@ log_error() {
     printf "\033[31m[ERROR]\033[0m %s\n" "$1"
 }
 
+BREW_TAPS=(
+    "jesseduffield/lazygit"
+    "nikitabobko/tap"
+)
+
 BREW_PACKAGES=(
     "bob"     # nvim version manager
     "clang-format"
@@ -81,6 +86,16 @@ else
     log_ok "Homebrew already installed."
 fi
 
+# Add taps
+for tap in "${BREW_TAPS[@]}"; do
+    if brew tap | grep -q "^${tap}$"; then
+        log_ok "$tap already tapped."
+    else
+        log_info "Tapping $tap..."
+        brew tap "$tap"
+    fi
+done
+
 missing_packages=()
 for pkg in "${BREW_PACKAGES[@]}"; do
     if brew list --formula "$pkg" &>/dev/null; then
@@ -115,5 +130,14 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
     log_ok "oh-my-zsh already installed."
+fi
+
+# Install nvim via bob
+if ! command -v nvim &>/dev/null; then
+    log_info "Installing Neovim via bob..."
+    bob install latest
+    bob use latest
+else
+    log_ok "Neovim already installed."
 fi
 
