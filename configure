@@ -16,7 +16,7 @@ DOTFILES_DIR="$(dirname "$(realpath "$0")")"
 setup_personal_symlinks() {
     echo "Setting up personal symlinks"
     echo "==========================================="
-    symlink "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
+    symlink "$DOTFILES_DIR/zsh/zshrc" "$HOME/.zshrc"
     symlink "$DOTFILES_DIR/bin" "$HOME/bin"
     if [[ "$OSTYPE" == "darwin"* ]]; then
         symlink "$DOTFILES_DIR/Brewfile" "$HOME/Brewfile"
@@ -36,7 +36,7 @@ setup_work_symlinks() {
 setup_common() {
     echo "Setting up common symlinks"
     echo "==========================================="
-    symlink "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
+    symlink "$DOTFILES_DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
     symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
     symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
     symlink "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
@@ -62,7 +62,7 @@ setup_common() {
             symlink "$DOTFILES_DIR/gh/config.yml" "$HOME/.config/gh/config.yml"
             symlink "$DOTFILES_DIR/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
             symlink "$DOTFILES_DIR/opencode/opencode.json" "$HOME/.config/opencode/opencode.json"
-            symlink "$DOTFILES_DIR/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
+            symlink "$DOTFILES_DIR/zsh/p10k.zsh" "$HOME/.p10k.zsh"
 
             # https://apple.stackexchange.com/questions/332769/macos-disable-popup-showing-accented-characters-when-holding-down-a-key
             defaults write -g ApplePressAndHoldEnabled -bool false
