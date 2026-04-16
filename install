@@ -132,6 +132,23 @@ else
     log_ok "oh-my-zsh already installed."
 fi
 
+# Install Rust/Cargo via rustup
+if ! command -v cargo &>/dev/null; then
+    log_info "Installing Rust via rustup..."
+    curl https://sh.rustup.rs -sSf | sh -s -- -y
+    source "$HOME/.cargo/env"
+else
+    log_ok "Rust/Cargo already installed."
+fi
+
+# Install tree-sitter-cli via cargo
+if ! command -v tree-sitter &>/dev/null; then
+    log_info "Installing tree-sitter-cli..."
+    cargo install --locked tree-sitter-cli
+else
+    log_ok "tree-sitter-cli already installed."
+fi
+
 # Install nvim via bob
 if ! command -v nvim &>/dev/null; then
     log_info "Installing Neovim via bob..."
