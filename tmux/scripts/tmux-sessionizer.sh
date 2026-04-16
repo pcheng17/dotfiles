@@ -29,6 +29,7 @@ else
             "$HOME/work" \
             "$HOME/git" \
             "$HOME/git/roblox" \
+            "$HOME/git/roblox/game-engine" \
             2>/dev/null)
         "$HOME/.dotfiles"
         "$HOME/.dotclaude"
