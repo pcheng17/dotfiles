@@ -1,25 +1,119 @@
 #!/usr/bin/env bash
 
-# MacOS specific configurations
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    # First check if Homebrew is installed
-    which -s brew
-    if [[ $? != 0 ]] ; then
-        echo "Installing Homebrew..."
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    else
-        echo "Homebrew already installed."
-    fi
+log_ok() {
+    printf "\033[32m[OK]\033[0m   %s\n" "$1"
+}
 
-    echo "Installing 1Password..."
-    brew install --cask 1password
+log_info() {
+    printf "\033[34m[INFO]\033[0m %s\n" "$1"
+}
+
+log_warn() {
+    printf "\033[33m[WARN]\033[0m %s\n" "$1"
+}
+
+log_error() {
+    printf "\033[31m[ERROR]\033[0m %s\n" "$1"
+}
+
+BREW_PACKAGES=(
+    "bob"     # nvim version manager
+    "clang-format"
+    "cloc"
+    "cmake"
+    "cmark"
+    "ffmpeg"
+    "fzf"
+    "fd"
+    "gh"
+    "jj"
+    "jq"
+    "just"
+    "lazygit"
+    "mole"    # Deep clean and optimize my Mac
+    "raylib"
+    "restic"
+    "ripgrep"
+    "tailscale"
+    "tree"
+    "uv"
+    "watchexec"
+    "yt-dlp"
+)
+
+BREW_CASKS=(
+    "1password"
+    "alfred"
+    "alt-tab"
+    "brave-browser"
+    "font-departure-mono"
+    "font-fira-code"
+    "font-fira-mono"
+    "font-inconsolata"
+    "font-iosevka"
+    "font-jetbrains-mono"
+    "font-jetbrains-mono-nerd-font"
+    "font-roboto-mono"
+    "font-ubuntu-mono"
+    "gimp"
+    "love"
+    "nikitabobko/tap/aerospace"
+    "numi"
+    "obs"
+    "signal"
+    "skim"
+    "steam"
+    "tailscale-app"
+    "wezterm"
+)
+
+# Early out if we're not on Mac
+if [[ "$(uname -s)" != "Darwin" ]]; then
+    log_warn "This script is intended for macOS. Exiting."
+    exit 0
 fi
 
-# Install oh-my-zsh
+# Install Homebrew if not present
+if ! command -v brew &>/dev/null; then
+    log_info "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+    log_ok "Homebrew already installed."
+fi
+
+missing_packages=()
+for pkg in "${BREW_PACKAGES[@]}"; do
+    if brew list --formula "$pkg" &>/dev/null; then
+        log_ok "$pkg already installed."
+    else
+        missing_packages+=("$pkg")
+    fi
+done
+
+missing_casks=()
+for cask in "${BREW_CASKS[@]}"; do
+    if brew list --cask "$cask" &>/dev/null; then
+        log_ok "$cask already installed."
+    else
+        missing_casks+=("$cask")
+    fi
+done
+
+if [[ ${#missing_packages[@]} -gt 0 ]]; then
+    log_info "Installing packages: ${missing_packages[*]}"
+    brew install "${missing_packages[@]}"
+fi
+
+if [[ ${#missing_casks[@]} -gt 0 ]]; then
+    log_info "Installing casks: ${missing_casks[*]}"
+    brew install --cask "${missing_casks[@]}"
+fi
+
+# Install oh-my-zsh if not present
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "Installing oh-my-zsh..."
+    log_info "Installing oh-my-zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
-    echo "oh-my-zsh already installed."
+    log_ok "oh-my-zsh already installed."
 fi
 
