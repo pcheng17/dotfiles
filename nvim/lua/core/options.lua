@@ -10,6 +10,7 @@ vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 
 vim.opt.smartindent = true
+vim.opt.breakindent = true
 
 vim.opt.incsearch = true
 vim.opt.hlsearch = false
