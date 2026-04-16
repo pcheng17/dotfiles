@@ -1,0 +1,30 @@
+#!/bin/bash
+
+record() {
+    TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+
+    ffmpeg -f avfoundation -r 60 -i "0:" -s 3840x2160 -c:v libx264  $HOME/rec/video/${TIMESTAMP}.mp4 >> $HOME/rec/logs/${TIMESTAMP}.log 2>&1 &
+    echo "$! $TIMESTAMP" > /tmp/recordpid
+
+    echo "Screen recording started with PID $!"
+}
+
+end() {
+    if [ -f /tmp/recordpid ]; then
+        read RECORD_PID TIMESTAMP < /tmp/recordpid
+        kill -2 $RECORD_PID
+        rm -f /tmp/recordpid
+        echo "Screen recording stopped"
+        echo "Video: $HOME/rec/video/${TIMESTAMP}.mp4"
+        echo "Log: $HOME/rec/logs/${TIMESTAMP}.log"
+    else
+        echo "No active screen recording found"
+    fi
+}
+
+mkdir -p $HOME/rec/video
+mkdir -p $HOME/rec/audio
+mkdir -p $HOME/rec/logs
+
+([[ -f /tmp/recordpid ]] && end && exit 0) || record
+

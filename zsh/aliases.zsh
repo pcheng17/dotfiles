@@ -28,9 +28,7 @@ alias gbd='git branch | fzf -m | xargs git branch -D'
 
 alias lg='lazygit'
 alias v='nvim'
-alias vv='NVIM_APPNAME=nvim-0.12 /Users/pcheng/Downloads/nvim-macos-arm64/bin/nvim'
 alias j='just'
-alias ts='tmux-sessionizer'
 alias oc='opencode'
 alias c='claude'
 
