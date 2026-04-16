@@ -23,14 +23,18 @@ hydrate() {
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(
-        {
-            find ${DEV_DIR}/* -maxdepth 0 -type d 2>/dev/null;
-            [ -d "$HOME/.dotfiles" ] && echo "$HOME/.dotfiles";
-            [ -d "$HOME/.dotclaude" ] && echo "$HOME/.dotclaude";
-            [ -d "$HOME/.ssh" ] && echo "$HOME/.ssh";
-        } | fzf --border --print-query
+    selected=(
+        $(fd --max-depth 1 --type d . \
+            "$HOME/dev" \
+            "$HOME/work" \
+            "$HOME/git" \
+            "$HOME/git/roblox" \
+            2>/dev/null)
+        "$HOME/.dotfiles"
+        "$HOME/.dotclaude"
+        "$HOME/.ssh"
     )
+    selected=$(printf '%s\n' "${selected[@]}" | fzf --border --print-query)
     selected=$(echo "$selected" | tail -1)
 fi
 
