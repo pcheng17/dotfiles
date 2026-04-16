@@ -4,6 +4,8 @@ local keymap = vim.keymap.set
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Move up by single line" })
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc = "Move down by single line" })
 
+keymap("n", "<leader>mk", ":make<CR>", { silent = true, desc = "Run make" })
+
 keymap({ "n", "x" }, "<space>", "<nop>", { silent = true, desc = "Disable space" })
 keymap({ "n", "x" }, "<del>",  "<nop>", { silent = true, desc = "Disable delete" })
 
@@ -54,15 +56,19 @@ keymap("x", "<", "<gv", { silent = true, desc = "Decrease indent of visual block
 
 keymap("n", "[q", ":cprev<cr>", { silent = true, desc = "Move to previous quickfix item" })
 keymap("n", "]q", ":cnext<cr>", { silent = true, desc = "Move to next quickfix item" })
+
+keymap('n', '<leader>gc', function()
+    local line = vim.fn.line('.')
+    local file = vim.fn.expand('%:p')
+    local result = vim.fn.system(string.format('git blame -l -L %d,%d -- %s', line, line,
+        vim.fn.shellescape(file)))
+    local sha = result:match('^(%x+)')
+
+    if sha and not sha:match('^0+$') then
+        vim.fn.system('gh browse ' .. sha)
+    else
+        vim.notify('No commit found for this line', vim.log.levels.WARN)
+    end
+end, { desc = 'Open commit for current line on GitHub' })
+
 -- stylua: ignore end
-
-
-keymap("n", "<leader>e", 
-    function()
-        require("oil").open(nil, {
-            preview = {
-                vertical = true
-            },
-        })
-    end,
-    { silent = true, desc = "Open Oil" })

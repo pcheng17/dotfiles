@@ -1,5 +1,8 @@
+-- Boostrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
+    -- bootstrap lazy.nvim
+    -- stylua: ignore
     vim.fn.system({
         "git",
         "clone",
@@ -11,14 +14,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- important! set leaderkey before loading plugins
 vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+vim.g.maplocalleader = " "
 vim.lsp.log.set_level("off")
 
 require("lazy").setup("plugins", {
     change_detection = {
-        enable = false, -- Disable automatic reload of config
+        enable = true,  -- Automatically check for config file changes and reload
         notify = false, -- Disable notifications whenever plugin changes are made
     }
 })

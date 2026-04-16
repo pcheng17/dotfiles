@@ -1,6 +1,22 @@
 return {
-    "stevearc/oil.nvim",
-    enabled = true,
+    'stevearc/oil.nvim',
+    cmd = { "Oil" },
+    keys = {
+        {
+            "<leader>e",
+            function()
+                require("oil").open(nil, {
+                    preview = {
+                        vertical = true
+                    },
+                })
+            end,
+            mode = "n",
+            desc = "Open Oil",
+            silent = true,
+        },
+    },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         require('oil').setup({
             default_file_explorer = true,
@@ -16,5 +32,5 @@ return {
                 wrap = true,
             },
         })
-    end
+    end,
 }
