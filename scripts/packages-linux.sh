@@ -1,0 +1,162 @@
+#!/usr/bin/env bash
+
+log_ok() {
+    printf "\033[32m[OK]\033[0m   %s\n" "$1"
+}
+
+log_info() {
+    printf "\033[34m[INFO]\033[0m %s\n" "$1"
+}
+
+log_warn() {
+    printf "\033[33m[WARN]\033[0m %s\n" "$1"
+}
+
+log_error() {
+    printf "\033[31m[ERROR]\033[0m %s\n" "$1"
+}
+
+CMAKE_VERSION=4.0.2
+
+# Where I store software that I build from source
+if [ ! -d ~/deps ]; then
+    echo "Creating ~/deps directory for source builds"
+    mkdir ~/deps
+fi
+
+sudo apt install -y curl                                                         # CLI
+sudo apt install -y ffmpeg                                                       # CLI video processing
+sudo apt install -y libnotify-bin                                                # CLI system notifications
+sudo apt install -y mpv                                                          # CLI media player
+sudo apt install -y neofetch                                                     # CLI system information
+sudo apt install -y just                                                         # CLI command runner
+sudo apt install -y ripgrep                                                      # CLI better grep
+sudo apt install -y zsh                                                          # Shell
+sudo apt install -y build-essential libtool autoconf g++-12 gcc-12               # Build tools
+sudo apt install -y libglfw3-dev                                                 # C++ graphics
+sudo apt install -y clang-format                                                 # C++ formatting
+sudo apt install -y liblzma-dev tk-dev libsqlite3-dev libbz2-dev libreadline-dev # For Python
+sudo apt install -y libcurl4-openssl-dev                                         # C++ curl dependency
+sudo apt install -y libssl-dev                                                   # I forget why I need this...
+sudo apt install -y libevent-dev ncurses-dev pkg-config bison                    # For building tmux
+sudo apt install -y gnome-tweaks                                                 # Gnome settings tweaks
+sudo apt install -y unzip wget
+sudo apt install -y polybar
+sudo apt install -y i3
+sudo apt install -y feh
+sudo apt install -y rofi                                                         # Application launcher
+sudo apt install -y btop                                                         # System monitor
+sudo apt install -y xsel                                                         # Clipboard manager
+sudo apt install -y flameshot                                                    # Screenshot tool
+sudo apt install -y ethtool                                                      # Network tools
+sudo apt install -y duf                                                          # Disk usage
+sudo apt install -y love
+
+# Install clang 17
+if ! command -v clang-17 &>/dev/null; then
+    log_info "Installing clang 17..."
+    wget -P ~/deps https://apt.llvm.org/llvm.sh
+    chmod +x ~/deps/llvm.sh
+    sudo ~/deps/llvm.sh 17
+    sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-17 100
+    sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-17 100
+else
+    log_ok "clang 17 already installed."
+fi
+
+# oh-my-zsh
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    log_info "Installing oh-my-zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+    log_ok "oh-my-zsh is already installed, skipping"
+fi
+
+P10K_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+if [ ! -d "$P10K_DIR" ]; then
+    log_info "Installing powerlevel10k theme..."
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+else
+    log_ok "powerlevel10k is already installed, skipping"
+fi
+
+AUTOSUGGEST_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+if [ ! -d "$AUTOSUGGEST_DIR" ]; then
+    log_info "Installing zsh-autosuggestions plugin..."
+    git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+else
+    log_ok "zsh-autosuggestions is already installed, skipping"
+fi
+
+# 1Password
+if ! command -v 1password &>/dev/null; then
+    log_info "Installing 1Password..."
+    curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+    echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
+    sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+    curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
+    sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+    curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+    sudo apt update
+    sudo apt install -y 1password
+else
+    log_ok "1Password is already installed, skipping"
+fi
+
+# Brave Browser
+if ! command -v brave-browser &>/dev/null; then
+    log_info "Installing Brave Browser..."
+    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+    sudo apt update
+    sudo apt install -y brave-browser
+else
+    log_ok "Brave is already installed, skipping"
+fi
+
+# Tailscale
+if ! command -v tailscale &>/dev/null; then
+    log_info "Installing Tailscale..."
+    curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+    curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+    sudo apt-get update
+    sudo apt-get install -y tailscale
+else
+    log_ok "Tailscale is already installed, skipping"
+fi
+
+# Wezterm
+if ! command -v wezterm &>/dev/null; then
+    log_info "Installing Wezterm..."
+    curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
+    echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+    sudo chmod 644 /usr/share/keyrings/wezterm-fury.gpg
+    sudo apt update
+    sudo apt install -y wezterm
+else
+    log_ok "Wezterm is already installed, skipping"
+fi
+
+# Papirus icons for Rofi
+sudo add-apt-repository ppa:papirus/papirus
+sudo apt-get update
+sudo apt-get install papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
+
+gsettings set org.gnome.desktop.interface text-scaling-factor 1.0
+
+# Keyboard settings
+gsettings set org.gnome.desktop.peripherals.keyboard delay 190
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 15
+gsettings set org.gnome.desktop.peripherals.mouse speed -0.3
+
+# Manual installs (reference):
+# Build cmake from source: https://cmake.org/files/v$CMAKE_VERSION/cmake-$CMAKE_VERSION.tar.gz
+# fzf: install script from https://github.com/junegunn/fzf
+# Neovim from source: https://github.com/neovim/neovim
+# tmux from source: https://github.com/tmux/tmux/wiki/Installing
+# ninja from source: https://github.com/ninja-build/ninja
+# lazygit (requires Go): https://github.com/jesseduffield/lazygit
+# timewarrior from source: https://github.com/GothenburgBitFactory/timewarrior
+# NVIDIA: sudo apt-add-repository -y ppa:system76-dev/stable && sudo apt install system76-driver-nvidia
+# Flatpak apps: OBS, Spotify, Discord, Flatseal
+# Steam: install from website

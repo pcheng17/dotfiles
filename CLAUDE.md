@@ -5,10 +5,11 @@ Personal dotfiles for macOS and Linux (Ubuntu). Managed via symlinks, not a syml
 ## Repository Structure
 
 ```
-configure          # Main entry point: ./configure [home|work]
-install            # Bootstrap script (Homebrew, oh-my-zsh)
-setup              # Linux (apt) package installation
+setup              # Main entry point: ./setup [home|work]
+scripts/           # Modular install scripts (packages-macos.sh, packages-linux.sh, links.sh)
 helper/            # Bash utilities for symlinks, defaults, printing
+install            # Deprecated — delegates to ./setup home --packages-only
+configure          # Deprecated — delegates to ./setup [home|work] --links-only
 zsh/               # Shell config (zshrc, aliases, p10k, per-host files)
 tmux/              # tmux config and scripts
 nvim/              # LazyVim-based neovim config
@@ -25,13 +26,19 @@ private/           # Gitignored work-specific overrides
 
 ## Setup Flow
 
-1. `./install` — bootstrap (Homebrew on macOS, oh-my-zsh)
-2. `./setup` — install Linux packages (Ubuntu only)
-3. `./configure home` or `./configure work` — create symlinks and set OS defaults
+```
+./setup home    # or: ./setup work
+```
 
-`configure` has two modes:
+Detects OS automatically, installs packages, and applies symlinks in one step.
+
+Options:
+- `--packages-only` — only install/update packages (skip symlinks)
+- `--links-only` — only apply symlinks and git config (skip packages)
+
+`setup` has two modes:
 - **home**: personal zshrc, personal Brewfile, aerospace.toml
-- **work**: private zshrc, private Brewfile, aerospace-work.toml
+- **work**: work-specific configs from `private/` (must be populated first)
 - Both share: tmux, nvim, lazygit, wezterm, aliases, git config, OS-specific settings
 
 ## Conventions
