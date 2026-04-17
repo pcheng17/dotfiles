@@ -73,7 +73,7 @@ setup_common() {
             symlink "$DOTFILES_DIR/xprofile" "$HOME/.xprofile"
             ;;
         *)
-            log_error "Unsupported OS: $OSTYPE"
+            printf "Unsupported OS: $OSTYPE"
             exit 1
             ;;
     esac
@@ -89,7 +89,7 @@ case "$MODE" in
         setup_common
         ;;
     *)
-        log_info "Usage: MODE=home|work ./scripts/links.sh"
+        printf "Usage: MODE=home|work ./scripts/links.sh"
         exit 1
         ;;
 esac
