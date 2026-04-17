@@ -1,7 +1,8 @@
 #!/bin/sh
 
-. ./helper/cmd.sh
-. ./helper/print.sh
+source ./helper/cmd.sh
+source ./helper/print.sh
+source ./helper/log.sh
 
 create_missing_dirs() {
     if [ ! -e "$1" ]; then

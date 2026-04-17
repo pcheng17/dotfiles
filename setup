@@ -29,7 +29,6 @@ export MODE
 OS="$(uname -s)"
 
 if [[ "$RUN_PACKAGES" == true ]]; then
-    print_header "Installing packages"
     case "$OS" in
         Darwin) source "${DOTFILES_DIR}/scripts/packages-macos.sh" ;;
         Linux)  source "${DOTFILES_DIR}/scripts/packages-linux.sh" ;;
@@ -38,6 +37,5 @@ if [[ "$RUN_PACKAGES" == true ]]; then
 fi
 
 if [[ "$RUN_LINKS" == true ]]; then
-    print_header "Applying symlinks and config"
     source "${DOTFILES_DIR}/scripts/links.sh"
 fi

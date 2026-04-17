@@ -1,6 +1,7 @@
 #!/bin/bash
 
-. ./helper/print.sh
+source ./helper/print.sh
+source ./helper/log.sh
 
 cmd_exists() {
     command -v "$1" > /dev/null 2>&1
@@ -19,9 +20,9 @@ eval_cmd() {
 
     clear_lines 2
     if [ "$status" -ne 0 ]; then
-        print_error "$1" "$(cat /tmp/error)"
+        log_error "$1" "$(cat /tmp/error)"
         exit 1
     else
-        print_ok "$1"
+        log_ok "$1"
     fi
 }

@@ -2,6 +2,7 @@
 
 source "${DOTFILES_DIR}/helper/defaults.sh"
 source "${DOTFILES_DIR}/helper/git.sh"
+source "${DOTFILES_DIR}/helper/log.sh"
 source "${DOTFILES_DIR}/helper/symlink.sh"
 
 print_section() {
@@ -9,7 +10,7 @@ print_section() {
 }
 
 setup_personal_symlinks() {
-    print_section "Setting up personal symlinks"
+    log_info "Symlinking personal configs..."
     symlink "$DOTFILES_DIR/zsh/zshrc" "$HOME/.zshrc"
     symlink "$DOTFILES_DIR/bin" "$HOME/bin"
     if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -19,9 +20,9 @@ setup_personal_symlinks() {
 }
 
 setup_work_symlinks() {
-    print_section "Setting up work symlinks"
+    log_info "Symlinking work configs..."
     if [[ ! -d "$DOTFILES_DIR/private" ]] || [[ -z "$(ls -A "$DOTFILES_DIR/private" 2>/dev/null | grep -v '^\.keep$')" ]]; then
-        printf "\033[31m[ERROR]\033[0m private/ directory is empty -- work mode requires work-specific configs.\n"
+        log_error "private/ directory is empty -- work mode requires work-specific configs."
         exit 1
     fi
     symlink "$DOTFILES_DIR/private/.zshrc" "$HOME/.zshrc"
@@ -32,15 +33,14 @@ setup_work_symlinks() {
 }
 
 setup_common() {
-    print_section "Setting up common symlinks"
+    log_info "Symlinking common configs..."
     symlink "$DOTFILES_DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
     symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
     symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
     symlink "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
     symlink "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
 
-    echo ""
-    print_section "Global git settings"
+    log_info "Setting git configs..."
     git_set_global core.editor nvim
     git_set_global init.defaultBranch main
     git_set_global include.path "$HOME/.dotfiles/git/aliases"
@@ -51,8 +51,7 @@ setup_common() {
 
     case "$OSTYPE" in
         darwin*)
-            echo ""
-            print_section "Mac settings"
+            log_info "Symlinking macOS-specific configs..."
             symlink "$DOTFILES_DIR/macos/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
             symlink "$DOTFILES_DIR/gh/config.yml" "$HOME/.config/gh/config.yml"
             symlink "$DOTFILES_DIR/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
@@ -68,14 +67,13 @@ setup_common() {
             defaults_set_int com.apple.finder ShowRecentTags 0  # Disable tags in sidebar
             ;;
         linux*)
-            echo ""
-            print_section "Linux settings"
+            log_info "Symlinking Linux-specific configs..."
             symlink "$DOTFILES_DIR/polybar" "$HOME/.config/polybar"
             symlink "$DOTFILES_DIR/i3" "$HOME/.config/i3"
             symlink "$DOTFILES_DIR/xprofile" "$HOME/.xprofile"
             ;;
         *)
-            echo "Unsupported OS: $OSTYPE"
+            log_error "Unsupported OS: $OSTYPE"
             exit 1
             ;;
     esac
@@ -84,16 +82,14 @@ setup_common() {
 case "$MODE" in
     home)
         setup_personal_symlinks
-        echo ""
         setup_common
         ;;
     work)
         setup_work_symlinks
-        echo ""
         setup_common
         ;;
     *)
-        printf "\033[31m[ERROR]\033[0m Unknown mode: %s\n" "$MODE"
+        log_info "Usage: MODE=home|work ./scripts/links.sh"
         exit 1
         ;;
 esac
