@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-. "${DOTFILES_DIR}/helper/log.sh"
+source "${DOTFILES_DIR}/helper/log.sh"
 
 CMAKE_VERSION=4.0.2
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-. "${DOTFILES_DIR}/helper/defaults.sh"
-. "${DOTFILES_DIR}/helper/git.sh"
-. "${DOTFILES_DIR}/helper/symlink.sh"
+source "${DOTFILES_DIR}/helper/defaults.sh"
+source "${DOTFILES_DIR}/helper/git.sh"
+source "${DOTFILES_DIR}/helper/symlink.sh"
 
 setup_personal_symlinks() {
     echo "Setting up personal symlinks"

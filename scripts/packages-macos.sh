@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-. "${DOTFILES_DIR}/helper/log.sh"
+source "${DOTFILES_DIR}/helper/log.sh"
 
 BREW_TAPS=(
     "jesseduffield/lazygit"
