@@ -101,6 +101,7 @@ for pkg in "${BREW_PACKAGES[@]}"; do
     if brew list --formula "$pkg" &>/dev/null; then
         log_ok "$pkg already installed."
     else
+        log_info "Queuing $pkg for installation..."
         missing_packages+=("$pkg")
     fi
 done
@@ -110,6 +111,7 @@ for cask in "${BREW_CASKS[@]}"; do
     if brew list --cask "$cask" &>/dev/null; then
         log_ok "$cask already installed."
     else
+        log_info "Queuing $cask for installation..."
         missing_casks+=("$cask")
     fi
 done
