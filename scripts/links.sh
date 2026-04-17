@@ -4,9 +4,12 @@ source "${DOTFILES_DIR}/helper/defaults.sh"
 source "${DOTFILES_DIR}/helper/git.sh"
 source "${DOTFILES_DIR}/helper/symlink.sh"
 
+print_section() {
+    printf "\033[95m➤ %s\033[0m\n" "$1"
+}
+
 setup_personal_symlinks() {
-    echo "Setting up personal symlinks"
-    echo "==========================================="
+    print_section "Setting up personal symlinks"
     symlink "$DOTFILES_DIR/zsh/zshrc" "$HOME/.zshrc"
     symlink "$DOTFILES_DIR/bin" "$HOME/bin"
     if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -16,8 +19,7 @@ setup_personal_symlinks() {
 }
 
 setup_work_symlinks() {
-    echo "Setting up work symlinks"
-    echo "==========================================="
+    print_section "Setting up work symlinks"
     if [[ ! -d "$DOTFILES_DIR/private" ]] || [[ -z "$(ls -A "$DOTFILES_DIR/private" 2>/dev/null | grep -v '^\.keep$')" ]]; then
         printf "\033[31m[ERROR]\033[0m private/ directory is empty -- work mode requires work-specific configs.\n"
         exit 1
@@ -30,8 +32,7 @@ setup_work_symlinks() {
 }
 
 setup_common() {
-    echo "Setting up common symlinks"
-    echo "==========================================="
+    print_section "Setting up common symlinks"
     symlink "$DOTFILES_DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
     symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
     symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
@@ -39,8 +40,7 @@ setup_common() {
     symlink "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
 
     echo ""
-    echo "Global git settings"
-    echo "==========================================="
+    print_section "Global git settings"
     git_set_global core.editor nvim
     git_set_global init.defaultBranch main
     git_set_global include.path "$HOME/.dotfiles/git/aliases"
@@ -52,8 +52,7 @@ setup_common() {
     case "$OSTYPE" in
         darwin*)
             echo ""
-            echo "Mac settings"
-            echo "==========================================="
+            print_section "Mac settings"
             symlink "$DOTFILES_DIR/macos/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
             symlink "$DOTFILES_DIR/gh/config.yml" "$HOME/.config/gh/config.yml"
             symlink "$DOTFILES_DIR/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
@@ -70,8 +69,7 @@ setup_common() {
             ;;
         linux*)
             echo ""
-            echo "Linux settings"
-            echo "==========================================="
+            print_section "Linux settings"
             symlink "$DOTFILES_DIR/polybar" "$HOME/.config/polybar"
             symlink "$DOTFILES_DIR/i3" "$HOME/.config/i3"
             symlink "$DOTFILES_DIR/xprofile" "$HOME/.xprofile"
