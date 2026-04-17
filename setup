@@ -4,7 +4,8 @@ set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export DOTFILES_DIR
 
-. "${DOTFILES_DIR}/helper/print.sh"
+source "${DOTFILES_DIR}/helper/print.sh"
+source "${DOTFILES_DIR}/helper/log.sh"
 
 MODE=""
 RUN_PACKAGES=true
@@ -30,13 +31,13 @@ OS="$(uname -s)"
 if [[ "$RUN_PACKAGES" == true ]]; then
     print_header "Installing packages"
     case "$OS" in
-        Darwin) . "${DOTFILES_DIR}/scripts/packages-macos.sh" ;;
-        Linux)  . "${DOTFILES_DIR}/scripts/packages-linux.sh" ;;
+        Darwin) source "${DOTFILES_DIR}/scripts/packages-macos.sh" ;;
+        Linux)  source "${DOTFILES_DIR}/scripts/packages-linux.sh" ;;
         *)      printf "Unsupported OS: %s\n" "$OS"; exit 1 ;;
     esac
 fi
 
 if [[ "$RUN_LINKS" == true ]]; then
     print_header "Applying symlinks and config"
-    . "${DOTFILES_DIR}/scripts/links.sh"
+    source "${DOTFILES_DIR}/scripts/links.sh"
 fi
