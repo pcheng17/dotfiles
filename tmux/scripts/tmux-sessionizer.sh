@@ -26,6 +26,7 @@ else
     selected=(
         $(fd --max-depth 1 --type d . \
             "$HOME/dev" \
+            "$HOME/Workspace" \
             "$HOME/work" \
             "$HOME/git" \
             "$HOME/git/roblox" \
