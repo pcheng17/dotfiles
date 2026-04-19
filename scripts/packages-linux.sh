@@ -17,6 +17,7 @@ sudo apt install -y mpv                                                         
 sudo apt install -y neofetch                                                     # CLI system information
 sudo apt install -y just                                                         # CLI command runner
 sudo apt install -y ripgrep                                                      # CLI better grep
+sudo apt install -y fd-find                                                      # CLI better find
 sudo apt install -y zsh                                                          # Shell
 sudo apt install -y build-essential libtool autoconf g++-12 gcc-12               # Build tools
 sudo apt install -y libglfw3-dev                                                 # C++ graphics
