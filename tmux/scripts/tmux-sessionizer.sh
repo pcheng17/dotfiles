@@ -20,11 +20,20 @@ hydrate() {
     fi
 }
 
+if command -v fd &>/dev/null; then
+    FD=fd
+elif command -v fdfind &>/dev/null; then
+    FD=fdfind
+else
+    echo "tmux-sessionizer: fd/fdfind not found" >&2
+    exit 1
+fi
+
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
     selected=(
-        $(fd --max-depth 1 --type d . \
+        $($FD --max-depth 1 --type d . \
             "$HOME/dev" \
             "$HOME/Workspace" \
             "$HOME/work" \
