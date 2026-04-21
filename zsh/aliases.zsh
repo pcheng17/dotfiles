@@ -25,6 +25,7 @@ alias gc='git commit'
 
 alias gcob='git branch | fzf --height=50% | xargs git checkout'
 alias gbd='git branch | fzf -m | xargs git branch -D'
+alias uncommit='git reset --soft HEAD~1'
 
 alias lg='lazygit'
 alias v='nvim'
