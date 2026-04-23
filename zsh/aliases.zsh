@@ -23,6 +23,10 @@ alias gs='git status --short'
 alias ga='git add'
 alias gc='git commit'
 
+alias gwa='git worktree add'
+alias gwrm='git worktree remove'
+alias gwls='git worktree list'
+
 alias gcob='git branch | fzf --height=50% | xargs git checkout'
 alias gbd='git branch | fzf -m | xargs git branch -D'
 alias uncommit='git reset --soft HEAD~1'
