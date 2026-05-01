@@ -75,6 +75,14 @@ else
     log_ok "zsh-autosuggestions is already installed, skipping"
 fi
 
+# Install tmux plugin manager
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    log_info "Installing tmux plugin manager..."
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+    log_ok "tmux plugin manager already installed."
+fi
+
 # 1Password
 if ! command -v 1password &>/dev/null; then
     log_info "Installing 1Password..."

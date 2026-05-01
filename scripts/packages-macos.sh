@@ -114,6 +114,14 @@ else
     log_ok "oh-my-zsh already installed."
 fi
 
+# Install tmux plugin manager
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    log_info "Installing tmux plugin manager..."
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+    log_ok "tmux plugin manager already installed."
+fi
+
 # Install Rust/Cargo via rustup
 if ! command -v cargo &>/dev/null; then
     log_info "Installing Rust via rustup..."
