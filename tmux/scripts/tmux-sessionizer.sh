@@ -40,6 +40,7 @@ else
             "$HOME/git" \
             "$HOME/git/roblox" \
             "$HOME/git/roblox/game-engine" \
+            "$HOME/git/roblox/game-engine/.claude/worktrees" \
             2>/dev/null)
         "$HOME/.dotfiles"
         "$HOME/.dotclaude"
