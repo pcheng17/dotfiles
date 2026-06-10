@@ -2,8 +2,6 @@ _exists() {
     command -v $1 > /dev/null 2>&1
 }
 
-alias l='ls -lhF'
-# alias ll='ls -lhF' # l and ll are identical!
 alias la='ls -AlhF'
 alias qq='~ && clear'
 alias rg='rg --smart-case'
