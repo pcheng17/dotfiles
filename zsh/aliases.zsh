@@ -50,6 +50,7 @@ case "$HOST" in
         ;;
     HQ-LQVW75WPH7) # Roblox laptop (new)
         alias cy='declawd --yolo'
+        ;;
     *)
         alias bkupbrew='TMP="/private/tmp/brewfile_backup_$(date +%s)" && brew bundle dump --file="$TMP" --force && grep -v "^vscode" "$TMP" > ~/.dotfiles/Brewfile && rm "$TMP"'
         ;;
