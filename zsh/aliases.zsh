@@ -44,10 +44,12 @@ case "$OSTYPE" in
 esac
 
 case "$HOST" in
-    HQ-VP606YTPQ2) # Roblox laptop
+    HQ-VP606YTPQ2) # Roblox laptop (old)
         alias bkupbrew='TMP="/private/tmp/brewfile_backup_$(date +%s)" && brew bundle dump --file="$TMP" --force && grep -v "^vscode" "$TMP" > ~/.dotfiles/private/Brewfile && rm "$TMP"'
         alias cy='declawd --yolo'
         ;;
+    HQ-LQVW75WPH7) # Roblox laptop (new)
+        alias cy='declawd --yolo'
     *)
         alias bkupbrew='TMP="/private/tmp/brewfile_backup_$(date +%s)" && brew bundle dump --file="$TMP" --force && grep -v "^vscode" "$TMP" > ~/.dotfiles/Brewfile && rm "$TMP"'
         ;;
