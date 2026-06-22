@@ -38,6 +38,7 @@ sudo apt install -y flameshot                                                   
 sudo apt install -y ethtool                                                      # Network tools
 sudo apt install -y duf                                                          # Disk usage
 sudo apt install -y love
+sudo apt install -y solaar                                                       # Logitech device manager
 
 # Install clang 17
 if ! command -v clang-17 &>/dev/null; then
