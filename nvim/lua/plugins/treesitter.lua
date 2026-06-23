@@ -1,3 +1,8 @@
+if vim.fn.executable("tree-sitter") ~= 1 then
+    vim.notify("tree-sitter CLI is not installed; skipping nvim-treesitter setup", vim.log.levels.WARN)
+    return {}
+end
+
 return {
     {
         "nvim-treesitter/nvim-treesitter",
