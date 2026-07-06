@@ -31,7 +31,16 @@ OS="$(uname -s)"
 if [[ "$RUN_PACKAGES" == true ]]; then
     case "$OS" in
         Darwin) source "${DOTFILES_DIR}/scripts/packages-macos.sh" ;;
-        Linux)  source "${DOTFILES_DIR}/scripts/packages-linux.sh" ;;
+        Linux)
+            if [[ -f /etc/os-release ]]; then
+                source /etc/os-release
+            fi
+            if [[ "${ID:-}" == "arch" || "${ID_LIKE:-}" == *"arch"* ]]; then
+                source "${DOTFILES_DIR}/scripts/packages-arch.sh"
+            else
+                source "${DOTFILES_DIR}/scripts/packages-linux.sh"
+            fi
+            ;;
         *)      printf "Unsupported OS: %s\n" "$OS"; exit 1 ;;
     esac
 fi

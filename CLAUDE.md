@@ -1,6 +1,6 @@
 # Dotfiles
 
-Personal dotfiles for macOS and Linux (Ubuntu). Managed via symlinks, not a symlink manager.
+Personal dotfiles for macOS and Linux (Ubuntu, CachyOS). Managed via symlinks, not a symlink manager.
 
 ## Repository Structure
 
