@@ -38,11 +38,12 @@ PACMAN_PACKAGES=(
     "bison"
     "cmake"
     "ninja"
-    "neovim"
+    "bob"                                             # neovim manager
     "tmux"
     "lazygit"
     "fzf"
     "tailscale"
+    "ttf-jetbrains-mono-nerd"
 )
 
 log_info "Installing pacman packages..."
