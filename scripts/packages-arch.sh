@@ -82,9 +82,16 @@ else
 fi
 
 # Manual installs (reference):
-# 1Password: AUR-only (no AUR helper set up) -- install manually if needed
-# Brave Browser: AUR-only (no AUR helper set up) -- install manually if needed
-# Wezterm: historically AUR-only -- check `pacman -Si wezterm` first, may have landed in extra/community
 # Steam: requires the multilib repo enabled in /etc/pacman.conf, then `pacman -S steam`
 # NVIDIA driver: `nvidia` or `nvidia-open` depending on GPU -- check CachyOS docs for the recommended package
-# Flatpak apps: OBS, Spotify, Discord, Flatseal -- add Flathub remote, then install via flatpak
+
+# Flatpak apps:
+#  - 1Password
+#  - OBS
+#  - Discord
+#  - Zen
+#  - Spotify
+#  - Steam
+#  - Blender
+
+# Wezterm seems to be unsupported on CachyOS
