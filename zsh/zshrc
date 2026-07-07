@@ -26,6 +26,8 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/go/bin:$PATH
+export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 export VCPKG_ROOT="$HOME/vcpkg"
 export EDITOR=$(command -v nvim || command -v vim)
 
@@ -45,14 +47,6 @@ if [ -x "/opt/homebrew/bin/brew" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
     export BREW_PREFIX=$(brew --prefix)
 fi
-
-# pyenv settings
-# https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$PYENV_ROOT/shims:$PATH"
-eval "$(pyenv init - zsh)"
-eval "$(pyenv virtualenv-init -)"
 
 # rbenv settings
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
