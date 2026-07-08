@@ -173,7 +173,7 @@
                     "usePadding": false
                 },
                 {
-                    "displayMode": "onhover",
+                    "displayMode": "alwaysShow",
                     "iconColor": "none",
                     "id": "Volume",
                     "middleClickCommand": "pwvucontrol || pavucontrol",
@@ -432,12 +432,12 @@
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
-        "name": "",
+        "name": "Sunnyvale, CA",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
-        "use12hourFormat": false,
-        "useFahrenheit": false,
+        "use12hourFormat": true,
+        "useFahrenheit": true,
         "weatherEnabled": true,
         "weatherShowEffects": true,
         "weatherTaliaMascotAlways": false
