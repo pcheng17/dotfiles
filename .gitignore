@@ -3,6 +3,7 @@ private/*
 !private/.keep
 nvim/lazy-lock.json
 lazygit/state.yml
+noctalia/plugins/
 *.spl
 secrets.lua
 bin/secrets/
