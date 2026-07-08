@@ -120,7 +120,9 @@
                     "showText": true,
                     "textColor": "none",
                     "useFixedWidth": false
-                },
+                }
+            ],
+            "right": [
                 {
                     "compactMode": false,
                     "hideMode": "hidden",
@@ -132,13 +134,11 @@
                     "showAlbumArt": true,
                     "showArtistFirst": true,
                     "showProgressRing": true,
-                    "showVisualizer": false,
+                    "showVisualizer": true,
                     "textColor": "none",
                     "useFixedWidth": false,
                     "visualizerType": "linear"
-                }
-            ],
-            "right": [
+                },
                 {
                     "blacklist": [
                     ],
