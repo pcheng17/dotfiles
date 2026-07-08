@@ -68,9 +68,13 @@ setup_common() {
             ;;
         linux*)
             log_info "Symlinking Linux-specific configs..."
-            symlink "$DOTFILES_DIR/polybar" "$HOME/.config/polybar"
-            symlink "$DOTFILES_DIR/i3" "$HOME/.config/i3"
-            symlink "$DOTFILES_DIR/xprofile" "$HOME/.xprofile"
+            if [[ "${IS_ARCH:-false}" == "true" ]]; then
+                symlink "$DOTFILES_DIR/niri" "$HOME/.config/niri"
+            else
+                symlink "$DOTFILES_DIR/polybar" "$HOME/.config/polybar"
+                symlink "$DOTFILES_DIR/i3" "$HOME/.config/i3"
+                symlink "$DOTFILES_DIR/xprofile" "$HOME/.xprofile"
+            fi
             ;;
         *)
             printf "Unsupported OS: $OSTYPE"

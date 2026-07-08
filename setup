@@ -28,14 +28,24 @@ fi
 export MODE
 OS="$(uname -s)"
 
+IS_ARCH=false
+if [[ "$OS" == "Linux" ]]; then
+    if [[ -f /etc/os-release ]]; then
+        source /etc/os-release
+    fi
+    if [[ "${ID:-}" == "arch" || "${ID_LIKE:-}" == *"arch"* ]]; then
+        IS_ARCH=true
+    fi
+fi
+export IS_ARCH
+
+log_info "Detected OS: $OS${ID:+ ($ID)}"
+
 if [[ "$RUN_PACKAGES" == true ]]; then
     case "$OS" in
         Darwin) source "${DOTFILES_DIR}/scripts/packages-macos.sh" ;;
         Linux)
-            if [[ -f /etc/os-release ]]; then
-                source /etc/os-release
-            fi
-            if [[ "${ID:-}" == "arch" || "${ID_LIKE:-}" == *"arch"* ]]; then
+            if [[ "$IS_ARCH" == true ]]; then
                 source "${DOTFILES_DIR}/scripts/packages-arch.sh"
             else
                 source "${DOTFILES_DIR}/scripts/packages-linux.sh"
