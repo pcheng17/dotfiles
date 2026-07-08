@@ -70,6 +70,7 @@ setup_common() {
             log_info "Symlinking Linux-specific configs..."
             if [[ "${IS_ARCH:-false}" == "true" ]]; then
                 symlink "$DOTFILES_DIR/niri" "$HOME/.config/niri"
+                symlink "$DOTFILES_DIR/alacritty" "$HOME/.config/alacritty"
             else
                 symlink "$DOTFILES_DIR/polybar" "$HOME/.config/polybar"
                 symlink "$DOTFILES_DIR/i3" "$HOME/.config/i3"
