@@ -3,125 +3,146 @@ if vim.fn.executable("tree-sitter") ~= 1 then
     return {}
 end
 
+local parsers = {
+    "bash",
+    "c",
+    "cpp",
+    "diff",
+    "go",
+    "html",
+    "javascript",
+    "jsdoc",
+    "json",
+    "lua",
+    "luadoc",
+    "luap",
+    "markdown",
+    "markdown_inline",
+    "odin",
+    "python",
+    "query",
+    "regex",
+    "toml",
+    "tsx",
+    "typescript",
+    "vim",
+    "vimdoc",
+    "yaml",
+}
+
+local select_keymaps = {
+    ["a="] = { "@assignment.outer",  "Select outer part of an assignment" },
+    ["i="] = { "@assignment.inner",  "Select inner part of an assignment" },
+    ["l="] = { "@assignment.lhs",    "Select left hand side of an assignment" },
+    ["r="] = { "@assignment.rhs",    "Select right hand side of an assignment" },
+    ["aa"] = { "@parameter.outer",   "Select outer part of a argument" },
+    ["ia"] = { "@parameter.inner",   "Select inner part of a argument" },
+    ["af"] = { "@call.outer",        "Select outer part of a function call" },
+    ["if"] = { "@call.inner",        "Select inner part of a function call" },
+    ["am"] = { "@function.outer",    "Select outer part of a method definition" },
+    ["im"] = { "@function.inner",    "Select inner part of a method definition" },
+    ["ac"] = { "@class.outer",       "Select outer part of a class" },
+    ["ic"] = { "@class.inner",       "Select inner part of a class" },
+    ["ai"] = { "@conditional.outer", "Select outer part of a conditional" },
+    ["ii"] = { "@conditional.inner", "Select inner part of a conditional" },
+    ["al"] = { "@loop.outer",        "Select outer part of a loop" },
+    ["il"] = { "@loop.inner",        "Select inner part of a loop" },
+}
+
+local move_keymaps = {
+    goto_next_start = {
+        ["]f"] = { "@call.outer",        "Go to next function call start" },
+        ["]m"] = { "@function.outer",    "Go to next method definition start" },
+        ["]c"] = { "@class.outer",       "Go to next class start" },
+        ["]i"] = { "@conditional.outer", "Go to next conditional start" },
+        ["]l"] = { "@loop.outer",        "Go to next loop start" },
+    },
+    goto_next_end = {
+        ["]F"] = { "@call.outer",        "Go to next function call end" },
+        ["]M"] = { "@function.outer",    "Go to next method definition end" },
+        ["]C"] = { "@class.outer",       "Go to next class end" },
+        ["]I"] = { "@conditional.outer", "Go to next conditional end" },
+        ["]L"] = { "@loop.outer",        "Go to next loop end" },
+    },
+    goto_previous_start = {
+        ["[f"] = { "@call.outer",        "Go to previous function call start" },
+        ["[m"] = { "@function.outer",    "Go to previous method definition start" },
+        ["[c"] = { "@class.outer",       "Go to previous class start" },
+        ["[i"] = { "@conditional.outer", "Go to previous conditional start" },
+        ["[l"] = { "@loop.outer",        "Go to previous loop start" },
+    },
+    goto_previous_end = {
+        ["[F"] = { "@call.outer",        "Go to previous function call end" },
+        ["[M"] = { "@function.outer",    "Go to previous method definition end" },
+        ["[C"] = { "@class.outer",       "Go to previous class end" },
+        ["[I"] = { "@conditional.outer", "Go to previous conditional end" },
+        ["[L"] = { "@loop.outer",        "Go to previous loop end" },
+    },
+}
+
+local swap_keymaps = {
+    swap_next = {
+        ["<leader>na"] = { "@parameter.inner", "Swap argument with next" },
+        ["<leader>nm"] = { "@function.outer",  "Swap method with next" },
+    },
+    swap_previous = {
+        ["<leader>pa"] = { "@parameter.inner", "Swap argument with previous" },
+        ["<leader>pm"] = { "@function.outer",  "Swap method with previous" },
+    },
+}
+
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        -- Pin at this version because it seems like after this version,
-        -- I have issues with nvim-treesitter.configs
-        version = "v0.10.0",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter-textobjects",
-        },
+        branch = "main",
+        lazy = false,
         build = ":TSUpdate",
         config = function()
-            require("nvim-treesitter.configs").setup({
-                highlight = { enable = true },
-                rainbow = { enable = false }, -- this is supposed to fix javascript issues...?
-                ensure_installed = {
-                    "bash",
-                    "c",
-                    "cpp",
-                    "diff",
-                    "go",
-                    "html",
-                    "javascript",
-                    "jsdoc",
-                    "json",
-                    "jsonc",
-                    "lua",
-                    "luadoc",
-                    "luap",
-                    "markdown",
-                    "markdown_inline",
-                    "odin",
-                    "python",
-                    "query",
-                    "regex",
-                    "toml",
-                    "tsx",
-                    "typescript",
-                    "vim",
-                    "vimdoc",
-                    "yaml",
-                },
-                incremental_selection = {
-                    enable = false,
-                    keymaps = {
-                        init_selection = "<CR>",
-                        node_incremental = "<CR>",
-                        scope_incremental = false,
-                        node_decremental = "<Del>",
-                    }
-                },
-                textobjects = {
-                    select = {
-                        enable = true,
-                        lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-                        keymaps = {
-                            ["a="] = { query = "@assignment.outer",  desc = "Select outer part of an assignment" },
-                            ["i="] = { query = "@assignment.inner",  desc = "Select inner part of an assignment" },
-                            ["l="] = { query = "@assignment.lhs",    desc = "Select left hand side of an assignment" },
-                            ["r="] = { query = "@assignment.rhs",    desc = "Select right hand side of an assignment" },
-                            ["aa"] = { query = "@parameter.outer",   desc = "Select outer part of a argument" },
-                            ["ia"] = { query = "@parameter.inner",   desc = "Select inner part of a argument" },
-                            ["af"] = { query = "@call.outer",        desc = "Select outer part of a function call" },
-                            ["if"] = { query = "@call.inner",        desc = "Select inner part of a function call" },
-                            ["am"] = { query = "@function.outer",    desc = "Select outer part of a method definition" },
-                            ["im"] = { query = "@function.inner",    desc = "Select inner part of a method definition" },
-                            ["ac"] = { query = "@class.outer",       desc = "Select outer part of a class" },
-                            ["ic"] = { query = "@class.inner",       desc = "Select inner part of a class" },
-                            ["ai"] = { query = "@conditional.outer", desc = "Select outer part of a conditional" },
-                            ["ii"] = { query = "@conditional.inner", desc = "Select inner part of a conditional" },
-                            ["al"] = { query = "@loop.outer",        desc = "Select outer part of a loop" },
-                            ["il"] = { query = "@loop.inner",        desc = "Select inner part of a loop" },
-                        },
-                    },
-                    move = {
-                        enable = true,
-                        set_jumps = true, -- Whether to set jumps in the jumplist
-                        goto_next_start = {
-                            ["]f"] = { query = "@call.outer",        desc = "Go to next function call start" },
-                            ["]m"] = { query = "@function.outer",    desc = "Go to next method definition start" },
-                            ["]c"] = { query = "@class.outer",       desc = "Go to next class start" },
-                            ["]i"] = { query = "@conditional.outer", desc = "Go to next conditional start" },
-                            ["]l"] = { query = "@loop.outer",        desc = "Go to next loop start" },
-                        },
-                        goto_next_end = {
-                            ["]F"] = { query = "@call.outer",        desc = "Go to next function call end" },
-                            ["]M"] = { query = "@function.outer",    desc = "Go to next method definition end" },
-                            ["]C"] = { query = "@class.outer",       desc = "Go to next class end" },
-                            ["]I"] = { query = "@conditional.outer", desc = "Go to next conditional end" },
-                            ["]L"] = { query = "@loop.outer",        desc = "Go to next loop end" },
-                        },
-                        goto_previous_start = {
-                            ["[f"] = { query = "@call.outer",        desc = "Go to previous function call start" },
-                            ["[m"] = { query = "@function.outer",    desc = "Go to previous method definition start" },
-                            ["[c"] = { query = "@class.outer",       desc = "Go to previous class start" },
-                            ["[i"] = { query = "@conditional.outer", desc = "Go to previous conditional start" },
-                            ["[l"] = { query = "@loop.outer",        desc = "Go to previous loop start" },
-                        },
-                        goto_previous_end = {
-                            ["[F"] = { query = "@call.outer",        desc = "Go to previous function call end" },
-                            ["[M"] = { query = "@function.outer",    desc = "Go to previous method definition end" },
-                            ["[C"] = { query = "@class.outer",       desc = "Go to previous class end" },
-                            ["[I"] = { query = "@conditional.outer", desc = "Go to previous conditional end" },
-                            ["[L"] = { query = "@loop.outer",        desc = "Go to previous loop end" },
-                        },
-                    },
-                    swap = {
-                        enable = true,
-                        swap_next = {
-                            ["<leader>na"] = { query = "@parameter.inner", desc = "Swap argument with next" },
-                            ["<leader>nm"] = { query = "@function.outer",  desc = "Swap method with next" },
-                        },
-                        swap_previous = {
-                            ["<leader>pa"] = { query = "@parameter.inner", desc = "Swap argument with previous" },
-                            ["<leader>pm"] = { query = "@function.outer",  desc = "Swap method with previous" },
-                        },
-                    },
-                },
+            require("nvim-treesitter").setup()
+            require("nvim-treesitter").install(parsers)
+
+            -- Highlighting is no longer automatic on the main branch. Start it per
+            -- buffer, tolerating filetypes whose parser is absent or still installing.
+            vim.api.nvim_create_autocmd("FileType", {
+                group = vim.api.nvim_create_augroup("treesitter_start", { clear = true }),
+                callback = function(ev)
+                    pcall(vim.treesitter.start, ev.buf)
+                end,
             })
-        end
+        end,
+    },
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        branch = "main",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        config = function()
+            require("nvim-treesitter-textobjects").setup({
+                select = { lookahead = true },
+                move = { set_jumps = true },
+            })
+
+            for lhs, spec in pairs(select_keymaps) do
+                vim.keymap.set({ "x", "o" }, lhs, function()
+                    require("nvim-treesitter-textobjects.select").select_textobject(spec[1], "textobjects")
+                end, { silent = true, desc = spec[2] })
+            end
+
+            for fn, keymaps in pairs(move_keymaps) do
+                for lhs, spec in pairs(keymaps) do
+                    vim.keymap.set({ "n", "x", "o" }, lhs, function()
+                        require("nvim-treesitter-textobjects.move")[fn](spec[1], "textobjects")
+                    end, { silent = true, desc = spec[2] })
+                end
+            end
+
+            for fn, keymaps in pairs(swap_keymaps) do
+                for lhs, spec in pairs(keymaps) do
+                    vim.keymap.set("n", lhs, function()
+                        require("nvim-treesitter-textobjects.swap")[fn](spec[1])
+                    end, { silent = true, desc = spec[2] })
+                end
+            end
+        end,
     },
     {
         "nvim-treesitter/nvim-treesitter-context",
