@@ -22,7 +22,7 @@ input {
         // If you want to disable Mouse Acceleration,
         // uncomment the lines below.
         //accel-profile "flat"
-        accel-speed -0.38
+        accel-speed -0.4
     }
 
     focus-follows-mouse // Automatically focus windows under the mouse pointer
