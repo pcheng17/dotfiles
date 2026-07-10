@@ -3,47 +3,50 @@
 source "${DOTFILES_DIR}/helper/log.sh"
 
 PACMAN_PACKAGES=(
+    "autoconf"
+    "base-devel"
+    "bison"
+    "bob"                                             # neovim manager
+    "btop"                                            # System monitor
+    "bzip2"
+    "clang"                                           # Includes clang-format
+    "cmake"
     "curl"
-    "ffmpeg"                                          # CLI video processing
-    "libnotify"                                       # CLI system notifications
-    "mpv"                                             # CLI media player
+    "duf"                                             # Disk usage
+    "ethtool"                                         # Network tools
     "fastfetch"                                       # CLI system information
-    "just"                                            # CLI command runner
-    "ripgrep"                                         # CLI better grep
     "fd"                                              # CLI better find
+    "ffmpeg"                                          # CLI video processing
+    "flatpak"
+    "fzf"
+    "glfw-x11"                                        # C++ graphics
+    "just"                                            # CLI command runner
+    "lazygit"
+    "libevent"
+    "libnotify"                                       # CLI system notifications
+    "libtool"
+    "love"
+    "mpv"                                             # CLI media player
+    "ncurses"
+    "ninja"
+    "nodejs"
+    "npm"
+    "openssl"
+    "pkgconf"
+    "readline"
+    "ripgrep"                                         # CLI better grep
+    "solaar"                                          # Logitech device manager
+    "sqlite"
+    "tailscale"
+    "tk"
+    "tmux"
+    "tree-sitter-cli"
+    "ttf-jetbrains-mono-nerd"
     "unzip"
     "wget"
-    "btop"                                            # System monitor
     "wl-clipboard"                                    # Clipboard (Wayland)
-    "ethtool"                                         # Network tools
-    "duf"                                             # Disk usage
-    "love"
-    "solaar"                                          # Logitech device manager
-    "flatpak"
-    "zsh"
-    "base-devel"
-    "libtool"
-    "autoconf"
-    "clang"                                           # Includes clang-format
-    "glfw-x11"                                        # C++ graphics
     "xz"
-    "tk"
-    "sqlite"
-    "bzip2"
-    "readline"
-    "openssl"
-    "libevent"
-    "ncurses"
-    "pkgconf"
-    "bison"
-    "cmake"
-    "ninja"
-    "bob"                                             # neovim manager
-    "tmux"
-    "lazygit"
-    "fzf"
-    "tailscale"
-    "ttf-jetbrains-mono-nerd"
+    "zsh"
 )
 
 log_info "Installing pacman packages..."
