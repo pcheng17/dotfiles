@@ -9,8 +9,8 @@ input {
             //layout "us" // Use the American keyboard layout
         }
         numlock // Enable numlock on startup
-        repeat-delay 175
-        repeat-rate 78
+        repeat-delay 180
+        repeat-rate 80
     }
 
     touchpad {
@@ -22,7 +22,7 @@ input {
         // If you want to disable Mouse Acceleration,
         // uncomment the lines below.
         //accel-profile "flat"
-        accel-speed -0.4
+        accel-speed -0.45
     }
 
     focus-follows-mouse // Automatically focus windows under the mouse pointer
