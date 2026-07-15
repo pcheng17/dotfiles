@@ -6,6 +6,7 @@ PACMAN_PACKAGES=(
     "autoconf"
     "base-devel"
     "bison"
+    "blender"
     "bob"                                             # neovim manager
     "btop"                                            # System monitor
     "bzip2"
