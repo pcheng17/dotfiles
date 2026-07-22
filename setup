@@ -9,20 +9,24 @@ source "${DOTFILES_DIR}/helper/log.sh"
 MODE=""
 RUN_PACKAGES=true
 RUN_LINKS=true
+DRY_RUN=false
 
 for arg in "$@"; do
     case "$arg" in
         home|work) MODE="$arg" ;;
         --packages-only) RUN_LINKS=false ;;
         --links-only) RUN_PACKAGES=false ;;
+        --dry-run) DRY_RUN=true ;;
         *) printf "Unknown argument: %s\n" "$arg"; exit 1 ;;
     esac
 done
 
 if [[ -z "$MODE" ]]; then
-    printf "Usage: %s [home|work] [--packages-only|--links-only]\n" "$0"
+    printf "Usage: %s [home|work] [--packages-only|--links-only] [--dry-run]\n" "$0"
     exit 1
 fi
+
+export DRY_RUN
 
 export MODE
 OS="$(uname -s)"
@@ -40,17 +44,21 @@ export IS_ARCH
 log_info "Detected OS: $OS${OS_ID:+ ($OS_ID)}"
 
 if [[ "$RUN_PACKAGES" == true ]]; then
-    case "$OS" in
-        Darwin) source "${DOTFILES_DIR}/scripts/packages-macos.sh" ;;
-        Linux)
-            if [[ "$IS_ARCH" == true ]]; then
-                source "${DOTFILES_DIR}/scripts/packages-arch.sh"
-            else
-                source "${DOTFILES_DIR}/scripts/packages-linux.sh"
-            fi
-            ;;
-        *)      printf "Unsupported OS: %s\n" "$OS"; exit 1 ;;
-    esac
+    if [[ "$DRY_RUN" == true ]]; then
+        log_info "Dry run: skipping package installation (would install packages for $OS)"
+    else
+        case "$OS" in
+            Darwin) source "${DOTFILES_DIR}/scripts/packages-macos.sh" ;;
+            Linux)
+                if [[ "$IS_ARCH" == true ]]; then
+                    source "${DOTFILES_DIR}/scripts/packages-arch.sh"
+                else
+                    source "${DOTFILES_DIR}/scripts/packages-linux.sh"
+                fi
+                ;;
+            *)      printf "Unsupported OS: %s\n" "$OS"; exit 1 ;;
+        esac
+    fi
 fi
 
 if [[ "$RUN_LINKS" == true ]]; then
