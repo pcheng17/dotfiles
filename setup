@@ -29,17 +29,16 @@ export MODE
 OS="$(uname -s)"
 
 IS_ARCH=false
-if [[ "$OS" == "Linux" ]]; then
-    if [[ -f /etc/os-release ]]; then
-        source /etc/os-release
-    fi
-    if [[ "${ID:-}" == "arch" || "${ID_LIKE:-}" == *"arch"* ]]; then
+if [[ "$OS" == "Linux" && -f /etc/os-release ]]; then
+    OS_ID="$(. /etc/os-release && echo "${ID:-}")"
+    OS_ID_LIKE="$(. /etc/os-release && echo "${ID_LIKE:-}")"
+    if [[ "$OS_ID" == "arch" || "$OS_ID_LIKE" == *"arch"* ]]; then
         IS_ARCH=true
     fi
 fi
 export IS_ARCH
 
-log_info "Detected OS: $OS${ID:+ ($ID)}"
+log_info "Detected OS: $OS${OS_ID:+ ($OS_ID)}"
 
 if [[ "$RUN_PACKAGES" == true ]]; then
     case "$OS" in
