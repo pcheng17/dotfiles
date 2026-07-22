@@ -1,6 +1,5 @@
 #!/bin/bash
 
-source "${DOTFILES_DIR}/helper/print.sh"
 source "${DOTFILES_DIR}/helper/log.sh"
 
 cmd_exists() {
@@ -13,9 +12,12 @@ eval_cmd() {
         return 0
     fi
 
-    print_running "$1"
+    log_running "$1"
 
-    eval "$2" 2> /tmp/error |
+    local error_file
+    error_file=$(mktemp)
+
+    eval "$2" 2> "$error_file" |
         while IFS= read -r line; do
             clear_line
             printf "%s" "$(echo "$line" | cut -c1-"$(tput cols)")"
@@ -25,9 +27,11 @@ eval_cmd() {
 
     clear_lines 2
     if [ "$status" -ne 0 ]; then
-        log_error "$1" "$(cat /tmp/error)"
+        log_error "$1" "$(cat "$error_file")"
+        rm -f "$error_file"
         exit 1
     else
         log_ok "$1"
+        rm -f "$error_file"
     fi
 }
