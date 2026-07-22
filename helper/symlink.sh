@@ -1,7 +1,6 @@
 #!/bin/sh
 
 source "${DOTFILES_DIR}/helper/cmd.sh"
-source "${DOTFILES_DIR}/helper/print.sh"
 source "${DOTFILES_DIR}/helper/log.sh"
 
 create_missing_dirs() {
@@ -35,7 +34,7 @@ sudo_symlink() {
     local link_file=$2
 
     if [ ! -f "$target_file" ] && [ ! -d "$target_file" ]; then
-        print_error "Neither a file nor a directory" "$target_file"
+        log_error "Neither a file nor a directory: $target_file"
         exit 1
     fi
 

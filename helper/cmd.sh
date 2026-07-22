@@ -1,6 +1,5 @@
 #!/bin/bash
 
-source "${DOTFILES_DIR}/helper/print.sh"
 source "${DOTFILES_DIR}/helper/log.sh"
 
 cmd_exists() {
@@ -8,7 +7,7 @@ cmd_exists() {
 }
 
 eval_cmd() {
-    print_running "$1"
+    log_running "$1"
 
     eval "$2" 2> /tmp/error |
         while IFS= read -r line; do

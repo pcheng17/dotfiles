@@ -4,7 +4,6 @@ set -euo pipefail
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export DOTFILES_DIR
 
-source "${DOTFILES_DIR}/helper/print.sh"
 source "${DOTFILES_DIR}/helper/log.sh"
 
 MODE=""
