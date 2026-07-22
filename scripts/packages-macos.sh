@@ -106,21 +106,8 @@ if [[ ${#missing_casks[@]} -gt 0 ]]; then
     brew install --cask "${missing_casks[@]}"
 fi
 
-# Install oh-my-zsh if not present
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    log_info "Installing oh-my-zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else
-    log_ok "oh-my-zsh already installed."
-fi
-
-# Install tmux plugin manager
-if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-    log_info "Installing tmux plugin manager..."
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-else
-    log_ok "tmux plugin manager already installed."
-fi
+source "${DOTFILES_DIR}/helper/zsh-bootstrap.sh"
+bootstrap_zsh_plugins
 
 # Install Rust/Cargo via rustup
 if ! command -v cargo &>/dev/null; then
