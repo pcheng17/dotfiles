@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source ./helper/print.sh
-source ./helper/log.sh
+source "${DOTFILES_DIR}/helper/print.sh"
+source "${DOTFILES_DIR}/helper/log.sh"
 
 cmd_exists() {
     command -v "$1" > /dev/null 2>&1
