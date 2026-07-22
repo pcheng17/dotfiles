@@ -26,7 +26,7 @@ symlink() {
     fi
 
     name="Symlink $link_file -> $target_file"
-    eval_cmd "$name" "ln -sf $target_file $link_file"
+    eval_cmd "$name" "ln -sf \"$target_file\" \"$link_file\""
 }
 
 sudo_symlink() {
@@ -46,5 +46,5 @@ sudo_symlink() {
     fi
 
     name="Symlink $link_file -> $target_file"
-    eval_cmd "$name" "sudo ln -sf $target_file $link_file"
+    eval_cmd "$name" "sudo ln -sf \"$target_file\" \"$link_file\""
 }
