@@ -8,6 +8,11 @@ cmd_exists() {
 }
 
 eval_cmd() {
+    if [ "${DRY_RUN:-false}" = true ]; then
+        log_dry_run "$1" "would run: $2"
+        return 0
+    fi
+
     print_running "$1"
 
     eval "$2" 2> /tmp/error |

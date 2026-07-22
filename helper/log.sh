@@ -15,3 +15,7 @@ log_warn() {
 log_error() {
     printf "\033[31m[ERROR]\033[0m %s\n" "$1"
 }
+
+log_dry_run() {
+    printf "\033[36m[DRY RUN]\033[0m %s: %s\n" "$1" "$2"
+}
