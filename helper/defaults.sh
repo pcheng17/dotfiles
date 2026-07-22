@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ./helper/cmd.sh
+. "${DOTFILES_DIR}/helper/cmd.sh"
 
 defaults_enable() {
     name="Enable $2"

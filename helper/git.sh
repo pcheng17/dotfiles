@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ./helper/cmd.sh
+. "${DOTFILES_DIR}/helper/cmd.sh"
 
 git_set_global() {
     name="Set $1 to $2"
