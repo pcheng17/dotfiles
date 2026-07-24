@@ -1,0 +1,164 @@
+#!/usr/bin/env bash
+
+set -e
+
+function show_help {
+  cat << EOF
+NAME
+  wt-clean - Remove git worktrees (and their local branches) whose PR has been merged
+
+SYNOPSIS
+  wt-clean [OPTIONS]
+
+DESCRIPTION
+  Looks at every worktree in the current repository (except the main one),
+  checks 'gh pr list --state merged' to see whether each worktree's branch
+  has a merged PR, and removes the worktree plus its local branch for each
+  merged one ('git worktree remove' + 'git branch -d').
+
+  Worktrees whose branch has no merged PR are left untouched.
+
+OPTIONS
+  --dry-run       Show what would be removed without changing anything.
+  --no-interact   Remove every merged worktree without prompting.
+  -h, --help      Show this help message.
+
+  With neither flag, you are prompted individually for each merged worktree.
+  If both are given, --dry-run wins and nothing is removed.
+
+EXAMPLES
+  # Preview what would be cleaned up
+  wt-clean --dry-run
+
+  # Clean up merged worktrees, confirming each one
+  wt-clean
+
+  # Clean up merged worktrees without any prompts
+  wt-clean --no-interact
+
+EOF
+}
+
+dry_run=false
+no_interact=false
+
+for arg in "$@"; do
+  case "$arg" in
+    --dry-run)
+      dry_run=true
+      ;;
+    --no-interact)
+      no_interact=true
+      ;;
+    -h|--help)
+      show_help
+      exit 0
+      ;;
+    *)
+      echo "Error: unknown option '$arg'"
+      echo "Run 'wt-clean --help' for usage information."
+      exit 1
+      ;;
+  esac
+done
+
+if ! command -v gh > /dev/null 2>&1; then
+  echo "Error: 'gh' is required but not installed."
+  exit 1
+fi
+
+if ! command -v jq > /dev/null 2>&1; then
+  echo "Error: 'jq' is required but not installed."
+  exit 1
+fi
+
+if ! git rev-parse --show-toplevel > /dev/null 2>&1; then
+  echo "Error: not inside a git repository."
+  exit 1
+fi
+
+if ! gh auth status > /dev/null 2>&1; then
+  echo "Error: 'gh' is not authenticated. Run 'gh auth login' first."
+  exit 1
+fi
+
+main_worktree=$(git rev-parse --show-toplevel)
+
+declare -A merged_branches
+while IFS= read -r branch; do
+  [[ -n "$branch" ]] && merged_branches["$branch"]=1
+done < <(gh pr list --state merged --limit 1000 --json headRefName --jq '.[].headRefName')
+
+removed=0
+skipped=0
+declined=0
+failed=0
+
+current_path=""
+current_branch=""
+
+process_worktree() {
+  local path="$1"
+  local branch="$2"
+
+  if [[ -z "$branch" ]]; then
+    return
+  fi
+
+  if [[ "$path" == "$main_worktree" ]]; then
+    return
+  fi
+
+  if [[ -z "${merged_branches[$branch]:-}" ]]; then
+    echo "[skip]     $path ($branch — not merged)"
+    skipped=$((skipped + 1))
+    return
+  fi
+
+  if $dry_run; then
+    echo "[dry-run]  would remove worktree $path and branch $branch"
+    return
+  fi
+
+  if ! $no_interact; then
+    read -r -p "Remove worktree $path and branch $branch? [y/N] " reply
+    case "$reply" in
+      y|Y)
+        ;;
+      *)
+        echo "[declined] $path ($branch)"
+        declined=$((declined + 1))
+        return
+        ;;
+    esac
+  fi
+
+  if git worktree remove "$path" && git branch -d "$branch"; then
+    echo "[removed]  $path ($branch)"
+    removed=$((removed + 1))
+  else
+    echo "[failed]   $path ($branch)"
+    failed=$((failed + 1))
+  fi
+}
+
+while IFS= read -r line; do
+  case "$line" in
+    worktree\ *)
+      current_path="${line#worktree }"
+      current_branch=""
+      ;;
+    branch\ *)
+      current_branch="${line#branch }"
+      current_branch="${current_branch#refs/heads/}"
+      ;;
+    "")
+      process_worktree "$current_path" "$current_branch"
+      current_path=""
+      current_branch=""
+      ;;
+  esac
+done < <(git worktree list --porcelain; echo)
+
+echo
+echo "removed=$removed skipped=$skipped declined=$declined failed=$failed"
