@@ -31,6 +31,7 @@ alias v='nvim'
 alias j='just'
 alias oc='opencode'
 alias c='claude'
+alias cy='claude --dangerously-skip-permissions'
 
 alias tsu='sudo tailscale up'
 alias tsd='sudo tailscale down'
