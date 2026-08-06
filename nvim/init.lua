@@ -11,6 +11,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+if vim.env.SSH_TTY then
+    vim.g.clipboard = "osc52"
+    vim.opt.clipboard = "unnamedplus"
+end
+
 -- important! set leaderkey before loading plugins
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
