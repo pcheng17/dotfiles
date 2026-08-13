@@ -52,6 +52,10 @@ automatically-unhide-macos-hidden-apps = false
 if.app-name-regex-substring = '(?i)finder|alfred preferences|1password|messages|python|jagex launcher|runelite|reminders|mizu|catan universe|mtga'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.window-title-regex-substring = '(?i)runescape'
+run = 'layout floating'
+
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
 # - Constant:     gaps.outer.top = 8
