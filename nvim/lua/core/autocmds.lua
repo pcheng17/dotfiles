@@ -215,7 +215,20 @@ autocmd('LspAttach', {
         keymap("n", "K",          function() vim.lsp.buf.hover() end,                                      { desc = "Hover documentation" })
         keymap("n", "<leader>rn", function() vim.lsp.buf.rename() end,                                     { desc = "Rename symbol" })
         keymap("i", "<C-k>",      function() vim.lsp.buf.signature_help() end,                             { desc = "Signature help" })
-        keymap("n", "<leader>.",  function() require("fzf-lua").lsp_code_actions() end,                    { desc = "Code action" } )
+        keymap("n", "<leader>.",  function()
+            -- Native code_action() only includes diagnostics whose range contains the exact
+            -- cursor column. Widen that to "anywhere on the current line" so a fix doesn't
+            -- require landing the cursor on the precise (sometimes surprising) diagnostic range.
+            local lnum = vim.api.nvim_win_get_cursor(0)[1] - 1
+            local line_diagnostics = vim.tbl_map(
+                function(d) return d.user_data.lsp end,
+                vim.diagnostic.get(0, { lnum = lnum })
+            )
+            require("fzf-lua").lsp_code_actions({
+                context = { diagnostics = line_diagnostics },
+                jump1 = true, -- auto-apply when only one code action is available
+            })
+        end, { desc = "Code action" } )
         -- `gra` in Normal mode maps to `vim.lsp.buf.code_action()` by default
     end
 })
