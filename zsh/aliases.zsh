@@ -5,7 +5,7 @@ _exists() {
 alias la='ls -AlhF'
 alias qq='~ && clear'
 alias rg='rg --smart-case'
-alias nf='neofetch'
+alias ff='fastfetch'
 
 alias ez='nvim ~/.zshrc'
 alias rld='source ~/.zshrc'
