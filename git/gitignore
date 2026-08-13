@@ -53,3 +53,5 @@ build/
 
 # clangd files
 compile_commands.json
+
+**/.claude/settings.local.json
