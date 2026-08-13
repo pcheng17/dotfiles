@@ -30,7 +30,73 @@ return {
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-        local lspconfig = require("lspconfig")
+        -- Applies to every server enabled below.
+        vim.lsp.config("*", { capabilities = capabilities })
+
+        vim.lsp.config("lua_ls", {
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "exepath", "vim" }
+                    }
+                }
+            },
+        })
+
+        vim.lsp.config("clangd", {
+            cmd = {
+                "clangd",
+                "-log=verbose",
+                "--clang-tidy",
+                "--background-index",
+                "--cross-file-rename",
+                "--function-arg-placeholders",
+                "--header-insertion=iwyu",
+                "--header-insertion-decorators",
+                "--offset-encoding=utf-16",
+            },
+            root_markers = { root_files, ".git" },
+            on_attach = function(_, bufnr)
+                vim.keymap.set("n", "<leader>o", "<cmd>LspClangdSwitchSourceHeader<CR>",
+                    { buffer = bufnr, silent = true, desc = "Switch between source and header" })
+            end,
+        })
+
+        vim.lsp.config("pyright", {
+            before_init = function(_, config)
+                local function get_python_path(workspace)
+                    local util = require("lspconfig/util")
+                    local path = util.path
+
+                    -- Use activated virtualenv.
+                    if vim.env.VIRTUAL_ENV then
+                        return path.join(vim.env.VIRTUAL_ENV, "bin", "python")
+                    end
+
+                    -- Find and use virtualenv in workspace directory.
+                    for _, pattern in ipairs({'*', '.*'}) do
+                        local match = vim.fn.glob(path.join(workspace, pattern, "pyvenv.cfg"))
+                        if match ~= '' then
+                            return path.join(path.dirname(match), "bin", "python")
+                        end
+                    end
+
+                    -- Fallback to system Python.
+                    return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
+                end
+
+                config.settings.python.pythonPath = get_python_path(config.root_dir)
+                -- print("Using Python interpreter: " .. config.settings.python.pythonPath)
+            end,
+        })
+
+        vim.lsp.config("tinymist", {
+            settings = {
+                formatterMode = "typstyle",
+                exportPdf = "onType",
+                semanticTokens = "disable",
+            },
+        })
 
         require("mason-lspconfig").setup({
             ensure_installed = {
@@ -40,94 +106,6 @@ return {
                 "pyright",    -- python
                 "texlab",     -- latex
             },
-            handlers = {
-                function(server_name) -- default handler
-                    require("lspconfig")[server_name].setup({
-                        capabilities = capabilities
-                    })
-                end,
-
-                ["lua_ls"] = function()
-                    require("lspconfig").lua_ls.setup({
-                        capabilities = capabilities,
-                        settings = {
-                            Lua = {
-                                diagnostics = {
-                                    globals = { "exepath", "vim" }
-                                }
-                            }
-                        },
-                    })
-                end,
-
-                ["clangd"] = function()
-                    require("lspconfig").clangd.setup({
-                        capabilities = capabilities,
-                        cmd = {
-                            "clangd",
-                            "-log=verbose",
-                            "--clang-tidy",
-                            "--background-index",
-                            "--cross-file-rename",
-                            "--function-arg-placeholders",
-                            "--header-insertion=iwyu",
-                            "--header-insertion-decorators",
-                            "--offset-encoding=utf-16",
-                        },
-                        root_dir = function(fname)
-                            local unpack = table.unpack or unpack
-                            return
-                                lspconfig.util.root_pattern(unpack(root_files))(fname) or
-                                lspconfig.util.find_git_ancestor(fname)
-                        end,
-
-                        vim.keymap.set("n", "<leader>o", "<cmd>ClangdSwitchSourceHeader<CR>",
-                            { silent = true, desc = "Switch between source and header" }),
-                    })
-                end,
-
-                ["pyright"] = function()
-                    require("lspconfig").pyright.setup({
-                        capabilities = capabilities,
-                        before_init = function(_, config)
-                            local function get_python_path(workspace)
-                                local util = require("lspconfig/util")
-                                local path = util.path
-
-                                -- Use activated virtualenv.
-                                if vim.env.VIRTUAL_ENV then
-                                    return path.join(vim.env.VIRTUAL_ENV, "bin", "python")
-                                end
-
-                                -- Find and use virtualenv in workspace directory.
-                                for _, pattern in ipairs({'*', '.*'}) do
-                                    local match = vim.fn.glob(path.join(workspace, pattern, "pyvenv.cfg"))
-                                    if match ~= '' then
-                                        return path.join(path.dirname(match), "bin", "python")
-                                    end
-                                end
-
-                                -- Fallback to system Python.
-                                return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
-                            end
-
-                            config.settings.python.pythonPath = get_python_path(config.root_dir)
-                            -- print("Using Python interpreter: " .. config.settings.python.pythonPath)
-                        end,
-                    })
-                end,
-
-                ["tinymist"] = function()
-                    require("lspconfig").tinymist.setup({
-                        capabilities = capabilities,
-                        settings = {
-                            formatterMode = "typstyle",
-                            exportPdf = "onType",
-                            semanticTokens = "disable",
-                        },
-                    })
-                end,
-            }
         })
 
         local cmp = require("cmp")
