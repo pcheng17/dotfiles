@@ -76,6 +76,10 @@ run = 'layout floating'
 if.app-name-regex-substring = 'reminders'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'slack'
+run = 'move-node-to-workspace Slack'
+
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
 # - Constant:     gaps.outer.top = 8
@@ -154,7 +158,7 @@ run = 'layout floating'
     alt-cmd-7 = 'workspace 7'
     alt-cmd-8 = 'workspace 8'
     alt-cmd-9 = 'workspace 9'
-    alt-cmd-0 = 'workspace 10'
+    alt-cmd-s = 'workspace --auto-back-and-forth Slack'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-cmd-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
@@ -166,7 +170,6 @@ run = 'layout floating'
     alt-cmd-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
     alt-cmd-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
     alt-cmd-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
-    alt-cmd-shift-0 = 'move-node-to-workspace 10 --focus-follows-window'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-cmd-tab = 'workspace-back-and-forth'

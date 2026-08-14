@@ -36,4 +36,6 @@ git:
   branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
 services:
   'github.rbx.com': 'github:github.rbx.com'
+os:
+  editPreset: nvim-remote
 
