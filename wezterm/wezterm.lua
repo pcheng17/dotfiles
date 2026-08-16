@@ -61,6 +61,40 @@ config.scrollback_lines = 10000
 config.prefer_to_spawn_tabs = true
 config.audible_bell = "Disabled"
 
+-- Hyperlink rules
+config.hyperlink_rules = {
+  -- URL wrapped in (parens)
+  {
+    regex = '\\((\\w+://\\S+)\\)',
+    format = '$1',
+  },
+  -- URL wrapped in [brackets]
+  {
+    regex = '\\[(\\w+://\\S+)\\]',
+    format = '$1',
+  },
+  -- URL wrapped in {braces}
+  {
+    regex = '\\{(\\w+://\\S+)\\}',
+    format = '$1',
+  },
+  -- URL wrapped in <angle brackets>
+  {
+    regex = '<(\\w+://\\S+)>',
+    format = '$1',
+  },
+  -- Bare URL not preceded by an open-paren, and not ending in trailing punctuation
+  {
+    regex = '[^(]\\b(\\w+://\\S+[)/a-zA-Z0-9])',
+    format = '$1',
+  },
+  -- email addresses
+  {
+    regex = '\\b\\w+@[\\w-]+(\\.[\\w-]+)+\\b',
+    format = 'mailto:$0',
+  },
+}
+
 -- Command palette
 -- config.command_palette_rows = 10
 -- config.command_palette_font_size = 15.5
