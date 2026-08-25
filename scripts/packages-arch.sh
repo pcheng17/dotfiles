@@ -20,6 +20,7 @@ PACMAN_PACKAGES=(
     "ffmpeg"                                          # CLI video processing
     "flatpak"
     "fzf"
+    "github-cli"                                      # gh
     "glfw-x11"                                        # C++ graphics
     "just"                                            # CLI command runner
     "lazygit"
@@ -43,6 +44,7 @@ PACMAN_PACKAGES=(
     "tmux"
     "tree-sitter-cli"
     "ttf-jetbrains-mono-nerd"
+    "ufw"                                              # Firewall
     "unzip"
     "wget"
     "wl-clipboard"                                    # Clipboard (Wayland)
@@ -52,6 +54,13 @@ PACMAN_PACKAGES=(
 
 log_info "Installing pacman packages..."
 sudo pacman -Sy --needed "${PACMAN_PACKAGES[@]}"
+
+log_info "Enabling tailscaled..."
+sudo systemctl enable --now tailscaled
+
+log_info "Enabling ufw firewall..."
+sudo systemctl enable --now ufw
+sudo ufw --force enable
 
 source "${DOTFILES_DIR}/helper/zsh-bootstrap.sh"
 bootstrap_zsh_plugins
