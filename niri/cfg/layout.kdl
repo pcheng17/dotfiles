@@ -11,8 +11,6 @@
             proportion 1.0
         }
 
-        default-column-width { proportion 1.0; }
-
         struts {}
 
         focus-ring {
