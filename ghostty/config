@@ -1,0 +1,18 @@
+theme = Catppuccin Mocha
+
+font-family = JetBrainsMono NL Nerd Font Mono
+font-size = 12
+adjust-cell-height = 5
+
+window-padding-x = 4
+window-padding-y = 4
+window-decoration = true
+window-theme = dark
+background-opacity = 0.92
+title = Ghostty
+class = Ghostty
+
+copy-on-select = clipboard
+
+cursor-style = block
+cursor-style-blink = false
