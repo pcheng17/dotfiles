@@ -20,6 +20,7 @@ PACMAN_PACKAGES=(
     "ffmpeg"                                          # CLI video processing
     "flatpak"
     "fzf"
+    "ghostty"                                         # Terminal emulator
     "github-cli"                                      # gh
     "glfw-x11"                                        # C++ graphics
     "just"                                            # CLI command runner
