@@ -7,3 +7,5 @@ noctalia/plugins/
 *.spl
 secrets.lua
 bin/secrets/
+
+.claude/worktrees/
