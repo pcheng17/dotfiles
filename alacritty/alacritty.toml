@@ -13,7 +13,7 @@ WINIT_X11_SCALE_FACTOR = "1.0"
 dimensions = { columns = 100, lines = 30 }
 dynamic_padding = true
 decorations = "Full"
-opacity = 1.0
+opacity = 0.92
 title = "Alacritty@CachyOS"
 class = { instance = "Alacritty", general = "Alacritty" }
 decorations_theme_variant = "Dark"
