@@ -71,6 +71,7 @@ setup_common() {
             if [[ "${IS_ARCH:-false}" == "true" ]]; then
                 symlink "$DOTFILES_DIR/niri" "$HOME/.config/niri"
                 symlink "$DOTFILES_DIR/alacritty" "$HOME/.config/alacritty"
+                symlink "$DOTFILES_DIR/ghostty" "$HOME/.config/ghostty"
                 symlink "$DOTFILES_DIR/noctalia" "$HOME/.config/noctalia"
             else
                 symlink "$DOTFILES_DIR/polybar" "$HOME/.config/polybar"
