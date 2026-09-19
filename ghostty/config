@@ -18,3 +18,5 @@ copy-on-select = clipboard
 cursor-style = block
 cursor-style-blink = false
 adjust-cursor-thickness = 2
+
+mouse-hide-while-typing = true
