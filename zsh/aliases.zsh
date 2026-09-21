@@ -50,6 +50,7 @@ case "$HOST" in
         alias bkupbrew='TMP="/private/tmp/brewfile_backup_$(date +%s)" && brew bundle dump --file="$TMP" --force && grep -v "^vscode" "$TMP" > ~/.dotfiles/Brewfile && rm "$TMP"'
         alias cy='claude --dangerously-skip-permissions'
         alias c='claude'
+        alias p='pi'
         ;;
 esac
 
