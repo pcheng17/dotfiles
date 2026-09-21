@@ -2,7 +2,7 @@ theme = Catppuccin Mocha
 
 font-family = JetBrainsMono NL Nerd Font Mono
 font-size = 12
-adjust-cell-height = 6
+adjust-cell-height = 8
 
 window-padding-x = 4
 window-padding-y = 4,0
