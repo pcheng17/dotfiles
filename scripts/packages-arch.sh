@@ -36,6 +36,7 @@ PACMAN_PACKAGES=(
     "npm"
     "openssl"
     "pkgconf"
+    "proton-vpn-gtk-app"                              # VPN client
     "readline"
     "ripgrep"                                         # CLI better grep
     "solaar"                                          # Logitech device manager
