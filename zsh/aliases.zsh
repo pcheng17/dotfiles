@@ -45,7 +45,7 @@ esac
 case "$HOST" in
     HQ-LQVW75WPH7) # Roblox laptop (new)
         alias cy='declawd --no-extra-output --yolo'
-        alias pi='declawd --no-extra-output --yolo --custom-exe /opt/homebrew/bin/pi'
+        alias pi='declawd --no-extra-output --custom-exe /opt/homebrew/bin/pi'
         ;;
     *)
         alias bkupbrew='TMP="/private/tmp/brewfile_backup_$(date +%s)" && brew bundle dump --file="$TMP" --force && grep -v "^vscode" "$TMP" > ~/.dotfiles/Brewfile && rm "$TMP"'
