@@ -55,6 +55,14 @@ case "$HOST" in
         ;;
 esac
 
+mkdev() {
+    if [[ -z "$1" ]]; then
+        echo "usage: mkdev <name>"
+        return 1
+    fi
+    mkdir -p "$DEV_DIR/$1"
+}
+
 gwrm() {
     if ! _exists fzf; then
         git worktree remove "$@"
