@@ -12,6 +12,7 @@ PACMAN_PACKAGES=(
     "bzip2"
     "clang"                                           # Includes clang-format
     "cmake"
+    "cuda"
     "curl"
     "duf"                                             # Disk usage
     "ethtool"                                         # Network tools
