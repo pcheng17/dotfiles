@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #
 # Usage: tmux-sessionizer.sh [dir]   pick a directory (fzf) or use dir, then switch to its session
-#        tmux-sessionizer.sh --list  print the candidate rows (path<TAB>branch) and exit
+#        tmux-sessionizer.sh -l|--list
+#                                    print the candidate rows (path<TAB>branch) and exit
 #        tmux-sessionizer.sh --sessions
 #                                    print name<TAB>path<TAB>alive|dead per session and exit
 #
@@ -64,10 +65,11 @@ label_for() {
     local label branch primary
     label=$(basename "$1")
     if [[ -f $1/.git || $label =~ -wt-[0-9]+$ ]]; then
-        branch=$(git -C "$1" symbolic-ref --short -q HEAD)
+        branch=$(git -C "$1" symbolic-ref --short -q HEAD 2>/dev/null)
         primary=$(git -C "$1" worktree list --porcelain 2>/dev/null | head -1)
-        if [[ -n $branch && $primary == "worktree "* ]]; then
-            label="$(basename "${primary#worktree }")/$branch"
+        primary=${primary#worktree }
+        if [[ -n $branch && -n $primary && $(realpath "$primary") != "$(realpath "$1")" ]]; then
+            label="$(basename "$primary")/$branch"
         fi
     fi
     printf '%s\n' "$label" | tr .: __
@@ -117,6 +119,11 @@ print_sessions() {
     done < <(list_sessions)
 }
 
+if [[ $1 == --sessions ]]; then
+    print_sessions
+    exit 0
+fi
+
 if command -v fd &>/dev/null; then
     FD=fd
 elif command -v fdfind &>/dev/null; then
@@ -126,16 +133,10 @@ else
     exit 1
 fi
 
-case $1 in
-    -l|--list)
-        candidate_rows
-        exit 0
-        ;;
-    --sessions)
-        print_sessions
-        exit 0
-        ;;
-esac
+if [[ $1 == -l || $1 == --list ]]; then
+    candidate_rows
+    exit 0
+fi
 
 kill_dead_sessions
 
