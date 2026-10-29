@@ -37,7 +37,7 @@ hydrate() {
 # Prints the branch checked out in $1: (free) for a detached HEAD, nothing outside git.
 branch_of() {
     [[ -e $1/.git ]] || return 0
-    git -C "$1" symbolic-ref --short -q HEAD || echo '(free)'
+    git -C "$1" symbolic-ref --short -q HEAD 2>/dev/null || echo '(free)'
 }
 
 candidate_rows() {
@@ -61,6 +61,7 @@ candidate_rows() {
 
 # Prints the session label for directory $1: <repo>/<branch> for a linked worktree on a branch,
 # the basename otherwise. tmux forbids . and : in session names.
+# $1 must already be resolved with realpath.
 label_for() {
     local label branch primary
     label=$(basename "$1")
@@ -68,7 +69,7 @@ label_for() {
         branch=$(git -C "$1" symbolic-ref --short -q HEAD 2>/dev/null)
         primary=$(git -C "$1" worktree list --porcelain 2>/dev/null | head -1)
         primary=${primary#worktree }
-        if [[ -n $branch && -n $primary && $(realpath "$primary") != "$(realpath "$1")" ]]; then
+        if [[ -n $branch && -n $primary && $(realpath "$primary") != "$1" ]]; then
             label="$(basename "$primary")/$branch"
         fi
     fi
