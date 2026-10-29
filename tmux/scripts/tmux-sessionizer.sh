@@ -83,7 +83,7 @@ unique_label() {
     printf '%s\n' "$candidate"
 }
 
-sessions() {
+list_sessions() {
     tmux list-sessions -F $'#{session_name}\t#{session_path}\t#{session_attached}' 2>/dev/null
 }
 
@@ -95,7 +95,7 @@ session_for_dir() {
             printf '%s\n' "$name"
             return
         fi
-    done < <(sessions)
+    done < <(list_sessions)
 }
 
 # Kills every session whose start directory is gone, unless a client is attached to it.
@@ -105,18 +105,16 @@ kill_dead_sessions() {
         if [[ ! -d $path && $attached == 0 ]]; then
             tmux kill-session -t "=$name"
         fi
-    done < <(sessions)
+    done < <(list_sessions)
 }
 
 print_sessions() {
-    local name path _
+    local name path _ status
     while IFS=$'\t' read -r name path _; do
-        if [[ -d $path ]]; then
-            printf '%s\t%s\talive\n' "$name" "$path"
-        else
-            printf '%s\t%s\tdead\n' "$name" "$path"
-        fi
-    done < <(sessions)
+        status=dead
+        [[ -d $path ]] && status=alive
+        printf '%s\t%s\t%s\n' "$name" "$path" "$status"
+    done < <(list_sessions)
 }
 
 if command -v fd &>/dev/null; then
