@@ -1,2 +1,5 @@
 diff_view = "side-by-side"
 leader = " "
+color_words = true
+word_diff_regex = '[^[:space:]]'
+sidebar_width = 20
