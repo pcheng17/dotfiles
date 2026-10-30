@@ -102,6 +102,7 @@ brew "terminal-notifier"
 brew "timewarrior"
 brew "tmux"
 brew "tree"
+brew "tuicr"
 brew "ttyd", args: ["HEAD"]
 brew "typst"
 brew "uv"

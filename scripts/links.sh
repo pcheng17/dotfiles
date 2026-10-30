@@ -39,6 +39,7 @@ setup_common() {
     symlink "$DOTFILES_DIR/lazygit" "$HOME/.config/lazygit"
     symlink "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
     symlink "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
+    symlink "$DOTFILES_DIR/tuicr" "$HOME/.config/tuicr"
 
     log_info "Setting git configs..."
     git_set_global core.editor nvim

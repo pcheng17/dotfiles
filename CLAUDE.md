@@ -15,6 +15,7 @@ tmux/              # tmux config and scripts
 nvim/              # LazyVim-based neovim config
 nvim-0.12/         # Separate nvim config for 0.12
 wezterm/           # Wezterm terminal config
+tuicr/             # tuicr code review TUI config
 bin/               # Personal scripts (symlinked to ~/bin)
 aerospace/         # AeroSpace window manager (macOS)
 karabiner/         # Karabiner-Elements (macOS)

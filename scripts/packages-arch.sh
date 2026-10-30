@@ -65,6 +65,18 @@ log_info "Enabling ufw firewall..."
 sudo systemctl enable --now ufw
 sudo ufw --force enable
 
+# tuicr
+if ! command -v tuicr &>/dev/null; then
+    if command -v cargo &>/dev/null; then
+        log_info "Installing tuicr..."
+        cargo install --locked tuicr
+    else
+        log_error "cargo not found, skipping tuicr install"
+    fi
+else
+    log_ok "tuicr is already installed, skipping"
+fi
+
 source "${DOTFILES_DIR}/helper/zsh-bootstrap.sh"
 bootstrap_zsh_plugins
 

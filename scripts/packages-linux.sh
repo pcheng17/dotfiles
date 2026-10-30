@@ -104,6 +104,18 @@ else
     log_ok "Wezterm is already installed, skipping"
 fi
 
+# tuicr
+if ! command -v tuicr &>/dev/null; then
+    if command -v cargo &>/dev/null; then
+        log_info "Installing tuicr..."
+        cargo install --locked tuicr
+    else
+        log_error "cargo not found, skipping tuicr install"
+    fi
+else
+    log_ok "tuicr is already installed, skipping"
+fi
+
 # Papirus icons for Rofi
 sudo add-apt-repository ppa:papirus/papirus
 sudo apt-get update
