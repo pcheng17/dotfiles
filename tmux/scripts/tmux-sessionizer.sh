@@ -67,7 +67,7 @@ label_for() {
     label=$(basename "$1")
     if [[ -f $1/.git || $label =~ -wt-[0-9]+$ ]]; then
         branch=$(git -C "$1" symbolic-ref --short -q HEAD 2>/dev/null)
-        primary=$(git -C "$1" worktree list --porcelain 2>/dev/null | head -1)
+        IFS= read -r -d '' primary < <(git -C "$1" worktree list --porcelain -z 2>/dev/null)
         primary=${primary#worktree }
         if [[ -n $branch && -n $primary && $(realpath "$primary") != "$1" ]]; then
             label="$(basename "$primary")/$branch"
