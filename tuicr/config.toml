@@ -1,5 +1,13 @@
 diff_view = "side-by-side"
-leader = " "
 color_words = true
 word_diff_regex = '[^[:space:]]'
 sidebar_width = 20
+leader = " "
+
+[keybindings]
+focus_left = ["H"]
+focus_right = ["L"]
+focus_up = ["K"]
+focus_down = ["J"]
+toggle_file_list = ["E"]
+toggle_single_file_view = ["F"]
