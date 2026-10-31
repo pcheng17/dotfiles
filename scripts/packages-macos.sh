@@ -118,6 +118,10 @@ else
     log_ok "Rust/Cargo already installed."
 fi
 
+# tuicr (custom build)
+log_info "Installing tuicr (bitangent fork)..."
+cargo install --git https://github.com/bitangent/tuicr --locked --force
+
 # Install nvim via bob
 if ! command -v nvim &>/dev/null; then
     log_info "Installing Neovim via bob..."

@@ -65,16 +65,12 @@ log_info "Enabling ufw firewall..."
 sudo systemctl enable --now ufw
 sudo ufw --force enable
 
-# tuicr
-if ! command -v tuicr &>/dev/null; then
-    if command -v cargo &>/dev/null; then
-        log_info "Installing tuicr..."
-        cargo install --locked tuicr
-    else
-        log_error "cargo not found, skipping tuicr install"
-    fi
+# tuicr (custom build)
+if command -v cargo &>/dev/null; then
+    log_info "Installing tuicr (bitangent fork)..."
+    cargo install --git https://github.com/bitangent/tuicr --locked --force
 else
-    log_ok "tuicr is already installed, skipping"
+    log_error "cargo not found, skipping tuicr install"
 fi
 
 source "${DOTFILES_DIR}/helper/zsh-bootstrap.sh"
