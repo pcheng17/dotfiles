@@ -28,9 +28,7 @@ sudo apt install -y libssl-dev                                                  
 sudo apt install -y libevent-dev ncurses-dev pkg-config bison                    # For building tmux
 sudo apt install -y gnome-tweaks                                                 # Gnome settings tweaks
 sudo apt install -y unzip wget
-sudo apt install -y polybar
 sudo apt install -y feh
-sudo apt install -y rofi                                                         # Application launcher
 sudo apt install -y btop                                                         # System monitor
 sudo apt install -y xsel                                                         # Clipboard manager
 sudo apt install -y flameshot                                                    # Screenshot tool

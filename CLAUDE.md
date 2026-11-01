@@ -21,7 +21,6 @@ aerospace/         # AeroSpace window manager (macOS)
 karabiner/         # Karabiner-Elements (macOS)
 git/               # Git aliases and global gitignore
 macos/             # macOS-specific settings (DefaultKeyBinding.dict)
-polybar/, rofi/    # Linux bar / launcher
 private/           # Gitignored work-specific overrides
 ```
 
