@@ -29,7 +29,6 @@ alias uncommit='git reset --soft HEAD~1'
 alias lg='lazygit'
 alias v='nvim'
 alias j='just'
-alias oc='opencode'
 
 alias tsu='sudo tailscale up'
 alias tsd='sudo tailscale down'
