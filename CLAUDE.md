@@ -21,7 +21,7 @@ aerospace/         # AeroSpace window manager (macOS)
 karabiner/         # Karabiner-Elements (macOS)
 git/               # Git aliases and global gitignore
 macos/             # macOS-specific settings (DefaultKeyBinding.dict)
-i3/, polybar/, rofi/ # Linux window manager / bar / launcher
+polybar/, rofi/    # Linux bar / launcher
 private/           # Gitignored work-specific overrides
 ```
 
@@ -56,7 +56,7 @@ Options:
 - **Terminal**: WezTerm
 - **Multiplexer**: tmux (with custom sessionizer)
 - **Git UI**: lazygit
-- **Window manager**: AeroSpace (macOS), i3 (Linux)
+- **Window manager**: AeroSpace (macOS), niri (CachyOS)
 
 ## Commit Style
 

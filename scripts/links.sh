@@ -75,7 +75,6 @@ setup_common() {
                 symlink "$DOTFILES_DIR/noctalia" "$HOME/.config/noctalia"
             else
                 symlink "$DOTFILES_DIR/polybar" "$HOME/.config/polybar"
-                symlink "$DOTFILES_DIR/i3" "$HOME/.config/i3"
                 symlink "$DOTFILES_DIR/xprofile" "$HOME/.xprofile"
             fi
             ;;

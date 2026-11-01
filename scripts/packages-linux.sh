@@ -29,7 +29,6 @@ sudo apt install -y libevent-dev ncurses-dev pkg-config bison                   
 sudo apt install -y gnome-tweaks                                                 # Gnome settings tweaks
 sudo apt install -y unzip wget
 sudo apt install -y polybar
-sudo apt install -y i3
 sudo apt install -y feh
 sudo apt install -y rofi                                                         # Application launcher
 sudo apt install -y btop                                                         # System monitor

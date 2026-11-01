@@ -1,5 +1,5 @@
 # Sourced by display managers before starting the X session.
-# Sets up PATH so i3 and all child processes inherit the full environment.
+# Sets up PATH so the window manager and all child processes inherit the full environment.
 
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/usr/local/go/bin:$PATH"
 
