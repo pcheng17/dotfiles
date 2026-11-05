@@ -76,3 +76,7 @@ gwrm() {
         [[ "$REPLY" =~ ^[Yy]$ ]] && git worktree remove --force "$wt"
     fi
 }
+
+prq() {
+    ssh mango "prq ${(q)@}" 2>/dev/null
+}
