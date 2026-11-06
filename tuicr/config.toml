@@ -2,6 +2,7 @@ diff_view = "side-by-side"
 color_words = true
 word_diff_regex = '[[:alnum:]_]+|[^[:space:]]'
 sidebar_width = 20
+pr_author_width = 15
 leader = " "
 
 [keybindings]
