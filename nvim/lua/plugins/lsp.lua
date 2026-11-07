@@ -175,6 +175,7 @@ return {
                 { name = "emoji" },
             }, {
                 { name = "buffer" },
+                { name = "path" },
             }),
             formatting = {
                 fields = { "kind", "abbr", "menu" },
