@@ -75,14 +75,20 @@ return {
                 },
             },
             -- This opens the manpage in a new buffer instead of a split
-            -- manpages = {
-            --     actions = {
-            --         ["enter"] = function(selected)
-            --             local page = require("fzf-lua.providers.manpages").manpage_vim_arg(selected[1])
-            --             vim.cmd("hide Man " .. page)
-            --         end,
-            --     },
-            -- },
+            manpages = {
+                actions = {
+                    ["enter"] = function(selected)
+                        if not selected[1] then return end
+                        local page = require("fzf-lua.providers.manpages").manpage_vim_arg(selected[1])
+                        local prev = vim.api.nvim_get_current_buf()
+                        vim.cmd("hide Man " .. page)
+                        -- :Man forces keepalt, so restore it to let <C-^> jump back
+                        if vim.api.nvim_get_current_buf() ~= prev and vim.api.nvim_buf_is_valid(prev) then
+                            vim.fn.setreg("#", prev)
+                        end
+                    end,
+                },
+            },
             defaults = {
                 git_icons = false,
                 file_icons = true,
