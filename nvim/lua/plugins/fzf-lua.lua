@@ -35,7 +35,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     --stylua: ignore start
     keys = {
-        { "<leader>;",  function() require("fzf-lua").files(pick_preview()) end,              mode = "n", desc = "fzf files in cwd",                 silent = true },
+        { "<leader>;",  function() require("fzf-lua").files(pick_preview()) end,            mode = "n", desc = "fzf files in cwd",                 silent = true },
         { "<leader>'",  function() require("fzf-lua").buffers() end,                        mode = "n", desc = "fzf buffers",                      silent = true },
         { "<leader>/",  function() require("fzf-lua").live_grep_native(pick_preview()) end, mode = "n", desc = "fzf grep in cwd",                  silent = true },
         { "<leader>gw", function() require("fzf-lua").grep_cword(pick_preview()) end,       mode = "n", desc = "fzf grep current word",            silent = true },
@@ -49,6 +49,7 @@ return {
         { "<leader>fm", function() require("fzf-lua").marks() end,                          mode = "n", desc = "fzf marks",                        silent = true },
         { "<leader>fl", function() require("fzf-lua").loclist() end,                        mode = "n", desc = "fzf loclist",                      silent = true },
         { "<leader>fq", function() require("fzf-lua").quickfix() end,                       mode = "n", desc = "fzf quickfix",                     silent = true },
+        { "<leader>sm", function() require("fzf-lua").manpages() end,                       mode = "n", desc = "fzf search man pages",             silent = true },
     --stylua: ignore end
     },
     config = function()
@@ -73,6 +74,15 @@ return {
                     layout = "horizontal", -- More likely to be able to see more context
                 },
             },
+            -- This opens the manpage in a new buffer instead of a split
+            -- manpages = {
+            --     actions = {
+            --         ["enter"] = function(selected)
+            --             local page = require("fzf-lua.providers.manpages").manpage_vim_arg(selected[1])
+            --             vim.cmd("hide Man " .. page)
+            --         end,
+            --     },
+            -- },
             defaults = {
                 git_icons = false,
                 file_icons = true,
