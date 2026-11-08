@@ -119,8 +119,8 @@ else
 fi
 
 # tuicr (custom build)
-log_info "Installing tuicr (bitangent fork)..."
-cargo install --git https://github.com/bitangent/tuicr --locked --force
+log_info "Installing tuicr (tangentspaces fork)..."
+cargo install --git https://github.com/tangentspaces/tuicr --locked --force
 
 # Install nvim via bob
 if ! command -v nvim &>/dev/null; then
