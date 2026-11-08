@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 printf "[DEPRECATED] Use ./setup instead.\n\n"
-exec "$(dirname "$0")/setup" home --packages-only
+exec "$(dirname "$0")/setup" home --pkgs-only

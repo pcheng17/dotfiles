@@ -8,7 +8,7 @@ Personal dotfiles for macOS and Linux (Ubuntu, CachyOS). Managed via symlinks, n
 setup              # Main entry point: ./setup [home|work]
 scripts/           # Modular install scripts (packages-macos.sh, packages-linux.sh, links.sh)
 helper/            # Bash utilities for symlinks, defaults, printing
-install            # Deprecated — delegates to ./setup home --packages-only
+install            # Deprecated — delegates to ./setup home --pkgs-only
 configure          # Deprecated — delegates to ./setup [home|work] --links-only
 zsh/               # Shell config (zshrc, aliases, p10k, per-host files)
 tmux/              # tmux config and scripts
@@ -33,7 +33,7 @@ private/           # Gitignored work-specific overrides
 Detects OS automatically, installs packages, and applies symlinks in one step.
 
 Options:
-- `--packages-only` — only install/update packages (skip symlinks)
+- `--pkgs-only` — only install/update packages (skip symlinks)
 - `--links-only` — only apply symlinks and git config (skip packages)
 
 `setup` has two modes:

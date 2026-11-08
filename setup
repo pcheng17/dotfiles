@@ -11,18 +11,36 @@ RUN_PACKAGES=true
 RUN_LINKS=true
 DRY_RUN=false
 
+usage() {
+    cat <<EOF_USAGE
+Usage: $0 [home|work] [options]
+
+Modes:
+  home            Personal configs (zshrc, Brewfile, aerospace.toml)
+  work            Work configs from private/ (must be populated first)
+
+Options:
+  --pkgs-only     Only install/update packages (skip symlinks)
+  --links-only    Only apply symlinks and git config (skip packages)
+  --dry-run       Show what would be done without making changes
+  -h, -help, --help
+                  Show this help and exit
+EOF_USAGE
+}
+
 for arg in "$@"; do
     case "$arg" in
         home|work) MODE="$arg" ;;
-        --packages-only) RUN_LINKS=false ;;
+        -h|-help|--help) usage; exit 0 ;;
+        --pkgs-only) RUN_LINKS=false ;;
         --links-only) RUN_PACKAGES=false ;;
         --dry-run) DRY_RUN=true ;;
-        *) printf "Unknown argument: %s\n" "$arg"; exit 1 ;;
+        *) printf "Unknown argument: %s\n\n" "$arg" >&2; usage >&2; exit 1 ;;
     esac
 done
 
 if [[ -z "$MODE" ]]; then
-    printf "Usage: %s [home|work] [--packages-only|--links-only] [--dry-run]\n" "$0"
+    usage >&2
     exit 1
 fi
 
