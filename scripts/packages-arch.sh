@@ -67,8 +67,8 @@ sudo ufw --force enable
 
 # tuicr (custom build)
 if command -v cargo &>/dev/null; then
-    log_info "Installing tuicr (bitangent fork)..."
-    cargo install --git https://github.com/bitangent/tuicr --locked --force
+    log_info "Installing tuicr (tangentspaces fork)..."
+    cargo install --git https://github.com/tangentspaces/tuicr --locked --force
 else
     log_error "cargo not found, skipping tuicr install"
 fi
