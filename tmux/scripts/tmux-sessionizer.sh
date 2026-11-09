@@ -59,6 +59,15 @@ candidate_rows() {
     done
 }
 
+# Turns path<TAB>branch rows into path<TAB>display, where display pads every path to the
+# longest one so the branches line up in their own column.
+align_rows() {
+    awk -F'\t' '
+        { path[NR] = $1; branch[NR] = $2; if (length($1) > width) width = length($1) }
+        END { for (i = 1; i <= NR; i++) printf "%s\t%-" width "s  %s\n", path[i], path[i], branch[i] }
+    '
+}
+
 # Prints the session label for directory $1: <repo>/<branch> for a linked worktree on a branch,
 # the basename otherwise. tmux forbids . and : in session names.
 # $1 must already be resolved with realpath.
@@ -144,7 +153,7 @@ kill_dead_sessions
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(candidate_rows | fzf --border --print-query --delimiter '\t' --with-nth '{1}  {2}')
+    selected=$(candidate_rows | align_rows | fzf --border --print-query --delimiter '\t' --with-nth 2)
     selected=$(echo "$selected" | tail -1 | cut -f1)
 fi
 
