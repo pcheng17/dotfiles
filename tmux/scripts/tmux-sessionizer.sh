@@ -59,12 +59,16 @@ candidate_rows() {
     done
 }
 
-# Turns path<TAB>branch rows into path<TAB>display, where display pads every path to the
-# longest one so the branches line up in their own column.
+# Turns path<TAB>branch rows into path<TAB>display. The display shows $HOME as ~ and pads every
+# path to the longest one so the branches line up in their own column.
 align_rows() {
-    awk -F'\t' '
-        { path[NR] = $1; branch[NR] = $2; if (length($1) > width) width = length($1) }
-        END { for (i = 1; i <= NR; i++) printf "%s\t%-" width "s  %s\n", path[i], path[i], branch[i] }
+    awk -F'\t' -v home="$HOME" '
+        {
+            path[NR] = $1; branch[NR] = $2; shown[NR] = $1
+            if (index($1, home "/") == 1 || $1 == home) shown[NR] = "~" substr($1, length(home) + 1)
+            if (length(shown[NR]) > width) width = length(shown[NR])
+        }
+        END { for (i = 1; i <= NR; i++) printf "%s\t%-" width "s  %s\n", path[i], shown[i], branch[i] }
     '
 }
 
