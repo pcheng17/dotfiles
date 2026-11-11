@@ -40,6 +40,7 @@ setup_common() {
     symlink "$DOTFILES_DIR/herdr-app/keys.json" "$HOME/.config/herdr-app/keys.json"
     symlink "$DOTFILES_DIR/herdr-app/settings.json" "$HOME/.config/herdr-app/settings.json"
     symlink "$DOTFILES_DIR/herdr-app/themes/catppuccin-mocha.json" "$HOME/.config/herdr-app/themes/catppuccin-mocha.json"
+    symlink "$DOTFILES_DIR/herdr-app/themes/catppuccin-latte.json" "$HOME/.config/herdr-app/themes/catppuccin-latte.json"
     symlink "$DOTFILES_DIR/herdr-app/mods/leader" "$HOME/.config/herdr-app/mods/leader"
     symlink "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
     symlink "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
