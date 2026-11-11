@@ -16,7 +16,7 @@ nvim/              # LazyVim-based neovim config
 nvim-0.12/         # Separate nvim config for 0.12
 wezterm/           # Wezterm terminal config
 tuicr/             # tuicr code review TUI config
-herdr/             # Herdr app keys and mods (symlinked into ~/.config/herdr-app)
+herdr-app/         # Herdr app keys, settings, themes and mods (symlinked into ~/.config/herdr-app)
 bin/               # Personal scripts (symlinked to ~/bin)
 aerospace/         # AeroSpace window manager (macOS)
 karabiner/         # Karabiner-Elements (macOS)
