@@ -12,7 +12,6 @@ alias rld='source ~/.zshrc'
 
 alias dot='cd $DOTS'
 alias updot='cd $DOTS && git pull && cd -'
-alias y='yazi'
 
 alias gi='git init'
 alias gs='git status --short'
