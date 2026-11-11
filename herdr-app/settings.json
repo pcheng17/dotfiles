@@ -1,11 +1,12 @@
 {
   "zoom": 1,
   "sounds": {
-    "enabled": true
+    "enabled": false
   },
   "font_ligatures": false,
   "minimum_contrast": 1,
   "appearance": "dark",
   "theme": "catppuccin-mocha",
-  "font_size": 14
+  "font_size": 14,
+  "telemetry": false
 }
