@@ -43,6 +43,8 @@ setup_common() {
     symlink "$DOTFILES_DIR/herdr-app/mods/leader" "$HOME/.config/herdr-app/mods/leader"
     symlink "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
     symlink "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
+    # ~/.config/ghostty used to be a symlink to the whole directory; it's now a real dir holding a per-OS config symlink
+    [[ -L "$HOME/.config/ghostty" ]] && unlink "$HOME/.config/ghostty"
     symlink "$DOTFILES_DIR/tuicr" "$HOME/.config/tuicr"
 
     log_info "Setting git configs..."
@@ -61,6 +63,7 @@ setup_common() {
             symlink "$DOTFILES_DIR/gh/config.yml" "$HOME/.config/gh/config.yml"
             symlink "$DOTFILES_DIR/karabiner/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
             symlink "$DOTFILES_DIR/zsh/p10k.zsh" "$HOME/.p10k.zsh"
+            symlink "$DOTFILES_DIR/ghostty/config-mac" "$HOME/.config/ghostty/config"
 
             # https://apple.stackexchange.com/questions/332769/macos-disable-popup-showing-accented-characters-when-holding-down-a-key
             defaults write -g ApplePressAndHoldEnabled -bool false
@@ -75,7 +78,7 @@ setup_common() {
             if [[ "${IS_ARCH:-false}" == "true" ]]; then
                 symlink "$DOTFILES_DIR/niri" "$HOME/.config/niri"
                 symlink "$DOTFILES_DIR/alacritty" "$HOME/.config/alacritty"
-                symlink "$DOTFILES_DIR/ghostty" "$HOME/.config/ghostty"
+                symlink "$DOTFILES_DIR/ghostty/config-linux" "$HOME/.config/ghostty/config"
                 symlink "$DOTFILES_DIR/noctalia" "$HOME/.config/noctalia"
             else
                 symlink "$DOTFILES_DIR/xprofile" "$HOME/.xprofile"

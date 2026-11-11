@@ -1,0 +1,24 @@
+theme = Catppuccin Mocha
+
+macos-titlebar-style = hidden
+
+font-family = JetBrainsMonoNL Nerd Font Mono
+font-size = 14
+adjust-cell-height = 8
+
+window-padding-x = 8
+window-padding-y = 16,0
+window-padding-balance = true
+window-decoration = true
+window-theme = dark
+background-opacity = 1.0
+title = Ghostty
+class = Ghostty
+
+copy-on-select = clipboard
+
+cursor-style = block
+cursor-style-blink = false
+adjust-cursor-thickness = 2
+
+mouse-hide-while-typing = true
