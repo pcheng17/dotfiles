@@ -42,6 +42,7 @@ setup_common() {
     symlink "$DOTFILES_DIR/herdr-app/themes/catppuccin-mocha.json" "$HOME/.config/herdr-app/themes/catppuccin-mocha.json"
     symlink "$DOTFILES_DIR/herdr-app/themes/catppuccin-latte.json" "$HOME/.config/herdr-app/themes/catppuccin-latte.json"
     symlink "$DOTFILES_DIR/herdr-app/mods/leader" "$HOME/.config/herdr-app/mods/leader"
+    symlink "$DOTFILES_DIR/herdr/config.toml" "$HOME/.config/herdr/config.toml"
     symlink "$DOTFILES_DIR/zsh/aliases.zsh" "$HOME/.oh-my-zsh/custom/aliases.zsh"
     symlink "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
     # ~/.config/ghostty used to be a symlink to the whole directory; it's now a real dir holding a per-OS config symlink
