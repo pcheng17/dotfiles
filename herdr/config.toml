@@ -22,6 +22,7 @@ onboarding = false
 # Accepts: hex (#rrggbb), named colors, rgb(r,g,b), or panel_bg = "reset"
 [theme.custom]
 surface_dim = "#6c7086"   # sidebar dividers (default #1e1e2e is invisible on dark bg)
+active_row_bg = "#45475a"   # active workspace row (catppuccin surface1)
 # panel_bg = "reset"
 # accent = "#f5c2e7"
 # red = "#ff6188"
@@ -108,11 +109,11 @@ focus_pane_right = "alt+l"
 
 # Navigate-mode movement. These local shortcuts win while navigate mode is open.
 # They are independent from focus_pane_*. Do not include prefix+, esc, enter, tab, or 1..9 here.
-# navigate_workspace_up = "up"
-# navigate_workspace_down = "down"
+navigate_workspace_up = ["k", "up"]
+navigate_workspace_down = ["j", "down"]
 # navigate_pane_left = "h"      # left arrow always focuses the pane to the left
-# navigate_pane_down = "j"
-# navigate_pane_up = "k"
+navigate_pane_down = ""   # unbound: down arrow goes to workspaces; use alt+j
+navigate_pane_up = ""     # unbound: up arrow goes to workspaces; use alt+k
 # navigate_pane_right = "l"     # right arrow always focuses the pane to the right
 
 # Custom commands use the same binding syntax.
