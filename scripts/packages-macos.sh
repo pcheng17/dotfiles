@@ -18,7 +18,7 @@ BREW_PACKAGES=(
     "fzf"
     "fd"
     "gh"
-    "jemalloc"  # tmux build dep (tmux/build-tmux.sh)
+    "jemalloc"  # tmux build dep (scripts/build-tmux.sh)
     "jj"
     "jq"
     "just"
@@ -139,4 +139,13 @@ if ! command -v nvim &>/dev/null; then
     bob use latest
 else
     log_ok "Neovim already installed."
+fi
+
+# tmux built from source (3.8 has issues with WezTerm)
+TMUX_VERSION="3.7c"
+if [[ "$("$HOME/.local/bin/tmux" -V 2>/dev/null)" == "tmux ${TMUX_VERSION}" ]]; then
+    log_ok "tmux ${TMUX_VERSION} already installed."
+else
+    log_info "Building tmux ${TMUX_VERSION} from source..."
+    "${DOTFILES_DIR}/scripts/build-tmux.sh" "$TMUX_VERSION"
 fi

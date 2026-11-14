@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Build tmux from a release tarball and install it into ~/.local.
 #
-# Usage: tmux/build-tmux.sh [version] [prefix]
+# Usage: scripts/build-tmux.sh [version] [prefix]
 #   version  tmux release tag (default: 3.7c)
 #   prefix   install prefix   (default: $HOME/.local)
 #
