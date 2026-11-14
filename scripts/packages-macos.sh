@@ -9,6 +9,7 @@ BREW_TAPS=(
 
 BREW_PACKAGES=(
     "bob"     # nvim version manager
+    "btop"
     "clang-format"
     "cloc"
     "cmake"
@@ -17,16 +18,23 @@ BREW_PACKAGES=(
     "fzf"
     "fd"
     "gh"
+    "jemalloc"  # tmux build dep (tmux/build-tmux.sh)
     "jj"
     "jq"
     "just"
     "lazygit"
+    "libevent"  # tmux build dep
     "mole"    # Deep clean and optimize my Mac
+    "ncurses"   # tmux build dep
+    "pkgconf"   # tmux build dep
     "raylib"
     "restic"
     "ripgrep"
     "tailscale"
+    "terminal-notifier"  # used by bin/shl
     "tree"
+    "tree-sitter-cli"    # required by nvim treesitter config
+    "utf8proc"  # tmux build dep
     "uv"
     "watchexec"
     "yt-dlp"
@@ -46,7 +54,9 @@ BREW_CASKS=(
     "font-jetbrains-mono-nerd-font"
     "font-roboto-mono"
     "font-ubuntu-mono"
+    "ghostty"
     "gimp"
+    "linear"
     "love"
     "nikitabobko/tap/aerospace"
     "numi"
