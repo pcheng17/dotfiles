@@ -19,7 +19,7 @@ panes:
 | Where | What |
 |---|---|
 | Next to window names | Red `●` blocked, green `✓` done (not looked at yet), peach `…` working |
-| Start of status-right | Count of blocked/done agents across all sessions, e.g. `● 2 ✓ 1 \|` |
+| Start of status-right | Count of blocked/working/done/idle agents across all sessions, e.g. `● 2 ○ 3 ✓ 1 ◦ 4 \|` |
 | `prefix + a` | Jump to the next blocked (else done) agent in any session; repeat to cycle |
 | `prefix + A` | fzf picker over every agent pane, with a preview |
 
