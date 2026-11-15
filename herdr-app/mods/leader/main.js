@@ -6,17 +6,29 @@ import { v_flex, h_flex } from "gpui-base";
 import { run, hc, props, focused, openOverlay, closeOverlay, nextCommand, theme } from "herdr";
 
 // Matched against the event's keystroke, else the character it types.
+// `keys` lets one row cover several keys; the pressed key is passed to `act`.
 const BINDINGS = [
   { key: "|", label: "Split right", act: () => run("pane.split", { direction: "right" }) },
   { key: "_", label: "Split down", act: () => run("pane.split", { direction: "down" }) },
-  { key: "ctrl-n", label: "New space", act: () => openOverlay({ mod: "prompt", kind: "dialog", width: 360, props: { title: "New space", command: { name: "space.new" } } }) },
+  { key: "x", label: "Close pane", act: (_t, _k, pane) => pane && confirm("Close pane?", "pane.close", { pane }) },
+  { key: "c", label: "New tab", act: () => run("tab.new", {}) },
+  { key: "b", label: "Toggle sidebar", act: () => run("layout.toggle", { id: "sidebar" }) },
+  { key: "s", label: "Go to space", act: () => run("mod.open", { name: "picker" }) },
   { key: "ctrl-f", label: "Go to space", act: () => run("mod.open", { name: "picker" }) },
+  { key: "ctrl-n", label: "New space", act: () => openOverlay({ mod: "prompt", kind: "dialog", width: 360, props: { title: "New space", command: { name: "space.new" } } }) },
   { key: "ctrl-space", label: "Send ctrl-space", act: (terminal) => terminal && hc(["keys", terminal, "ctrl+space"]) },
 ];
+
+// Opens the shipped confirm dialog: Enter runs the command, Esc cancels.
+const confirm = (title, name, args) =>
+  openOverlay({ mod: "confirm", kind: "dialog", width: 360, height: 150, props: { title, command: { name, args } } });
+
+const matches = (b, k) => (b.keys ?? [b.key]).includes(k);
 
 export default class Leader extends View {
   init(_props, cx) {
     this.terminal = focused()?.terminal;
+    this.pane = focused()?.pane;
     this.handle = cx.focus_handle();
     this.handle.focus();
     // ctrl-space is bound globally to open this popup, so keys.json routes it
@@ -33,8 +45,8 @@ export default class Leader extends View {
 
   press(keystroke, char) {
     closeOverlay(props().overlay);
-    const b = BINDINGS.find((b) => b.key === keystroke || b.key === char);
-    b?.act(this.terminal);
+    const k = BINDINGS.some((b) => matches(b, keystroke)) ? keystroke : char;
+    BINDINGS.find((b) => matches(b, k))?.act(this.terminal, k, this.pane);
   }
 
   render() {
