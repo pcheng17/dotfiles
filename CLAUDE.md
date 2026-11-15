@@ -17,7 +17,6 @@ nvim-0.12/         # Separate nvim config for 0.12
 wezterm/           # Wezterm terminal config
 tuicr/             # tuicr code review TUI config
 herdr/             # Herdr TUI config.toml (symlinked into ~/.config/herdr, macOS and Linux)
-herdr-app/         # Herdr app keys, settings, themes and mods (symlinked into ~/.config/herdr-app)
 bin/               # Personal scripts (symlinked to ~/bin)
 aerospace/         # AeroSpace window manager (macOS)
 karabiner/         # Karabiner-Elements (macOS)
@@ -49,6 +48,7 @@ Options:
 - Per-host zsh config lives in `zsh/<hostname>.zsh`, sourced by hostname in `zshrc`.
 - `private/` is gitignored and holds work-specific overrides.
 - `bin/secrets/` is gitignored.
+- Herdr app config (keys, settings, themes, layouts, mods) is not here: it lives in its own repo at `~/.herdr-config`, with its own `install`.
 
 ## Key Tools
 

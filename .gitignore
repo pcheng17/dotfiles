@@ -9,5 +9,3 @@ secrets.lua
 bin/secrets/
 
 .claude/worktrees/
-herdr-app/mods/*/gpui-kit.d.ts
-herdr-app/mods/*/jsconfig.json
