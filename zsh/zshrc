@@ -193,17 +193,19 @@ if [ -e $DOTS/sourceme.sh ]; then
 fi
 
 export NVM_DIR="$HOME/.config/nvm"
-# Sourcing nvm.sh at startup costs ~0.6s, so put the newest installed Node on
-# PATH directly and load nvm itself the first time `nvm` is run.
-_nvm_node_bins=("$NVM_DIR"/versions/node/*/bin(N/nOn))
-(( $#_nvm_node_bins )) && path=("$_nvm_node_bins[1]" $path)
-unset _nvm_node_bins
-nvm() {
-    unfunction nvm
-    source "$NVM_DIR/nvm.sh" --no-use
-    [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
-    nvm "$@"
-}
+if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+    # Sourcing nvm.sh at startup costs ~0.6s, so put the newest installed Node on
+    # PATH directly and load nvm itself the first time `nvm` is run.
+    _nvm_node_bins=("$NVM_DIR"/versions/node/*/bin(N/nOn))
+    (( $#_nvm_node_bins )) && path=("$_nvm_node_bins[1]" $path)
+    unset _nvm_node_bins
+    nvm() {
+        unfunction nvm
+        source "$NVM_DIR/nvm.sh" --no-use
+        [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+        nvm "$@"
+    }
+fi
 
 # bun completions
 [ -s "/Users/pcheng/.bun/_bun" ] && source "/Users/pcheng/.bun/_bun"
