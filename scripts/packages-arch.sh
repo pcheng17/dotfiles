@@ -47,6 +47,7 @@ PACMAN_PACKAGES=(
     "tmux"
     "tree-sitter-cli"
     "ttf-jetbrains-mono-nerd"
+    "typst"
     "ufw"                                              # Firewall
     "unzip"
     "wget"
@@ -56,7 +57,7 @@ PACMAN_PACKAGES=(
 )
 
 log_info "Installing pacman packages..."
-sudo pacman -Sy --needed "${PACMAN_PACKAGES[@]}"
+sudo pacman -Syu --needed "${PACMAN_PACKAGES[@]}"
 
 log_info "Enabling tailscaled..."
 sudo systemctl enable --now tailscaled
