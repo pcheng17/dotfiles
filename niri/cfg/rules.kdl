@@ -3,6 +3,14 @@ window-rule {
     clip-to-geometry true
 }
 
+// Floating Noctalia settings window.
+window-rule {
+    match app-id="dev.noctalia.Noctalia"
+    open-floating true
+    default-column-width { fixed 1080; }
+    default-window-height { fixed 920; }
+}
+
  // if you use steam you will probably like these
 window-rule {
     match app-id="steam"

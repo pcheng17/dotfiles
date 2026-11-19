@@ -1,0 +1,114 @@
+# Noctalia v5 config. Only overrides of built-in defaults live here.
+# Full defaults: `noctalia config export full`. Docs: https://docs.noctalia.dev/noctalia/
+# Settings changed in the GUI land in ~/.local/state/noctalia/settings.toml and override this file.
+
+[theme]
+builtin = "Catppuccin" # Mocha in dark mode
+
+[shell]
+font_family = "JetBrains Mono NL"
+avatar_path = "/home/pcheng/.face"
+polkit_agent = true
+time_format = "{:%-I:%M %p}"
+clipboard_enabled = false
+
+    [shell.launcher]
+    compact = true
+
+    # Defining any action replaces the default list, so every action is listed.
+    [[shell.session.actions]]
+    action = "lock"
+    shortcut = "1"
+    countdown_seconds = 10.0
+
+    [[shell.session.actions]]
+    action = "suspend"
+    shortcut = "2"
+    countdown_seconds = 10.0
+
+    [[shell.session.actions]]
+    action = "command"
+    command = "systemctl hibernate"
+    label = "Hibernate"
+    glyph = "zzz"
+    shortcut = "3"
+    countdown_seconds = 10.0
+
+    [[shell.session.actions]]
+    action = "reboot"
+    shortcut = "4"
+    countdown_seconds = 10.0
+
+    [[shell.session.actions]]
+    action = "logout"
+    shortcut = "5"
+    countdown_seconds = 10.0
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    shortcut = "6"
+    countdown_seconds = 10.0
+    variant = "destructive"
+
+    [[shell.session.actions]]
+    action = "reboot_uefi"
+    shortcut = "7"
+    countdown_seconds = 10.0
+
+[bar.default]
+# Floating bar
+margin_edge = 4
+margin_ends = 4
+background_opacity = 0.93
+capsule = true
+show_tooltip = false
+start = [ "workspaces", "active_window" ]
+center = [ "clock" ]
+end = [ "media", "audio_visualizer", "cpu", "temp", "ram", "tray", "volume", "control-center", "notifications" ]
+
+    [bar.default.dead_zone.actions]
+    right = "panel-toggle control-center"
+
+[widget.clock]
+format = "{:%a, %b %d - %-I:%M %p}"
+
+[widget.workspaces]
+labels_only_when_occupied = true
+
+[widget.active_window]
+max_length = 145.0
+title_scroll = "on_hover"
+
+[widget.media]
+max_length = 145.0
+title_scroll = "on_hover"
+artist_first = true
+hide_when_no_media = true
+
+[widget.volume.actions]
+middle = "exec pwvucontrol || pavucontrol"
+
+[location]
+address = "Sunnyvale, CA"
+
+[weather]
+unit = "imperial"
+
+[wallpaper]
+directory = "/home/pcheng/.dotfiles/wallpaper"
+
+    [wallpaper.default]
+    path = "/home/pcheng/.dotfiles/wallpaper/campfire.jpg"
+
+[osd]
+position = "top_right"
+hide_delay_ms = 2000
+
+    [osd.kinds]
+    media = false
+
+[desktop_widgets]
+enabled = false
+
+[plugins]
+auto_update = "none"
