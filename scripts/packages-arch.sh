@@ -26,17 +26,17 @@ PACMAN_PACKAGES=(
     "glfw-x11"                                        # C++ graphics
     "just"                                            # CLI command runner
     "lazygit"
-    "libevent"
+    "libevent"                                        # tmux build dep (scripts/build-tmux.sh)
     "libnotify"                                       # CLI system notifications
     "libtool"
     "love"
     "mpv"                                             # CLI media player
-    "ncurses"
+    "ncurses"                                         # tmux build dep
     "ninja"
     "nodejs"
     "npm"
     "openssl"
-    "pkgconf"
+    "pkgconf"                                         # tmux build dep
     "proton-vpn-gtk-app"                              # VPN client
     "readline"
     "ripgrep"                                         # CLI better grep
@@ -44,7 +44,6 @@ PACMAN_PACKAGES=(
     "sqlite"
     "tailscale"
     "tk"
-    "tmux"
     "tree-sitter-cli"
     "ttf-jetbrains-mono-nerd"
     "typst"
@@ -65,6 +64,15 @@ sudo systemctl enable --now tailscaled
 log_info "Enabling ufw firewall..."
 sudo systemctl enable --now ufw
 sudo ufw --force enable
+
+# tmux built from source (3.8 has issues with WezTerm)
+TMUX_VERSION="3.7c"
+if [[ "$("$HOME/.local/bin/tmux" -V 2>/dev/null)" == "tmux ${TMUX_VERSION}" ]]; then
+    log_ok "tmux ${TMUX_VERSION} already installed."
+else
+    log_info "Building tmux ${TMUX_VERSION} from source..."
+    "${DOTFILES_DIR}/scripts/build-tmux.sh" "$TMUX_VERSION"
+fi
 
 # tuicr (custom build)
 if command -v cargo &>/dev/null; then
