@@ -15,6 +15,13 @@ clipboard_enabled = false
     [shell.launcher]
     compact = true
 
+    # Show these in the main search, not only behind /session and /win (as in v4).
+    [shell.launcher.providers.session]
+    global = true
+
+    [shell.launcher.providers.windows]
+    global = true
+
     # Defining any action replaces the default list, so every action is listed.
     [[shell.session.actions]]
     action = "lock"
