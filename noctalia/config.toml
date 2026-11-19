@@ -13,6 +13,8 @@ time_format = "{:%-I:%M %p}"
 clipboard_enabled = false
 
     [shell.launcher]
+    layout = "simple" # one search box, no view tabs
+    categories = false # no category chip row
     compact = true
 
     # Show these in the main search, not only behind /session and /win (as in v4).
